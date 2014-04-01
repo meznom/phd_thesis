@@ -1,0 +1,39 @@
+% Burkhard Ritter, April 2014
+
+\documentclass[11pt]{book}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{hyperref}
+\usepackage[letterpaper]{geometry}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{bm}
+%\pagestyle{empty}
+\begin{document}
+
+\graphicspath{}
+
+\title{PhD Thesis}
+\author{Burkhard Ritter}
+\date{May 2014}
+\maketitle
+
+\tableofcontents
+
+% http://kb.mit.edu/confluence/pages/viewpage.action?pageId=3907057
+% ``LaTeX's margins are, by default, 1.5 inches wide on 12pt documents, 1.75
+% inches wide on 11pt documents, and 1.875 inches wide on 10pt documents.''
+% Page size for letter paper format is 8.5 by 11 inches.
+% For 11pt this means the text is 8.5-2*1.75=5 inches wide.
+% I am not sure why, but in gnuplot with the epslatex terminal a width of
+% 6inches seems to fit best.
+
+\include{introduction}
+\include{chapter01}
+\include{chapter02}
+
+\bibliography{bibliography}{}
+\bibliographystyle{utcaps}
+
+\end{document}

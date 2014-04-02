@@ -1,1 +1,7 @@
 *.swp
+*.aux
+phd_thesis.bbl
+phd_thesis.blg
+phd_thesis.log
+phd_thesis.out
+phd_thesis.toc

@@ -67,8 +67,77 @@ inverter, Fig.~\ref{fig:intro_qca}(f) recasts this idea into a more robust
 layout. With that we have, at least in principle, all the necessary building
 blocks for Boolean algebra and thus digital circuitry.
 
+Conceptually, it is most elegant to set the inputs to a QCA circuit via driver
+cells --- cells that resemble the QCA cell in form, but are made up from static
+point charges instead of quantum dots. These static charges are thought to be
+manipulatable to vary the input smoothly from the logic 0 to the logic 1 state.
+In figure~\ref{fig:intro_qca} these driver cells are represented in light grey.
+Of course, in practice such driver cells would be difficult if not impossible to
+implement and the input would more likely be set by leads that provide the
+necessary perturbative electrostatic field. The output of a QCA device can be
+directly read from its output cells. In practical implementations this will
+require a non-trivial charge probing apparatus.
+
+Changing the input for a QCA device throws the system into an excited,
+non-equilibrium state. The system will then dissipatively propagate to its new
+ground state. For the given inputs, this ground state corresponds to the
+solution of the computational problem the circuit is designed to solve. Let us
+emphasize this: In QCA, the computational solution maps directly to the physical
+ground state! At all times during performing a computation, the system is
+relatively close to its ground state. Only a few charges move locally, in each
+cell. QCA is a truly current-free approach and consequently inherently
+low-power, especially when compared with CMOS technology. But the operation
+close to the ground state also raises concerns for the operational temperature
+for these devices. It is clear that for applications we would want to engineer
+the system so that the energy gap between the ground state and the low-lying
+excited states far exceeds room temperature.
+
+It is difficult to derive general expectations for the clocking speed of QCA
+circuits. The switching speed of a majority gate, for example, will greatly
+depend on the system's parameters, but particularly on the nature of the
+dissipative coupling of the circuit to its environment. A small dissipative
+coupling will have the output polarization oscillating before it eventually
+settles to its correct value. A very dissipative system in contrast might get
+stuck in meta-stable states. Different material systems provide different
+dissipative channels and modelling them quantitatively or even qualitatively
+correctly is very challenging. We can make the circuit's operation less
+dependent on the details of the dissipative processes and its dynamics more
+controlled by introducing the concept of adiabatic switching, where parameters
+are changed slowly enough for the system to always remain in its (instantaneous)
+ground state. An applied gate voltage is used to raise or lower the tunnelling
+barrier between the quantum dots, effectively freezing or delocalizing the
+electrons. In principle, setting the device's inputs synchronously with the
+varying gate voltage and fine-tuning the timing with respect to the QCA system's
+intrinsic time-scales, allows a well-defined switching behaviour. In practice,
+this is likely easier said then done and, additionally, for truly adiabatic
+switching the switching times might be very long.
+
+Even when the switching is not quite adiabatic introducing this effective
+clocking scheme is very beneficial. We can partition large circuits into smaller
+parts, which are clocked separately, thus pipelining computations from part to
+part. This is important for building realistically large circuits. Even more
+importantly, we really need to partition large systems into smaller pieces for a
+more fundamental reason: As a simple example, we can consider a long wire and
+introduce a defect, that is, we have two domains, one with logic 0 state and the
+other with logic 1 state. This domain wall introduces an energy gap and this
+will be the first excited state, whereas the one-domain completely ordered state
+is the ground state. However, it is clear that the entropy of this first excited
+state is increasingly larger for increasingly longer wires. Thus in the
+thermodynamic limit the wire will be disordered even for infinitesimal
+temperatures. Therefore, for a wire to reliably transmit a signal, we have a
+maximum wire length, which depends on the operational temperature and the energy
+gap to the first excited state. TODO
+
+
+
+
+
 Let us note that QCA is a not a cellular automata in a strict mathematical sense,
 but only by analogy to the idea of interacting cells.
 
 
 
+quadrupole
+
+TODO: How does the applied gate voltage control the tunnelling barrier?
+Graph for the adiabatic switching / gates.

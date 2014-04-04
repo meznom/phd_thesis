@@ -53,19 +53,34 @@ systems expects to pose no problem for signal transmission.
 
 The main idea of the QCA approach becomes apparent: Ideally bistable cells
 interact with each other solely by Coulomb repulsion. By arranging the cells in
-clever geometries we can realize interesting functionalities. One such clever
-geometrical arrangement is the majority gate, Fig.~\ref{fig:intro_qca}(e). The
-gate has three inputs which ``vote'' on the central cell. The majority wins and
-sets the single output. The device is commonly operated with one fixed input,
-for example $I_3 \doteq 0$ or $I_3 \doteq 1$. In the first case, $I_3 \doteq 0$,
-the device functions as an AND gate for the remaining two inputs, $O = I_1 \land
-I_2$. In the second case, $I_3 \doteq 1$, it is an OR gate with $O = I_1 \lor
-I_2$. Now, the only missing piece for Boolean algebra is negation, $O = \lnot
-I$. We had already seen that simply arranging cells at an $45^{\circ}$ angle as
-in the diagonal line of cells above negates the signal from cell to cell. The
-inverter, Fig.~\ref{fig:intro_qca}(f) recasts this idea into a more robust
-layout. With that we have, at least in principle, all the necessary building
-blocks for Boolean algebra and thus digital circuitry.
+clever geometries we can realize interesting functionalities. The idea as such
+is quite general and does not strictly rely on the two-electron-four-dot cell
+introduced above. Indeed, a number of variations exist, such as
+one-electron-two-dot cells, interacting via dipole fields instead of qudrupole
+fields as for the conventional cells, or four-dot cells with six electrons---two
+holes---instead of two electrons. Even the interaction need not be Coulombic.
+For example, magnetic QCA schemes have been explored. While QCA carries
+``quantum'' in its name and is sought to be implemented at the nanoscale, the
+approach operates close to the classical limit. The Coulomb interaction is
+absolutely dominating with the tunnelling of electrons a small perturbation,
+which nonetheless drives the system's dynamics. The approach is insensitive and
+in fact ignores the spin degree of freedom. Let us finally note that QCA is a
+not a cellular automata in a strict mathematical sense, but only by analogy to
+the idea of interacting cells.
+
+One clever geometrical cell arrangement is the majority gate,
+Fig.~\ref{fig:intro_qca}(e). The gate has three inputs which ``vote'' on the
+central cell. The majority wins and sets the single output. The device is
+commonly operated with one fixed input, for example $I_3 \doteq 0$ or $I_3
+\doteq 1$. In the first case, $I_3 \doteq 0$, the device functions as an AND
+gate for the remaining two inputs, $O = I_1 \land I_2$. In the second case, $I_3
+\doteq 1$, it is an OR gate with $O = I_1 \lor I_2$. Now, the only missing piece
+for Boolean algebra is negation, $O = \lnot I$. We had already seen that simply
+arranging cells at an $45^{\circ}$ angle as in the diagonal line of cells above
+negates the signal from cell to cell. The inverter, Fig.~\ref{fig:intro_qca}(f)
+recasts this idea into a more robust layout. With that we have, at least in
+principle, all the necessary building blocks for Boolean algebra and thus
+digital circuitry.
 
 Conceptually, it is most elegant to set the inputs to a QCA circuit via driver
 cells --- cells that resemble the QCA cell in form, but are made up from static
@@ -100,44 +115,134 @@ coupling will have the output polarization oscillating before it eventually
 settles to its correct value. A very dissipative system in contrast might get
 stuck in meta-stable states. Different material systems provide different
 dissipative channels and modelling them quantitatively or even qualitatively
-correctly is very challenging. We can make the circuit's operation less
-dependent on the details of the dissipative processes and its dynamics more
-controlled by introducing the concept of adiabatic switching, where parameters
-are changed slowly enough for the system to always remain in its (instantaneous)
-ground state. An applied gate voltage is used to raise or lower the tunnelling
-barrier between the quantum dots, effectively freezing or delocalizing the
-electrons. In principle, setting the device's inputs synchronously with the
-varying gate voltage and fine-tuning the timing with respect to the QCA system's
-intrinsic time-scales, allows a well-defined switching behaviour. In practice,
-this is likely easier said then done and, additionally, for truly adiabatic
-switching the switching times might be very long.
+correctly is very challenging.
 
-Even when the switching is not quite adiabatic introducing this effective
-clocking scheme is very beneficial. We can partition large circuits into smaller
-parts, which are clocked separately, thus pipelining computations from part to
-part. This is important for building realistically large circuits. Even more
-importantly, we really need to partition large systems into smaller pieces for a
-more fundamental reason: As a simple example, we can consider a long wire and
-introduce a defect, that is, we have two domains, one with logic 0 state and the
-other with logic 1 state. This domain wall introduces an energy gap and this
-will be the first excited state, whereas the one-domain completely ordered state
-is the ground state. However, it is clear that the entropy of this first excited
-state is increasingly larger for increasingly longer wires. Thus in the
-thermodynamic limit the wire will be disordered even for infinitesimal
-temperatures. Therefore, for a wire to reliably transmit a signal, we have a
-maximum wire length, which depends on the operational temperature and the energy
-gap to the first excited state. TODO
+QCA circuits consist of wires, gates, and other structures arranged on a
+two-dimensional surface---very similar to conventional electronics devices.
+However, the structures themselves are quasi-one-dimensional and this poses a
+challenge for building large-scale QCA circuits. A good example is a single long
+wire, which is truly one-dimensional. Generally, a one-dimensional system cannot
+be ordered in the thermodynamic limit except at zero temperature. Therefore, the
+finite-temperature infinitely long wire will always have at least two different
+domains, logic 0 and logic 1 (assuming perfectly bistable cells for simplicity),
+and thus not be able to transmit a signal. When we think about switching the
+input for the wire, we think of the information being propagated as a charge
+density wave throughout the wire, or, equivalently, as propagating the domain
+boundary between logic 0 and logic 1. This domain boundary incurs an energy cost
+that the system seeks to minimize. For an increasingly longer wire, however, the
+gain in entropy for moving the domain boundary freely throughout the wire ($S
+\sim \log N$, $N$ the number of cells) soon exceeds the loss in energy, which is
+reflected by the free energy of the system, $A = U - T S$. Consequently, the gap
+between the first excited state and the ground state and the desired operational
+temperature will determine the maximum system size.
+
+To address this scaling problem we partition large circuits into smaller units. 
+Each unit can be turned ``on'' and ``off'' separately: Individual gates allow to
+control the electrostatic potential for each unit, effectively raising and
+lowering the tunnelling barriers between quantum dots and thus allowing to
+freeze or delocalize the electrons. A unit with \emph{frozen} electrons can
+serve as the input for a unit with more \emph{active} charge carriers, which
+works like a regular QCA circuit. A unit with completely \emph{delocalized}
+electrons, in contrast, will not influence adjacent units. By putting each unit
+through the three phases \emph{delocalized}, \emph{active}, and \emph{frozen}
+and synchronizing adjacent units appropriately, we can control the
+information flow through the system very nicely, as illustrated in Fig.~TODO.
+Therefore, by partition the circuit and introducing a clocking scheme we not
+only handle the scaling problem, but also arrive at a pipelining architecture
+that greatly improves the control over information flow in the system. Of
+course, in practice the QCA circuit units cannot be too small as they must be
+individually addressable. Gates which turn QCA units ``on'' and ``off'' also
+provide another potential benefit. We are able to control how
+and especially how fast the gate voltage is changed and should be able to tune
+it with respect to the inherent time-scales of the QCA system, which are set by
+the system's parameters and the dissipative coupling to its environment. This
+should allow a better control over the dynamics of the switching process.
+
+QCA systems are typically modelled by an extended Hubbard Hamiltonian. The
+Hubbard model originated in the early 1960s to describe rare-earth systems with
+highly localized d- and f-electrons and has since then, of course, become one of
+the most widely studied and successful models in condensed matter physics. In
+basing our description on the Hubbard model we already put some key assumptions
+in place. For example, we assume that the quantum dots are similar to the highly
+localized d-orbitals. Depending on the particular QCA implementation this might
+or might not be a good description. However, our interest is not in the precise
+details of any particular material system QCA might be implemented on, but our
+aim is to investigate universal characteristics of QCA systems. An idealized but
+semi-realistic description is what we want and for that the Hubbard model is
+indeed an appropriate---and tractable---starting point. Specifically, the
+Hamiltonian we use is
+\begin{equation}
+  \label{eq:H_QCA}
+  H =
+    - \sum_{ij\sigma} t_{ij} \, c^{\dagger}_{i\sigma} c_{j\sigma}
+    + U \sum_i n_{i\uparrow} n_{i\downarrow}
+    - \mu \sum_{i\sigma} n_{i\sigma}
+    + \sum_{i<j} V_{ij} \left( n_{i\uparrow} + n_{i\downarrow} - q \right) 
+                        \left( n_{j\uparrow} + n_{j\downarrow} - q \right) \, ,
+\end{equation}
+where $c^{\dagger}_{i\sigma}$ ($c_{i\sigma}$) creates (annihilates) an electron
+on quantum-dot $i$ with spin $\sigma$ and the particle number operator is
+$n_{i\sigma} = c^{\dagger}_{i\sigma} c_{i\sigma}$; $t_{ij}$ is the overlap integral between
+dots $i$ and $j$, $U$ is the Hubbard on-site Coulomb repulsion, $\mu$ the
+chemical potential, and $V_{ij}$ the long-ranged Coulomb interaction, which is
+characteristic for QCA systems. For simplicity the Coulomb term is chosen to be
+$V_{ij} = \frac{1}{r_{ij}}$ where $r_{ij}$ is the distance between the two dots
+$i$ and $j$. We also introduce the \emph{compensation charge} $q$ which is
+thought to represent a possible positive ion at each quantum dot site. This
+constant positive charge allows us to tune the net cell charge. For two
+electrons per cell, for example, $q=0$ yields a net cell charge of $-2e$ whereas
+$q = \frac{1}{2}$ represents zero net cell charge, and here the cell becomes a
+perfect electrostatic quadrupole.
+
+The geometric layout of the QCA system and therefore its functionality is
+encoded in the hopping parameter $t_{ij}$ and the long-ranged Coulomb term
+$V_{ij}$. For the hopping parameter we usually only consider nearest-neighbour
+hopping and specifically no hopping between the cells. While this constraint is
+not strictly necessary for QCA, it is in line with the approach's underlying
+idea and greatly simplifies calculations. Because the overlap integral decays
+exponentially with distance, as long as the distance between dots from different
+cells is larger then the distance between dots within one cell, the assumption will
+introduce only a small error. Still, this is something to keep in mind if we
+place cells very close to each other. Note that without inter-cell hopping we can
+decompose the Hamiltonian into purely Coulombic cell-cell interaction terms
+$H_{kl}$ and single cell terms $H_k$ which capture the kinetics as well as the
+inside-cell Coulomb interactions,
+\begin{equation}
+  \label{eq:H_cell}
+  H = - \sum_k H_k + \sum_{k<l} H_{kl} \, ,
+\end{equation}
+where $k$ and $l$ number the cells. 
+
+To parameterize the Coulomb term $V_{kl}$ and specifically $r_{ij}$, the
+distance between quantum-dots $i$ and $j$, we introduce the cell edge length $a$
+and the cell-cell distance $d$, as illustrated in Fig.~TODO where we have used a
+short line of cells as an example QCA system. The angle between adjacent cells
+is denoted by $\theta$. Ideally each cell should be in logic state 0 or logic state 1,
+but, of course, in practice a cell can be in any superposition of the two states
+or even in a different state altogether. The \emph{cell polarization} $P_k$ quantifies
+the state of the cell,
+\begin{equation}
+  \label{eq:polarization}
+  P_k = \frac{1}{2} \left( n_{4k+2} + n_{4k+4} - n_{4k-1} + n_{4k-3} \right) \, ,
+\end{equation}
+where the dots in each cell are numbered clockwise as indicated in the figure. The
+cell polarization is $P_k = -1$ for a logic 0 and $P_k = +1$ for a logic 1
+state. Without any external input the polarization of a cell will be $P_k = 0$.
+In the example line of cells, the input is set via the driver cell's
+polarization $P_D$ at the left end. The driver cell's four static
+point charges are adjusted to reflect the desired polarization $P_D$. For QCA, 
+the cell polarization really is the observable of utmost interest. It indicates
+whether a cell is in logic state 0 or logic state 1 and how polarized the cell
+is, where ideally, of course, the cell should always be fully polarized $|P_k| =
+1$. In short, the cell polarizations will indicate how well the QCA approach
+works for a given system and, unsurprisingly, calculating cell polarizations for
+various geometric layouts over a wide range of system parameters will be our main
+focus.
 
 
-
-
-
-Let us note that QCA is a not a cellular automata in a strict mathematical sense,
-but only by analogy to the idea of interacting cells.
-
-
-
-quadrupole
-
-TODO: How does the applied gate voltage control the tunnelling barrier?
-Graph for the adiabatic switching / gates.
+TODO: Somewhere I need to talk more about temperature, maybe.
+(more details: idealized; no substrate; no screening -- maybe discuss this with
+the Silicon system)
+Emphasize somewhere that by using the Hubbard model our calculations and results
+might not be applicable to QCA implementations that are decidedly not
+well-described by Hubbard physics.

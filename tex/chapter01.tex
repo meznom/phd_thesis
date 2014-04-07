@@ -167,71 +167,76 @@ should allow a better control over the dynamics of the switching process.
 
 % Silicon system
 
-While our objective is the general, not implementation-specific in-depth
-characterization of the QCA approach, it is still important to consider concrete
+Our objective is the general, not implementation-specific characterization of
+the QCA approach. Even so it is still important to consider concrete
 experimental realizations, not only as a motivation for our work, but also to
-put our modelling and results into context. Atomic silicon quantum dots are one
-of the most promising and recent potential experimental implementations of QCA
-and we introduce them here in some detail. They illustrate what QCA might look
-like in a real practical implementation. We use this system as an experimental
-reference. Atomic silicon quantum dots were first demonstrated as a possible QCA
-implementation by Wolkow et~al.\ in 2009, when the group realized one single QCA
-cell. Since then impressive advances have been made both in the understanding of
-the electronic properties of these quantum dots and as well in the precise
-fabrication of larger QCA structures. With atomic-scale feature sizes this
-experimental system promises room temperature operation, while at the same time
-tapping into the pool of the established and highly-sophisticated silicon
-technology which should also ease integration with existing CMOS technologies.
+put our modelling and results into context. One of the most promising and recent
+experimental implementations of QCA is based on atomic silicon quantum dots and
+we will therefore use them as our experimental reference. Atomic silicon quantum
+dots were first demonstrated as a possible QCA implementation by Wolkow et~al.\
+in 2009, when the group realized one single QCA cell. Fig.~\ref{fig:silicon}(a)
+shows a scanning tunnelling microscope (STM) image of this cell. Since then
+impressive advances have been made both in the understanding of the electronic
+properties of these quantum dots as well as in the precise fabrication of larger
+QCA structures. With atomic-scale feature sizes this experimental system
+promises room temperature operation, while at the same time tapping into the
+established and highly-sophisticated silicon technology. Being based on silicon
+should also ease integration with existing CMOS circuitry.
 
-Atomic silicon quantum dots are dangling bonds on a hydrogen-terminated silicon
-$(100)$ surface. Atoms on a $(100)$ silicon surface have two unsatisfied bonds.
-Terminating the surface with hydrogen satisfies one bond, the remaining bond is
-satisfied by forming a dimer with a second surface silicon atom. Fig.~TODO shows
-a scanning tunnelling microscope (STM) image of the reconstructed silicon
+Atomic silicon quantum dots are \emph{dangling bonds} on a hydrogen-terminated
+silicon $(100)$ surface. Atoms on a $(100)$ silicon surface have two unsatisfied
+bonds.  Pairs of surface atoms form dimers, satisfying one bond. The remaining
+bond is satisfied by passivating the surface with hydrogen.
+Fig.~\ref{fig:silicon}(c) shows a STM image of the reconstructed silicon
 surface, where the dimer rows are clearly visible and the dimensions are
 indicated. By applying a relatively large current through the STM tip,
 individual hydrogen atoms can be removed, with atomic precision. This leaves a
-\emph{dangling bond} which acts as a quantum dot: Energetically, electrons on
-the DB orbital sit in the silicon band gap (see Fig.~TODO) and are therefore
-decoupled from the silicon substrate. From \emph{ab initio} calculations it is
-known that the DB orbital is of type $sp^3$ and extends predominantly into the
-bulk and not the vacuum. The orbital's lateral extend is on the order of $1nm$
-and therefore spans multiple silicon lattice atoms. Chemically, DBs are
-surprisingly robust with respect to environmental molecules. In an undoped
-silicon system a DB consists of the positive silicon ion and one electron and is
-charge neutral. In the experimental common case of a strongly n-doped system,
-the DB accepts one more electron and therefore has a charge of $-1e$, in a
-p-doped sytem the DB will donate its electron and become $+1e$. Closely spaced
-DBs are tunnel-coupled. In a n-doped system the Coulomb repulsion between the
-effectively negatively charged DBs can be used to adjust the filling of DB
-assembly simply by their position. For example, two closely spaced DBs will
-eject one electron (which goes back to the bulk) and share the remaining single
-electron. When a third (negatively charged) DB is placed close by, but not close
-enough to be tunnel-coupled, the effect of the Coulomb repulsion can be observed
-via STM imaging, Fig.~TODO. In STM images darker DBs are more negatively
-charged, so in this case the DB farther away from the perturbing external charge
-(the third DB) is more negatively charged. This \emph{self-biasing} behaviour is
-used to effectively set the filling of QCA structures. To form a QCA cell, in a
-highly n-doped system four DBs are brought close enough together so that two
-electrons go back to the bulk, leaving the cell with six electrons in total and
-a cell net charge of $-2e$.
+\emph{dangling bond} (DB) which acts as a quantum dot: Energetically, electrons
+on the DB orbital sit in the silicon band gap (see Fig.~\ref{fig:silicon}(b))
+and are therefore decoupled from the silicon substrate. Chemically, DBs have
+proven to be surprisingly robust with respect to environmental molecules. From
+\emph{ab initio} calculations it is known that the $sp^3$ DB orbital extends
+predominantly into the bulk and only a little into the vacuum. The orbital's
+lateral extent is on the order of $1nm$ and therefore spans multiple silicon
+lattice atoms. Due to the orbital overlap, closely spaced DBs are
+tunnel-coupled. The neutral DB consists of the positive silicon ion and one
+electron. In the experimentally common strongly n-doped system, the DB accepts
+one more electron and is therefore $-1e$ negatively charged.  Conversely, in a
+p-doped sytem the DB will donate its electron and become $+1e$ positively
+charged. The Coulomb repulsion between negatively charged DBs can be used to
+adjust the filling of DB assemblies simply by the DBs' positions. For example,
+on a n-doped substrate two DBs may eject one electron (which goes back to the
+bulk) and share the remaining single electron, when placed close enough
+together. To proof this, a third DB is placed close by, but not close enough to
+be tunnel-coupled. The effect of the Coulomb repulsion can be seen via STM
+imaging, Fig.~\ref{fig:silicon}(d), where the DB farthest from the perturbing
+external charge is more negatively charged (darker in the STM image) than the
+closer DB. The observed charge shift is only possible when both closely-spaced
+DBs share a single electron. To form the previously shown QCA cell,
+Fig.~\ref{fig:silicon}(a), four DBs are brought close enough together so that
+two electrons go back to the bulk, leaving the cell with six electrons in total
+and a cell net charge of $-2e$---the right charge regime for QCA.
 
-The silicon system holds some lessons on what kind of the challenges we might
-encounter were we to model real material systems accurately and
-quantitatively correctly. We like to think of quantum dots as perfectly
-localized orbitals, but in the silicon system the orbitals of the DBs actually
-extend over multiple lattice sites. If the DBs are placed far enough apart, we
-might still be able to consider them as localized orbitals. Free charge carriers
-will certainly screen the long-ranged Coulomb interactions that the QCA scheme
-relies on. Conceivably, QCA will still work, even with moderate screening, but a
-good understanding of the precise nature of the screening is necessary to
-estimate the effects accurately. For atomic silicon quantum dots which live at
-the surface, a good description of the screening term will surely be very
-challenging. As a last example of material specific behaviour, for silicon,
-placing the quantum dots far enough apart, it is conceivable that different
-tunnelling channels might become relevant: There is of course the direct
-tunnelling between the DB orbitals, but electrons might also be able to hop from
-one DB to the next by first tunnelling the bulk and then back again.
+Atomic silicon quantum dots provide some examples of how a real world system
+might be different from the idealized picture we typically employ to describe
+the QCA approach. We like to think of quantum dots as perfectly localized
+orbitals. But in the silicon system the orbitals of the DBs actually span
+multiple lattice sites and only if the DBs are placed far enough apart, might we
+still be able to consider them as localized. We do not consider the substrate
+but treat quantum dots as perfectly isolated entities. Of course, in practice
+the substrate will certainly influence the QCA device. In the silicon system
+free charge carriers will screen the long-ranged Coulomb interactions that the
+QCA scheme relies on. The screening is not necessarily disruptive for QCA and
+might even be beneficial, for example by minimizing charge-buildup in large
+systems. But to quantify the screening effect accurately, thorough understanding
+and precise modelling are necessary, which, for atomic silicon quantum dots
+which live at the surface, would surely be very challenging. The silicon
+substrate could also, conceivable, provide a second tunnelling channel between
+DBs. In addition to electrons hopping directly from DB to DB they could first
+tunnel from the first DB to the substrate and then back to the second DB. Thus
+an accurate model for atomic silicon quantum dots might need to accommodate the
+nature of the DB orbitals, screening, multiple tunnelling channels and other
+effects.
 
 QCA systems are typically modelled by an extended Hubbard Hamiltonian. The
 Hubbard model originated in the early 1960s to describe rare-earth systems with
@@ -239,13 +244,13 @@ highly localized d- and f-electrons and has since then, of course, become one of
 the most widely studied and successful models in condensed matter physics. In
 basing our description on the Hubbard model we already put some key assumptions
 in place. For example, we assume that the quantum dots are similar to the highly
-localized d-orbitals. Depending on the particular QCA implementation this might
-or might not be a good description. However, our interest is not in the precise
-details of any particular material system QCA might be implemented on, but our
-aim is to investigate universal characteristics of QCA systems. An idealized but
-semi-realistic description is what we want and for that the Hubbard model is
-indeed an appropriate---and tractable---starting point. Specifically, the
-Hamiltonian we use is
+localized d-orbitals. As discussed above, depending on the particular QCA
+implementation this might or might not be a good description. However, our
+interest is not in the precise details of any particular material system QCA
+might be implemented on, but our aim is to investigate universal characteristics
+of QCA systems. An idealized but semi-realistic description is what we want and
+for that the Hubbard model is indeed an appropriate---and tractable---starting
+point. Specifically, the Hamiltonian we use is
 \begin{equation}
   \label{eq:H_QCA}
   H =

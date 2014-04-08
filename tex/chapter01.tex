@@ -320,12 +320,82 @@ various geometric layouts over a wide range of system parameters will be our mai
 focus.
 
 
+
+
+% previous work / early papers
+%
+% Compensation charge is mentioned, but not explicitly written down in the
+% equation. All cells are charge neutral.
+%
+% They only look at spin-singlets, i.e. 16 state cell. They say, in a rather
+% vague manner, that results for parallel spins exhibit "nearly identical
+% behaviour".
+% 
+% Almost all calculations are for the ground state. One of the early papers
+% looks at the cell-cell response as a function of temperature.
+%
+% They do calculations for a ranges of parameters, notably $t$ is varied. Still,
+% overall parameters are pretty vague. They use an "experimentally reasonable"
+% model of circular quantum dots with a given diameter and given spacing; and
+% given inter-cell spacing. But the concrete (derived) Coulomb energy used is
+% not explicitly stated, as far as I can tell.
+%
+% Only the one-cell cell-cell response is calculated exactly (16 state basis).
+% All other calculations are ICHA. ICHA is never verified.
+%
+% They investigate a wire: Wires tend to a constant saturation polarization,
+% which depends on the system parameters and can be zero (wire "fails"). All of
+% this is with the ICHA approximation. The picture of nicely constantly
+% polarized wires (with $P_{sat}$) emerges. They look at $P_{sat}$ in terms of
+% the hopping $t$ and the inter-cell distance.
+%
+% They explain: The ground state is two degenerate states with P=-1 and P=+1.
+% ---This is wrong. The ground state without external perturbations is a
+% superposition of the P=-1 and P=+1 states (in a rough approximation) with P=0.
+% The very notion of "bistable" cells is a little bit problematic, in my
+% opinion. (Even though I used it myself in the introduction above. Maybe I
+% should avoid the word bistable...).
+%
+% They argue that ICHA is only good for the ground state (1996 JApplPhys paper).
+% To argue against that I need to show ground state calculations, T=0, that show
+% ICHA does not give the right result. I should also argue that ground state
+% calculations are not enough. 
+%
+% I need good arguments to explain why ICHA needs proper verification, why there
+% is reason to be suspicious about the approach, even for the ground state.
+%
+% Maybe I could also explicitly address why even only 16 states for the single
+% cell is not good enough. (I believe that, for example, for the two cell system
+% the ground state is not singlet, though I would have to verify that.)
+%
+% They calculate dynamics of three cells exactly with the 16-state-per-cell
+% basis (1996 JApplPhys paper).
+%
+% Two state basis is introduced empirically, motivated by the "bistable" cell with
+% a saturation polarization $\pm P_{sat}$ from ICHA calculations (specifically
+% for the binary wire). To verify the two-state basis, they calculate the
+% overlap with the 16-state basis for a single (active) cell system, for some
+% unspecified set of system parameters. (They do this for ground state and first
+% % excited state.) They find that the two selected basis states almost complete
+% span the Hilbert space in this case. They do a time-dependent calculation for
+% a three-cell wire and compare this with a calculation using the 16-state
+% basis. All of this is done for only one set of parameters (which are not
+% explicitly stated.) They map to the Ising model. They do dynamics (with the
+% two-state basis) for a majority gate, a eight-cell wire and a semi-infinite
+% wire.
+
+
+
+
+
 % TODO: Somewhere I need to talk more about temperature, maybe.
 % (more details: idealized; no substrate; no screening -- maybe discuss this with
 % the Silicon system)
 % Emphasize somewhere that by using the Hubbard model our calculations and results
 % might not be applicable to QCA implementations that are decidedly not
 % well-described by Hubbard physics.
+%
+% Maybe explicitly mention quasiadiabatic switching and pipelining.
 % 
 % Questions for Kevin:
 % * How to best explain the entropy argument. What the free energy of the system

@@ -319,6 +319,107 @@ works for a given system and, unsurprisingly, calculating cell polarizations for
 various geometric layouts over a wide range of system parameters will be our main
 focus.
 
+At the time of this writing, the QCA idea is over twenty years old. Naturally,
+the basic characteristics of the approach have been studied numerically and to a
+very limited extent also experimentally. In particular, as one of the most
+important and fundamental properties of QCA it was established very early on
+that the reponse of one cell to another neighbouring cell is non-linear and
+possesses gain. Therefore, even an only partially polarized cell will fully
+polarize the cell next to it, Fig.~TODO. Of course, gain is highly desirable, if
+not essential, for building digital circuits. It compensates any loss or
+imperfections and makes the scheme overall robust. Not coincidentally, CMOS
+technology is built around the MOSFET transistor with gain as one of its
+intrinsic properties. Lines of cells were seen to be constantly polarized
+throughout, apart from a few cells right next to the driver cell. This constant
+wire polarization, the \emph{saturation} polarization, was observed to be
+largely independent of the driver cell's polarization and depend only on the
+system's parameters, such as the hopping $t$, the Coulomb energy $V_1$ and the
+on-site Hubbard $U$. For unfavourable parameters the \emph{saturation}
+polarization would be zero, but at certain thresholds, for exmaple, $t_c$, a
+first order phase transition would occur with the \emph{saturation} polarization
+quickly growing to one beyond the critical point, that is, perfectly polarized
+cells. Larger QCA structures such as the majority gate were reported to function
+correctly for a select set of parameters, but were not analyzed in depth. With
+that the analysis of static QCA properties was regarded as completed and the
+focus moved to time-dependent behaviour and QCA computing architecture
+questions. Overall, the physical picture emerging from the early
+time-independent calculations is of more of less fully polarized, bistable cells
+readily snapping into the correct polarization state throughout the whole device
+upon setting the inputs. It is a picture where the QCA approach works almost
+perfectly over a presumably wide range of parameters and it is the prevailing
+picture to this day. It is also quite wrong.
+
+The exact numerical simulation of QCA systems is very challenging. Therefore,
+only the cell-cell reponse of one active cell with regards to a driver cell uses
+the full quantum mechanical model. For all other calculations mentioned above
+the intercellular Hartree approximation (ICHA) is employed. The ICHA is a
+relatively straightforward mean field scheme: The full quantum mechanical problem
+for one single cell is solved exactly, but in the mean field of the
+polarizations of all other cells. These polarizations are in turn determined by
+the solution of this very equation which must thus be solved self-consistently.
+Generally, mean field approximations are known to become exact in the limit of
+infinit dimensionality. They neglect quantum fluctuations and only in the limit
+of high dimensionality do these fluctuations really average to zero. Conversely,
+for low dimensionality mean field approaches are intuitively expected to not
+work very well. As uncontrolled approximations their validity needs to be
+checked by other means and methods. The ICHA was introduced in the very first
+QCA paper and, crucially, it has never even been attempted to verify its
+validity. As a quasi-one-dimensional approach QCA is likely not well-suited for
+a mean field treatment. Picking up the infinite line of cells from above, we
+already have an example where ICHA will yield a wrong result. We argued above
+that such an infinite wire can only be ordered at zero temperature. However, a
+mean field approach will predict a phase transtion at a finite temperature. It
+is rather remarkable that a large part of the existing QCA characterization
+rests on an approximation that can reasonably be expected to give wrong results.
+And indeed, in the context of the dynamic properties of QCA is has been known
+for a long time that ICHA gives qualitatively wrong results. Much more recently,
+it has been shown very explicitely that even for the single cell-cell response
+ICHA introduces artifacts that are clearly non-physical. (cite Marco's paper)
+
+The full quantum mechanical treatment of the QCA approach is only used for the
+static cell-cell response with one active cell and one driver cell. (And for a
+few time-dependent calculations.) However, the cell-basis that is actually used
+consideres only cells with exactly two electrons and here only the spin-zero
+sector. The existing calculations focus on ground state properties almost
+exclusively. Intuitively the ground state should be a spin-singlet state which
+is why triplet states are neglected. For small systems this basis is unnecessary
+restrictive. More importantly, focusing solely on the ground state is not
+sufficient. While the QCA approach is intended to be operated ``close to the
+ground state'' at least the first excited state is needed to obtain an estimate
+for the operational temperature for these devices---a parameter of significant
+practical interest. More subtly, what the QCA idea calls ``ground state'',
+ideally $P=-1$ or $P=1$, actually corresponds to multiple states, namely,
+exactly the singlet and triplet states that were partly neglected. While these
+states can reasonably be expected to be near-degenerate a thorough study of QCA
+should still consider them. In more practical terms, QCA is expected to operate
+at a finite temperature so simulating the devices at a non-zero temperature
+makes just sense.
+
+Lastly, the existing work on time-independent QCA properties is not exhaustive
+in the exploration of the parameter space. Often, at least some of the
+characteristic energy scales $V_1$ and $t$ are not stated explicitly. While
+charge neutral cells are assumed, the effects of non-charge-neutrality is not
+investigated. Variable inter-cell spacing is not considered.
+
+Two-state approximation\ldots.
+
+% TODO: Show mean field Hamiltonian explicitly; 
+% also <P_i P_j> = <P_i> P_j + P_i <P_j>
+%
+% Maybe frame it more like: "There is a gap in the existing work that needs to
+% be filled." 
+% All other work rests on this characterization of fundamental, time-independent
+% properties.
+% Maybe say: Mean field is okay as a first stab at a problem, but should
+% subsequently be verified and refined with more accurate methods.
+
+Characterizations of static QCA properties focus almost exclusively on the
+ground state. Usually, a 16-state-per-cell basis is used as the starting point
+for simulations. These 16 states correspond to the spin zero sector of a cell with
+exactly two electrons. Triplet states are therefore neglected, following the
+intuitive notion that the ground state should be singlet.
+
+
 
 
 
@@ -376,7 +477,7 @@ focus.
 % for the binary wire). To verify the two-state basis, they calculate the
 % overlap with the 16-state basis for a single (active) cell system, for some
 % unspecified set of system parameters. (They do this for ground state and first
-% % excited state.) They find that the two selected basis states almost complete
+% excited state.) They find that the two selected basis states almost complete
 % span the Hilbert space in this case. They do a time-dependent calculation for
 % a three-cell wire and compare this with a calculation using the 16-state
 % basis. All of this is done for only one set of parameters (which are not
@@ -404,3 +505,5 @@ focus.
 % * What does localized actually mean for an orbital (e.g. for DB in silicon). For
 %   example, how localized (quantitatively) are f-electrons where the Hubbard
 %   model originated.
+%
+% TODO: introduce V_1 in section on Hubbard model

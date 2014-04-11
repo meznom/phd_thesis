@@ -596,60 +596,68 @@ the single largest block is the spin zero sector at half-filling. Its size is
 This corresponds to memory requirements of 180MB for two cells and 5400GB for
 three cells. Thus, although this is a considerable improvement for the two cell
 system (not least in computational time), the three cell system still remains
-unreachable with conventional computer hardware.
-%
-To access larger systems we need to introduce approximations, which we will
-pursue in detail and with great care in the following chapter.
+unreachable with conventional computer hardware. To access larger systems we
+need to introduce approximations, which we will pursue in detail and with great
+care in the following chapter.
 
-% TODO: reread Fernando's blog article; maybe cite it.
-% emphasize that not even coding techniques / details are discussed; and that it
-% is difficult to code these sophisticated algorithms, "a long way from the
-% formally stated algorithm to running and optimized code"
-% citations for ALPS and Abinit
 Computational physics is, true to its name, to considerable extent concerned
 with writing computer code. If ingenious algorithms which bring sophisticated
 physical problems to the computer are the art that excites the computational
-physicist's intellect, then writing good computer code is the craft. And it is a
-curious fact that traditionally in computational condensed matter physics
-little weight has been put on the code. This not only frustrates the newcomer to
-the field, but poses a more fundamental problem to science in a time when
-computing has long become an essential part of it. Verification and
-reproducibility are core assets of the scientific process, but the lack of
-readily available code makes it very difficult to verify and reproduce
-scientific results from sophisticated numerical algorithms. Code is treated as a
-trade secret, partly as a result of the fierce competitive nature of the
-academy. Similarly, the academic system does not reward effort spent on writing
-publicly available computational tools. At least in our experience,
-collaboration on the code level is rare. Luckily, the climate is slowly
-changing. In the condensed matter community, the ALPS and Abinit projects
-provide open implementations of a host of commonly used methods and algorithms.
-In the wider scientific community, IPython is a shining example of the benefits
-of a collaborative effort to build a good computational tool, and a tool that
-gets the credit it deserves.
+physicist's intellect, then writing good computer code is the craft. It is a
+curious fact that traditionally in computational condensed matter physics little
+weight has been put on coding techniques, collaboration on the code level, and
+the code itself. This not only frustrates the newcomer to the field, for it is a
+long way from a formally stated algorithm to a correct and efficient
+implementation, but also poses a more fundamental problem to science in a time
+when computing has long become an essential part of it. Scientific results
+obtained from sophisticated numerical algorithms can be difficult to verify and
+reproduce without an openly available implementation of those algorithms. But
+verification and reproducibility are core assets of the scientific process.
+Fortunately, the culture is slowly changing. In computational condensed matter
+physics, the ALPS and Abinit projects provide open implementations of a variety
+of commonly used methods and algorithms \cite{bauer2011alps}
+\cite{gonze2009abinit}. In the wider scientific community, IPython is a shining
+example of building a powerful computational tool collaboratively, with a huge
+impact across disciplines \cite{perez2007ipython}.
 
 Our QCA exact diagonalization implementation is written in C++ and uses the
-excellent Eigen linear algebra library. Matrices are stored in sparse
-representation, except for the block-wise diagonalization itself, where we use
-dense matrices. The matrix diagonalization is performed by Eigen. We do not
-build the Hamiltonian matrix directly, but instead construct creation and
-annihilation operator matrices, which allows for an expressive notation for the
-Hamiltonian and other observables. The C++ code cannot be executed directly,
-but is compiled as an extension module for the Python language, via the Boost library's
-Boost.Python. We also use the Boost library for unit testing. In our experience,
-making the C++ code available in Python provides enormous benefits for the speed
-of implementing additional features and analysis as well as for the overall
-workflow. Python makes data input, output and storage very convenient
-(especially compared to doing these tasks in pure C++), allows scripting,
-distribution and simple (albeit limited) parallelization of simulation runs,
-and, being well established in the scientific community, comes with extensive
-libraries for data analysis (scipy) and plotting (matplotlib). The advent of the
+excellent Eigen linear algebra library \cite{eigen}. Matrices are stored in
+sparse representation, except for the block-wise diagonalization itself,
+performed by Eigen, where we use dense matrices. The basis states can be
+filtered and sorted, e.g.\ to truncate the Hilbert space to a specific charge
+sector and to exploit symmetries. We do not build the Hamiltonian matrix
+directly, but instead construct creation and annihilation operator matrices.
+Therefore, operators such as the Hamiltonian and the polarization can be
+expressed in an intuitive, almost mathematical notation. We employ the curiously
+recurring template pattern to achieve simple static polymorphism, avoiding the
+overhead of runtime polymorphism \cite{andrei2001modern}. In less abstract
+terms, this allows us to reuse code, for example the Hamiltonian, for the
+conceptually similar, but physically quite different various QCA models which we
+are going to introduce in detail in the next chapter. Our C++ code cannot be
+executed directly, but is instead compiled as an extension module for the Python
+language, via the Boost library's Boost.Python \cite{boost}. We also use the
+unit testing framework from the Boost library. In our experience, making the C++
+code available in Python provides enormous benefits. With Python data input,
+output and storage becomes a breeze, especially compared to the chore these
+tasks are in pure C++. Python makes it easy to script and distribute (i.e.\
+simply parallelize) simulation runs, and, being well established in the
+scientific community, comes with extensive libraries for data analysis and
+plotting, e.g.\ SciPy and Matplotlib \cite{scipy} \cite{hunter2007matplotlib}.
+Consequently, the integration with Python facilitates quickly trying out new
+ideas, implementing new features and more fluid data analysis. The advent of the
 fantastic IPython notebook ties all of these pieces together in a consistent,
-productive and highly enjoyable workflow. The IPython notebook is also an apt
-format for effectively communicating results with colleagues. We have written a
-small Python library to support our data storage and organization needs, as well
-as supporting our workflow when running ``numerical experiments''. Both the QCA
+productive and highly enjoyable workflow \cite{perez2007ipython}. The IPython
+notebook is also an apt format for effectively communicating results with
+colleagues. The disadvantages of the Python integration are the additional
+dependencies, although both Python and Boost are commonly available on any
+number of platforms these days, and the more involved (and hence error-prone)
+build process. We have written a small Python library to support our data
+storage and organization needs. The library facilitates storing and retrieving
+data in standard file formats and allows to define and run ``numerical
+experiments,'' which can be distributed across multiple computers. Both the QCA
 exact diagonalization code and the Python library are available under an open
-license on GitHub.
+license on GitHub \cite{githubqca} \cite{githubcoma}.
+
 
 
 

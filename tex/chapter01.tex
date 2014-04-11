@@ -1,6 +1,8 @@
 \chapter{Quantum-dot cellular automata}
-
 \graphicspath{{../gfx/chapter01/}}
+
+
+\section{The idea}
 
 \begin{figure}
   \center
@@ -158,14 +160,15 @@ it with respect to the inherent time-scales of the QCA system, which are set by
 the system's parameters and the dissipative coupling to its environment. This
 should allow a better control over the dynamics of the switching process.
 
+
+\section{Atomic silicon quantum dots}
+
 \begin{figure}
   \center
   \includegraphics{silicon}
   \caption{\ldots}
   \label{fig:silicon}
 \end{figure}
-
-% Silicon system
 
 Our objective is the general, not implementation-specific characterization of
 the QCA approach. Even so it is still important to consider concrete
@@ -237,6 +240,9 @@ tunnel from the first DB to the substrate and then back to the second DB. Thus
 an accurate model for atomic silicon quantum dots might need to accommodate the
 nature of the DB orbitals, screening, multiple tunnelling channels and other
 effects.
+
+
+\section{The extended Hubbard model}
 
 QCA systems are typically modelled by an extended Hubbard Hamiltonian. The
 Hubbard model originated in the early 1960s to describe rare-earth systems with
@@ -344,6 +350,10 @@ can therefore characterize a cell by the ratios $\frac{V_1}{t}$, $\frac{U}{t}$,
 and $T/t$. By similarly expressing the cell-cell distance in units of the cell
 size, $\frac{d}{a} = d V_1$ we characterize any QCA system in dimensionless
 units.
+
+
+\section{Intercellular Hartree and two-state approximation}
+% TODO: better section title
 
 At the time of this writing, the QCA idea is over twenty years old. Naturally,
 the fundamental building blocks of QCA circuitry, such as the single cell
@@ -509,6 +519,140 @@ states correspond to a pseudo spin and the hopping is like a transverse field,
 flipping the cell polarizations.
 
 
+\section{Exact diagonalization}
+
+We use the exact diagonalization numerical method \cite{Fehske} to simulate QCA
+systems described by the Hamiltonian \eqref{eq:H_QCA}. In principle, exact
+diagonalization is a straightforward method: For a chosen basis the matrix of
+the Hamiltonian is constructed explicitly and then diagonalized, yielding the
+eigenenergies and eigenstates of the system. With that we know everything about
+the system and can calculate observables of interest. The problem is that memory
+consumption scales as $N_s^2$ and the computational cost roughly as $N_s^3$,
+where $N_s$ is the size of the state space; and the number of states scales
+exponentially with system size, $N_s = 4^{N_d} = 256^{N_c}$. $N_d$ denotes the
+number of dots and $N_c$ the number of cells. As an example, to store the full
+Hamiltonian matrix of a two cell QCA system requires 3GB of memory, to store the
+Hamiltonian matrix of a three cell system already requires 2000TB. That's
+clearly not feasible on any available computer. As a side note, we cannot employ
+projective algorithms like Lanczos \cite{Fehske}, because we are interested in
+finite temperatures and therefore need the full energy spectrum. Typically,
+projective schemes are only useful to calculate the ground state or the few
+lowest energy states. 
+
+\newcommand{\ket}[1]{\left|#1\right>}
+\newcommand{\bra}[1]{\left<#1\right|}
+%
+To decrease the memory requirements and computational cost of
+exact diagonalization symmetries must be exploited. The Hamiltonian matrix is
+actually quite sparse---most entries are zero. By using symmetries and a
+suitable basis the Hamiltonian matrix can be brought into block diagonal form
+and then only those much smaller blocks need to be diagonalized. Our QCA system
+is symmetric with respect to the total particle number $\hat{N} = \sum_i
+\hat{n}_{i\uparrow} + \hat{n}_{i\downarrow}$ and the total spin $\hat{S} =
+\sum_i \hat{n}_{i\uparrow} - \hat{n}_{i\downarrow}$, i.e.\ $[\hat{N},\hat{H}]_-
+= [\hat{S},\hat{H}]_- = 0$. If we now use basis states which are eigenstates of
+the symmetry operators, $\ket{n,s,l}$, with
+%
+\begin{equation}
+\begin{split}
+  \hat{N} \ket{n,s,l} &= n \ket{n,s,l} \, , \\
+  \hat{S} \ket{n,s,l} &= s \ket{n,s,l} \, ,
+\end{split}
+\end{equation}
+%
+then we have
+%
+\begin{equation}
+\begin{split}
+  \bra{n^{\prime},s^{\prime},l^{\prime}} [\hat{N},\hat{H}]_- \ket{|n,s,l} = 
+  (n^{\prime} - n) \bra{n^{\prime},s^{\prime},l^{\prime}} \hat{H} \ket{n,s,l}
+  \stackrel{!}{=} 0 \\
+  \bra{n^{\prime},s^{\prime},l^{\prime}} [\hat{S},\hat{H}]_- \ket{n,s,l} = 
+  (s^{\prime} - s) \bra{n^{\prime},s^{\prime},l^{\prime}} \hat{H} \ket{n,s,l}
+  \stackrel{!}{=} 0
+\end{split}
+\end{equation}
+%
+and therefore
+%
+\begin{equation}
+  \bra{n^{\prime},s^{\prime},l^{\prime}} \hat{H} \ket{n,s,l} = 0 \qquad
+  \textrm{for } n \ne n^{\prime} \textrm{ or } s \ne s^{\prime} \, .
+\end{equation}
+%
+Consequently, by ordering basis states by the symmetry operators' eigenvalues
+the Hamiltonian matrix becomes block diagonal, where the blocks are labelled by
+$n$ and $s$. The blocks can be constructed and diagonalized separately and all
+observables can then be calculated block-wise as well, hence vastly reducing
+memory requirements and computational time. In our implementation, however, we
+do keep all blocks in memory simultaneously. This still yields considerably
+reduced memory usage and the same speedup in computational time. For the QCA system
+the single largest block is the spin zero sector at half-filling. Its size is
+%
+\begin{equation}
+  N_s^{\prime} = \binom{N_d}{\frac{1}{2} N_d}^2 \, .
+\end{equation}
+%
+This corresponds to memory requirements of 180MB for two cells and 5400GB for
+three cells. Thus, although this is a considerable improvement for the two cell
+system (not least in computational time), the three cell system still remains
+unreachable with conventional computer hardware.
+%
+To access larger systems we need to introduce approximations, which we will
+pursue in detail and with great care in the following chapter.
+
+% TODO: reread Fernando's blog article; maybe cite it.
+% emphasize that not even coding techniques / details are discussed; and that it
+% is difficult to code these sophisticated algorithms, "a long way from the
+% formally stated algorithm to running and optimized code"
+% citations for ALPS and Abinit
+Computational physics is, true to its name, to considerable extent concerned
+with writing computer code. If ingenious algorithms which bring sophisticated
+physical problems to the computer are the art that excites the computational
+physicist's intellect, then writing good computer code is the craft. And it is a
+curious fact that traditionally in computational condensed matter physics
+little weight has been put on the code. This not only frustrates the newcomer to
+the field, but poses a more fundamental problem to science in a time when
+computing has long become an essential part of it. Verification and
+reproducibility are core assets of the scientific process, but the lack of
+readily available code makes it very difficult to verify and reproduce
+scientific results from sophisticated numerical algorithms. Code is treated as a
+trade secret, partly as a result of the fierce competitive nature of the
+academy. Similarly, the academic system does not reward effort spent on writing
+publicly available computational tools. At least in our experience,
+collaboration on the code level is rare. Luckily, the climate is slowly
+changing. In the condensed matter community, the ALPS and Abinit projects
+provide open implementations of a host of commonly used methods and algorithms.
+In the wider scientific community, IPython is a shining example of the benefits
+of a collaborative effort to build a good computational tool, and a tool that
+gets the credit it deserves.
+
+Our QCA exact diagonalization implementation is written in C++ and uses the
+excellent Eigen linear algebra library. Matrices are stored in sparse
+representation, except for the block-wise diagonalization itself, where we use
+dense matrices. The matrix diagonalization is performed by Eigen. We do not
+build the Hamiltonian matrix directly, but instead construct creation and
+annihilation operator matrices, which allows for an expressive notation for the
+Hamiltonian and other observables. The C++ code cannot be executed directly,
+but is compiled as an extension module for the Python language, via the Boost library's
+Boost.Python. We also use the Boost library for unit testing. In our experience,
+making the C++ code available in Python provides enormous benefits for the speed
+of implementing additional features and analysis as well as for the overall
+workflow. Python makes data input, output and storage very convenient
+(especially compared to doing these tasks in pure C++), allows scripting,
+distribution and simple (albeit limited) parallelization of simulation runs,
+and, being well established in the scientific community, comes with extensive
+libraries for data analysis (scipy) and plotting (matplotlib). The advent of the
+fantastic IPython notebook ties all of these pieces together in a consistent,
+productive and highly enjoyable workflow. The IPython notebook is also an apt
+format for effectively communicating results with colleagues. We have written a
+small Python library to support our data storage and organization needs, as well
+as supporting our workflow when running ``numerical experiments''. Both the QCA
+exact diagonalization code and the Python library are available under an open
+license on GitHub.
+
+
+
 
 
 
@@ -600,12 +744,4 @@ flipping the cell polarizations.
 %
 % Maybe explicitly mention quasiadiabatic switching and pipelining.
 % 
-% Questions for Kevin:
-% * How to best explain the entropy argument. What the free energy of the system
-%   actually means.
-% * How exactly does the gate voltage change the tunnelling barrier.
-% * What does localized actually mean for an orbital (e.g. for DB in silicon). For
-%   example, how localized (quantitatively) are f-electrons where the Hubbard
-%   model originated.
-%
-% TODO: introduce V_1 in section on Hubbard model
+% Rethink / rewrite clocking: How the gate voltage changes the barrier.

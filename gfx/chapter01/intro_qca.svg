@@ -23,7 +23,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4142136"
-     inkscape:cx="265.34005"
+     inkscape:cx="199.57912"
      inkscape:cy="163.83808"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -188,7 +188,7 @@
      transform="translate(-35.533787,375.653)">
     <g
        id="g5206"
-       transform="translate(-26,-36)">
+       transform="translate(-26,-26)">
       <g
          transform="matrix(0.499995,0,0,0.499995,70.589817,-470.28263)"
          id="g7526">
@@ -318,7 +318,7 @@
     </g>
     <g
        id="g5048"
-       transform="translate(0,-88)">
+       transform="translate(0,-78)">
       <g
          style="stroke:#999999;stroke-width:2.00002003"
          transform="matrix(0.37392258,0,0,0.37440689,51.34264,-536.69091)"
@@ -657,7 +657,7 @@
     </g>
     <g
        id="g5140"
-       transform="matrix(0,1,1,0,211.65141,-301.65141)">
+       transform="matrix(0,1,1,0,211.65141,-291.65141)">
       <g
          id="g3223"
          transform="matrix(0.26440319,0.26440319,0.26474565,-0.26474565,-179.18022,90.6181)"
@@ -1051,17 +1051,17 @@
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#666666;fill-opacity:1;stroke:none;font-family:Open Sans;-inkscape-font-specification:Open Sans"
        x="37.336891"
-       y="-334.1561"
+       y="-324.1561"
        id="text5631"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5633"
          x="37.336891"
-         y="-334.1561"
+         y="-324.1561"
          style="font-size:14px;fill:#666666">(a)</tspan></text>
     <g
        id="g3312"
-       transform="matrix(0.66666,0,0,0.66666,183.80584,-221.10637)">
+       transform="matrix(0.66666,0,0,0.66666,183.80584,-211.10637)">
       <g
          id="g3298">
         <rect
@@ -1166,24 +1166,24 @@
     <text
        sodipodi:linespacing="125%"
        id="text3344"
-       y="-334.1561"
+       y="-324.1561"
        x="221.33688"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#666666;fill-opacity:1;stroke:none;font-family:Open Sans;-inkscape-font-specification:Open Sans"
        xml:space="preserve"><tspan
          style="font-size:14px;fill:#666666"
-         y="-334.1561"
+         y="-324.1561"
          x="221.33688"
          id="tspan3346"
          sodipodi:role="line">(b)</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text3348"
-       y="-272.1561"
+       y="-262.1561"
        x="39.336891"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#666666;fill-opacity:1;stroke:none;font-family:Open Sans;-inkscape-font-specification:Open Sans"
        xml:space="preserve"><tspan
          style="font-size:14px;fill:#666666"
-         y="-272.1561"
+         y="-262.1561"
          x="39.336891"
          id="tspan3350"
          sodipodi:role="line">(c)</tspan></text>
@@ -1191,16 +1191,17 @@
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#666666;fill-opacity:1;stroke:none;font-family:Open Sans;-inkscape-font-specification:Open Sans"
        x="37.336891"
-       y="-210.1561"
+       y="-200.1561"
        id="text3352"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3354"
          x="37.336891"
-         y="-210.1561"
+         y="-200.1561"
          style="font-size:14px;fill:#666666;stroke:none">(d)</tspan></text>
     <g
-       id="g4329">
+       id="g4329"
+       transform="translate(0,10)">
       <g
          id="g5217"
          transform="matrix(0.37392258,0,0,0.37440689,157.43433,-270.16311)">
@@ -1846,12 +1847,12 @@
     <text
        sodipodi:linespacing="125%"
        id="text5711"
-       y="-210.1561"
+       y="-200.1561"
        x="303.33688"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#666666;fill-opacity:1;stroke:none;font-family:Open Sans;-inkscape-font-specification:Open Sans"
        xml:space="preserve"><tspan
          style="font-size:14px;fill:#666666"
-         y="-210.1561"
+         y="-200.1561"
          x="303.33688"
          id="tspan5713"
          sodipodi:role="line">(e)</tspan></text>
@@ -1859,13 +1860,13 @@
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#666666;fill-opacity:1;stroke:none;font-family:Open Sans;-inkscape-font-specification:Open Sans"
        x="39.336884"
-       y="135.8439"
+       y="145.8439"
        id="text5715"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5717"
          x="39.336884"
-         y="135.8439"
+         y="145.8439"
          style="font-size:14px;fill:#666666">(f)</tspan></text>
     <text
        xml:space="preserve"
@@ -1880,7 +1881,8 @@
          x="380.77698"
          y="184.90599" /></text>
     <g
-       id="g4183">
+       id="g4183"
+       transform="translate(0,10)">
       <g
          style="stroke:#999999;stroke-width:2.00002003"
          transform="matrix(0.37392258,0,0,0.37440689,212.02175,-458.38207)"

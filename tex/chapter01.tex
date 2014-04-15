@@ -213,7 +213,15 @@ oscillating outputs and meta-stable states, mentioned above
 \begin{figure}
   \center
   \includegraphics{silicon}
-  \caption{\ldots}
+  \caption{
+Atomic silicon quantum dots are \emph{dangling bonds} (DBs) on a hydrogenated
+(100) silicon surface. (a) A scanning tunnelling microscope (STM) image of an
+atomic silicon quantum dot QCA cell. (b) Band diagram of a DB on a strongly
+n-doped silicon substrate. (c) The reconstructed (100) hydrogenated silicon
+surface, showing dimer rows. (d) Two closely spaced tunnel-coupled DBs perturbed
+by a third DB (bottom left). All STM images and \emph{ab initio} estimates from
+Wolkow et~al.\ \cite{wolkow2013silicon} \cite{pitters2011tunnel}.
+}
   \label{fig:silicon}
 \end{figure}
 
@@ -224,48 +232,50 @@ put our modelling and results into context. One of the most promising and recent
 experimental implementations of QCA is based on atomic silicon quantum dots and
 we will therefore use them as our experimental reference. Atomic silicon quantum
 dots were first demonstrated as a possible QCA implementation by Wolkow et~al.\
-in 2009, when the group realized one single QCA cell. Fig.~\ref{fig:silicon}(a)
-shows a scanning tunnelling microscope (STM) image of this cell. Since then
-impressive advances have been made both in the understanding of the electronic
-properties of these quantum dots as well as in the precise fabrication of larger
-QCA structures. With atomic-scale feature sizes this experimental system
-promises room temperature operation, while at the same time tapping into the
-established and highly-sophisticated silicon technology. Being based on silicon
-should also ease integration with existing CMOS circuitry.
+in 2009, when the group realized one single QCA cell.
+Figure~\ref{fig:silicon}(a) shows a scanning tunnelling microscope (STM) image
+of this cell. Since then impressive advances have been made both in the
+understanding of the electronic properties of these quantum dots as well as in
+the precise fabrication of larger QCA structures. With atomic-scale feature
+sizes this experimental system promises room temperature operation, while at the
+same time tapping into the established and highly-sophisticated silicon
+technology. Being based on silicon should also ease integration with existing
+CMOS circuitry.
 
 Atomic silicon quantum dots are \emph{dangling bonds} on a hydrogen-terminated
-silicon $(100)$ surface. Atoms on a $(100)$ silicon surface have two unsatisfied
-bonds.  Pairs of surface atoms form dimers, satisfying one bond. The remaining
+$(100)$ silicon surface. Atoms on a $(100)$ silicon surface have two unsatisfied
+bonds. Pairs of surface atoms form dimers, satisfying one bond. The remaining
 bond is satisfied by passivating the surface with hydrogen.
-Fig.~\ref{fig:silicon}(c) shows a STM image of the reconstructed silicon
+Figure~\ref{fig:silicon}(c) shows a STM image of the reconstructed silicon
 surface, where the dimer rows are clearly visible and the dimensions are
 indicated. By applying a relatively large current through the STM tip,
 individual hydrogen atoms can be removed, with atomic precision. This leaves a
 \emph{dangling bond} (DB) which acts as a quantum dot: Energetically, electrons
-on the DB orbital sit in the silicon band gap (see Fig.~\ref{fig:silicon}(b))
-and are therefore decoupled from the silicon substrate. Chemically, DBs have
-proven to be surprisingly robust with respect to environmental molecules. From
-\emph{ab initio} calculations it is known that the $sp^3$ DB orbital extends
-predominantly into the bulk and only a little into the vacuum. The orbital's
-lateral extent is on the order of $1nm$ and therefore spans multiple silicon
-lattice atoms. Due to the orbital overlap, closely spaced DBs are
-tunnel-coupled. The neutral DB consists of the positive silicon ion and one
-electron. In the experimentally common strongly n-doped system, the DB accepts
-one more electron and is therefore $-1e$ negatively charged.  Conversely, in a
-p-doped sytem the DB will donate its electron and become $+1e$ positively
-charged. The Coulomb repulsion between negatively charged DBs can be used to
-adjust the filling of DB assemblies simply by the DBs' positions. For example,
-on a n-doped substrate two DBs may eject one electron (which goes back to the
-bulk) and share the remaining single electron, when placed close enough
-together. To proof this, a third DB is placed close by, but not close enough to
-be tunnel-coupled. The effect of the Coulomb repulsion can be seen via STM
-imaging, Fig.~\ref{fig:silicon}(d), where the DB farthest from the perturbing
-external charge is more negatively charged (darker in the STM image) than the
-closer DB. The observed charge shift is only possible when both closely-spaced
-DBs share a single electron. To form the previously shown QCA cell,
-Fig.~\ref{fig:silicon}(a), four DBs are brought close enough together so that
-two electrons go back to the bulk, leaving the cell with six electrons in total
-and a cell net charge of $-2e$---the right charge regime for QCA.
+on the DB orbital sit in the silicon band gap and are therefore decoupled from
+the silicon substrate.  Figure~\ref{fig:silicon}(b) shows the band diagram of a
+DB on a n-doped substrate.  Chemically, DBs have proven to be surprisingly
+robust with respect to environmental molecules. From \emph{ab initio}
+calculations it is known that the $sp^3$ DB orbital extends predominantly into
+the bulk and only a little into the vacuum. The orbital's lateral extent is on
+the order of $1\mathrm{nm}$ and therefore spans multiple silicon lattice atoms.
+Due to orbital overlap, closely spaced DBs are tunnel-coupled. A neutral DB
+consists of the positive silicon ion and one electron. In the experimentally
+common strongly n-doped system, the DB accepts one more electron and is
+therefore $-1e$ negatively charged. Conversely, in a p-doped sytem the DB will
+donate its electron and become $+1e$ positively charged. The Coulomb repulsion
+between negatively charged DBs can be used to adjust the filling of DB
+assemblies simply by the DBs' positions. For example, on a n-doped substrate two
+DBs may eject one electron (which goes back to the bulk) and share the remaining
+single electron, when placed close enough together. To proof this, a third DB is
+placed close by, but not close enough to be tunnel-coupled. The effect of the
+Coulomb repulsion can be seen via STM imaging, Figure~\ref{fig:silicon}(d),
+where the DB farthest from the perturbing external charge is more negatively
+charged (darker in the STM image) than the closer DB. The observed charge shift
+is only possible when both closely-spaced DBs share a single electron. To form
+the previously shown QCA cell, Figure~\ref{fig:silicon}(a), on a strongly
+n-doped silicon substrate four DBs are brought close enough together so that two
+electrons go back to the bulk, leaving the cell with six electrons (two holes)
+in total and a cell net charge of $-2e$---the right charge regime for QCA.
 
 Atomic silicon quantum dots provide some examples of how a real world system
 might be different from the idealized picture we typically employ to describe

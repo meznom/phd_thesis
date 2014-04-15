@@ -15,13 +15,23 @@ logic 0 and logic 1. (b) Both electrons occupying the edge of the cell or
 doubly occupying a single quantum dot are unfavourable high-energy states. (c) A
 straight line of cells functions as a wire and transmits a signal.  (d) A
 diagonal line of cells (cells rotated by $45^{\circ}$) transmits a signal
-alternating from cell to cell. Wires can have kinks. (e) The majority gate is
-commonly operates as an AND ($I_3 = 1$) or OR gate ($I_3 = 0$). Here the gate
-performs the computation $1 \land 0 = 1$. (f) The inverter inverts a signal.
+alternating from cell to cell. Wires can have kinks.
 }
   \label{fig:intro_qca}
 \end{figure}
-% TODO: make this two figures
+%
+\begin{figure}
+  \center
+  \includegraphics{gates}
+  \caption{
+QCA gates. (a) The majority gate's three inputs ``vote'' on the output. The gate
+is commonly operated with one fixed input, for example $I_3$, and then functions
+as an AND ($I_3 = 1$) or OR gate ($I_3 = 0$) for the remaining two inputs. Here
+the gate performs the computation $1 \land 0 = 1$. (b) The inverter inverts a
+signal.
+}
+  \label{fig:gates}
+\end{figure}
 
 Lent et al.\ introduced the concept of quantum-dot cellular automata as an
 alternative computing paradigm in 1993 \cite{lent1993quantum}. The aim was a
@@ -83,52 +93,51 @@ degree of freedom. Let us finally note that QCA is a not a cellular automata in
 a strict mathematical sense, but only by analogy to the idea of interacting
 cells.
 
-One clever geometrical cell arrangement is shown in
-Figure~\ref{fig:intro_qca}(e), the majority gate. The gate has three inputs
-which ``vote'' on the central cell. The majority wins and sets the single
-output. The device is commonly operated with one fixed input, for example $I_3
-\doteq 0$ or $I_3 \doteq 1$. In the first case, $I_3 \doteq 0$, the device
-functions as an AND gate for the remaining two inputs, $O = I_1 \land I_2$. In
-the second case, $I_3 \doteq 1$, it is an OR gate with $O = I_1 \lor I_2$. The
-figure shows the gate performing the computation $1 \land 0 = 1$. Now, the only
-missing piece for Boolean algebra is negation, $O = \lnot I$. We had already
-seen that simply arranging cells at an $45^{\circ}$ angle as in the diagonal
-line of cells negates the signal from cell to cell. The inverter,
-Figure~\ref{fig:intro_qca}(f), recasts this idea into a more robust layout. With
-that we have, at least in principle, all the necessary building blocks for
-Boolean algebra and thus digital circuitry.
+One clever geometrical cell arrangement is shown in Figure~\ref{fig:gates}(a),
+the majority gate. The gate has three inputs which ``vote'' on the central cell.
+The majority wins and sets the single output. The device is commonly operated
+with one fixed input, for example $I_3 \doteq 0$ or $I_3 \doteq 1$. In the first
+case, $I_3 \doteq 0$, the device functions as an AND gate for the remaining two
+inputs, $O = I_1 \land I_2$. In the second case, $I_3 \doteq 1$, it is an OR
+gate with $O = I_1 \lor I_2$. The figure shows the gate performing the
+computation $1 \land 0 = 1$. Now, the only missing piece for Boolean algebra is
+negation, $O = \lnot I$. We had already seen that simply arranging cells at an
+$45^{\circ}$ angle as in the diagonal line of cells negates the signal from cell
+to cell. The inverter, Figure~\ref{fig:gates}(b), recasts this idea into a more
+robust layout. With that we have, at least in principle, all the necessary
+building blocks for Boolean algebra and thus digital circuitry.
 
 Conceptually, it is most elegant to set the inputs for a QCA circuit via driver
 cells---cells that resemble the QCA cell in form, but are made up from static
 point charges instead of quantum dots. These static charges are thought to be
 manipulatable to vary the input smoothly from the logic 0 to the logic 1 state.
-In Figure~\ref{fig:intro_qca} these driver cells are represented in light grey.
-Of course, in practice such driver cells would be difficult if not impossible to
-implement and the inputs are more likely set by leads that provide the
-necessary perturbative electrostatic fields. The output of a QCA device can be
-directly read from its output cells. In practical implementations this will
-require a non-trivial charge probing apparatus. Changing the input for a QCA
-device throws the system into an excited, non-equilibrium state. The system will
-then dissipatively propagate to its new ground state. For the given inputs, this
-ground state corresponds to the solution of the computational problem the
-circuit is designed to solve. Let us emphasize this: In QCA, the computational
-solution maps directly to the physical ground state. During performing a
-computation only a few charges move locally, in each cell. Operating close to
-the ground state, QCA is thus a truly current-free approach and consequently
-inherently low-power, especially when compared with CMOS technology. But the
-operation close to the ground state also raises concerns for the operational
-temperature for these devices. It is clear that for applications we would want
-to engineer the system so that the energy gap between the ground state and the
-low-lying excited states far exceeds room temperature.  Different material
-systems provide different dissipative channels and modelling them quantitatively
-or even qualitatively correctly is very challenging. As a consequence, it is
-difficult to derive general expectations for the clocking speed of QCA circuits.
-The switching speed of a majority gate, for example, will greatly depend on the
-system's parameters, but particularly on the nature of the dissipative coupling
-of the circuit to its environment. A small dissipative coupling will have the
-output polarization oscillating before it eventually settles to its correct
-value. A very dissipative system in contrast might get stuck in meta-stable
-states. 
+In Figures~\ref{fig:intro_qca}~and~\ref{fig:gates} these driver cells are
+represented in light grey.  Of course, in practice such driver cells would be
+difficult if not impossible to implement and the inputs are more likely set by
+leads that provide the necessary perturbative electrostatic fields. The output
+of a QCA device can be directly read from its output cells. In practical
+implementations this will require a non-trivial charge probing apparatus.
+Changing the input for a QCA device throws the system into an excited,
+non-equilibrium state. The system will then dissipatively propagate to its new
+ground state. For the given inputs, this ground state corresponds to the
+solution of the computational problem the circuit is designed to solve. Let us
+emphasize this: In QCA, the computational solution maps directly to the physical
+ground state. During performing a computation only a few charges move locally,
+in each cell. Operating close to the ground state, QCA is thus a truly
+current-free approach and consequently inherently low-power, especially when
+compared with CMOS technology. But the operation close to the ground state also
+raises concerns for the operational temperature for these devices. It is clear
+that for applications we would want to engineer the system so that the energy
+gap between the ground state and the low-lying excited states far exceeds room
+temperature.  Different material systems provide different dissipative channels
+and modelling them quantitatively or even qualitatively correctly is very
+challenging. As a consequence, it is difficult to derive general expectations
+for the clocking speed of QCA circuits.  The switching speed of a majority gate,
+for example, will greatly depend on the system's parameters, but particularly on
+the nature of the dissipative coupling of the circuit to its environment. A
+small dissipative coupling will have the output polarization oscillating before
+it eventually settles to its correct value. A very dissipative system in
+contrast might get stuck in meta-stable states. 
 
 QCA circuits consist of wires, gates, and other structures arranged on a
 two-dimensional surface---very similar to conventional electronics devices.

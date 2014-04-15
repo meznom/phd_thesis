@@ -7,159 +7,196 @@
 \begin{figure}
   \center
   \includegraphics{intro_qca}
-  \caption{\ldots; TODO: indicate cell polarizations for wires and gates}
+  \caption{
+Building blocks of quantum-dot cellular automata (QCA). (a) A QCA cell consists
+of four quantum dots on the corners of a square and is occupied by two
+electrons. Due to Coulomb repulsion two energetically preferred states emerge,
+logic 0 and logic 1. (b) Both electrons occupying the edge of the cell or
+doubly occupying a single quantum dot are unfavourable high-energy states. (c) A
+straight line of cells functions as a wire and transmits a signal.  (d) A
+diagonal line of cells (cells rotated by $45^{\circ}$) transmits a signal
+alternating from cell to cell. Wires can have kinks. (e) The majority gate is
+commonly operates as an AND ($I_3 = 1$) or OR gate ($I_3 = 0$). Here the gate
+performs the computation $1 \land 0 = 1$. (f) The inverter inverts a signal.
+}
   \label{fig:intro_qca}
 \end{figure}
+% TODO: make this two figures
 
 Lent et al.\ introduced the concept of quantum-dot cellular automata as an
-alternative computing paradigm in 1993 \cite{lent1993quantum}. Thus the aim was
-a novel physical scheme to build digital circuits that would overcome some of
-the limitations of CMOS technology, promising potentially lower power
-consumption, higher device density, and faster clocking. As the name alludes to,
-quantum-dot cellular automata (QCA) is built from quantum-dots which are grouped
-together in cells. Figure~\ref{fig:intro_qca}(a) shows a basic QCA cell. Four
-quantum dots are arranged on the corners of a square. The dots are idealized as
-perfectly localized single orbitals on a perfectly decoupled non-intrusive
-medium. Therefore, each dot can be occupied by up to two electrons. In the QCA
-scheme, however, each cell is occupied by only two electrons in total. The cell
-is quarter-filled. The electrons tunnel between different dots in a cell, but
-the dominant energy scale is set by the Coulomb repulsion between the particles.
-Simply by virtue of the Coulomb repulsion, and ignoring the comparatively small
-tunnelling for now, the diagonal states, Fig.~\ref{fig:intro_qca}(a), are the
-two energetically preferred electron configurations. In comparison, edge states
-or doubly occupied quantum dots are unfavourable higher energy states,
-Fig.~\ref{fig:intro_qca}(b). A priori the two diagonal states are energetically
-degenerate, but this degeneracy can be lifted by introducing an external Coulomb
-potential, for example a second nearby QCA cell. Then these two states can be
-identified with logic 0 and 1, as indicated in the figure.
+alternative computing paradigm in 1993 \cite{lent1993quantum}. The aim was a
+novel physical scheme to build digital circuits that would overcome some of the
+limitations of CMOS technology, promising potentially lower power consumption,
+higher device density, and faster clocking. As the name alludes to, quantum-dot
+cellular automata (QCA) is made from quantum dots which are grouped into cells.
+Figure~\ref{fig:intro_qca}(a) shows a basic QCA cell. Four quantum dots are
+arranged on the corners of a square. The dots are idealized as perfectly
+localized single orbitals on a perfectly decoupled non-intrusive medium.
+Therefore, each dot can be occupied by up to two electrons. In the QCA scheme,
+however, each cell is occupied by only two electrons in total, the cell is
+quarter-filled. The electrons tunnel between different dots in a cell, but the
+dominant energy scale has to be the Coulomb repulsion between the particles.
+Simply by virtue of the Coulomb repulsion, and ignoring the assumedly
+comparatively small tunnelling for now, the diagonal states are the two
+energetically preferred electron configurations as indicated in the figure. In
+comparison, edge states or doubly occupied quantum dots are unfavourable higher
+energy states, Figure~\ref{fig:intro_qca}(b). A priori the two diagonal states are
+energetically degenerate, but this degeneracy can be lifted by an external
+Coulomb potential, for example a second nearby QCA cell. Then these two states
+can be identified with logic 0 and 1, respectively.
 
-A single cell by itself is, of course, not very interesting. Thus, multiple
-cells can be positioned next to each other, for example as a straight line of
-cells, Fig.\ref{fig:intro_qca}(c). The approach now again assumes that Coulomb
-is the driving force and that electron tunnelling between cells is very small
-and ideally zero. For a straight line of cells, these long-ranging, unscreened
-Coulomb forces will tend to align the electron configurations of adjacent cells.
-If the first cell is in logic state 1 then the second cell will also prefer
-logic state 1 and so will in turn all the other cells in the line. The situation
-is the same for logic state 0. Therefore, a straight line of cells is similar to
-a wire not only in geometry, but also in functionality: It transmits a digital
-signal. The same is true, with slight modifications, for a diagonal line of
-cells --- cells rotated by $45^{\circ}$---, Fig.~\ref{fig:intro_qca}(d). In this
-case the signal alternates from cell to cell, that is, logic 1 will follow logic
-0 which followed from logic 0, and this again is simply by virtue of the
-dominant Coulomb interactions between electrons on different cells. By using an
-even number of cells the diagonal line of cells works as a wire just as well as
-a straight line of cells. The pictogram also demonstrates a $90^{\circ}$ for the
-diagonal line of cells which our newly gained intuition for these Coulomb-driven
-systems expects to pose no problem for signal transmission.
+A single cell by itself is not very interesting. But multiple cells can be
+positioned next to each other, for example as a straight line of cells,
+Figure\ref{fig:intro_qca}(c). The approach now again assumes that Coulomb is the
+driving force and that electron tunnelling between cells is very small and
+ideally zero. For a straight line of cells, the long-ranging, unscreened Coulomb
+forces will tend to align the electron configurations of adjacent cells.  If the
+first cell is in logic state 1 then the second cell will also prefer logic state
+1 and so will in turn all the other cells in the line. The situation is the same
+for logic state 0. Therefore, a straight line of cells is similar to a wire not
+only in geometry, but also in functionality: It transmits a digital signal. The
+same is true, with slight modifications, for a diagonal line of cells---cells
+rotated by $45^{\circ}$, Figure~\ref{fig:intro_qca}(d). In this case the signal
+alternates from cell to cell, that is, logic 1 will follow logic 0 which
+followed from logic 0, and this again is simply by virtue of the dominant
+Coulomb interaction between electrons on different cells. By using an even
+number of cells the diagonal line of cells works as a wire just as well as a
+straight line of cells. The pictogram also demonstrates a $90^{\circ}$ kink for
+the diagonal line of cells which our newly gained intuition for these
+Coulomb-driven systems expects to pose no problem for signal transmission.
 
 The main idea of the QCA approach becomes apparent: Ideally bistable cells
 interact with each other solely by Coulomb repulsion. By arranging the cells in
 clever geometries we can realize interesting functionalities. The idea as such
 is quite general and does not strictly rely on the two-electron-four-dot cell
-introduced above. Indeed, a number of variations exist, such as
-one-electron-two-dot cells, interacting via dipole fields instead of qudrupole
-fields as for the conventional cells, or four-dot cells with six electrons---two
-holes---instead of two electrons. Even the interaction need not be Coulombic.
-For example, magnetic QCA schemes have been explored. While QCA carries
-``quantum'' in its name and is sought to be implemented at the nanoscale, the
-approach operates close to the classical limit. The Coulomb interaction is
-absolutely dominating with the tunnelling of electrons a small perturbation,
-which nonetheless drives the system's dynamics. The approach is insensitive and
-in fact ignores the spin degree of freedom. Let us finally note that QCA is a
-not a cellular automata in a strict mathematical sense, but only by analogy to
-the idea of interacting cells.
+introduced above. Indeed, a number of variations exist, such as cells consisting
+of only two dots and occupied by only one electron, interacting via dipole
+fields instead of quadrupole fields as for the conventional cells. Another
+variation is a four-dot cell with six electrons---two holes---instead of two
+electrons. Even the interaction need not be Coulombic. For example, magnetic QCA
+schemes have been explored. While QCA carries ``quantum'' in its name and is
+sought to be implemented at the nanoscale, the approach operates close to the
+classical limit. The Coulomb interaction is absolutely dominating with the
+tunnelling of electrons a small perturbation, which nonetheless drives the
+system's dynamics.  The approach is insensitive and in fact ignores the spin
+degree of freedom. Let us finally note that QCA is a not a cellular automata in
+a strict mathematical sense, but only by analogy to the idea of interacting
+cells.
 
-One clever geometrical cell arrangement is the majority gate,
-Fig.~\ref{fig:intro_qca}(e). The gate has three inputs which ``vote'' on the
-central cell. The majority wins and sets the single output. The device is
-commonly operated with one fixed input, for example $I_3 \doteq 0$ or $I_3
-\doteq 1$. In the first case, $I_3 \doteq 0$, the device functions as an AND
-gate for the remaining two inputs, $O = I_1 \land I_2$. In the second case, $I_3
-\doteq 1$, it is an OR gate with $O = I_1 \lor I_2$. Now, the only missing piece
-for Boolean algebra is negation, $O = \lnot I$. We had already seen that simply
-arranging cells at an $45^{\circ}$ angle as in the diagonal line of cells above
-negates the signal from cell to cell. The inverter, Fig.~\ref{fig:intro_qca}(f)
-recasts this idea into a more robust layout. With that we have, at least in
-principle, all the necessary building blocks for Boolean algebra and thus
-digital circuitry.
+One clever geometrical cell arrangement is shown in
+Figure~\ref{fig:intro_qca}(e), the majority gate. The gate has three inputs
+which ``vote'' on the central cell. The majority wins and sets the single
+output. The device is commonly operated with one fixed input, for example $I_3
+\doteq 0$ or $I_3 \doteq 1$. In the first case, $I_3 \doteq 0$, the device
+functions as an AND gate for the remaining two inputs, $O = I_1 \land I_2$. In
+the second case, $I_3 \doteq 1$, it is an OR gate with $O = I_1 \lor I_2$. The
+figure shows the gate performing the computation $1 \land 0 = 1$. Now, the only
+missing piece for Boolean algebra is negation, $O = \lnot I$. We had already
+seen that simply arranging cells at an $45^{\circ}$ angle as in the diagonal
+line of cells negates the signal from cell to cell. The inverter,
+Figure~\ref{fig:intro_qca}(f), recasts this idea into a more robust layout. With
+that we have, at least in principle, all the necessary building blocks for
+Boolean algebra and thus digital circuitry.
 
-Conceptually, it is most elegant to set the inputs to a QCA circuit via driver
-cells --- cells that resemble the QCA cell in form, but are made up from static
+Conceptually, it is most elegant to set the inputs for a QCA circuit via driver
+cells---cells that resemble the QCA cell in form, but are made up from static
 point charges instead of quantum dots. These static charges are thought to be
 manipulatable to vary the input smoothly from the logic 0 to the logic 1 state.
-In figure~\ref{fig:intro_qca} these driver cells are represented in light grey.
+In Figure~\ref{fig:intro_qca} these driver cells are represented in light grey.
 Of course, in practice such driver cells would be difficult if not impossible to
-implement and the input would more likely be set by leads that provide the
-necessary perturbative electrostatic field. The output of a QCA device can be
+implement and the inputs are more likely set by leads that provide the
+necessary perturbative electrostatic fields. The output of a QCA device can be
 directly read from its output cells. In practical implementations this will
-require a non-trivial charge probing apparatus.
-
-Changing the input for a QCA device throws the system into an excited,
-non-equilibrium state. The system will then dissipatively propagate to its new
-ground state. For the given inputs, this ground state corresponds to the
-solution of the computational problem the circuit is designed to solve. Let us
-emphasize this: In QCA, the computational solution maps directly to the physical
-ground state! At all times during performing a computation, the system is
-relatively close to its ground state. Only a few charges move locally, in each
-cell. QCA is a truly current-free approach and consequently inherently
-low-power, especially when compared with CMOS technology. But the operation
-close to the ground state also raises concerns for the operational temperature
-for these devices. It is clear that for applications we would want to engineer
-the system so that the energy gap between the ground state and the low-lying
-excited states far exceeds room temperature.
-
-It is difficult to derive general expectations for the clocking speed of QCA
-circuits. The switching speed of a majority gate, for example, will greatly
-depend on the system's parameters, but particularly on the nature of the
-dissipative coupling of the circuit to its environment. A small dissipative
-coupling will have the output polarization oscillating before it eventually
-settles to its correct value. A very dissipative system in contrast might get
-stuck in meta-stable states. Different material systems provide different
-dissipative channels and modelling them quantitatively or even qualitatively
-correctly is very challenging.
+require a non-trivial charge probing apparatus. Changing the input for a QCA
+device throws the system into an excited, non-equilibrium state. The system will
+then dissipatively propagate to its new ground state. For the given inputs, this
+ground state corresponds to the solution of the computational problem the
+circuit is designed to solve. Let us emphasize this: In QCA, the computational
+solution maps directly to the physical ground state. During performing a
+computation only a few charges move locally, in each cell. Operating close to
+the ground state, QCA is thus a truly current-free approach and consequently
+inherently low-power, especially when compared with CMOS technology. But the
+operation close to the ground state also raises concerns for the operational
+temperature for these devices. It is clear that for applications we would want
+to engineer the system so that the energy gap between the ground state and the
+low-lying excited states far exceeds room temperature.  Different material
+systems provide different dissipative channels and modelling them quantitatively
+or even qualitatively correctly is very challenging. As a consequence, it is
+difficult to derive general expectations for the clocking speed of QCA circuits.
+The switching speed of a majority gate, for example, will greatly depend on the
+system's parameters, but particularly on the nature of the dissipative coupling
+of the circuit to its environment. A small dissipative coupling will have the
+output polarization oscillating before it eventually settles to its correct
+value. A very dissipative system in contrast might get stuck in meta-stable
+states. 
 
 QCA circuits consist of wires, gates, and other structures arranged on a
 two-dimensional surface---very similar to conventional electronics devices.
 However, the structures themselves are quasi-one-dimensional and this poses a
 challenge for building large-scale QCA circuits. A good example is a single long
-wire, which is truly one-dimensional. Generally, a one-dimensional system cannot
-be ordered in the thermodynamic limit except at zero temperature. Therefore, the
-finite-temperature infinitely long wire will always have at least two different
-domains, logic 0 and logic 1 (assuming perfectly bistable cells for simplicity),
-and thus not be able to transmit a signal. When we think about switching the
-input for the wire, we think of the information being propagated as a charge
-density wave throughout the wire, or, equivalently, as propagating the domain
+wire, which is truly one-dimensional. When we think about switching the input
+for the wire, we think of the information being propagated as a charge density
+wave throughout the line of cells, or, equivalently, as propagating the domain
 boundary between logic 0 and logic 1. This domain boundary incurs an energy cost
-that the system seeks to minimize. For an increasingly longer wire, however, the
-gain in entropy for moving the domain boundary freely throughout the wire ($S
-\sim \log N$, $N$ the number of cells) soon exceeds the loss in energy, which is
-reflected by the free energy of the system, $F = U - T S$. Consequently, the gap
-between the first excited state and the ground state and the desired operational
-temperature will determine the maximum system size.
+that the system seeks to minimize, causing the wire to order. For an
+increasingly longer wire, however, the gain in entropy for moving a domain
+boundary freely throughout the wire ($S \sim \log N$, $N$ the number of cells)
+soon exceeds the loss in energy, which is reflected by the free energy of the
+system ($F = U - T S$). Quite generally, a one-dimensional system cannot be
+ordered in the thermodynamic limit except at zero temperature. Therefore, the
+finite-temperature infinitely long wire will always have at least two different
+domains, logic 0 and logic 1, and thus not be able to transmit a signal. The gap
+between the first excited state---with two domains---and the completely ordered
+ground state, together with the desired operational temperature will determine
+the maximum system size.
+% TODO: would be nice to have a reference for the fact that 1D systems cannot be
+% ordered
 
-To address this scaling problem we partition large circuits into smaller units. 
-Each unit can be turned ``on'' and ``off'' separately: Individual gates allow to
-control the electrostatic potential for each unit, effectively raising and
-lowering the tunnelling barriers between quantum dots and thus allowing to
-freeze or delocalize the electrons. A unit with \emph{frozen} electrons can
-serve as the input for a unit with more \emph{active} charge carriers, which
+\begin{figure}
+  \center
+  \includegraphics{clocking}
+  \caption{
+Clocked QCA for a line of cells. To avoid entropy-induced disorder in large QCA
+circuits, the system is partitioned into smaller units: unit 1, 2, and 3 in this
+example. By varying the tunnelling barriers, each unit is put through the three
+phases \emph{frozen} (high barrier, light grey cells), \emph{active} (medium
+barrier, dark grey cells), and \emph{delocalized} (low barrier, dark grey cells
+with empty dots). Synchronizing the phases of adjacent units allows to pipeline
+information flow and computations.  The line of cell's three units and their
+tunnelling barriers are shown at three different times, $t_1<t_2<t_3$. A logic 1
+state is propagated from the left to the right.  At $t_3$ a logic 0 state is
+coming in from the left.
+}
+  \label{fig:clocking}
+\end{figure}
+
+To address this scaling problem we partition large circuits into smaller units.
+The size of each unit is chosen to be small enough to avoid entropy-induced
+disorder at a given operational temperature. Each unit can be turned ``on'' and
+``off'' separately: Ideally, individual gates would allow to effectively raise
+and lower the tunnelling barriers between quantum dots in each unit and thus
+allow to freeze or delocalize the electrons. A unit with \emph{frozen} electrons
+can serve as the input for a unit with more \emph{active} charge carriers, which
 works like a regular QCA circuit. A unit with completely \emph{delocalized}
 electrons, in contrast, will not influence adjacent units. By putting each unit
 through the three phases \emph{delocalized}, \emph{active}, and \emph{frozen}
-and synchronizing adjacent units appropriately, we can control the
-information flow through the system very nicely, as illustrated in Fig.~TODO.
+and synchronizing adjacent units appropriately, we can control the information
+flow through the system very nicely, as illustrated in Figure~\ref{fig:clocking}.
 Therefore, by partition the circuit and introducing a clocking scheme we not
-only handle the scaling problem, but also arrive at a pipelining architecture
-that greatly improves the control over information flow in the system. Of
-course, in practice the QCA circuit units cannot be too small as they must be
-individually addressable. Gates which turn QCA units ``on'' and ``off'' also
-provide another potential benefit. We are able to control how
-and especially how fast the gate voltage is changed and should be able to tune
-it with respect to the inherent time-scales of the QCA system, which are set by
-the system's parameters and the dissipative coupling to its environment. This
-should allow a better control over the dynamics of the switching process
+only handle the scaling problem, but also arrive at a pipelining architecture.
+If and how the tunnelling barriers can be effectively modified will depend on
+the details of the specific QCA implementation. Also, in practice the QCA
+circuit units cannot be too small as they must be individually addressable.
+Gates which turn QCA units ``on'' and ``off'' provide another potential benefit
+as well. We are able to control how and especially how fast the gate voltage is
+changed and should be able to tune it with respect to the inherent time-scales
+of the QCA system, which are set by the system's parameters and the dissipative
+coupling to its environment. This should afford a better control over the
+dynamics of the switching process and might help mitigate problems like
+oscillating outputs and meta-stable states, mentioned above
 \cite{lent1997device}.
+% TODO: clarify how the raising and lowering of the tunnelling barriers could
+% really plausibly work, e.g. for the silicon system
 
 
 \section{Atomic silicon quantum dots}
@@ -303,7 +340,7 @@ where $k$ and $l$ number the cells.
 \begin{figure}
   \center
   \includegraphics{short_wire}
-  \caption{\ldots; TODO: indicate dot numbering}
+  \caption{\ldots}
   \label{fig:short_wire}
 \end{figure}
 
@@ -365,7 +402,7 @@ units.
 \begin{figure}
   \center
   \includegraphics{qca_characterization}
-  \caption{\ldots}
+  \caption{\ldots; TODO: frame of plots should be grey, not black}
   \label{fig:qca_characterization}
 \end{figure}
 

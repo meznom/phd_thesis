@@ -312,45 +312,51 @@ put some key assumptions in place. For example, we assume that the quantum dots
 are similar to the highly localized d-orbitals. As discussed above, depending on
 the particular QCA implementation this might or might not be a good description.
 However, our interest is not in the precise details of any particular material
-system QCA might be implemented on, but our aim is to investigate universal
-characteristics of QCA systems. An idealized but semi-realistic description is
-what we want and for that the Hubbard model is indeed an appropriate---and
-tractable---starting point. Specifically, the Hamiltonian we use is
+system, but our aim is to investigate universal characteristics of QCA systems.
+As long as a QCA system can be broadly qualitatively described by Hubbard
+physics---and most prospective QCA implementations fall into this category---our
+modelling and findings should be valid. Conversely, for implementations that are
+decidedly not Hubbard-like, our results might not be applicable.  An idealized
+but semi-realistic description is what we want and for that the Hubbard model is
+indeed an appropriate---and tractable---starting point.  Specifically, the
+Hamiltonian we use is
 \begin{equation}
+\begin{split}
   \label{eq:H_QCA}
   H =
-    - \sum_{ij\sigma} t_{ij} \, c^{\dagger}_{i\sigma} c_{j\sigma}
+    &- \sum_{ij\sigma} t_{ij} \, c^{\dagger}_{i\sigma} c_{j\sigma}
     + U \sum_i n_{i\uparrow} n_{i\downarrow}
-    - \mu \sum_{i\sigma} n_{i\sigma}
-    + \sum_{i<j} V_{ij} \left( n_{i\uparrow} + n_{i\downarrow} - q \right) 
+    - \mu \sum_{i\sigma} n_{i\sigma} \\
+    &+ \sum_{i<j} V_{ij} \left( n_{i\uparrow} + n_{i\downarrow} - q \right) 
                         \left( n_{j\uparrow} + n_{j\downarrow} - q \right) \, ,
+\end{split}
 \end{equation}
 where $c^{\dagger}_{i\sigma}$ ($c_{i\sigma}$) creates (annihilates) an electron
-on quantum-dot $i$ with spin $\sigma$ and the particle number operator is
-$n_{i\sigma} = c^{\dagger}_{i\sigma} c_{i\sigma}$; $t_{ij}$ is the overlap integral between
-dots $i$ and $j$, $U$ is the Hubbard on-site Coulomb repulsion, $\mu$ the
-chemical potential, and $V_{ij}$ the long-ranged Coulomb interaction, which is
-characteristic for QCA systems. For simplicity the Coulomb term is chosen to be
-$V_{ij} = \frac{1}{r_{ij}}$ where $r_{ij}$ is the distance between the two dots
-$i$ and $j$. We also introduce the \emph{compensation charge} $q$ which is
-thought to represent a possible positive ion at each quantum dot site. This
-constant positive charge allows us to tune the net cell charge. For two
-electrons per cell, for example, $q=0$ yields a net cell charge of $-2e$ whereas
-$q = \frac{1}{2}$ represents zero net cell charge, and here the cell becomes a
-perfect electrostatic quadrupole.
+on quantum dot $i$ with spin $\sigma$ and the particle number operator is
+$n_{i\sigma} = c^{\dagger}_{i\sigma} c_{i\sigma}$. The overlap integral between
+dots $i$ and $j$ is denoted by $t_{ij}$, $U$ is the Hubbard on-site Coulomb
+repulsion, $\mu$ the chemical potential, and $V_{ij}$ the long-ranged Coulomb
+interaction, which is characteristic for QCA systems. For simplicity the Coulomb
+term is chosen to be $V_{ij} = \frac{1}{r_{ij}}$ where $r_{ij}$ is the distance
+between the two dots $i$ and $j$. We also introduce the \emph{compensation
+charge} $q$ which is thought to represent a possible positive ion at each
+quantum dot site. This constant positive charge allows us to tune the net cell
+charge. For two electrons per cell, for example, $q=0$ yields a net cell charge
+of $-2e$ whereas $q = \frac{1}{2}$ represents zero net cell charge. The $q =
+\frac{1}{2}$ charge neutral cells are perfect electrostatic quadrupoles.
 
 The geometric layout of the QCA system and therefore its functionality is
 encoded in the hopping parameter $t_{ij}$ and the long-ranged Coulomb term
 $V_{ij}$. For the hopping parameter we usually only consider nearest-neighbour
-hopping $t$ and specifically no hopping between the cells. While this constraint is
-not strictly necessary for QCA, it is in line with the approach's underlying
+hopping $t$ and specifically no hopping between the cells. While this constraint
+is not strictly necessary for QCA, it is in line with the approach's underlying
 idea and greatly simplifies calculations. Because the overlap integral decays
 exponentially with distance, as long as the distance between dots from different
-cells is larger then the distance between dots within one cell, the assumption will
-introduce only a small error. Still, this is something to keep in mind if we
-place cells very close to each other. Note that without inter-cell hopping we can
-decompose the Hamiltonian into purely Coulombic cell-cell interaction terms
-$H^{cc}_{kl}$ and single cell terms $H^c_k$ which capture the kinetics as well
+cells is larger than the distance between dots within one cell, the assumption
+will introduce only a small error. Still, this is something to keep in mind if
+we place cells very close to each other. Note that without inter-cell hopping we
+can decompose the Hamiltonian into purely Coulombic cell-cell interaction terms
+$H^{cc}_{kl}$ and single cell terms $H^c_k$, which capture the kinetics as well
 as the inside-cell Coulomb interactions,
 \begin{equation}
   \label{eq:H_cell}
@@ -361,36 +367,40 @@ where $k$ and $l$ number the cells.
 \begin{figure}
   \center
   \includegraphics{short_wire}
-  \caption{\ldots}
+  \caption{Parameterizing QCA layouts. (a) The edge length of a QCA cell is
+  denoted by $a$. The dots of each cell are numbered clockwise. (b) A
+  three-cell wire. The cell-cell distance is denoted by $d$, the cell-cell angle
+  by $\theta$. The wire's input is set by the driver cell's polarization $P_D$,
+  the active cells' polarizations are $P_1$, $P_2$, and $P_3$.}
   \label{fig:short_wire}
 \end{figure}
 
 To parameterize the Coulomb term $V_{kl}$ and specifically $r_{ij}$, the
-distance between quantum-dots $i$ and $j$, we introduce the cell edge length $a$
-and the cell-cell distance $d$, as illustrated in Fig.~\ref{fig:short_wire}
-where we have used a short line of cells as an example QCA system. The angle
-between adjacent cells is denoted by $\theta$. Ideally each cell should be in
-logic state 0 or logic state 1, but, of course, in practice a cell can be in any
-superposition of the two states or even in a different state altogether. The
-\emph{cell polarization} $P_k$ quantifies the state of the cell,
+distance between quantum dots $i$ and $j$, we introduce the cell edge length $a$
+and the cell-cell distance $d$, as illustrated in
+Figure~\ref{fig:short_wire}(a)~and~(b) where we have used a short line of cells
+as an example QCA system. The angle between adjacent cells is denoted by
+$\theta$. Ideally each cell should be in logic state 0 or logic state 1, but,
+of course, in practice a cell can be in any superposition of the two states or
+even in a different state altogether. The \emph{cell polarization} $P_k$
+quantifies the state of the cell,
 \begin{equation}
   \label{eq:polarization}
   P_k = \frac{1}{2} \left( n_{4k+2} + n_{4k+4} - n_{4k-1} + n_{4k-3} \right) \, ,
 \end{equation}
-where the dots in each cell are numbered clockwise as indicated in the figure
-and we have introduced the shorthand notation $n_i = n_{i\uparrow} +
+where the dots in each cell are numbered clockwise as indicated in the figure.
+We have also introduced the shorthand notation $n_i = n_{i\uparrow} +
 n_{i\downarrow}$. The cell polarization is $P_k = -1$ for a logic 0 and $P_k =
 +1$ for a logic 1 state. Without any external input the polarization of a cell
 will be $P_k = 0$.  In the example line of cells, the input is set via the
 driver cell's polarization $P_D$ at the left end. The driver cell's four static
 point charges are adjusted to reflect the desired polarization $P_D$. For QCA,
 the cell polarization really is the observable of utmost interest. It indicates
-whether a cell is in logic state 0 or logic state 1 and how polarized the cell
-is, where ideally, of course, the cell should always be fully polarized $|P_k| =
-1$. In short, the cell polarizations will indicate how well the QCA approach
-works for a given system and, unsurprisingly, calculating cell polarizations for
-various geometric layouts over a wide range of system parameters will be our
-main focus.
+whether a cell is more in logic state 0 or logic state 1 and how polarized the
+cell is, where ideally it should always be fully polarized, $|P_k| = 1$. In
+short, the cell polarizations will indicate how well the QCA approach works for
+a given system and, unsurprisingly, calculating cell polarizations for various
+geometric layouts over a wide range of system parameters will be our main focus.
 
 The QCA cell is characterized by three energy scales: the nearest-neighbour
 hopping $t$, the nearest-neighbour Coulomb repulsion $V_1 = \frac{1}{a}$, and
@@ -398,93 +408,109 @@ the on-site Coulomb repulsion $U$. For QCA operation $U$ is usually assumed to
 be sufficiently large so that doubly occupied states are gapped out. We can
 introduce $V_2 = \frac{1}{\sqrt{2} a}$, the next-nearest-neighbour Coulomb
 repulsion, which corresponds to both electrons sitting on the diagonal of the
-cell---our preferred $P=\pm1$ states, ideally the ground state. Conversely,
+cell---our preferred $P_k=\pm1$ states, ideally the ground state. Conversely,
 $V_1$ corresponds to both electrons occupying the edge of the cell. Again, for
-QCA operation we would like the edge states to be sufficiently gapped out.
-Therefore, the energy gap $\Delta V = V_1 - V_2 = \frac{2 - \sqrt{2}}{2 a} \sim
-0.3 V_1$ and to a lesser extent $U \gg \Delta V$ will directly determine how
-polarized our cell is. $V_1$ will thus seek to order the cell. It competes with
-the hopping $t$ which delocalizes and unorders the electrons. QCA is thought to
-function in a regime where the ratio $\frac{V_1}{t}$ is large. Of course, it is
-also clear that if $\frac{V_1}{t}$ becomes too large, for example by taking $t
-\rightarrow 0$, the system becomes slower and eventually freezes which is also
-undesirable for QCA operation. To complete the picture we have to put in the
-temperature $T$, because what we really mean by saying ``sufficiently gapped
-out'' is an energy gap relatively large compared to temperature. In essence we
-can therefore characterize a cell by the ratios $\frac{V_1}{t}$, $\frac{U}{t}$,
-and $T/t$. By similarly expressing the cell-cell distance in units of the cell
-size, $\frac{d}{a} = d V_1$ we characterize any QCA system in dimensionless
-units.
+QCA operation we would like the edge states to be sufficiently gapped out. In
+other words, the energy gap $\Delta V$, 
+\begin{equation}
+  \label{eq:deltaV}
+  \Delta V = V_1 - V_2 = \frac{2 - \sqrt{2}}{2} \frac{1}{a} \approx 0.3 V_1 \, ,
+\end{equation}
+should be large compared to temperature $\Delta V \gg T$, and similarly $U \gg
+\Delta V \gg T$. The competition between temperature $T$ and $V_1$ will thus
+directly influence how polarized a cell is. In addition, $V_1$, which seeks to
+order the cell, will compete with $t$, which delocalizes and unorders the
+electrons. QCA is thought to function in a regime where Coulomb is the
+dominating energy scale and hopping is a small perturbation: the ratio
+$\frac{V_1}{t}$ is large. But it is also clear that if $\frac{V_1}{t}$ becomes
+too large, for example by taking $t \rightarrow 0$, the system slows down and
+eventually freezes, which is rather undesirable for QCA operation as well. In
+essence we can describe a cell by the ratios $\frac{V_1}{t}$, $\frac{U}{t}$, and
+$\frac{T}{t}$. By similarly expressing the cell-cell distance in units of the
+cell size $\frac{d}{a}$, we characterize any QCA system in dimensionless units.
 
 
-\section{Intercellular Hartree and two-state approximation}
-% TODO: better section title
+\section{Basic characterization}
 
 \begin{figure}
   \center
   \includegraphics{qca_characterization}
-  \caption{\ldots; TODO: frame of plots should be grey, not black}
+  \caption{
+Basic characteristics of QCA devices, schematically. (a) The response of a
+cell's polarization to a driver cell's polarization is non-linear and exhibits
+gain.  This gain has been used extensively to argue for the QCA approach's
+inherent robustness. (b) Cell polarizations of a six-cell wire with input
+polarization $P_D = 1$, as calculated with the intercellular Hatree
+approximation. Most cells are polarized with the same saturation polarization
+and only the leftmost and rightmost cells deviate slightly. In this picture, the
+output polarization does therefore not depend on the wire length.
+}
   \label{fig:qca_characterization}
 \end{figure}
+% TODO: frame of plots should be grey, not black 
 
-At the time of this writing, the QCA idea is over twenty years old. Naturally,
-the fundamental building blocks of QCA circuitry, such as the single cell
-itself, the wire, and the majority gate, have been characterized, typically
-numerically, but to a very limited extent also experimentally. Interestingly,
+At the time of this writing the QCA idea is over twenty years old. Naturally,
+the fundamental building blocks of QCA circuitry such as the single cell itself,
+the wire, and the majority gate have been characterized. Interestingly,
 time-independent properties were investigated relatively briefly and arguably
-not exhaustively. The bulk of the existing work soon focused on system dynamics,
-building large scale computing architectures with the QCA paradigm, and on
-specific potential experimental realizations. The characterization of
-time-indepentend QCA properties yielded two main results. First, the cell-cell
-response, that is, how the polarization of one cell responds to the polarization
-of a neighbouring cell, was established to be non-linear and exhibit gain
-\cite{lent1993quantum}. Therefore, even an only partially polarized cell would
-fully polarize the cell next to it, Fig.~\ref{fig:qca_characterization}(a). Of
-course, gain is highly desirable, if not essential, for building digital
-circuits. It compensates any loss or imperfections and makes the scheme overall
-robust. Not coincidentally, CMOS technology is built around the MOSFET
-transistor with gain as one of its intrinsic properties. Second, lines of cells
-were seen to be constantly polarized, Fig.~\ref{fig:qca_characterization}(b)
-\cite{lent1993lines}. Thus, apart from few cells next to the driver cell, all
-remaining cells in the line would be polarized with the same polarization, the
-\emph{saturation} polarization. The \emph{saturation} polarization was observed
-to be largely independent of the dirver cell's polarization, but solely
-determined by the system's parameters such as the hopping $t$ and the Coulomb
-energy $V_1$. For unfavourably chosen parameters the \emph{saturation}
-polarization might be zero, but over a wide range of system parameters it was
-shown to be close to perfect. For example, for large hopping $t$ the
-\emph{saturation polarization} is expected to be zero. If $t$ is then decreased
-passes a critical point $t_c$ a first order phase transition takes place, the
-\emph{saturation} polarization becomes non-zero and in fact very quickly close
-to perfect as $t$ is further decreased. In addition to the cell-cell response
-and the analysis of a line of cells, larger QCA structures such as the majority
-gate were reported to function correctly for a select set of parameters, but
-were not analyzed in depth. Overall, the physical picture emerging from the
-early time-independent calculations is of bistable cells readily snapping into
-the correct fully polarized state throughout the whole device. It is a picture
-where the QCA approach works almost perfectly over a presumably wide range of
-parameters and it is the prevailing picture to this day. It is also quite wrong.
+not exhaustively. The bulk of the existing theoretical work soon focused on
+system dynamics, building large scale computing architectures with the QCA
+paradigm, and on specific potential experimental implementations. The
+characterization of time-indepentend QCA properties yielded two main results.
+First, the cell-cell response, that is, how the polarization of one cell
+responds to the polarization of a neighbouring cell, was established to be
+non-linear and exhibit gain \cite{lent1993quantum}. Therefore, even an only
+partially polarized cell would fully polarize the cell next to it,
+Figure~\ref{fig:qca_characterization}(a). Of course, gain is highly desirable,
+if not essential, for building digital circuits. It compensates any loss or
+imperfections and makes the scheme overall robust. Not coincidentally, CMOS
+technology is built around the MOSFET transistor with gain as one of its
+intrinsic properties. Second, lines of cells were seen to be polarized with an
+almost constant polarization throughout the whole line,
+Figure~\ref{fig:qca_characterization}(b) \cite{lent1993lines}: Apart from a few
+cells next to the driver cell, all remaining cells in the line would be
+polarized with the same \emph{saturation polarization}. As a consequence, the
+output polarization should not depend on the number of cells in the line. The
+saturation polarization was observed to be largely independent of the driver
+cell's polarization, but solely determined by the system's parameters such as
+the hopping $t$ and the Coulomb energy $V_1$. For unfavourably chosen parameters
+the saturation polarization might be very small, but over a wide range of system
+parameters it was shown to be close to perfect. For example, for large hopping
+$t$ the saturation polarization is expected to be zero. If $t$ is then decreased
+and passes a critical point $t_c$, a first order phase transition takes place.
+The saturation polarization becomes non-zero and in fact very quickly close to
+perfect as $t$ is further decreased. In addition to the cell-cell response and
+the analysis of a line of cells, larger QCA structures such as the majority gate
+were reported to function correctly for a select set of parameters, but were not
+analyzed in depth. Overall, the physical picture emerging from the early
+time-independent calculations is of bistable cells readily snapping into the
+correct fully polarized state throughout the whole device. It is a picture where
+the QCA approach works robustly and in fact almost perfectly over a presumably
+wide range of parameters. It is the prevailing picture to this day. It is also
+quite wrong.
+% TODO: mention that characterization is almost exclusively numerical; some few
+% experiments
 
 These early calculations of time-independent QCA properties concentrated almost
-exclusively (with one exception \cite{tougaw1993bistable}) on the ground state
-of the system. However, focusing solely on the ground state is not sufficient.
-While the QCA approach is intended to be operated ``close to the ground state''
-at least the first excited state is needed to obtain an estimate for the
-operational temperature for these devices---a parameter of significant practical
-interest. More subtly, what the QCA idea calls ``ground state'', ideally $P=-1$
-or $P=1$, actually corresponds to multiple states, namely, one spin singlet and
-three spin triplet states for $P=-1$ and $P=1$, respectively, in a single cell.
-While these states can reasonably be expected to be near-degenerate, a thorough
-study of QCA should still consider them. In more practical terms, QCA is
-expected to operate at finite temperatures so simulating the devices at non-zero
-temperature just makes sense. Similarly, the existing work on time-independent
-QCA properties is not exhaustive in the exploration of other parameters. For
-example, while the \emph{saturation} polarization's dependence on $V_1$ and $t$
-is mapped out, concrete numerical values for these quantities are hard to come
-by. In other cases the Coulomb scale $V_1$ is not indicated explicitly at all.
-Cells are assumed to be charge-neutral, but the effects of non-charge-neutrality
-is not investigated.  Different cell-cell distances are not discussed, nor what
-system parameters should be chosen for optimal performance.
+exclusively on the ground state of the system (with one exception
+\cite{tougaw1993bistable}). However, focusing solely on the ground state is not
+sufficient.  While the QCA approach is intended to be operated ``close to the
+ground state,'' at least the first excited state is needed to obtain an estimate
+for the operational temperature for these devices---a parameter of significant
+practical interest. More subtly, what the QCA idea calls ground state actually
+corresponds to multiple states, namely one spin singlet and three spin triplet
+states for $P=-1$ and $P=1$, respectively, in a single cell.  While these states
+can reasonably be expected to be near-degenerate, a thorough study of QCA should
+still consider them. In more practical terms, QCA is expected to operate at
+finite temperatures so simulating the devices at non-zero temperature just makes
+sense. Similarly, the existing work on time-independent QCA properties is not
+exhaustive in the exploration of other parameters. For example, while the
+saturation polarization's dependence on $V_1$ and $t$ is mapped out, concrete
+numerical values for these quantities are hard to come by. In other cases the
+Coulomb scale $V_1$ is not indicated explicitly at all. Cells are assumed to be
+charge-neutral, but the effects of non-charge-neutrality are not investigated.
+Different cell-cell distances are not discussed, nor what system parameters
+should be chosen for optimal performance.
 
 The exact numerical simulation of QCA systems is challenging and in fact
 intractable for all but the smallest structures. Therefore, approximations are
@@ -497,7 +523,7 @@ response is calculated with a ``full'' quantum mechanical model, where the
 electrons per cell. ICHA is a mean field scheme: The Hamiltonian of one cell is
 solved exactly in the mean field of the polarizations of all the other cells.
 More specifically, the cell-cell interaction term $H^{cc}_{kl}$ in
-eq.~\eqref{eq:H_cell} is rewritten
+equation~\eqref{eq:H_cell} is rewritten
 \begin{equation}
 \begin{split}
   \label{eq:H_kl_meanfield}
@@ -507,59 +533,57 @@ eq.~\eqref{eq:H_cell} is rewritten
   %
   \sum_{\substack{i \in k\\j \in l}} V_{ij} \left( n_i - q \right) \left( n_j - q \right) \\
   %
-  &\sim
+  &\approx
   %
   \sum_{\substack{i \in k\\j \in l}} V_{ij} 
-       \left[ \frac{1}{2} 
-              \left( n_i - q \right) \left( \left< n_j \right> - q \right)
+       \left[ \left( n_i - q \right) \left( \left< n_j \right> - q \right)
               +
-              \frac{1}{2}
               \left( \left< n_i \right> - q \right) \left( n_j - q \right)
-       \right] \\
-  %
-  &\sim
-  %
-  \frac{1}{2} \sum_{i \in k} \left( n_i - q \right) \tilde{V}_i^l
-       +
-       \frac{1}{2} \sum_{j \in l} \left( n_j - q \right) \tilde{V}_j^k \, ,
+       \right] \, ,
 \end{split}
 \end{equation}
-and the one-cell mean field Hamiltonian becomes
+and, introducing the mean field for dot $i$ on cell $k$,
+\begin{equation}
+  \label{eq:V_meanfield}
+  \tilde{V}_i^k
+  = \sum_{l \ne k} \sum_{j \in l} \left( \left< n_j \right> - q \right)
+  = \sum_{l \ne k} \mathcal{F} \left[ \left< P_l \right> \right] \, ,
+\end{equation}
+the one-cell mean field Hamiltonian becomes
 \begin{equation}
   \label{eq:H_meanfield}
-  H_{mf} = H^c + \sum_i \left( n_i - q \right) \left( \sum_l \tilde{V}_i^l(\left<P_l\right>) \right) \, .
+  H^{\mathrm{MF}}_k
+  = - H^c_k + \sum_{i \in k} \left( n_i - q \right) \tilde{V}_i^k \, .
 \end{equation}
 Because the cell polarization is directly related to the occupancies of the
-sites of the cell, we have $\tilde{V}_i^l = \tilde{V}_i^l(\left<P_l\right>)$.
-Solving the one-cell Hamiltonian allows to compute to polarization $\left< P
-\right>$ of the cell which in turn is used to set the mean field $\sum_l
-\tilde{V}_i^l(\left<P_l\right>)$, with $\left<P_l\right> = \left<P\right>$,
-originating from all other cells. The procedure is repeated until a
-self-consistent cell polarization and thus self-consistent solution for
-Eq.~\eqref{eq:H_meanfield} is found. By using, for example $n_i n_j \sim
-\frac{1}{2} n_i \left< n_j \right> + \frac{1}{2} \left< n_i \right> n_j$, mean
-field approximations neglect quantum fluctuations. Only at high dimensionality
-can these fluctuations really average to zero and indeed mean field schemes can
-be shown to become exact in the limit of infinite dimensionality \cite{Fehske}.
-Conversely, for low dimensional systems fluctuations are more important and mean
-field approximations are intuitively expected not to work very well. As
-uncontrolled approximations the validity of mean field approaches needs to be
-verified on a case by case basis. Because QCA is quasi-one-dimensional it is
-arguably not well-suited for a mean field treatment. Even then a mean field
-approximation might be appropriate as a first stab at the problem. However, the
-infinite wire discussed above provides a simple example where ICHA already goes
-wrong. We argued that due to entropy the infinite wire can only be ordered at
-zero temperature. In contrast, a mean field approximiation will predict order up
-to a finite critical temperature. ICHA was introduced in the very first QCA
-paper. The approximation was never verified or complemented by more accurate
+sites of the cell, we have $\tilde{V}_i^k = \tilde{V}_i^k(\left<P_l\right>)$.
+Solving the one-cell Hamiltonian allows to compute to polarization $\left< P_k
+\right>$ of the cell which in turn is used to set the mean field originating
+from all other cells. The procedure is repeated until a self-consistent cell
+polarization and thus self-consistent solution for
+Equation~\eqref{eq:H_meanfield} is found. By using $n_i n_j \approx n_i \left<
+n_j \right> + \left< n_i \right> n_j$ mean field approximations neglect quantum
+fluctuations. Only at high dimensionality can these fluctuations really average
+to zero and indeed mean field schemes can be shown to become exact in the limit
+of infinite dimensionality \cite{Fehske}.  Conversely, for low dimensional
+systems fluctuations are more important and mean field approximations are
+intuitively expected not to work very well. As an uncontrolled approximation the
+validity of a mean field approach has to be verified on a case by case basis.
+Consequently, because QCA is quasi-one-dimensional it is arguably not
+well-suited for a mean field treatment. Even then a mean field approximation
+might be appropriate as a first stab at the problem. But ICHA, having been introduced
+in the very first QCA paper, was never verified or complemented by more accurate
 methods. It is rather remarkable that a large part of the existing work on QCA
 characterization rests, directly or indirectly, on an approximation that can
 reasonably be expected to give wrong results. And indeed, in the context of the
-dynamic properties of QCA it has been known for a long time that ICHA gives
-qualitatively wrong results \cite{toth2001role}. Much more recently, it has been
-shown very explicitly that even for the single cell-cell response ICHA
-introduces artifacts that are clearly non-physical
-\cite{taucer2012consequences}.
+dynamic properties of QCA it has been known for a long time that ICHA does go
+wrong \cite{toth2001role}. Much more recently, it has been shown very explicitly
+that even for the single cell-cell response ICHA introduces artefacts that are
+clearly non-physical \cite{taucer2012consequences}. As an intuitive simple
+example where ICHA will give wrong results we can go back to the infinitely long
+wire we already discussed above: We argued that due to entropy the infinite wire
+can only be ordered at zero temperature. In contrast, a mean field approximation
+will predict order up to a finite critical temperature. 
 % TODO: more detail, why do we expect the mean field approach to give a finite
 % critical temperature for the infinite wire. Can I use an analogy to the
 % three-dimensional classical Ising model --- where mean-field works pretty
@@ -568,14 +592,14 @@ introduces artifacts that are clearly non-physical
 % dimensions
 
 For the calculation of time-dependent properties the two-states-per-cell
-approximation is typically used, precisely because it was realized that ICHA
-does give wrong results, for example for the switching behaviour of some
+approximation is typically used, precisely because it was realized that ICHA is
+not sufficient, for example to calculate the switching behaviour of some
 majority gate structures. Perplexingly, in the literature the two-state
 approximation is motivated and justified by the ICHA picture
-\cite{tougaw1996dynamic}. Starting from the observation that wires are polarized
-with a \emph{saturation} polarization (in ICHA calculations), a cell is
-represented by two basis states, corresponding to $P = P_{sat}$ and $P = -
-P_{sat}$. In a loose sense, the two-states-per-cell model thus comes from a
+\cite{tougaw1996dynamic}. Starting from the observation that cells in a wire are
+polarized with a saturation polarization $P_{sat}$---in ICHA calculations---a
+cell is represented by two basis states, corresponding to $P = P_{sat}$ and $P =
+- P_{sat}$. In a loose sense, the two-states-per-cell model thus comes from a
 picture of how we would like QCA to work: Perfectly bistable, interacting cells.
 The approximation has been verified to the extent that it was shown that the
 ground state of the full quantum mechanical model can be represented nearly
@@ -584,16 +608,16 @@ set of system parameters. In a more rigorous treatment it should be possible to
 clearly derive the two-state model as the correct emerging low-energy
 Hamiltonian from the original extended Hubbard model. Such a derivation would
 also work out the parameter regime where the effective two-state Hamiltonian is
-valid. We will attempt it in due course. In contrast to ICHA the
+valid. We will attempt the derivation in due course. In contrast to ICHA the
 two-states-per-cell approximation retains inter-cell entanglement and therefore
 yields more correct results, not only for dynamics, but also for
-time-independent properties. As the price the two-state model scales
-exponentially, whereas ICHA scales linearly in system size.  Therefore, even
-with the two-state approximation only relatively small QCA devices are
-computationaly feasible. As a last note, the two-state model is clearly very
+time-independent properties. This comes at the cost of exponential scaling for
+the two-state model, whereas ICHA scales linearly in system size. Therefore,
+even with the two-state approximation only relatively small QCA devices are
+computationally feasible. As a last note, the two-state model is clearly very
 similar to a transverse field quantum Ising model, where the two polarization
 states correspond to a pseudo spin and the hopping is like a transverse field,
-flipping the cell polarizations.
+flipping cell polarizations.
 
 
 \section{Exact diagonalization}
@@ -682,27 +706,27 @@ with writing computer code. If ingenious algorithms which bring sophisticated
 physical problems to the computer are the art that excites the computational
 physicist's intellect, then writing good computer code is the craft. It is a
 curious fact that traditionally in computational condensed matter physics little
-weight has been put on coding techniques, collaboration on the code level, and
-the code itself. This not only frustrates the newcomer to the field, for it is a
-long way from a formally stated algorithm to a correct and efficient
-implementation, but also poses a more fundamental problem to science in a time
-when computing has long become an essential part of it. Scientific results
-obtained from sophisticated numerical algorithms can be difficult to verify and
-reproduce without an openly available implementation of those algorithms. But
-verification and reproducibility are core assets of the scientific process.
-Fortunately, the culture is slowly changing. In computational condensed matter
-physics, the ALPS and Abinit projects provide open implementations of a variety
-of commonly used methods and algorithms \cite{bauer2011alps}
-\cite{gonze2009abinit}. In the wider scientific community, IPython is a shining
-example of building a powerful computational tool collaboratively, with a huge
-impact across disciplines \cite{perez2007ipython}.
+weight has been put on collaboration on the code level, the development of
+common tools, coding techniques, and the code itself. This not only frustrates
+the newcomer to the field, for it is a long way from a formally stated algorithm
+to a correct and efficient implementation, but also poses a more fundamental
+problem to science in a time when computing has long become an essential part of
+it. Scientific results obtained from sophisticated numerical algorithms can be
+difficult to verify and reproduce without an openly available implementation of
+those algorithms. But verification and reproducibility are core assets of the
+scientific process.  Fortunately, the culture is slowly changing. In
+computational condensed matter physics, the ALPS and Abinit projects provide
+open implementations of a variety of commonly used methods and algorithms
+\cite{bauer2011alps} \cite{gonze2009abinit}. In the wider scientific community,
+IPython is a shining example of building a powerful computational tool
+collaboratively, with a huge impact across disciplines \cite{perez2007ipython}.
 
 Our QCA exact diagonalization implementation is written in C++ and uses the
 excellent Eigen linear algebra library \cite{eigen}. Matrices are stored in
 sparse representation, except for the block-wise diagonalization itself,
 performed by Eigen, where we use dense matrices. The basis states can be
-filtered and sorted, e.g.\ to truncate the Hilbert space to a specific charge
-sector and to exploit symmetries. We do not build the Hamiltonian matrix
+filtered and sorted, for example to truncate the Hilbert space to a specific
+charge sector and to exploit symmetries. We do not build the Hamiltonian matrix
 directly, but instead construct creation and annihilation operator matrices.
 Therefore, operators such as the Hamiltonian and the polarization can be
 expressed in an intuitive, almost mathematical notation. We employ the curiously
@@ -719,21 +743,22 @@ output and storage becomes a breeze, especially compared to the chore these
 tasks are in pure C++. Python makes it easy to script and distribute (i.e.\
 simply parallelize) simulation runs, and, being well established in the
 scientific community, comes with extensive libraries for data analysis and
-plotting, e.g.\ SciPy and Matplotlib \cite{scipy} \cite{hunter2007matplotlib}.
-Consequently, the integration with Python facilitates quickly trying out new
-ideas, implementing new features and more fluid data analysis. The advent of the
-fantastic IPython notebook ties all of these pieces together in a consistent,
-productive and highly enjoyable workflow \cite{perez2007ipython}. The IPython
-notebook is also an apt format for effectively communicating results with
-colleagues. The disadvantages of the Python integration are the additional
-dependencies, although both Python and Boost are commonly available on any
-number of platforms these days, and the more involved (and hence error-prone)
-build process. We have written a small Python library to support our data
-storage and organization needs. The library facilitates storing and retrieving
-data in standard file formats and allows to define and run ``numerical
-experiments,'' which can be distributed across multiple computers. Both the QCA
-exact diagonalization code and the Python library are available under an open
-license on GitHub \cite{githubqca} \cite{githubcoma}.
+plotting, for example SciPy and Matplotlib \cite{scipy}
+\cite{hunter2007matplotlib}. Consequently, the integration with Python
+facilitates quickly trying out new ideas, implementing new features and more
+fluid data analysis. The advent of the fantastic IPython notebook ties all of
+these pieces together in a consistent, productive and highly enjoyable workflow
+\cite{perez2007ipython}. The IPython notebook is also an apt format for
+effectively communicating results with colleagues. The disadvantages of the
+Python integration are the additional dependencies, although both Python and
+Boost are commonly available on any number of platforms these days, and the more
+involved (and hence error-prone) build process. We have written a small Python
+library to support our data storage and organization needs. The library
+facilitates storing and retrieving data in standard file formats and allows to
+define and run ``numerical experiments,'' which can be distributed across
+multiple computers. Both the QCA exact diagonalization code and the Python
+library are available under an open license on GitHub \cite{githubqca}
+\cite{githubcoma}.
 
 
 
@@ -825,10 +850,6 @@ license on GitHub \cite{githubqca} \cite{githubcoma}.
 
 
 % TODO:
-% Emphasize somewhere that by using the Hubbard model our calculations and results
-% might not be applicable to QCA implementations that are decidedly not
-% well-described by Hubbard physics.
-%
 % Maybe explicitly mention quasiadiabatic switching.
 % 
 % Rethink / rewrite clocking: How the gate voltage changes the barrier.

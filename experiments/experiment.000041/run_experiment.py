@@ -13,18 +13,26 @@ def define_parameters(e):
             ('mu', 'parameters/mu'),
             ('N', 'parameters/layout/N'),
             ('V1', 'parameters/layout/V1'),
-            ('boa', 'parameters/layout/boa'))
-    
-    e.add_parameter_set('QcaBond',1E6,0,1,30,2)
-    e.add_parameter_set('QcaFixedCharge',1E6,0,1,30,2)
+            ('boa', 'parameters/layout/boa'),
+            ('q', 'parameters/q'))
 
-    e.add_parameter_set('QcaBond',1E6,0,2,20,2)
-    e.add_parameter_set('QcaFixedCharge',1E6,0,2,20,2)
-    e.add_parameter_set('QcaBond',1E6,0,2,100,2)
-    e.add_parameter_set('QcaFixedCharge',1E6,0,2,100,2)
+    e.add_parameter_set('QcaBond',1E6,0,1,20,2,0)
+    e.add_parameter_set('QcaFixedCharge',1E6,0,1,20,2,0)
     
-    e.add_parameter_set('QcaFixedCharge',1000,250,2,100,2)
-    e.add_parameter_set('QcaGrandCanonical',1000,250,2,100,2)
+    e.add_parameter_set('QcaBond',1E6,0,1,30,2,0)
+    e.add_parameter_set('QcaFixedCharge',1E6,0,1,30,2,0)
+
+    e.add_parameter_set('QcaBond',1E6,0,2,20,2,0)
+    e.add_parameter_set('QcaFixedCharge',1E6,0,2,20,2,0)
+    e.add_parameter_set('QcaBond',1E6,0,2,100,2,0)
+    e.add_parameter_set('QcaFixedCharge',1E6,0,2,100,2,0)
+    
+    e.add_parameter_set('QcaFixedCharge',1000,250,2,100,2,0)
+    e.add_parameter_set('QcaGrandCanonical',1000,250,2,100,2,0)
+
+    e.add_parameter_set('QcaIsing',1E6,0,1,100,4,0.5)
+    e.add_parameter_set('QcaBond',1E6,0,1,100,4,0.5)
+    e.add_parameter_set('QcaFixedCharge',1E6,0,1,100,4,0.5)
 
 def run_it(p):
     print('Running for parameters: {}'.format(p))
@@ -36,8 +44,11 @@ def run_it(p):
         s = qca.QcaFixedCharge()
     elif p.model == 'QcaGrandCanonical':
         s = qca.QcaGrandCanonical()
+    elif p.model == 'QcaIsing':
+        s = qca.QcaIsing()
     s.V0 = p.V0
     s.mu = p.mu
+    s.q = p.q
     s.T = 1
     s.l = qca.Wire(p.N,p.V1,p.boa,1)
     s.init()

@@ -27,8 +27,8 @@ def define_parameters(e):
         e.add_parameter_set('QcaFixedCharge',1E6,2,100,2,round(T,4))
     for T in np.linspace(0,50,100):
         e.add_parameter_set('QcaFixedCharge',1000,2,100,2,T)
-    # for T in np.linspace(0,50,100):
-    #     e.add_parameter_set('QcaGrandCanonical',1000,2,100,2,T)
+    for T in np.linspace(0,50,100):
+        e.add_parameter_set('QcaGrandCanonical',1000,2,100,2,T)
 
 def run_it(p):
     print('Running for parameters: {}'.format(p))

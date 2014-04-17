@@ -1,5 +1,6 @@
 *.swp
 *.aux
+*.pyc
 phd_thesis.bbl
 phd_thesis.blg
 phd_thesis.log

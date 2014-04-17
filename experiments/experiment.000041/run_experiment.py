@@ -17,6 +17,11 @@ def define_parameters(e):
     
     e.add_parameter_set('QcaBond',1E6,0,1,30,2)
     e.add_parameter_set('QcaFixedCharge',1E6,0,1,30,2)
+
+    e.add_parameter_set('QcaBond',1E6,0,2,20,2)
+    e.add_parameter_set('QcaFixedCharge',1E6,0,2,20,2)
+    e.add_parameter_set('QcaBond',1E6,0,2,100,2)
+    e.add_parameter_set('QcaFixedCharge',1E6,0,2,100,2)
     
     e.add_parameter_set('QcaFixedCharge',1000,250,2,100,2)
     e.add_parameter_set('QcaGrandCanonical',1000,250,2,100,2)
@@ -63,4 +68,4 @@ def run_experiment(reset=False):
     print('Ran {} out of {} measurements'.format(r,t))
 
 if __name__ == '__main__':
-    run_experiment(True)
+    run_experiment(False)

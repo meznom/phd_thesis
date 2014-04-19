@@ -34,6 +34,14 @@ def define_parameters(e):
     e.add_parameter_set('QcaBond',1E6,0,1,100,4,0.5)
     e.add_parameter_set('QcaFixedCharge',1E6,0,1,100,4,0.5)
 
+    V1s = [100,200]
+    boas = [1.2,2,3,4,5]
+    for V1 in V1s:
+        for boa in boas:
+            e.add_parameter_set('QcaIsing',1E6,0,2,V1,boa,0.5)
+            e.add_parameter_set('QcaBond',1E6,0,2,V1,boa,0.5)
+            e.add_parameter_set('QcaFixedCharge',1E6,0,2,V1,boa,0.5)
+
 def run_it(p):
     print('Running for parameters: {}'.format(p))
 

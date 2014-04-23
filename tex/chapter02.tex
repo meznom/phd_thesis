@@ -169,58 +169,20 @@ This effective hopping term is precisely the transverse field $\gamma$ which
 flips the spin in the Ising picture, $-\gamma S^x_k = -\gamma \frac{1}{2} \left(
 S^+_k + S^-_k \right)$.
 
-Using the basis depicted in Fig.~\ref{fig:bond} the single-cell bond Hamiltonian
-is very simple and can be written down explicitly. \ldots
-
-
-
-
-
-
-
-
-To arrive at only two states per cell, we follow a similar prescription as for
-the \emph{fixed} charge and \emph{bond} approximations: We neglect high energy
-states which are assumed to be gapped out, in this case, the four edge states
-with Coulomb energy $V_1 = V_0 + \Delta V$, $\ket{3}, \ket{4}, \ket{5}$, and
-$\ket{6}$ in Fig.~\ref{fig:bond}. We only keep the low energy states $\ket{1}$
-and $\ket{2}$ with Coulomb energy $V_0$. Therefore, we require $\Delta V \gg T$.
-For the \emph{fixed} charge and \emph{bond} approximation we had only truncated
-the Hilbert space, but the Hamiltonian had remained unchanged, apart from
-removing no longer relevant terms, such as the chemical potential term or the
-Hubbard $U$ term. The retained states were exactly the same states as in the
-full, untruncated model. The situation is more complex in the case of the Ising
-approximation. Simply discarding high energy states while keeping the same
-Hamiltonian is not sufficient, for the two states $\ket{1}$ and $\ket{2}$ would
-not interact in any way. We need to derive an effective hopping term between the
-two states. The Ising approximation has to be derived as an effective low-energy
-model from the \emph{bond} Hamiltonian.
-
-For each cell $k$ the two retained low energy states can be identified with a
-pseudo spin $\sigma^z_l$. More precisely, logic 0 corresponds to $\downarrow$
-and logic 1 to $\uparrow$, see Fig.~\ref{fig:cells2}(b). We had already seen in
-the last chapter that in the absence of inter-cell hopping the QCA Hamiltonian
-and thus also the simplified bond Hamiltonian, Eq.~\ref{eq:H_bond}, can be
-decomposed into single-cell and cell-cell terms,
-\begin{equation}
-  \label{eq:H_cell_}
-  H = - \sum_k H^c_k + \sum_{k<l} H^{cc}_{kl} \, .
-\end{equation}
-If the transverse field Ising model is a valid description of QCA systems, then
-we expect the single cell term $H^c_k$ to map to a transverse field term
-$-\gamma \sigma^x_k$ and the cell-cell term $H^{cc}_{kl}$ to an Ising term
-$J_{kl} \sigma^z_k \sigma^z_l$. We will now first look at the single-cell term
-and then at the cell-cell interaction term.
-
-To derive an effective Hamiltonian for the two-states-per-cell QCA basis we
-consider the \emph{bond} Hamiltonian, Eq.~\ref{eq:H_bond} for a single cell.
-Using the basis depicted in Fig.~\ref{fig:bond} the single cell Hamiltonian
-matrix is very simple and can be written down explicitly.
+A single QCA cell is described by the time-independent Schr\"odinger equation
+$H^c_k \ket{\psi} = E_k \ket{\psi}$, with $\ket{\psi} = \left[ \ket{\psi_P}
+\ket{\psi_Q} \right]$. Our aim it to truncate the basis to $\ket{\psi_P}$ and
+derive and an effective Hamiltonian $\tilde{H}^c_k$ with the subspace
+Schr\"odinger equation $\tilde{H}^c_k \ket{\psi_p} = E_k \ket{\psi_p}$. The
+high-energy states $\ket{\psi_Q}$ have to be incorporated as virtual
+excitations.  Using the basis depicted in Fig.~\ref{fig:bond} the single-cell
+bond Hamiltonian is very simple and can be written down explicitly. As the
+single-cell Hamiltonian is the same for all cells, we can drop the index $k$.
 %
 \begin{equation}
 \begin{split}
   \label{eq:H_marix}
-  H
+  H^c
   &=
   %
   \left(
@@ -245,12 +207,11 @@ matrix is very simple and can be written down explicitly.
 \end{split}
 \end{equation}
 %
-Our aim is to truncate the basis to $\ket{\psi_P} = \left\{ \ket{1}, \ket{2}
-\right\}$ and derive an effective Hamiltonian $\tilde{H}$ (with $\tilde{H}
-\ket{\psi_p} = E \ket{\psi_p}$) which incorporates
-virtual excitations to the high energy states $\ket{\psi_Q} = \left\{ \ket{3},
-\ket{4}, \ket{5}, \ket{6} \right\}$. The time-independent Schr\"odinger equation
-$H \ket{\psi} = E \psi$ is written
+Here, we have partitioned the Hamiltonian into four blocks, $H_{PP}$, $H_{QQ}$,
+$H_{PQ}$, and $H_{QP}$, corresponding to the low-energy subspace $\ket{\psi_P}$,
+the high-energy subspace $\ket{\psi_Q}$, and transitioning between the subspaces.
+With a this partitioned Hamiltonian the time-independent Schr\"odinger equation
+is
 %
 \begin{equation}
   \label{eq:SE}
@@ -272,8 +233,8 @@ $H \ket{\psi} = E \psi$ is written
   %
 \end{equation}
 %
-Writing out the two matrix equations explicitly and eliminating $\ket{\psi_Q}$
-yields 
+Writing out the matrix equation as two equations explicitly and eliminating
+$\ket{\psi_Q}$ yields 
 %
 \begin{equation}
   H_{PP} \ket{\psi_P} + H_{PQ} \frac{1}{E - H_{QQ}} H_{QP} \ket{\psi_P}
@@ -285,16 +246,18 @@ and therefore
 %
 \begin{equation}
   \label{eq:H_effective}
-  \tilde{H} = H_{PP} + H_{PQ} \frac{1}{E - H_{QQ}} H_{QP} \, .
+  \tilde{H}^c = H_{PP} + H_{PQ} \frac{1}{E - H_{QQ}} H_{QP} \, .
 \end{equation}
 %
 Assuming that the system is predominantly in the subspace spanned by
-$\ket{\psi_P}$ and additionally that the hopping is very small, $t \ll V_1$, we
-can write $E \approx V_0$. The effective Hamiltonian becomes
+$\ket{\psi_P}$ and additionally that the hopping is very small, $t \ll V_0$, we
+can approximate $E \approx V_0$. We write out the matrix multiplications and use
+$H_{PP} = \left( V_0 \right)_{ii} \delta_{ij}$, $H_{PQ} = \left( -t
+\right)_{ij}$, and so on. The effective Hamiltonian becomes
 %
 \begin{equation}
 \begin{split}
-  \tilde{H}_{ij}
+  \tilde{H}^c_{ij}
   %
   &=
   \left( V_0 \right)_{ii} \delta_{ij}
@@ -304,16 +267,16 @@ can write $E \approx V_0$. The effective Hamiltonian becomes
   %
   &=
   \left( V_0 \right)_{ii} \delta_{ij}
-  - \left( \frac{4 t^2}{\Delta V} \right)_{ij} \, ,
+  - \left( \frac{4 t^2}{\Delta V} \right)_{ij} \, .
 \end{split}
 \end{equation}
 %
-where we have used $\Delta V = V_1 - V_0$, $H_{PP} = \left( V_0 \right)_{ii} \delta_{ij}$, $H_{PQ} =
-\left( -t \right)_{ij}$, and so on. We can subtract the constant diagonal term
-$\tilde{H}_{ii} = V_0 - \frac{4 t^2}{\Delta V}$ and arrive at
+As the system remains unchanged upon adding a constant term to the Hamiltonian,
+we can subtract the constant diagonal term $\tilde{H}_{ii} = V_0 - \frac{4
+t^2}{\Delta V}$, and arrive at
 %
 \begin{equation}
-  \tilde{H}
+  \tilde{H}^c
   =
   \begin{pmatrix}
     0 & - \frac{4 t^2}{\Delta V} \\
@@ -321,32 +284,57 @@ $\tilde{H}_{ii} = V_0 - \frac{4 t^2}{\Delta V}$ and arrive at
   \end{pmatrix} \, .
 \end{equation}
 %
-Comparing this with the transverse field term of the Ising model, 
+The off-diagonal matrix elements are the effective hopping, transitioning the
+system between its two states $\ket{1} \leftrightarrow \ket{2}$. If we now
+compare this matrix with the transverse field term of the Ising model, where we
+use the basis $\ket{\downarrow} \doteq \ket{1}$ and $\ket{\uparrow} \doteq
+\ket{2}$, 
 %
 \begin{equation}
-  H_k = - \gamma \sigma^x_k = - \gamma \frac{1}{2} \left( \sigma^+_k + \sigma^-_k \right)
+  H^c = - \gamma S^x_k = - \gamma \frac{1}{2} \left( S^+_k + S^-_k \right)
   = 
   \begin{pmatrix}
     0 & - \frac{1}{2} \gamma \\
     - \frac{1}{2} \gamma & 0 \\
-  \end{pmatrix}
+  \end{pmatrix} \, ,
 \end{equation}
 %
-where we have used the basis $\ket{1} \doteq \ket{\downarrow}$ and $\ket{2}
-\doteq \ket{\uparrow}$, we identify
+we identify the effective hopping as the transverse field $\gamma$
 %
 \begin{equation}
   \gamma = \frac{8 t^2}{\Delta V} \, .
 \end{equation}
 %
-% TODO: use S^z instead of \sigma^z for the spin operators
-% TODO: explain that \Delta V = \ldots and is independent of q
-% TODO: explain that we do not need the multi-pole expansion and J to use the
-% two-states-per-cell basis
-% TODO: summarize what assumptions go into the derivation
+The effective hopping $\gamma$ is a virtual process, involving two hopping
+processes in the original bond model, yielding the $t^2$ in the numerator of the
+expression for $\gamma$, and an interim high-energy state gapped out by $\Delta
+V$, hence the $\Delta V$ in the denominator. To arrive at the expression for the
+effective hopping we used the assumptions $\Delta V \gg T$ and $t \ll \Delta V$.
+As a reminder, $\Delta V = V_1 - V_0 = \frac{2 - \sqrt{2}}{2} \frac{1}{a}
+\approx 0.3 V_1$. Notably, the energy gap is independent of the compensation
+charge $q$. As the derivation used only a single cell, it is also implicitely
+assumed that the perturbations from other cells in the system are small, at
+least as far as the effective hopping is concerned. If the hopping depended on
+nearby cells' state, then the effective Hamiltonian would be much more involved
+and certainly could not be mapped to an Ising-like model.
 
-We now turn our attention to the cell-cell interaction term $H^{cc}_{kl}$ which
-is 
+We have successfully derived an effective hopping term and therefore also an
+effective two-state model for the QCA Hamiltonian. With only two states per cell
+the Hilbert space scales as $N_s = 2^{N_c}$ ($N_c$ the number of cells) and up
+to 14 cells are computationally feasible, with memory requirements of 2GB. In
+practice we restrict the calculations to a maximum of 12 or 13 cells. For our
+calculations we can use the two-state approximation with the effective hopping
+term, but still retain the original cell-cell interaction term $H^{cc}_{kl}$.
+Summing up all cell-cell interactions exactly is no problem for the relatively
+small system sizes accessible with exact diagonalization.  Thus, from a
+computational point of view, nothing is gained by expressing the cell-cell
+interaction as an Ising interaction. However, deriving $J_{kl}$ from
+$H^{cc}_{kl}$ is very rewarding conceptually and enables us to properly map the
+QCA approach to an Ising model. Additionally, an analytical expression for
+$J_{kl}$ will already allow some key insights into the characteristics of QCA
+devices. Therefore, we now undertake the derivation of an approximate expression
+for $J_{kl}$ via a multipole expansion. The obvious starting point is the
+cell-cell interaction term $H^{cc}_{kl}$, 
 %
 \begin{equation}
 \begin{split}
@@ -367,53 +355,52 @@ is
 %
 where $i$ and $j$ sum over the four dots $1\ldots4$ of cell $k$ and $l$,
 respectively; $\bm{R}_{kl}$ denotes the vector between the centres of the cells,
-see Fig.~\ref{fig:cells2}(a). The cell-cell interaction term can be rewritten as
+see Fig.~\ref{fig:cells2}(a). Dropping the constant $q^2$ terms and omitting
+the indices $k$ and $l$ for brevity, we rewrite the interaction term as
 %
 \begin{equation}
 \begin{split}
-  V &= 
-  \frac{e^2}{4\pi\epsilon} \sum_{ij} \frac{(n_i-q) (n_j-q)}
+  H^{cc}
+  &= 
+  \sum_{ij} \frac{(n_i-q) (n_j-q)}
   {\left| \bm{R} + \bm{r}_j - \bm{r}_i \right|} \\
   %
   &=
-  \frac{e^2}{4\pi\epsilon} \sum_{ij} \frac{n_i n_j - q (n_i + n_j) + q^2}
+  \sum_{ij} \frac{n_i n_j - q (n_i + n_j) + q^2}
   {\left| \bm{R} + \bm{r}_{ij} \right|} \\
   %
   &=
-  \frac{e^2}{4\pi\epsilon} \sum_{ij} \frac{n_i n_j - q (n_i + n_j)}{R}
+  \sum_{ij} \frac{n_i n_j - q (n_i + n_j)}{R}
   \left( 
   1 + 2 \frac{\bm{r}_{ij} \hat{\bm{R}}}{R} + \frac{r_{ij}^2}{R^2}
-  \right)^{-1/2} \, ,
+  \right)^{-1/2} \, .
 \end{split}
 \end{equation}
 %
-where we dropped the constant $q^2$ terms. Introducing $x = 2 \frac{\bm{r}_{ij}
-\hat{\bm{R}}}{R}$ and $y = \frac{r_{ij}^2}{R^2}$, we expand $\left( 1 \pm x + y
-\right)^{-\frac{1}{2}}$ and keep only terms up to
-$\mathcal{O}\left(\frac{a^4}{R^5}\right)$. There are only four possibilities for
-two interacting cells: $\uparrow\uparrow$, $\downarrow\downarrow$,
-$\uparrow\downarrow$, and $\downarrow\uparrow$. Using this multipole expansion
-the four
-corresponding energies $V^{\uparrow\uparrow}_{kl}$, $V^{\downarrow\downarrow}_{kl}$,
-$V^{\uparrow\downarrow}_{kl}$, and $V^{\downarrow\uparrow}_{kl}$ can be calculated
-separately. Due to the inherent geometrical symmetries of the problem and due to
-the vanishing dipole moments of the two cell states $\uparrow$ and
-$\downarrow$, the obtained expressions are not too unwieldy. It turns out that
-$V^{\uparrow\downarrow}_{kl} = V^{\downarrow\uparrow}_{kl}$, but 
-$V^{\uparrow\uparrow}_{kl} \ne V^{\downarrow\downarrow}_{kl} \ne V^{\uparrow\downarrow}_{kl}$. Hence we have a
-three-level system which we cannot hope to represent by a solely two-level
-Ising term $J_{kl} S^z_k S^z_l$. Instead we try to map to a
-cell-cell Hamiltonian of the form
+Introducing $x = 2 \frac{\bm{r}_{ij} \hat{\bm{R}}}{R}$ and $y =
+\frac{r_{ij}^2}{R^2}$, we expand $\left( 1 \pm x + y \right)^{-\frac{1}{2}}$ and
+keep only terms up to $\mathcal{O}\left(\frac{a^4}{R^5}\right)$. There are only
+four possibilities for two interacting cells: $\uparrow\uparrow$,
+$\downarrow\downarrow$, $\uparrow\downarrow$, and $\downarrow\uparrow$. Using
+this multipole expansion the four corresponding energies $V^{\uparrow\uparrow}$,
+$V^{\downarrow\downarrow}$, $V^{\uparrow\downarrow}$, and
+$V^{\downarrow\uparrow}$ can be calculated separately. Due to the inherent
+geometrical symmetries of the problem and due to the vanishing dipole moments of
+the two cell states $\uparrow$ and $\downarrow$, the obtained expressions are
+not too unwieldy. It turns out that $V^{\uparrow\downarrow} =
+V^{\downarrow\uparrow}$, but $V^{\uparrow\uparrow} \ne V^{\downarrow\downarrow}
+\ne V^{\uparrow\downarrow}$. Hence we have a three-level system which we cannot
+hope to represent by a solely two-level Ising term $J S^z_k S^z_l$. Instead we
+try to map to a modified Ising model with a cell-cell interaction term of the
+form
 %
 \begin{equation}
-  % TODO: tilde?
-  H^{cc}_{kl} = 
-  J_{kl} S^z_k S^z_l + 
-  J^{\prime}_{kl} \left( S^z_k + S^z_l \right) \, .
+  H^{cc} = 
+  J S^z_k S^z_l + 
+  J^{\prime} \left( S^z_k + S^z_l \right) \, .
 \end{equation}
 %
-For this Hamiltonian we have the energies (omitting the indices $k$ and $l$ for
-brevity)
+For this Hamiltonian we have the energies
 %
 \begin{align}
   E^{\uparrow\uparrow} - E^{\uparrow\downarrow} &= 2J + 2J^{\prime} \\
@@ -432,65 +419,67 @@ which yields
   \left( E^{\uparrow\uparrow} - E^{\downarrow\downarrow} \right) \, .
 \end{align}
 %
-By identifying $E^{\uparrow\uparrow} = V^{\uparrow\uparrow}_{kl}$,
-$E^{\downarrow\downarrow} = V^{\downarrow\downarrow}_{kl}$, and so on, we obtain
-the final expressions
+By identifying $E^{\uparrow\uparrow} = V^{\uparrow\uparrow}$,
+$E^{\downarrow\downarrow} = V^{\downarrow\downarrow}$, and so on, and
+reintroducing the indices $k$ and $l$ for clarity, we obtain the final
+expressions
 %
 \begin{align}
   %
   %
   %
-  J
+  J_{kl}
   &=
-  \frac{ e^2 }{ 4\pi\epsilon } \frac{ 1 }{ 32 }
+  \frac{ 1 }{ 32 }
   \left(
     9 - 105 \cos{4 \theta}
   \right)
-  \frac{ a^4 }{ R^5 }
+  \frac{ a^4 }{ R_{kl}^5 }
   \\
   %
   %
   %
-  J^{\prime}
+  J^{\prime}_{kl}
   &=
-  \frac{ e^2 }{ 4\pi\epsilon }
   \left( 1 - 2 q \right)
   \left(
-    \frac{ 3 }{ 2 } \sin{2 \theta} \frac{ a^2 }{ R^3 } +
-    \frac{ 5 }{ 4 } \sin{2 \theta} \frac{ a^4 }{ R^5 }
+    \frac{ 3 }{ 2 } \sin{2 \theta} \frac{ a^2 }{ R_{kl}^3 } +
+    \frac{ 5 }{ 4 } \sin{2 \theta} \frac{ a^4 }{ R_{kl}^5 }
   \right) \, .
   %
   %
   %
 \end{align}
 %
-These results are remarkable in two ways. First, $J$ does not depend on the
-compensation charge $q$. In turn, the Heiseberg-like interaction $J_{kl}
-\sigma^z_k \sigma^z_l$ is independent of the cell net charge and represents only
-the quadrupole-quadrupole interaction, falling off as $J \sim R^{-5}$.
-Second, the $J^{\prime}$ term does depend on the compensation charge but
+These results are remarkable in two ways. First, $J_{kl}$ does not depend on the
+compensation charge $q$. In turn, the Ising interaction $J_{kl}
+S^z_k S^z_l$ is independent of the cell net charge and represents only
+the quadrupole-quadrupole interaction, falling off as $J_{kl} \sim R_{kl}^{-5}$.
+Second, the $J^{\prime}_{kl}$ term does depend on the compensation charge but
 vanishes for $q = \frac{1}{2}$, that is, charge neutral cells. For charge
 neutral cells QCA therefore maps directly to a normal (unmodified) Ising model.
-In all of our calculations we did not consider screening. Conceivably, in a real
-system with non-neutral cells, (static) screening might work like an effective
-compensating charge. Thus, a pure Ising model ($J^{\prime} = 0$) could very well
-be a reasonable description of a realistic QCA system.
 
-We can also look at the angle dependence of the interactions. The $J$ term is
+We can also look at the angle dependence of the interactions. The $J_{kl}$ term is
 symmetric under rotations by $90^{\circ}$---which is what we expect
-intuitively---whereas the $J^{\prime}$ is symmetric under rotations by
-$180^{\circ}$. Thus, by slowly turning on $J^{\prime}$ (by, for example, going
+intuitively---whereas the $J^{\prime}_{kl}$ is symmetric under rotations by
+$180^{\circ}$. Thus, by slowly turning on $J^{\prime}_{kl}$ (by, for example, going
 from charge neutral to effectively negatively charged cells $q = \frac{1}{2}
 \rightarrow q = 0$), we break the $90^{\circ}$ rotational invariance. It is
-important to note that the $J^{\prime}$ term also breaks the symmetry between
-spin up and spin down cells. For $J^{\prime} \ne 0$, $\uparrow\uparrow$ and
+important to note that the $J^{\prime}_{kl}$ term also breaks the symmetry between
+spin up and spin down cells. For $J^{\prime}_{kl} \ne 0$, $\uparrow\uparrow$ and
 $\downarrow\downarrow$ have different energies and therefore also different
 polarization responses. For a practical implementation this is definitely not
 what we want! At the angles $0^{\circ}, 90^{\circ}$, and $270^{\circ}$
-$J^{\prime}$ vanishes, so here we have a pure Heisenberg interaction even for $q
-\ne 0$. Conversely, $J$ also vanishes at select angels, rendering the system
+$J^{\prime}_{kl}$ vanishes, so here we have a pure Ising interaction even for $q
+\ne 0$. Conversely, $J_{kl}$ also vanishes at select angels, rendering the system
 bare any interaction for charge neutral cells, at least within the limits of our
 multipole expansion.
+
+% more about multipole, what it means, e.g. exact for large distances; that, in
+% principle, the cutoff of the expansion is arbitrary and we can make it exact
+% by including higher order terms. 
+% It would be really nice if we could should that the J' term vanishes, quite
+% generally, independent of the multipole expansion
 
 
 \section{Validity of the approximations}

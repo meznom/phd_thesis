@@ -308,6 +308,7 @@ use the basis $\ket{\downarrow} \doteq \ket{1}$ and $\ket{\uparrow} \doteq
 we identify the effective hopping as the transverse field $\gamma$
 %
 \begin{equation}
+  \label{eq:gamma}
   \gamma = \frac{8 t^2}{\Delta V} \, .
 \end{equation}
 %
@@ -338,9 +339,9 @@ interaction as an Ising interaction. However, deriving $J_{kl}$ from
 $H^{cc}_{kl}$ is very rewarding conceptually and enables us to properly map the
 QCA approach to an Ising model. Additionally, an analytical expression for
 $J_{kl}$ will already allow some key insights into the characteristics of QCA
-devices. Therefore, we now undertake the derivation of an approximate expression
-for $J_{kl}$ via a multipole expansion. The obvious starting point is the
-cell-cell interaction term $H^{cc}_{kl}$, 
+devices. Therefore, we now undertake the derivation of an expression for
+$J_{kl}$. The obvious starting point is the cell-cell interaction term
+$H^{cc}_{kl}$, 
 %
 \begin{equation}
 \begin{split}
@@ -367,44 +368,54 @@ cell-cell interaction term $H^{cc}_{kl}$,
 %
 where $i$ and $j$ sum over the four dots $1\ldots4$ of cell $k$ and $l$,
 respectively, $\bm{R}_{kl}$ denotes the vector between the centres of the cells,
-see Fig.~\ref{fig:cells2}(a). We have introduces $\bm{r}_{ij} = \bm{r}_j -
+see Fig.~\ref{fig:cells2}(a). We have introduced $\bm{r}_{ij} = \bm{r}_j -
 \bm{r}_i$ and dropped the constant $q^2$ term. There are only four possible
-configurations for two interacting cells, $\uparrow\uparrow$,
-$\downarrow\downarrow$, $\uparrow\downarrow$, and $\downarrow\uparrow$, and we can
-calculate their energies explicitely. For example, with the shorthand notations
-$V_{ij} = \frac{1}{\left| \bm{R}_{kl} + r_{ij} \right|} + \frac{1}{\left|
-\bm{R}_{kl} - r_{ij} \right|}$ and $V_{00} = \frac{1}{\left| \bm{R}_{kl}
-\right|}$, the Coulomb energy for two spin-up cells is written
-\begin{equation}
-  \label{eq:E_upup}
+configurations for two interacting cells: $\uparrow\uparrow$,
+$\downarrow\downarrow$, $\uparrow\downarrow$, and $\downarrow\uparrow$. Using
+the shorthand notations $V_{ij} = \frac{1}{\left| \bm{R}_{kl} + r_{ij} \right|}
++ \frac{1}{\left| \bm{R}_{kl} - r_{ij} \right|}$ and $V_{00} = \frac{1}{\left|
+\bm{R}_{kl} \right|}$, we calculate their energies explicitely.
+\begin{align}
   %
   E^{\uparrow\uparrow}
-  =
-  2 \left( 1 - 2 q \right) \left[ V_{00} + V_{24} \right]
-  - 2 q \left[ V_{12} + V_{14} \right] \, .
-\end{equation}
-The energy for two spin-down cells can be obtained simply by rotating the system
-by $90^{\circ}$ and thus by permutating the dot numbering in the expression
-above, $2,3,4,1 \rightarrow 1,2,3,4$. Using symmetries, for example $V_{43} =
-V_{12}$, we arrive at
-\begin{equation}
-  \label{eq:E_downdown}
+  &=
+  \left( 1 - 2 q \right) \left( 2 V_{00} + V_{24} \right)
+  - q \left( 2 V_{12} + 2 V_{14} \right)
+  \\
   %
   E^{\downarrow\downarrow}
-  =
-  2 \left( 1 - 2 q \right) \left[ V_{00} + V_{13} \right]
-  - 2 q \left[ V_{12} + V_{14} \right] \, .
-\end{equation}
-The remaining two configurations' energies can be calculated similarly and we
-find $E^{\uparrow\downarrow} = E^{\downarrow\uparrow}$, which, given the highly
-symmetric geometry of the cell arrangement, does not come as a suprise. But
-crucially, in general we have $E^{\uparrow\uparrow} \ne
-E^{\downarrow\downarrow}$. Therefore we have a system with three distinct energy
-levels which we cannot hope to represent with the solely two-level Ising term
-$J_{kl} S^z_l S^z_l$. Instead, let us try to map to a \emph{modified} Ising model
-with a three-level cell-cell interaction term of the form
+  &=
+  \left( 1 - 2 q \right) \left( 2 V_{00} + V_{13} \right)
+  - q \left( 2 V_{12} + 2 V_{14} \right)
+  \\
+  %
+  E^{\uparrow\downarrow}
+  &=
+  \left( 1 - 2 q \right) \left( V_{12} + V_{14} \right)
+  - q \left( 4 V_{00} + V_{13} + V_{24} \right)
+  \\
+  %
+  E^{\downarrow\uparrow}
+  &=
+  \left( 1 - 2 q \right) \left( V_{12} + V_{14} \right)
+  - q \left( 4 V_{00} + V_{13} + V_{24} \right)
+\end{align}
+Note that the expression for two spin-down cells can be obtained from the
+expression for two spin-up cells (and similarly ($E^{\uparrow\downarrow}$ from
+$E^{\downarrow\uparrow}$) simply by rotating the system by $90^{\circ}$, or
+equivalently by permuting the dot numbering, $1,2,3,4 \rightarrow 4,1,2,3$.
+Symmetries can be exploited, for example $V_{43} = V_{12}$. Evidently,
+$E^{\uparrow\downarrow} = E^{\downarrow\uparrow}$, which, given the highly
+symmetric geometry of those cell arrangements, does not come as a surprise. But
+crucially, we find $E^{\uparrow\uparrow} \ne E^{\downarrow\downarrow}$.
+Therefore we have a system with three distinct energy levels which we cannot
+hope to represent with the solely two-level Ising term $J_{kl} S^z_l S^z_l$.
+Instead, let us try to map to a \emph{modified} Ising model with a three-level
+cell-cell interaction term of the form
 %
 \begin{equation}
+  \label{eq:Ising_term}
+  %
   \tilde{H}^{cc}_{kl}
   = 
   J_{kl} S^z_k S^z_l + 
@@ -438,24 +449,56 @@ which yields
   J^{\prime}_{kl}
   &=
   \frac{1}{4}
-  \left( \tilde{E}^{\uparrow\uparrow} - \tilde{E}^{\downarrow\downarrow} \right) \, .
+  \left( \tilde{E}^{\uparrow\uparrow} - \tilde{E}^{\downarrow\downarrow} \right) \, ,
 \end{align}
 %
-To map the bond cell-cell interaction $H^{cc}_{kl}$ to the modified Ising
-interaction term we identify $E^{\uparrow\uparrow} =
-\tilde{E}^{\uparrow\uparrow}, E^{\downarrow\downarrow} =
-\tilde{E}^{\downarrow\downarrow}$, and so on. The newly introduced
-$J^{\prime}_{kl}$ term tracks the difference between $E^{\uparrow\uparrow}$ and
-$E^{\downarrow\downarrow}$. Going back to the expressions \eqref{eq:E_upup} and
-\eqref{eq:E_downdown} we realize that for $q = \frac{1}{2}$---charge neutral
-cells---they \emph{do} become equal, $E^{\uparrow\uparrow} =
-E^{\downarrow\downarrow}$, and therefore $J^{\prime}_{kl} = 0$. This is an
-important result: Only for charge neutral cells does the QCA model map to a
-genuine, unmodified transverse field Ising model.
+and therefore, identifying $E^{\uparrow\uparrow} = \tilde{E}^{\uparrow\uparrow},
+E^{\downarrow\downarrow} = \tilde{E}^{\downarrow\downarrow}$, and so on,
+\begin{align}
+  \label{eq:J}
+  %
+  J_{kl}
+  &=
+  \frac{1}{4} 
+  \left(
+    4 V_{00} + V_{13} + V_{24} - 2 V_{12} - 2 V_{14}
+  \right) \\
+  %
+  \label{eq:Jprime}
+  %
+  J^{\prime}_{kl}
+  &=
+  \frac{1}{4}
+  \left( 1 - 2 q \right)
+  \left( V_{24} - V_{13} \right) \, .
+\end{align}
+These results, while abstract, are remarkable in two ways. First, the newly
+introduced term $J^{\prime}_{kl}$ vanished for $q=\frac{1}{2}$. In this case
+$E^{\uparrow\uparrow} = E^{\downarrow\downarrow}$. Thus, for charge
+neutral cells we recover the genuine, unmodified transverse field Ising model.
+Second, the Ising $J_{kl}$ itself is independent of the compensation charge $q$.
+We will see that $J_{kl}$ is the quadrupole-quadrupole cell interaction, to
+leading order. In a sense, it captures the pure QCA interaction. With the above
+equations we can also already look at rotational symmetries of $J_{kl}$ and
+$J^{\prime}_{kl}$: $J_{kl}$ is invariant under rotations by $90^{\circ}$ as can
+be seen by permuting the dots $1,2,3,4 \rightarrow 4,1,2,3$. This is what we
+expect intuitively. For example, a horizontal straight line of cells ($\theta
+= 0^{\circ}$) should behave exactly the same as a vertical straight line of
+cells ($\theta = 90^{\circ}$). In contrast, $J^{\prime}_{kl}$ is not invariant
+under rotations by $90^{\circ}$. In fact, applying the same dot permutation
+yields $J^{\prime}_{kl} \xrightarrow{\,\, 90^{\circ}}  - J^{\prime}_{kl}$.
+Consequently, $J^{\prime}_{kl}$ is symmetric under rotations by $180^{\circ}$.
+It is also clear that a non-zero $J^{\prime}_{kl}$ breaks the system's symmetry
+under spin rotation, that is, $\tilde{H}^{cc}_{kl}$ from
+Eq.~\eqref{eq:Ising_term} is not unchanged under $\uparrow\uparrow \rightarrow
+\downarrow\downarrow$. This has profound implications for QCA. For non-zero
+$J^{\prime}_{kl}$ we would, for example, expect different polarization responses
+for two spin-down cells versus two spin-up cells. From an application point of
+view this is definitely not what we want. For QCA operation we therefore require
+charge neutral cells and a genuine, unmodified Ising model.
 
-To obtain concrete expressions for $J_{kl}$ and $J^{\prime}_{kl}$ we do a
-multipole expansion of $E^{\uparrow\uparrow}, E^{\downarrow\downarrow},
-E^{\uparrow\downarrow}$, and $E^{\downarrow\uparrow}$. Specifically,
+To obtain more tangible expressions for $J_{kl}$ and $J^{\prime}_{kl}$ we do a
+multipole expansion of the $V_{ij}$ terms. Specifically,
 %
 \begin{equation}
 \begin{split}
@@ -471,11 +514,12 @@ E^{\uparrow\downarrow}$, and $E^{\downarrow\uparrow}$. Specifically,
 \end{equation}
 %
 is Taylor-expanded in $x$ and $y$, keeping all terms up to
-$\mathcal{O}\left(\frac{a^4}{R^5}\right)$ which corresponds to
-quadrupole-quadrupole interactions. Plugging the multipole-expanded energies
-into Eq.~\eqref{eq:Js_from_Es} yields the final expressions
+$\mathcal{O}\left(\frac{a^4}{R^5}\right)$, which corresponds to
+quadrupole-quadrupole interactions. Plugging the results of the expansion back
+into Eq.~\eqref{eq:J} and \eqref{eq:Jprime} yields
 %
 \begin{align}
+  \label{eq:J_}
   %
   J_{kl}
   &=
@@ -485,6 +529,8 @@ into Eq.~\eqref{eq:Js_from_Es} yields the final expressions
   \right)
   \frac{ a^4 }{ R_{kl}^5 }
   \\
+  %
+  \label{eq:Jprime_}
   %
   J^{\prime}_{kl}
   &=
@@ -496,8 +542,33 @@ into Eq.~\eqref{eq:Js_from_Es} yields the final expressions
   %
 \end{align}
 %
-We have successfully mapped the QCA bond Hamiltonian \eqref{eq:H_bond} to a
-modified transverse field Ising model
+The leading order term of $J_{kl}$ is $R^{-5}$, the quadrupole-quadrupole
+interaction. In contrast, the leading order term of $J^{\prime}_{kl}$ is
+$R^{-3}$ and therefore, in general, $J^{\prime}_{kl}$ would be the dominating
+term---yet another argument why a non-zero $J^{\prime}_{kl}$ is highly
+undesirable for functioning QCA devices. Of course, we find our general symmetry
+observations confirmed by these more concrete expressions for $J_{kl}$ and
+$J^{\prime}_{kl}$: The former is invariant under $90^{\circ}$ rotations, the
+latter only under rotations of $180^{\circ}$. Both terms vanish at select
+angles. For example, we have $J^{\prime}_{kl} = 0$ for $\theta = 0^{\circ}$, so
+that at least for an exactly straight line of cells we recover the unmodified
+Ising model, even for non-charge-neutral cells. This does not help when building
+more complex devices than a wire, of course, but might still be useful for some
+experiments. As another example, $J_{kl} = 0$ for $\theta = 22.5^{\circ}$.
+Conceivably, this could be exploited for device applications, to decouple
+closely spaced cells. As multipole expansions the obtained expressions for
+$J_{kl}$ and $J^{\prime}_{kl}$ should be valid for large cell-cell distances
+$R$. In principle, an arbitrary number of higher order terms can be included to
+make the expressions as exact as desired. In practice on the computer, however,
+we do not use the multipole expansion at all, but simply sum up all Coulomb
+interactions exactly. We will see in due course that for the small cell-cell
+distances we are typically interested in, an expansion up to $R^{-5}$ is indeed
+not sufficient, and higher order terms would have to be included.
+
+In summary, with the expressions for $J_{kl}$ and $J^{\prime}_{kl}$,
+\eqref{eq:J_} and \eqref{eq:Jprime_}, together with the earlier derived
+$\gamma$, Eq.~\eqref{eq:gamma}, we have successfully mapped the QCA bond
+Hamiltonian \eqref{eq:H_bond} to a modified transverse field Ising model
 \begin{equation}
   \label{eq:H_Ising}
   %
@@ -508,38 +579,8 @@ modified transverse field Ising model
     \left[
       J_{kl} S^z_k S^z_l + 
       J^{\prime}_{kl} \left( S^z_k + S^z_l \right)
-    \right] \, ,
+    \right] \, .
 \end{equation}
-which reduces to a genuine Ising model, $J^{\prime}_{kl} = 0$, in the case of
-charge neutral cells, $q = 0$.
-
-These results are remarkable in two ways. First, $J_{kl}$ does not depend on the
-compensation charge $q$. In turn, the Ising interaction $J_{kl}
-S^z_k S^z_l$ is independent of the cell net charge and represents only
-the quadrupole-quadrupole interaction, falling off as $J_{kl} \sim R_{kl}^{-5}$.
-Second, the $J^{\prime}_{kl}$ term does depend on the compensation charge but
-vanishes for $q = \frac{1}{2}$, that is, charge neutral cells. For charge
-neutral cells QCA therefore maps directly to a normal (unmodified) Ising model.
-
-We can also look at the angle dependence of the interactions. The $J_{kl}$ term is
-symmetric under rotations by $90^{\circ}$---which is what we expect
-intuitively---whereas the $J^{\prime}_{kl}$ is symmetric under rotations by
-$180^{\circ}$. Thus, by slowly turning on $J^{\prime}_{kl}$ (by, for example, going
-from charge neutral to effectively negatively charged cells $q = \frac{1}{2}
-\rightarrow q = 0$), we break the $90^{\circ}$ rotational invariance. It is
-important to note that the $J^{\prime}_{kl}$ term also breaks the symmetry between
-spin up and spin down cells. For $J^{\prime}_{kl} \ne 0$, $\uparrow\uparrow$ and
-$\downarrow\downarrow$ have different energies and therefore also different
-polarization responses. For a practical implementation this is definitely not
-what we want! At the angles $0^{\circ}, 90^{\circ}$, and $270^{\circ}$
-$J^{\prime}_{kl}$ vanishes, so here we have a pure Ising interaction even for $q
-\ne 0$. Conversely, $J_{kl}$ also vanishes at select angels, rendering the system
-bare any interaction for charge neutral cells, at least within the limits of our
-multipole expansion.
-
-% more about multipole, what it means, e.g. exact for large distances; that, in
-% principle, the cutoff of the expansion is arbitrary and we can make it exact
-% by including higher order terms. 
 
 
 \section{Validity of the approximations}

@@ -291,12 +291,18 @@ use the basis $\ket{\downarrow} \doteq \ket{1}$ and $\ket{\uparrow} \doteq
 \ket{2}$, 
 %
 \begin{equation}
-  H^c = - \gamma S^x_k = - \gamma \frac{1}{2} \left( S^+_k + S^-_k \right)
-  = 
+\begin{split}
+  \tilde{H}^c
+  &=
+  - \gamma S^x_k \\
+  &=
+  - \frac{1}{2} \gamma \left( S^+_k + S^-_k \right) \\[0.5em]
+  &= 
   \begin{pmatrix}
     0 & - \frac{1}{2} \gamma \\
     - \frac{1}{2} \gamma & 0 \\
   \end{pmatrix} \, ,
+\end{split}
 \end{equation}
 %
 we identify the effective hopping as the transverse field $\gamma$
@@ -348,85 +354,128 @@ cell-cell interaction term $H^{cc}_{kl}$,
   %
   &= 
   %
-  \sum_{\substack{i \in k\\j \in l}} \left( n_i - q \right) \left( n_j - q \right)
-  {\left| \bm{R}_{kl} + \bm{r}_j - \bm{r}_i \right|} \, ,
+  \sum_{\substack{i \in k\\j \in l}}
+  \frac{ \left( n_i - q \right) \left( n_j - q \right) }
+       { \left| \bm{R}_{kl} + \bm{r}_j - \bm{r}_i \right| } \\
+  %
+  &=
+  \sum_{\substack{i \in k\\j \in l}}
+  \frac{n_i n_j - q (n_i + n_j)}
+       {\left| \bm{R}_{kl} + \bm{r}_{ij} \right|} \, ,
 \end{split}
 \end{equation}
 %
 where $i$ and $j$ sum over the four dots $1\ldots4$ of cell $k$ and $l$,
-respectively; $\bm{R}_{kl}$ denotes the vector between the centres of the cells,
-see Fig.~\ref{fig:cells2}(a). Dropping the constant $q^2$ terms and omitting
-the indices $k$ and $l$ for brevity, we rewrite the interaction term as
-%
+respectively, $\bm{R}_{kl}$ denotes the vector between the centres of the cells,
+see Fig.~\ref{fig:cells2}(a). We have introduces $\bm{r}_{ij} = \bm{r}_j -
+\bm{r}_i$ and dropped the constant $q^2$ term. There are only four possible
+configurations for two interacting cells, $\uparrow\uparrow$,
+$\downarrow\downarrow$, $\uparrow\downarrow$, and $\downarrow\uparrow$, and we can
+calculate their energies explicitely. For example, with the shorthand notations
+$V_{ij} = \frac{1}{\left| \bm{R}_{kl} + r_{ij} \right|} + \frac{1}{\left|
+\bm{R}_{kl} - r_{ij} \right|}$ and $V_{00} = \frac{1}{\left| \bm{R}_{kl}
+\right|}$, the Coulomb energy for two spin-up cells is written
 \begin{equation}
-\begin{split}
-  H^{cc}
-  &= 
-  \sum_{ij} \frac{(n_i-q) (n_j-q)}
-  {\left| \bm{R} + \bm{r}_j - \bm{r}_i \right|} \\
+  \label{eq:E_upup}
   %
-  &=
-  \sum_{ij} \frac{n_i n_j - q (n_i + n_j) + q^2}
-  {\left| \bm{R} + \bm{r}_{ij} \right|} \\
-  %
-  &=
-  \sum_{ij} \frac{n_i n_j - q (n_i + n_j)}{R}
-  \left( 
-  1 + 2 \frac{\bm{r}_{ij} \hat{\bm{R}}}{R} + \frac{r_{ij}^2}{R^2}
-  \right)^{-1/2} \, .
-\end{split}
+  E^{\uparrow\uparrow}
+  =
+  2 \left( 1 - 2 q \right) \left[ V_{00} + V_{24} \right]
+  - 2 q \left[ V_{12} + V_{14} \right] \, .
 \end{equation}
-%
-Introducing $x = 2 \frac{\bm{r}_{ij} \hat{\bm{R}}}{R}$ and $y =
-\frac{r_{ij}^2}{R^2}$, we expand $\left( 1 \pm x + y \right)^{-\frac{1}{2}}$ and
-keep only terms up to $\mathcal{O}\left(\frac{a^4}{R^5}\right)$. There are only
-four possibilities for two interacting cells: $\uparrow\uparrow$,
-$\downarrow\downarrow$, $\uparrow\downarrow$, and $\downarrow\uparrow$. Using
-this multipole expansion the four corresponding energies $V^{\uparrow\uparrow}$,
-$V^{\downarrow\downarrow}$, $V^{\uparrow\downarrow}$, and
-$V^{\downarrow\uparrow}$ can be calculated separately. Due to the inherent
-geometrical symmetries of the problem and due to the vanishing dipole moments of
-the two cell states $\uparrow$ and $\downarrow$, the obtained expressions are
-not too unwieldy. It turns out that $V^{\uparrow\downarrow} =
-V^{\downarrow\uparrow}$, but $V^{\uparrow\uparrow} \ne V^{\downarrow\downarrow}
-\ne V^{\uparrow\downarrow}$. Hence we have a three-level system which we cannot
-hope to represent by a solely two-level Ising term $J S^z_k S^z_l$. Instead we
-try to map to a modified Ising model with a cell-cell interaction term of the
-form
+The energy for two spin-down cells can be obtained simply by rotating the system
+by $90^{\circ}$ and thus by permutating the dot numbering in the expression
+above, $2,3,4,1 \rightarrow 1,2,3,4$. Using symmetries, for example $V_{43} =
+V_{12}$, we arrive at
+\begin{equation}
+  \label{eq:E_downdown}
+  %
+  E^{\downarrow\downarrow}
+  =
+  2 \left( 1 - 2 q \right) \left[ V_{00} + V_{13} \right]
+  - 2 q \left[ V_{12} + V_{14} \right] \, .
+\end{equation}
+The remaining two configurations' energies can be calculated similarly and we
+find $E^{\uparrow\downarrow} = E^{\downarrow\uparrow}$, which, given the highly
+symmetric geometry of the cell arrangement, does not come as a suprise. But
+crucially, in general we have $E^{\uparrow\uparrow} \ne
+E^{\downarrow\downarrow}$. Therefore we have a system with three distinct energy
+levels which we cannot hope to represent with the solely two-level Ising term
+$J_{kl} S^z_l S^z_l$. Instead, let us try to map to a \emph{modified} Ising model
+with a three-level cell-cell interaction term of the form
 %
 \begin{equation}
-  H^{cc} = 
-  J S^z_k S^z_l + 
-  J^{\prime} \left( S^z_k + S^z_l \right) \, .
+  \tilde{H}^{cc}_{kl}
+  = 
+  J_{kl} S^z_k S^z_l + 
+  J^{\prime}_{kl} \left( S^z_k + S^z_l \right) \, .
 \end{equation}
 %
 For this Hamiltonian we have the energies
 %
 \begin{align}
-  E^{\uparrow\uparrow} - E^{\uparrow\downarrow} &= 2J + 2J^{\prime} \\
-  E^{\downarrow\downarrow} - E^{\uparrow\downarrow} &= 2J - 2J^{\prime}
+  \tilde{E}^{\uparrow\uparrow} - \tilde{E}^{\uparrow\downarrow}
+  &=
+  2J_{kl} + 2J^{\prime}_{kl} \\
+  %
+  \tilde{E}^{\downarrow\downarrow} - \tilde{E}^{\uparrow\downarrow}
+  &=
+  2J_{kl} - 2J^{\prime}_{kl}
 \end{align}
 %
 which yields
 %
 \begin{align}
-  J &= \frac{1}{4} 
+  \label{eq:Js_from_Es}
+  J_{kl}
+  &=
+  \frac{1}{4} 
   \left( 
-    E^{\uparrow\uparrow} + E^{\downarrow\downarrow} - 2 E^{\uparrow\downarrow} 
+    \tilde{E}^{\uparrow\uparrow} + \tilde{E}^{\downarrow\downarrow}
+    - 2 \tilde{E}^{\uparrow\downarrow} 
   \right) \\
   %
-  J^{\prime} &= \frac{1}{4}
-  \left( E^{\uparrow\uparrow} - E^{\downarrow\downarrow} \right) \, .
+  J^{\prime}_{kl}
+  &=
+  \frac{1}{4}
+  \left( \tilde{E}^{\uparrow\uparrow} - \tilde{E}^{\downarrow\downarrow} \right) \, .
 \end{align}
 %
-By identifying $E^{\uparrow\uparrow} = V^{\uparrow\uparrow}$,
-$E^{\downarrow\downarrow} = V^{\downarrow\downarrow}$, and so on, and
-reintroducing the indices $k$ and $l$ for clarity, we obtain the final
-expressions
+To map the bond cell-cell interaction $H^{cc}_{kl}$ to the modified Ising
+interaction term we identify $E^{\uparrow\uparrow} =
+\tilde{E}^{\uparrow\uparrow}, E^{\downarrow\downarrow} =
+\tilde{E}^{\downarrow\downarrow}$, and so on. The newly introduced
+$J^{\prime}_{kl}$ term tracks the difference between $E^{\uparrow\uparrow}$ and
+$E^{\downarrow\downarrow}$. Going back to the expressions \eqref{eq:E_upup} and
+\eqref{eq:E_downdown} we realize that for $q = \frac{1}{2}$---charge neutral
+cells---they \emph{do} become equal, $E^{\uparrow\uparrow} =
+E^{\downarrow\downarrow}$, and therefore $J^{\prime}_{kl} = 0$. This is an
+important result: Only for charge neutral cells does the QCA model map to a
+genuine, unmodified transverse field Ising model.
+
+To obtain concrete expressions for $J_{kl}$ and $J^{\prime}_{kl}$ we do a
+multipole expansion of $E^{\uparrow\uparrow}, E^{\downarrow\downarrow},
+E^{\uparrow\downarrow}$, and $E^{\downarrow\uparrow}$. Specifically,
+%
+\begin{equation}
+\begin{split}
+  \frac{1}{\left| \bm{R}_{kl} \pm r_{ij} \right|}
+  &=
+  \frac{1}{R}
+  \left( 
+    1 \pm 2 \frac{\bm{r}_{ij} \hat{\bm{R}}}{R} + \frac{r_{ij}^2}{R^2}
+  \right)^{-1/2} \\
+  &=
+  \frac{1}{R} \left( 1 \pm x + y \right)^{-1/2}
+\end{split}
+\end{equation}
+%
+is Taylor-expanded in $x$ and $y$, keeping all terms up to
+$\mathcal{O}\left(\frac{a^4}{R^5}\right)$ which corresponds to
+quadrupole-quadrupole interactions. Plugging the multipole-expanded energies
+into Eq.~\eqref{eq:Js_from_Es} yields the final expressions
 %
 \begin{align}
-  %
-  %
   %
   J_{kl}
   &=
@@ -437,8 +486,6 @@ expressions
   \frac{ a^4 }{ R_{kl}^5 }
   \\
   %
-  %
-  %
   J^{\prime}_{kl}
   &=
   \left( 1 - 2 q \right)
@@ -447,10 +494,25 @@ expressions
     \frac{ 5 }{ 4 } \sin{2 \theta} \frac{ a^4 }{ R_{kl}^5 }
   \right) \, .
   %
-  %
-  %
 \end{align}
 %
+We have successfully mapped the QCA bond Hamiltonian \eqref{eq:H_bond} to a
+modified transverse field Ising model
+\begin{equation}
+  \label{eq:H_Ising}
+  %
+  \tilde{H}
+  =
+  - \sum_k \gamma S^x_k
+  + \sum_{k<l}
+    \left[
+      J_{kl} S^z_k S^z_l + 
+      J^{\prime}_{kl} \left( S^z_k + S^z_l \right)
+    \right] \, ,
+\end{equation}
+which reduces to a genuine Ising model, $J^{\prime}_{kl} = 0$, in the case of
+charge neutral cells, $q = 0$.
+
 These results are remarkable in two ways. First, $J_{kl}$ does not depend on the
 compensation charge $q$. In turn, the Ising interaction $J_{kl}
 S^z_k S^z_l$ is independent of the cell net charge and represents only
@@ -478,8 +540,6 @@ multipole expansion.
 % more about multipole, what it means, e.g. exact for large distances; that, in
 % principle, the cutoff of the expansion is arbitrary and we can make it exact
 % by including higher order terms. 
-% It would be really nice if we could should that the J' term vanishes, quite
-% generally, independent of the multipole expansion
 
 
 \section{Validity of the approximations}

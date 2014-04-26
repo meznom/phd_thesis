@@ -48,6 +48,7 @@ model.
 
 %
 \begin{figure}
+  % TODO: include numbering of states, e.g. \ket{1}, and so on
   \center
   \includegraphics{bond}
   \caption{\ldots}
@@ -585,49 +586,332 @@ Hamiltonian \eqref{eq:H_bond} to a modified transverse field Ising model
 
 \section{Validity of the approximations}
 
+In the last three sections we have introduced three successive approximations
+for the QCA Hamiltonian, the fixed charge model, the bond model, and the Ising
+model. However, even though we know some theoretical limits in which those
+approximations become exact, we have given little thought to the practical
+limits, that is, parameter regimes where we can use the approximations
+and get sufficiently accurate results. Numerical benchmarks will help us
+establish these parameter regimes and also give us a better understanding of how
+the approximations behave in this parameter range.
 
-
 %
 \begin{figure}
-  \center
-  \includegraphics{bond_approximation1}
-  \caption{Low-energy density of states of a one cell QCA system for both the
-  \emph{fixed charge} and the \emph{bond} model. The \emph{bond} approximation
-  does not reproduce the singlet-triplet splitting.}
-  \label{fig:bond_approximation1}
-\end{figure}
-%
-\begin{figure}
-  \center
-  \includegraphics{bond_approximation2}
-  \caption{The two cell \emph{fixed charge} and \emph{bond} systems at $V_1 =
-  20$ and $V_1 = 100$. (a)(c) Low-energy density of states. (b)(d) Output
-  polarization $P_2$ over temperature. For a small Coulomb repulsion the density
-  of states curves look qualitatively very different (a) and the \emph{bond}
-  approximation does not work very well (b). At a larger Coulomb repulsion the
-  density of states curves look much more alike (c) and the \emph{bond}
-  approximation works much better (d).}
-  \label{fig:bond_approximation2}
-\end{figure}
-%
-%
-\begin{figure}
+  % TODO: fix legend in (b); Maybe change y-axis range
   \center
   \includegraphics{fixed_charge_approximation}
-  \caption{(a) Low-energy density of states of the exact \emph{grand canonical}
-  and the approximative \emph{fixed charge} two cell QCA system. For small
-  energies the curves agree perfectly (up to $E \lesssim 35$). (b) Particle
-  number per cell over temperature for the same two cell system. The curves
-  diverge for $T \gtrsim 5$.}
+  \caption{
+  (a) Low-energy density of states of the exact grand canonical and the
+  approximative fixed charge two-cell QCA system. For small energies the curves
+  agree perfectly (up to $E \lesssim 35$). (b) Particle number per cell over
+  temperature for the same two-cell system. The curves diverge for $T \gtrsim
+  10$.
+  }
   \label{fig:fixed_charge_approximation}
 \end{figure}
 %
 %
 \begin{figure}
   \center
+  \includegraphics{bond_approximation1}
+  \caption{
+  (a) Low-energy density of states of a one-cell QCA system for both the fixed
+  charge and the bond model. The bond approximation only reproduces the triplet
+  states, but omits the singlet states. The ``measurement'' temperature is
+  indicated. (b) The same spectrum, but ``measured'' at a higher temperature. At
+  large enough temperatures the singlet-triplet splitting is ``washed out'': The
+  singlet and triplet peaks are no longer separately resolved and the bond
+  model's state corresponds to four fixed charge states at roughly the same
+  energy.
+  }
+  \label{fig:bond_approximation1}
+  % parameters: V_1 = 20, boa = 2, U = 1E6, q = 0, P_D = 1, T = 1, mu = 0
+\end{figure}
+%
+The fixed charge approximation is a Hilbert space truncation where we only keep
+the states with exactly two electrons per cell.
+Fig.~\ref{fig:fixed_charge_approximation}(a) compares the density of states of
+the fixed charge model against the exact grand canonical system. It reproduces
+the low-energy spectrum, in the plot up to $E \lesssim 35$, exactly. Therefore,
+as long as the two-electrons-per-cell sector is lowest in energy and the
+temperature is low compared to the energy gap to the next charge sector, the
+model works perfectly. Fig.~\ref{fig:fixed_charge_approximation}(b) plots the
+number of particles per cell over temperature and demonstrates the breakdown of
+the approximation, precisely as the temperature does become comparable to this
+energy gap. Whereas the fixed charge model gives, per definition, a constant
+number of particles over the whole temperature range, the grand canonical
+system's cell occupancy starts diverging from two electron per cell at around $T
+\sim 10$. This roughly corresponds to the energy states the fixed charge model
+missed at $E \sim 40$. A small deviation from exactly two electrons per cell is
+not detrimental to QCA, a cell occupied by only one or by three electrons,
+however, renders QCA non-functional. As we already said in the beginning of this
+chapter, we often use the fixed charge model as the starting point and assume,
+without further investigation, that a practical QCA implementation can be tuned
+to be in the right charge regime at a given temperature.
+
+As a side note, we calculate the density of states graphs by folding the energy
+eigenvalues of the system---a delta function energy spectrum---with a Lorentzian
+with the half-width at half-maximum set by a ``measurement'' temperature. Very
+roughly speaking, this corresponds to a photoemission / inverse photoemission
+spectroscopy experiment at this temperature.
+
+The bond model neglects doubly occupied states and represents the four states of
+a bond---one singlet and three triplets---with only one single bond state. The
+model thus assumes that singlet and triplet states are energetically degenerate,
+but we had already asserted that we might expect a small singlet-triplet
+splitting. Fig.~\ref{fig:bond_approximation1}(a) shows the density of states of
+a single QCA cell for both the fixed charge and the bond model. The
+nearest-neighbour Coulomb energy is $V_1 = 20$, the hopping is $t=1$. A driver
+cell placed at a distance $d/a = 3$ to the left of the single cell sets an
+input. We have chosen the driver cell's polarization to be $P_D = 1$. Indeed, each
+bond state corresponds to three fixed charge states---the triplet---and one
+``close-by'' state---the singlet. They are not energetically equivalent, but
+split by a small energy gap, $\Delta E_S$, the singlet-triplet splitting. The
+bond model picks out the triplet states and in fact exactly reproduces those
+states. Just as the fixed charge model the bond model truncates the Hilbert
+space, but the retained states are exact. Evidently, the bond model keeps one of
+the three triplet states, but discards the other two triplet and the singlet
+states. We speculate that, similar to the antiferromagnetic Heisenberg coupling
+constant $J$ emerging in the low energy limit of the Hubbard model (with $J \sim
+\frac{t^2}{U}$) \cite{Auerbach}, here, for the ground state virtual excitations
+to high energy doubly occupied states lower the energy of the singlet state
+compared to the triplet state. As the bond model misses those doubly occupied
+states it cannot accommodate singlet states and hence reproduces the triplet
+states. Consequently, we cannot hope that the bond model correctly reproduces
+ground state or low-energy properties. However, we assert that as long as the
+singlet-triplet splitting is ``washed out'', that is, as long as the temperature
+is much larger than the singlet-triplet gap, $T \gg \Delta E_S$, the
+approximation should give correct results. At high enough temperatures the
+system no longer ``sees'' the difference between the singlet and the triplet
+states. This is illustrated in Fig.~\ref{fig:bond_approximations1}(b) where the
+spectrum is ``measured'' at a higher temperature. The singlet and triplets are
+no longer resolved separately.  Instead, each bond state corresponds to four
+fixed charge states at roughly the same energy. The figure shows all six bond
+states of the single cell, the complete spectrum apart from the doubly occupied
+states. As this cell is perturbed by a nearby driver cell with $P_D = 1$, the
+ground state is qualitatively closest to the logic 1 state, or $\ket{2}$ in
+Fig.~\ref{fig:bond}.  Similarly, the first excited state is similar to
+$\ket{1}$, or logic 0, and the four higher energy states correspond to
+$\ket{4}$, $\ket{5}$, $\ket{3}$, and $\ket{6}$, in that order. Of course, in
+general the energy eigenstates are a mixture of all basis states, but we can
+still characterize them by their most dominantly contributing basis state. As
+this a non-charge-neutral system $q=0$ with a relatively small cell-cell
+distance $d/a = 3$, charge buildup tends to push the electrons to the far edge
+of the cell, thus making $\ket{4}$ lower in energy than $\ket{6}$.
+
+Since the bond model ignores the singlet-triplet splitting it is important to
+understand how the gap $\Delta E_S$ depends on various system parameters. To
+that end we picked out a few selected singlet-triplet states from the spectrum
+in Fig.~\ref{fig:bond_approximation1}(a) as examples. Contrary to expectations,
+for those states the gap $\Delta E_S$ did not change significantly with the
+on-site Coulomb repulsion $U$, however, it did decrease with decreasing $d$, the
+cell-cell distance. Most importantly, for the nearest-neighbour Coulomb energy
+$V_1$ we found $\Delta E \sim \frac{1}{V_1^p}$. The exponent is $p \sim 3$ when
+the cell ``sees'' a biasing external potential (e.g.\ $P_D = \pm 1$) and $p \sim
+1$ otherwise (e.g.\ $P_D = 0$). Even though our method is anything but rigorous
+and the obtained results very likely not universally true, the findings should
+nonetheless give a good enough idea of the principle trends. Quite generally,
+the higher the overall Coulomb potential (large $V_1$, small $d$), the smaller
+the singlet-triplet splitting and, conceivably, the more accurate the bond
+approximation. Consequently, we expect the approximation to work as long as the
+singlet-triplet splitting is ``washed out,'' that is, as long as the temperature
+is much bigger than the gap $\Delta E$. As a very, very rough estimate we come
+up with $T \gg \frac{t^2}{V_1}$. Of course, we also need $T \ll U$ so that the
+doubly occupied states are gapped out. Outside of this loosely defined regime,
+the bond model can and does go terribly wrong.
+
+To illustrate the limitations of the bond approximations we now look at a two
+cell system: a straight horizontal line of two cells with a driver cell to the
+left. Fig.~\ref{fig:bond_approximation2} shows the spectra and output
+polarizations of a two-cell wire for two different Coulomb energies, $V_1 = 20$
+and $V_1 = 100$. Otherwise the parameters are the same as for the one-cell
+system in the previous graph. In particular, the spectrum in
+Fig.~\ref{fig:bond_approximation2}(a) is exactly the same as in
+Fig.\ref{fig:bond_approximation1}(a) except that we have added one more cell to
+the system. Each bond state now corresponds to 16 ($4 \cdot 4$) fixed charge
+states. Looking at the four lowest-energy peaks in the spectrum, we see that the
+bond model exactly reproduces the 9 triplet-triplet states, but misses the three
+singlet-triplet and the three triplet-singlet states (in the graph the
+corresponding two peaks are hardly distinguishable), as well as the single
+singlet-singlet ground state. The four lowest bond states should roughly
+correspond to both cells being aligned with the driver cell (the ground state),
+only one of the two cells being aligned with the driver cell, and both cells
+being anti-aligned with the driver cell. Higher energy states have at least one
+of the cells not in the preferred diagonal states $\ket{1}$ and $\ket{2}$, with
+electrons occupying predominantly the edge of a cell. Arguably, 
+the spectra of the fixed charge and the bond model in
+Fig.~\ref{fig:bond_approximation2}(a) do not look very similar. Consequently,
+the polarization curves in Fig.~\ref{fig:bond_approximation2}(b) do not agree,
+especially at low temperatures. In fact, it is rather remarkable that given the
+widely dissimilar spectra the polarizations actually do agree relatively well at higher
+temperatures, $T > 1$. The bond model only reproduces the most populous energy
+states of the exact spectrum. Apparently, that is enough to give (almost)
+correct results at high temperatures. The lower the temperature, the more
+important become the few lowest lying energy states which the bond model misses.
+Very roughly speaking, the temperature where the bond model's polarization
+becomes accurate also matches the temperature where we saw the singlet-triplet
+splitting being washed out in Fig.~\ref{fig:bond_approximation1}(b), they are at
+least of the same order of magnitude. For the much larger Coulomb energy $V_1 =
+100$ the spectra look much more alike, qualitatively, even though the bond model
+obviously still does not resolve all the lines of the exact density of states,
+and consequently the approximation works much better,
+Fig.~\ref{bond_approximation2}(a) and (b). The polarization curves agree down to
+much lower temperatures and even the discrepancy for the ground state
+polarizations is much reduced. Compared to the $V_1 = 20$ system the ground
+state polarization is much larger and, generally, the higher the cell
+polarization, the better the agreement between bond and fixed charge model. We
+also note that in the spectrum the peaks are much more spaced out, compared to
+the $V_1 = 20$ system. Thus the system retains larger cell polarizations up to
+much higher temperatures.
+
+The polarization of the fixed charge model shows a curious bump at low
+temperatures, for example in Fig.~\ref{fig:bond_approximation2}(b) and
+similarly, if less visibly, in Fig.~\ref{fig:bond_approximation2}(d).
+Apparently, the ground state is not the most polarized state. Maximum
+polarization is reached at a small, but finite temperature. At the same time,
+for the bond model the ground state is the most polarized state and generally
+its $T=0$ polarization is larger than that of the fixed charge model.
+Interestingly, the bond model's ground state polarization is largely independent
+of the magnitude of the driver polarization and also only weakly influenced by
+the cell-cell distance $d$, especially for charge-neutral cells where no charge
+buildup occurs. Instead, it is predominantly set by $V_1$, and thus by $V_1/t$
+and the energy gap $\Delta V = V_1 - V_0$. Without an external perturbation such
+as a non-zero driver polarization the ground state polarization is zero, of
+course. But any infinitesimal external perturbation will instantly see the bond
+model's ground state polarization snap to its full value. We interpret this
+behaviour as the ground state actually consisting of two energetically
+degenerate states, corresponding to $\pm P_{gs}$, where $P_{gs}$ is the full
+ground state polarization for a given $V_1$. The smallest perturbation lifts
+this degeneracy and sees the system snapping to either $+P_{gs}$ or $-P_{gs}$.
+Now the bond model's ground state corresponds to the fixed charge model's
+triplet state---one of the lower lying excited states, but not the ground state.
+The true ground state of the more exact model is a single singlet state, a
+superposition of the $+P_{gs}$ and $-P_{gs}$ (and other) states. Therefore the
+polarization of the true ground state is generally smaller in magnitude than the
+polarization of the corresponding two triplet states, explaining the low
+temperature bump in the polarization curve and the larger polarization of the
+bond model's ground state.
+%
+\begin{figure}
+  \center
+  \includegraphics{bond_approximation2}
+  \caption{
+  The two-cell fixed charge and bond systems at $V_1 = 20$ and $V_1 = 100$.
+  (a)(c) Low-energy density of states. (b)(d) Output polarization $P_2$ over
+  temperature. For a small Coulomb repulsion the density of states curves look
+  qualitatively very different (a) and the bond approximation does not work very
+  well (b). At a larger Coulomb repulsion the density of states curves look much
+  more alike (c) and the bond approximation works much better (d).
+  }
+  \label{fig:bond_approximation2}
+\end{figure}
+%
+% TODO: mention which value of U we are using for the simulations; (it should be
+% U=1E6 for all plots so far)
+
+
+The Ising approximation is derived as an effective low-energy model from the
+bond Hamiltonian. It is therefore qualitatively different from the previous two
+approximations: It is not merely a Hilbert space truncation. \emph{A priori}
+its states need not exactly correspond, neither energetically nor qualitatively, to either the bond or the fixed charge
+model. Of course, in the limit where the assumptions in the derivation become
+exact, the Ising model's states should resemble the bond model's states
+accurately. Specifically, the derivation assumed $E \approx V_0$ ($E$ the energy
+of the whole system) and therefore $t \ll \Delta V$, as well as $\Delta V \gg
+T$. The neglected edge states need to be gapped out. Additionally, cells are
+assumed to be isolated, so the Ising model presumably requires reasonably large
+cell-cell distances. The Ising model also inherits the limits of the bond model and we
+would expect $T \gg \Delta E_S$ and $T \ll U$ as requirements for the Ising
+model as well. It is important to keep in mind that the Ising model is not a low-energy
+model for the more exact fixed charge Hamiltonian---it is derived as the
+low-energy limit of the bond model, which, however, is not an accurate
+low-energy description of the fixed charge system. The Ising model with its only
+two states per cell can never accurately capture the lowest lying states of the
+fixed charge model, which are, for a multi-cell system, a mixture of
+singlet-triplet states across cells. The approximation can also not hope to
+capture non-charge neutral systems and more specifically charge buildup
+correctly. It simply lacks the edge states that would be the manifestation of
+charge buildup, as discussed in the example of the one-cell bond system above.
+We had seen in the derivation of the Ising model that the lack of
+charge-neutrality is very problematic for the QCA approach in general.
+Consequently, we will concentrate on charge neutral systems, $q = \frac{1}{2}$,
+for the remainder of the chapter. For the following calculations we do not use
+the derived $J_{kl}$ and $J^{\prime}_{kl}$ terms, but some all Coulomb
+interactions exactly.
+
+To understand how the Ising approximation works we again start by looking at the
+density of states for a one-cell system, Fig.~\ref{fig:ising_approximation1}(a).
+We have plotted both the fixed charge and the bond model for comparison and now
+use slightly different system parameters. The nearest-neighbour Coulomb energy
+is $V_1 = 100$, the cell-cell distance is $d/a = 4$, the driver cell is only
+slightly polarized with $P_D = 0.1$, and, as always, the hopping is $t=1$. We are in for a surprise! Evidently, the
+Ising model reproduces the singlet states and not the bond model's triplet
+states. In line with this observation, the Ising model exactly matches the fixed
+charge model's ground state polarization, but misses the triplet-bump at $T \sim
+0.05$, Fig.~\ref{fig:ising_approximation1}(b). Thus, for the one-cell system the
+Ising approximation unexpectedly captures the system's ground state correctly.
+Apparently, even though we had derived the Ising model from the bond
+Hamiltonian, it does not really resemble the bond model. Instead its states are
+of singlet character. It even gets the ground state right, after we had just
+asserted that it cannot possibly be a low-energy description of the fixed charge model.
+In short, the Ising model's behaviour is very confusing. To lift the confusion,
+we first note, that even though the Ising model correctly captures the ground
+state of the single cell system, this is not true in general, for larger
+systems, as we will see in a moment. It also is not a low-energy effective model, because
+even for the one-cell system it only reproduces the ground state, but not the
+first and second excited states. Second, we need to be very careful when we talk
+about the bond model. The bond Hamiltonian is simply a spinless model that does
+not distinguish between singlet and triplet states. In contrast, the bond model
+uses a concrete basis and we saw that it chooses the triplet states. Therefore,
+the bond Hamiltonian, from which we derived the Ising model, and the bond model
+are not equivalent. With its choice of basis the Ising model captures the
+singlet states. This makes sense in so far as the Ising model is derived as the
+low-energy effective model and the singlet states are the lowest energy states.
+The Ising and bond model states are therefore different energetically and
+qualitatively. Still, in the limit where the Ising model becomes exact, the
+singlet-triplet splitting should go to zero and the states of the two models
+will become equivalent. On second thought, the fact that the Ising model exactly
+reproduces the ground state of the one-cell system is maybe not as surprising:
+We had derived the Ising model precisely for a single cell and as it captures
+the singlet states, that is what we get. Apparently, the perturbation of the
+external driver cell does not change that fact. Close inspection of the energy
+gap between the Ising model's only two states, however, as compared to the
+equivalent energy gap between the fixed charge model's two lowest energy singlet
+states, show that the fixed charge and Ising states are not exactly the same,
+energetically. The difference is hardly discernible in the plotted spectrum, but
+more pronounced for different system parameters. This is not surprising, given
+that the Ising approximation is a effective model and used several assumptions
+in its derivation. Indeed, for the single-cell system we can study the energy
+gap for the Ising as compared to the fixed charge model and find that they are
+in better agreement for larger $V_1$, smaller $t$, and larger cell-cell distance
+$d/a$ (although the difference becomes constant for large enough $d/a$,
+presumably when the cells are spaced far enough apart to not influence each
+other's hopping), exactly confirming the assumptions and limits of our
+derivation.
+% mention: bond fully polarized here, for q = 1/2
+% would not hurt to explicitly mention that energy gap error becomes large for
+% very small d/a, specifically d/a < 2 --- here, Ising very explicitly breaks
+% down
+% maybe explain here: Ising weirdness is not a shortcoming of our derivation,
+% but a consequence of pressing QCA in a two-state basis
+
+
+% two sets of conditions for Ising model
+
+% 
+% spectra look qualitatively more alike for larger P_D---we only use P_D=0.1
+% spectra look more alike for smaller d/a and for larger V1
+
+% also need to mention that models tend to agree for fully polarized cells ---
+% hence I need to look at a regime where the system is not fully polarized
+
+%
+\begin{figure}
+  \center
   \includegraphics{ising_approximation1}
   \caption{\ldots}
   \label{fig:ising_approximation1}
+  % parameters: V1 = 100, boa = 3, P_D = 0.1, q = 0.5
 \end{figure}
 %
 %
@@ -636,6 +920,7 @@ Hamiltonian \eqref{eq:H_bond} to a modified transverse field Ising model
   \includegraphics{ising_approximation2}
   \caption{\ldots}
   \label{fig:ising_approximation2}
+  % parameters: V1 = 100, 200, boa = 3, P_D = 0.1, q = 0.5, U=1E3
 \end{figure}
 %
 %
@@ -644,196 +929,14 @@ Hamiltonian \eqref{eq:H_bond} to a modified transverse field Ising model
   \includegraphics{ising_approximation3}
   \caption{\ldots}
   \label{fig:ising_approximation3}
+  % parameters: V1 = 100, boa = 3, P_D = 0.1, q = 0.5
 \end{figure}
 %
 
 
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-% To access larger systems we need to introduce approximations. Approximating
-% means to simplify. However, by carefully establishing successive approximations
-% and their limits, we also reduce the problem to its essential ingredients and
-% thus, hopefully, we gain a better understanding of the system. Our first
-% approximation is somewhat ad hoc and motivated by the very ideas underlying the
-% QCA approach. QCA relies on two electrons per cell (or, more generally, a fixed
-% number of charges per cell). Therefore we truncate the Hilbert space and keep
-% only states with two electrons in each cell. We omit the chemical potential
-% term, $\mu = 0$. This \emph{fixed charge} approximation obviously does not allow
-% for charge fluctuations and consequently cannot accommodate inter-cell hopping.
-% We justify the approximation by noting that, at least in principle, for any
-% given cell layout we can always tune the system parameters (especially the chemical
-% potential) so that we have two electrons per cell. Of course, in practice there
-% are very clear limits as to how much system parameters can be tuned and any QCA
-% cell layout considered within the \emph{fixed charge} approximation cannot
-% necessarily be readily implemented on a given real-world material system.
-% 
-% For the \emph{fixed charge} system, the state space scales as $N_s =
-% \binom{8}{2}^{N_c} = 28^{N_c}$ ($N_c$ is the number of cells). Again, we utilize
-% symmetries to make the Hamiltonian matrix block diagonal and as before the
-% largest block is the spin zero sector, of size $N_s^{\prime} = 16^{N_c}$. This
-% corresponds to a memory consumption of 512kB, 128MB, and 32GB for two, three and
-% four cell systems, respectively. That's doable. Five cells, however, remain
-% impossible. To illustrate how the approximation works
-% Fig.~\ref{fig:fixed_charge_approximation}(a) compares the density of states
-% (more correctly, the energy state histogram) of both the \emph{fixed charge}
-% and the exact \emph{grand canonical} system. The \emph{fixed charge}
-% approximation accurately reproduces the low-energy spectrum of the \emph{grand
-% canonical} model. This is not unexpected. As long as the QCA system is in the
-% right regime, the two-electrons-per-cell sector is lowest in energy. It is in
-% this limit, with the temperature additionally smaller than the energy gap to the
-% next higher charge sector, that the approximation is valid.
-% Fig.~\ref{fig:fixed_charge_approximation}(b) demonstrates the breakdown of the
-% approximation. Here we have plotted the particle number per cell over
-% temperature and as the temperature is increased and becomes comparable to the
-% energy gap, the \emph{fixed charge} and \emph{grand canonical} systems diverge.
-% %
-% \begin{figure}
-%   \center
-%   \includegraphics{fixed_charge_approximation}
-%   \caption{(a) Low-energy density of states of the exact \emph{grand canonical}
-%   and the approximative \emph{fixed charge} two cell QCA system. For small
-%   energies the curves agree perfectly (up to $E \lesssim 35$). (b) Particle
-%   number per cell over temperature for the same two cell system. The curves
-%   diverge for $T \gtrsim 5$.}
-%   \label{fig:fixed_charge_approximation}
-% \end{figure}
-% %
-
-
-
-
-% As evidenced by our semi-classical introduction at the beginning of this report,
-% the QCA approach does not consider particle spins. It solely relies on
-% charge-charge interactions. Therefore it is natural to the QCA approach to
-% neglect the spin degree of freedom as a next step. The 28 states per cell of the
-% \emph{fixed charge} model can be reorganized into four doubly occupied dots and
-% six bonds, four along the edges and two along the diagonals of the cell. Each
-% bond consists of two electrons and corresponds to four states, one spin singlet
-% and three spin triplets. By keeping only one state for each bond and omitting
-% the doubly occupied states we arrive at the \emph{bond} approximation. It has a
-% basis of six states per cell, the six bonds. As a consequence, the size of the
-% Hilbert space is $N_s = 6^{N_c}$ ($N_c$ the number of cells). Five and six cells
-% are doable, with memory requirements of 460MB and 16GB, respectively, whereas
-% seven cells are not (580GB). Note that for the \emph{bond} model there are no
-% symmetries that can be exploited. 
-% 
-% %
-% \begin{figure}
-%   \center
-%   \includegraphics{bond_approximation1}
-%   \caption{Low-energy density of states of a one cell QCA system for both the
-%   \emph{fixed charge} and the \emph{bond} model. The \emph{bond} approximation
-%   does not reproduce the singlet-triplet splitting.}
-%   \label{fig:bond_approximation1}
-% \end{figure}
-% %
-% \begin{figure}
-%   \center
-%   \includegraphics{bond_approximation2}
-%   \caption{The two cell \emph{fixed charge} and \emph{bond} systems at $V_1 =
-%   20$ and $V_1 = 100$. (a)(c) Low-energy density of states. (b)(d) Output
-%   polarization $P_2$ over temperature. For a small Coulomb repulsion the density
-%   of states curves look qualitatively very different (a) and the \emph{bond}
-%   approximation does not work very well (b). At a larger Coulomb repulsion the
-%   density of states curves look much more alike (c) and the \emph{bond}
-%   approximation works much better (d).}
-%   \label{fig:bond_approximation2}
-% \end{figure}
-% %
-% Apart from requiring sufficiently gapped out doubly occupied states, the
-% \emph{bond} approximation assumes that the bond singlet and triplet states are
-% energetically degenerate. But this is not quite correct. To understand
-% how the approximation works we look at the density of states (energy state
-% histogram, to be correct) of the single cell \emph{fixed charge} and \emph{bond}
-% systems, Fig.~\ref{fig:bond_approximation1}. Each \emph{bond} state maps to
-% three \emph{fixed charge} states---the triplet---and one ``close-by''
-% state---the singlet. Hence, singlet and triplet states are not equivalent, they
-% are split by an energy gap $\Delta E$. We speculate that, similar to the
-% antiferromagnetic Heisenberg coupling constant $J$ emerging in the low energy
-% limit of the Hubbard model (with $J \sim \frac{t^2}{U}$) \cite{Auerbach}, here,
-% virtual excitations to high energy doubly occupied states lower the energy of
-% the singlet state compared to the triplet state. Since the \emph{bond} model
-% ignores the singlet-triplet splitting it is important to understand how this gap
-% depends on various system parameters. To that end we picked out a few
-% selected singlet-triplet states from the spectrum in
-% Fig.~\ref{fig:bond_approximation1} as examples. Contrary to expectations, for
-% those states the gap $\Delta E$ did not change significantly with the on-site
-% Coulomb repulsion $U$, however, it did decrease with decreasing $b$, the
-% inter-cell spacing. Most importantly, for the nearest-neighbour Coulomb
-% potential, $V_1 = \frac{1}{a}$ ($a$ being the cell side length), we found
-% $\Delta E \sim \frac{1}{V_1^p}$. The exponent is $p \sim 3$ when the cell
-% ``sees'' a biasing external potential (e.g.\ $P_0 = \pm 1$) and $p \sim 1$
-% otherwise (e.g.\ $P_0 = 0$). Even though our method is anything but rigorous and
-% the obtained results very likely not universally true, the findings should
-% nonetheless give a good enough idea of the principle trends. Quite generally,
-% the higher the overall Coulomb potential (large $V_1$, small $b$), the smaller
-% the singlet-triplet splitting and, conceivably, the more accurate the
-% \emph{bond} approximation.
-% 
-% We expect the approximation to work as long as the
-% singlet-triplet splitting is ``washed out,'' that is, as long as the temperature
-% is much bigger than the gap $\Delta E$. As a very, very rough estimate we come
-% up with $T \gg \frac{t^2}{V_1}$. Of course, we also need $T \ll U$ so that the
-% doubly occupied states are gapped out. Outside of this loosely defined regime,
-% the \emph{bond} model can and does go terribly wrong. Especially the ground
-% state is often qualitatively completely incorrect. Consider, for example,
-% Fig.~\ref{fig:bond_approximation2}(b) where we have plotted the output
-% polarization $P_2$ of a two cell system over temperature. For this system we set
-% the input polarization $P_0 = 1$, the Hubbard $U$ is practically infinite, the
-% inter-cell spacing is $b = 2 a$, and the nearest-neighbour Coulomb repulsion has
-% the value $V_1 = \frac{1}{a} = 20$ (in units of $t$, $t=1$). The two curves for
-% the \emph{fixed charge} and the \emph{bond} system disagree at low temperatures.
-% It is instructive to compare the density of states of the two systems,
-% Fig.~\ref{fig:bond_approximation2}(a): They look quite different, qualitatively.
-% In that light it is rather remarkable that the polarization curves actually
-% agree quite well at higher temperatures ($T > 1$). The \emph{bond} model only
-% reproduces the most populous energy states of the exact spectrum. Apparently,
-% that is enough to give (almost) correct results at high temperatures. The lower
-% the temperature, the more important become the few lowest lying energy states
-% which the \emph{bond} model misses. For a larger Coulomb repulsion, $V_1 = 100$,
-% the density of states curves look much more alike, even though the \emph{bond}
-% model obviously still does not resolve all the lines of the exact spectrum,
-% Fig.~\ref{fig:bond_approximation2}(c). Accordingly, the approximation works much
-% better as can be seen in Fig.~\ref{fig:bond_approximation2}(d). As a last
-% remark, note that for the two cell system each single \emph{bond} state
-% corresponds to $16$ ($4 \cdot 4$) \emph{fixed charge} states.
-
-
-
-
-% % 
-% \begin{align}
-%   J 
-%   &=
-%   \frac{1}{32}
-%   \frac{9 a^4 - 105 a^4 \cos{4\theta}}{R^5} \\
-%   %
-%   J^{\prime}
-%   &=
-%   - \frac{1}{4}
-%   \left(
-%     \frac{6 a^2 \sin{2\theta}}{R^3} + \frac{5 a^4 \sin{2\theta}}{R^5}
-%   \right) \, .
-% \end{align}
-% %
-% In the limit $\frac{a}{R} \ll 1$ and together with the (conjectured) kinetic
-% single cell term $-\gamma \sigma^x_k$ we have thus mapped the two-state QCA
-% system to a transverse-field Ising model, albeit with an additional $J^{\prime}$
-% term. The interactions decrease as $\frac{1}{R^3}$ and $\frac{1}{R^5}$ for
-% $J^{\prime}$ and $J$, respectively. Both $J$ and $J^{\prime}$ vary with the
-% angle $\theta$ between the two cells. As a consequence, different directions
-% prefer different cell configurations ($\uparrow\uparrow$ versus
-% $\downarrow\downarrow$) and only few select angles yield a pure Ising
-% interaction $J_{kl} \sigma^z_k \sigma^z_l$---for example a linear array of cells
-% ($\theta = 0^{\circ}$). This is significant as it breaks the symmetry between
-% digital 0 and 1 (spin $\downarrow$ and $\uparrow$) for QCA devices if we are not
-% very careful in how we engineer them. Moreover, the pure Ising interaction seems
-% to be quite fragile with respect to angle displacement, as demonstrated in
-% Fig.~\ref{fig:energies}. Here we have plotted the energies $E^{\uparrow\uparrow}
-% = J + 2 J^{\prime}$, $E^{\downarrow\downarrow} = J - 2 J^{\prime}$, and
-% $E^{\uparrow\downarrow} = E^{\downarrow\uparrow} = - J$.
-
+% TODO: mention which plots are q=0 and which ones are q=1/2
+% TODO: Include partition function argument / explanation somewhere?
+% TODO: good argument why there are two degenerate ground states for the bond
+% model? (triplet, symmetry argument?)
+% TODO: Is there a better explanation why bond chooses triplet and Ising singlet
+% states?

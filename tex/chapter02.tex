@@ -809,7 +809,24 @@ bond model's ground state.
 % TODO: mention which value of U we are using for the simulations; (it should be
 % U=1E6 for all plots so far)
 
-
+%
+\begin{figure}
+  \center
+  \includegraphics{ising_approximation1}
+  \caption{\ldots}
+  \label{fig:ising_approximation1}
+  % parameters: V1 = 100, boa = 3, P_D = 0.1, q = 0.5
+\end{figure}
+%
+%
+\begin{figure}
+  \center
+  \includegraphics{ising_approximation2}
+  \caption{\ldots}
+  \label{fig:ising_approximation2}
+  % parameters: V1 = 100, 200, boa = 3, P_D = 0.1, q = 0.5, U=1E3
+\end{figure}
+%
 The Ising approximation is derived as an effective low-energy model from the
 bond Hamiltonian. It is therefore qualitatively different from the previous two
 approximations: It is not merely a Hilbert space truncation. \emph{A priori}
@@ -895,43 +912,174 @@ derivation.
 % maybe explain here: Ising weirdness is not a shortcoming of our derivation,
 % but a consequence of pressing QCA in a two-state basis
 
+To be able to better quantitatively compare different models over a wide range
+of temperatures and independent of the magnitude of the polarization, we
+introduce the relative error of the polarization, defined as, for the Ising
+model,
+%
+\begin{equation}
+  \epsilon^I_k = \frac{\left|P^F_k - P^I_k\right|}{P^F_k} \, .
+\end{equation}
+%
+Here, $P^F_k$ refers to the polarization for cell $k$ with the fixed charge
+model and $P^I_k$ is the same polarization, but determined using the Ising
+model. The relative error for the bond model, $\epsilon^B_k$, is defined
+equivalently. For meaningful comparisons between the different models'
+polarizations it is important not to fully polarize the cells. Once we push the
+system into a regime where we have $\left| P_k \right| \sim 1$, the cells are
+saturated and the models tend to agree. This is why we have, for our
+calculations with the Ising model here,
+which generally requires larger $V_1/t$ ratios, chosen a larger cell-cell
+distance and a smaller driver cell polarization.
 
-% two sets of conditions for Ising model
+Fig.~\ref{fig:ising_approximation2} shows the relative error together with the
+density of states for all three models for a two-cell system at $V_1 = 100$ and
+$V_1 = 200$. As before we find that the bond approximation works much better
+when its spectrum looks qualitatively more similar to the fixed charge spectrum.
+At $V_1 = 100$ the bond model yields a almost fully polarized ground state,
+whereas the fixed charge model's $T=0$ polarization is much smaller, resulting
+in a very large relative error as indicated in
+Fig.~\ref{fig:ising_approximation2}(b). At $V_1 = 200$,
+Fig.~\ref{fig:ising_approximation2}(d) both fixed charge and bond are almost
+fully polarized at low temperatures and the relative error is therefore very
+small. For these calculations we have used $U=1000$ (before we used $U = 10^6$)
+and indeed we can see that the bond model starts to diverge for $T \gtrsim 200$.
+Even at $T=1000$ the error is relatively small, because the polarization is
+quite insensitive to doubly occupied dots, being defined solely as the
+difference in charge of one diagonal versus the other diagonal of the cell. Note
+that at these large temperatures the actual polarization is already very, very
+small. Looking at the relative error of the Ising model we first notice that it
+becomes very, very large for $T \gtrsim 5 \ldots 10$. Of course, this is a
+consequence of the Ising model missing the gapped out edge states, where the gap
+is $\Delta V \sim 0.3 V_1$. Accordingly, the upper temperature limit for a small
+relative error is larger for $V_1 = 200$ than for $V_1 = 100$, though maybe not
+by as much as we might expect. In contrast to the one-cell system, for two cells
+the ground state of the Ising model no longer agrees with the ground state of
+the fixed charge model. The Ising model's $T=0$ polarization is generally
+smaller than the polarization of the exact model. Similarly to the bond model
+the relative error of the ground state polarization decreases for larger $V_1$.
+We asserted before that we never expected the Ising model to get the
+low-temperature behaviour right and in this light, the surprising agreement of
+the ground state for the one-cell system can be viewed as a curious coincidence, related to the details
+of how exactly we had derived the Ising model. Most importantly, the relative
+error curves of the Ising model reveal that the temperature range where the
+error is actually small---that is, where the Ising model can be considered
+valid---is quite narrow. For $V_1 = 100$ it is almost like a sweet spot, a very
+narrow window around $T \sim 1$, where the error is close to zero. For $V_1 =
+200$ the situation is much better, the error is small in the temperature range
+$T = 0.8 \ldots 8$. Generally, the temperature range where the error is small
+only very weakly depends on the cell-cell distance $d/a$ or the driver
+polarization $P_D$. It is mostly set by $V_1$ (and as before we always keep the
+hopping fixed to $t=1$). Roughly speaking, the lower temperature limit is set by
+the singlet-triplet splitting, which becomes smaller with increasing $V_1$, and
+the upper temperature limit is set by $\Delta V$ which is, of course, directly
+proportional to $V_1$. If we analyse the relative error at a fixed temperature,
+in the temperature regime where the error is small and the model can be
+considered valid, we find, similarly to the our observations for the one-cell
+system, that the error decreases with increasing $V_1$. However, there is no
+clear trend for the error when changing the cell-cell distance $d/a$, except
+that the $d/a$ cannot be very, very small, $d/a < 2$, because then the Ising
+approximation breaks down. The spectra of the Ising model do not compare well
+the fixed charge or even the bond model. Especially at $V_1 = 100$, the Ising
+model's density of state curve looks widely dissimilar to any of the two other
+models. Clearly, the Ising approximation gets the energy levels completely
+wrong. However, when evaluating the spectrum we should keep in mind that, in
+contrast to the bond model, the Ising model's state need not be the same
+qualitatively as the more exact models' states. This explains that even though
+the spectrum looks completely wrong the Ising model does work, if in a very
+small temperature range. Still, in the right limit the Ising model should
+eventually resemble the bond model. Accordingly, at $V_1 = 200$ the spectra do
+look more agreeable, even though the Ising model still is far from an accurate
+reproduction of the bond spectrum. The qualitative agreement of the spectra
+becomes better for smaller cell-cell distances and larger driver cell
+polarizations as well, thus generally when the cells are more fully polarized.
 
+All told, the Ising model is a tricky approximation. It is conceptually
+confusing, because, even though it is derived from the bond Hamiltonian, it does
+not exactly resemble the bond model. Adding to this confusion is the fact that
+it gets the ground state of the one-cell system right, but, as expected, not for
+larger systems. From a practical point of view, the Ising model requires very
+large $V_1/t$ ratios and its operational window can be very, very small. Great
+care should thus be exercised when using the Ising approximation for
+calculations. Ising model calculations should be verified with a more exact
+model as much as possible and the error, and trends of the error, should be
+kept in check. Where an explicit verification is not possible, for larger
+systems, its result should be taken with a grain of salt.
+
+As a final step, we look at a few concrete systems---three-cell to five-cell
+wires---and trends of the error of the Ising model for these systems. For
+a horizontal line of cells with three to five cells with a cell-cell distance of
+$d/a = 4$ and a nearest-neighbour Coulomb energy $V_1 = 100$,
+Fig.~\ref{fig:ising_approximation3}(a) shows the relative error as a function of
+the number of cells, that is, the wire length at two different temperatures. For
+these larger systems the Ising model and hence its error is benchmarked against
+the bond model, and not the fixed charge model as before. We notice that for
+these larger systems the error is quite a bit smaller for the slighter higher
+temperature, at $T = 2$. In fact, for an error smaller than 10\% we have to
+choose $T = 2$. Most worryingly, the error grows with the number of cells in the
+wire. This trend holds quite generally, for a range of systems with different
+cell-cell distances $d/a$ and Coulomb energies $V_1$. For larger systems we
+expect the error to become large as well and unfortunately there is nothing we
+can do about it. For large systems we will not be able to compare the Ising
+model to the bond model and we will not be able to give a good upper bound for
+the error. The error will therefore become uncontrolled. On a slightly more
+optimistic note, we notice that the error seems to decrease from cell to cell
+inside each wire. This is explored in more detail in
+Fig.~\ref{fig:ising_approximation3}(b), where we have plotted the error of each
+cell polarization inside a five-cell wire. Evidently, the error decreases along
+the wire and we can expect this decrease to counter the generally growing error
+for longer and longer wires, at least as long as we are interested only in the
+output polarization of the wire. For wires with smaller cell-cell distances the
+error does not always decrease along the wire, but at least it does not seem to
+increase either. For this particular QCA structure for the chosen system
+parameters we are relatively confident that the error of the output
+polarization, while not well controlled, will at least not grow very large for
+systems accessible with the Ising approximation---up two twelve QCA cells. 
+% TODO: mention two sets of conditions for Ising model?
 % 
-% spectra look qualitatively more alike for larger P_D---we only use P_D=0.1
-% spectra look more alike for smaller d/a and for larger V1
-
-% also need to mention that models tend to agree for fully polarized cells ---
-% hence I need to look at a regime where the system is not fully polarized
-
-%
-\begin{figure}
-  \center
-  \includegraphics{ising_approximation1}
-  \caption{\ldots}
-  \label{fig:ising_approximation1}
-  % parameters: V1 = 100, boa = 3, P_D = 0.1, q = 0.5
-\end{figure}
-%
-%
-\begin{figure}
-  \center
-  \includegraphics{ising_approximation2}
-  \caption{\ldots}
-  \label{fig:ising_approximation2}
-  % parameters: V1 = 100, 200, boa = 3, P_D = 0.1, q = 0.5, U=1E3
-\end{figure}
-%
+% TODO: how does the ground state polarization's relative error of the Ising
+% model depend on b/a (for a two-cell system) ---  is the fact that we get the
+% ground state wrong connected to the hopping not considering the influence of
+% the other cells
 %
 \begin{figure}
   \center
   \includegraphics{ising_approximation3}
   \caption{\ldots}
   \label{fig:ising_approximation3}
-  % parameters: V1 = 100, boa = 3, P_D = 0.1, q = 0.5
+  % parameters: V1 = 100, boa = 3, P_D = 0.1, q = 0.5; 5 cells
+  % TODO: in left plot to not show 3.5,4.5 on x-axis
 \end{figure}
 %
+
+In this chapter we introduced and established three approximations for QCA
+systems, the fixed charge, the bond, and the Ising model. We usually use the
+fixed charge model as the starting point, without further explicit verification.
+In principle, whether the fixed charge approximation holds for some chosen set
+of parameters has to be checked for each potential QCA implementation on a case
+by case basis. If the fixed charge model is not applicable, then there is also
+generally no hope of implementing QCA on the given experimental system. At high
+temperatures the bond approximation is a very good description of QCA systems.
+It starts breaking down when the temperature becomes comparable to the
+singlet-triplet splitting and therefore for small $V_1$ and too large cell-cell
+distances. We generally assume doubly occupied states to be sufficiently gapped
+out ($U$ is practically infinite) and can safely neglect them, as the bond model
+does. While it is conceptually deeply rewarding to map QCA to an Ising
+system, we have seen the Ising approximation to be difficult to handle and control
+for practical calculations. It is only valid in a relatively small parameter
+window and great care has to be taken with its application. Generally speaking, both the
+bond and the Ising approximation become exact in the same limits---large $V_1/t$,
+small (but not too small) cell-cell distances---and not coincidentally those are
+the limits where the QCA approach works best, too. Both approximations are
+useless for low-temperature calculations, and for ground state properties we
+thus have to turn to the fixed charge model, which, however, only allows system
+sizes of up to three or four cells. We will use the bond model for most of our
+QCA characterization work at finite temperature. With system sizes of up to six
+cells it already allows some interesting insights. The Ising model is
+problematic and we will employ it sparingly, to look at larger structures such
+as gates.
+
+
 
 
 % TODO: mention which plots are q=0 and which ones are q=1/2

@@ -1,10 +1,6 @@
 \chapter{Approximations}
 \graphicspath{{../gfx/chapter02/}{../plots/chapter02/}}
-\newcommand{\ket}[1]{\left|#1\right>}
-\newcommand{\bra}[1]{\left<#1\right|}
 
-% TODO: in chapter 1: change V_2 -> V_0
-% TODO: chapter one, decomposed Hamiltonian: - H^c_k -> + H^c_k
 
 \section{Fixed charge model}
 
@@ -64,7 +60,7 @@ model.
 %
 At its heart, QCA is a semi-classical idea. It relies solely on charge-charge
 interactions and ignores the particle spins. Therefore, as a next step in our
-quest to access larger system sizes, we neglect the spin degree of freedom in
+quest to access larger system sizes, we neglect the spin degrees of freedom in
 our model. The 28 states per cell of the fixed charge model can be
 reorganized into four doubly occupied dots and six bonds. The six bonds are
 illustrated in Fig.~\ref{fig:bond}. Each bond corresponds to one spin singlet
@@ -109,7 +105,7 @@ no symmetries that can be exploited.
 A linear array of QCA cells where each cell has a state of logic 0 or 1 is
 reminiscent of a 1D spin $\frac{1}{2}$ chain. Indeed, if we reduce the basis to
 only two states per cell, down from six states in the bond picture, we
-can map the QCA system to a transverse-field Ising model with long-ranging
+can map the QCA system to a transverse-field Ising model with long-ranged
 interactions. This is an attractive proposition: The smaller Hilbert space
 allows for larger system sizes with our exact diagonalization method; more
 importantly, the transverse-field Ising model is amenable to sign-problem-free
@@ -688,7 +684,7 @@ singlet-triplet splitting is ``washed out'', that is, as long as the temperature
 is much larger than the singlet-triplet gap, $T \gg \Delta E_S$, the
 approximation should give correct results. At high enough temperatures the
 system no longer ``sees'' the difference between the singlet and the triplet
-states. This is illustrated in Fig.~\ref{fig:bond_approximations1}(b) where the
+states. This is illustrated in Fig.~\ref{fig:bond_approximation1}(b) where the
 spectrum is ``measured'' at a higher temperature. The singlet and triplets are
 no longer resolved separately.  Instead, each bond state corresponds to four
 fixed charge states at roughly the same energy. The figure shows all six bond
@@ -760,7 +756,7 @@ least of the same order of magnitude. For the much larger Coulomb energy $V_1 =
 100$ the spectra look much more alike, qualitatively, even though the bond model
 obviously still does not resolve all the lines of the exact density of states,
 and consequently the approximation works much better,
-Fig.~\ref{bond_approximation2}(a) and (b). The polarization curves agree down to
+Fig.~\ref{fig:bond_approximation2}(a) and (b). The polarization curves agree down to
 much lower temperatures and even the discrepancy for the ground state
 polarizations is much reduced. Compared to the $V_1 = 20$ system the ground
 state polarization is much larger and, generally, the higher the cell

@@ -1,8 +1,10 @@
 \chapter{Quantum-dot cellular automata}
 \graphicspath{{../gfx/chapter01/}}
 
+% TODO: abbreviate Figure and Figures as Fig. and Figs.?
 
-\section{The idea}
+
+\section{An alternative computing paradigm}
 
 \begin{figure}
   \center
@@ -10,10 +12,10 @@
   \caption{
 Building blocks of quantum-dot cellular automata (QCA). (a) A QCA cell consists
 of four quantum dots on the corners of a square and is occupied by two
-electrons. Due to Coulomb repulsion two energetically preferred states emerge,
+electrons. Due to Coulomb repulsion, two energetically preferred states emerge,
 logic 0 and logic 1. (b) Both electrons occupying the edge of the cell or
 doubly occupying a single quantum dot are unfavourable high-energy states. (c) A
-straight line of cells functions as a wire and transmits a signal.  (d) A
+straight line of cells functions as a wire and transmits a signal. (d) A
 diagonal line of cells (cells rotated by $45^{\circ}$) transmits a signal
 alternating from cell to cell. Wires can have kinks.
 }
@@ -33,40 +35,41 @@ signal.
   \label{fig:gates}
 \end{figure}
 
-Lent et al.\ introduced the concept of quantum-dot cellular automata as an
-alternative computing paradigm in 1993 \cite{lent1993quantum}. The aim was a
+Lent \emph{et~al}.\ introduced the concept of quantum-dot cellular automata as
+an alternative computing paradigm in 1993 \cite{lent1993quantum}. They devised a
 novel physical scheme to build digital circuits that would overcome some of the
 limitations of CMOS technology, promising potentially lower power consumption,
-higher device density, and faster clocking. As the name alludes to, quantum-dot
-cellular automata (QCA) is made from quantum dots which are grouped into cells.
-Figure~\ref{fig:intro_qca}(a) shows a basic QCA cell. Four quantum dots are
-arranged on the corners of a square. The dots are idealized as perfectly
-localized single orbitals on a perfectly decoupled non-intrusive medium.
-Therefore, each dot can be occupied by up to two electrons. In the QCA scheme,
-however, each cell is occupied by only two electrons in total, the cell is
-quarter-filled. The electrons tunnel between different dots in a cell, but the
-dominant energy scale has to be the Coulomb repulsion between the particles.
-Simply by virtue of the Coulomb repulsion, and ignoring the assumedly
-comparatively small tunnelling for now, the diagonal states are the two
-energetically preferred electron configurations as indicated in the figure. In
+higher device density, and faster clocking. As the name suggests, quantum-dot
+cellular automata (QCA) are made from quantum dots that are grouped into cells.
+Figure~\ref{fig:intro_qca}(a) shows a basic QCA cell in which four quantum dots
+are arranged on the corners of a square. The dots are idealized as perfectly
+localized single orbitals on a perfectly decoupled, non-intrusive medium.
+Because of the Pauli principle, each dot can be occupied by zero, one, or two
+electrons. In the QCA scheme, however, each cell is occupied by exactly two
+electrons in total and each constituent dot is quarter-filled on average. The
+electrons tunnel only weakly between different dots in a cell and the dominant
+energy scale is the Coulomb repulsion between the particles. Because of the
+large energy cost to two electrons occupying the same site or adjacent ones, the
+diagonal states are the two energetically preferred electron configurations. In
 comparison, edge states or doubly occupied quantum dots are unfavourable higher
-energy states, Figure~\ref{fig:intro_qca}(b). A priori the two diagonal states are
-energetically degenerate, but this degeneracy can be lifted by an external
-Coulomb potential, for example a second nearby QCA cell. Then these two states
-can be identified with logic 0 and 1, respectively.
+energy states, see Figure~\ref{fig:intro_qca}(b). The two diagonal states can be
+identified with logic 0 and 1, respectively. \emph{A priori} the two bit
+encodings have the same energy, but this degeneracy can be lifted by an external
+Coulomb potential, arising, for example, from a second nearby QCA cell.
 
 A single cell by itself is not very interesting. But multiple cells can be
-positioned next to each other, for example as a straight line of cells,
-Figure\ref{fig:intro_qca}(c). The approach now again assumes that Coulomb is the
-driving force and that electron tunnelling between cells is very small and
-ideally zero. For a straight line of cells, the long-ranging, unscreened Coulomb
-forces will tend to align the electron configurations of adjacent cells.  If the
-first cell is in logic state 1 then the second cell will also prefer logic state
+positioned next to one another, for example as a straight line of cells, as
+shown in Figure\ref{fig:intro_qca}(c). The approach once again assumes that
+Coulomb forces are strong and that electron tunnelling between cells is very
+small. For a straight line of cells, the long-ranged, unscreened Coulomb
+forces will tend to align the electron configurations of adjacent cells. If the
+first cell is in logic state 1, then the second cell will also prefer logic state
 1 and so will in turn all the other cells in the line. The situation is the same
 for logic state 0. Therefore, a straight line of cells is similar to a wire not
-only in geometry, but also in functionality: It transmits a digital signal. The
+only in geometry, but also in functionality: it transmits a digital signal. The
 same is true, with slight modifications, for a diagonal line of cells---cells
-rotated by $45^{\circ}$, Figure~\ref{fig:intro_qca}(d). In this case the signal
+rotated by $45^{\circ}$, as illustrated in Figure~\ref{fig:intro_qca}(d). In
+this case, the signal
 alternates from cell to cell, that is, logic 1 will follow logic 0 which
 followed from logic 0, and this again is simply by virtue of the dominant
 Coulomb interaction between electrons on different cells. By using an even
@@ -75,44 +78,44 @@ straight line of cells. The pictogram also demonstrates a $90^{\circ}$ kink for
 the diagonal line of cells which our newly gained intuition for these
 Coulomb-driven systems expects to pose no problem for signal transmission.
 
-The main idea of the QCA approach becomes apparent: Ideally bistable cells
+The main idea of the QCA approach becomes apparent: Ideal, bistable cells
 interact with each other solely by Coulomb repulsion. By arranging the cells in
-clever geometries we can realize interesting functionalities. The idea as such
-is quite general and does not strictly rely on the two-electron-four-dot cell
+clever geometries, we can realize interesting functionalities. The idea as such
+is quite general and does not strictly rely on the two-electron--four-dot cell
 introduced above. Indeed, a number of variations exist, such as cells consisting
-of only two dots and occupied by only one electron, interacting via dipole
-fields instead of quadrupole fields as for the conventional cells. Another
-variation is a four-dot cell with six electrons---two holes---instead of two
-electrons. Even the interaction need not be Coulombic. For example, magnetic QCA
-schemes have been explored. While QCA carries ``quantum'' in its name and is
-sought to be implemented at the nanoscale, the approach operates close to the
-classical limit. The Coulomb interaction is absolutely dominating with the
-tunnelling of electrons a small perturbation, which nonetheless drives the
-system's dynamics.  The approach is insensitive and in fact ignores the spin
-degree of freedom. Let us finally note that QCA is a not a cellular automata in
-a strict mathematical sense, but only by analogy to the idea of interacting
-cells.
+of two dots and occupied by only one electron that interact via dipole fields
+instead of quadrupole fields as for the conventional cells. Another variation is
+a four-dot cell with six electrons---two holes---instead of two electrons. Even
+the interaction need not be Coulombic. For example, magnetic QCA schemes have
+been explored \cite{bernstein2005magnetic}. While QCA carries ``quantum'' in its
+name and is sought to be implemented at the nanoscale, the approach operates
+close to the classical limit. The Coulomb interaction dominates with the
+tunnelling of electrons serving as a small perturbation, which nonetheless
+drives the system's dynamics. The approach is insensitive to the spin degrees of
+freedom. Let us finally note that QCA is a not a cellular automata in a strict
+mathematical sense, but only by analogy to the idea of interacting cells.
 
-One clever geometrical cell arrangement is shown in Figure~\ref{fig:gates}(a),
-the majority gate. The gate has three inputs which ``vote'' on the central cell.
-The majority wins and sets the single output. The device is commonly operated
-with one fixed input, for example $I_3 \doteq 0$ or $I_3 \doteq 1$. In the first
-case, $I_3 \doteq 0$, the device functions as an AND gate for the remaining two
-inputs, $O = I_1 \land I_2$. In the second case, $I_3 \doteq 1$, it is an OR
-gate with $O = I_1 \lor I_2$. The figure shows the gate performing the
-computation $1 \land 0 = 1$. Now, the only missing piece for Boolean algebra is
-negation, $O = \lnot I$. We had already seen that simply arranging cells at an
-$45^{\circ}$ angle as in the diagonal line of cells negates the signal from cell
-to cell. The inverter, Figure~\ref{fig:gates}(b), recasts this idea into a more
-robust layout. With that we have, at least in principle, all the necessary
-building blocks for Boolean algebra and thus digital circuitry.
+One clever geometrical cell arrangement, the majority gate, is shown in
+Figure~\ref{fig:gates}(a). The gate has three inputs which ``vote'' on the
+central cell. The majority wins and sets the single output. The device is
+commonly operated with one fixed input, for example $I_3 \doteq 0$ or $I_3
+\doteq 1$. In the first case, with $I_3 \doteq 0$, the device functions as an
+AND gate for the remaining two inputs, $O = I_1 \land I_2$. In the second case,
+with $I_3 \doteq 1$, it is an OR gate with $O = I_1 \lor I_2$. The figure shows
+the gate performing the computation $1 \land 0 = 1$. Now the only missing piece
+for Boolean algebra is negation, $O = \lnot I$. We had already seen that simply
+arranging cells at an $45^{\circ}$ angle as in the diagonal line of cells
+negates the signal from cell to cell. The inverter, shown in
+Figure~\ref{fig:gates}(b), recasts this idea into a more robust layout. With
+that we have, at least in principle, all the necessary building blocks for
+Boolean algebra and thus digital circuitry.
 
 Conceptually, it is most elegant to set the inputs for a QCA circuit via driver
-cells---cells that resemble the QCA cell in form, but are made up from static
+cells---cells that resemble the QCA cell in form, but are made up of static
 point charges instead of quantum dots. These static charges are thought to be
-manipulatable to vary the input smoothly from the logic 0 to the logic 1 state.
-In Figures~\ref{fig:intro_qca}~and~\ref{fig:gates} these driver cells are
-represented in light grey.  Of course, in practice such driver cells would be
+manipulable to vary the input smoothly from the logic 0 to the logic 1 state.
+In Figures~\ref{fig:intro_qca}~and~\ref{fig:gates}, these driver cells are
+represented in light grey. Of course, in practice such driver cells would be
 difficult if not impossible to implement and the inputs are more likely set by
 leads that provide the necessary perturbative electrostatic fields. The output
 of a QCA device can be directly read from its output cells. In practical
@@ -121,18 +124,18 @@ Changing the input for a QCA device throws the system into an excited,
 non-equilibrium state. The system will then dissipatively propagate to its new
 ground state. For the given inputs, this ground state corresponds to the
 solution of the computational problem the circuit is designed to solve. Let us
-emphasize this: In QCA, the computational solution maps directly to the physical
-ground state. During performing a computation only a few charges move locally,
+emphasize this: in QCA, the computational solution maps directly to the physical
+ground state. While the computation is being performed, only a few charges move locally,
 in each cell. Operating close to the ground state, QCA is thus a truly
 current-free approach and consequently inherently low-power, especially when
 compared with CMOS technology. But the operation close to the ground state also
 raises concerns for the operational temperature for these devices. It is clear
 that for applications we would want to engineer the system so that the energy
 gap between the ground state and the low-lying excited states far exceeds room
-temperature.  Different material systems provide different dissipative channels
+temperature. Different material systems provide different dissipative channels,
 and modelling them quantitatively or even qualitatively correctly is very
 challenging. As a consequence, it is difficult to derive general expectations
-for the clocking speed of QCA circuits.  The switching speed of a majority gate,
+for the clocking speed of QCA circuits. The switching speed of a majority gate,
 for example, will greatly depend on the system's parameters, but particularly on
 the nature of the dissipative coupling of the circuit to its environment. A
 small dissipative coupling will have the output polarization oscillating before
@@ -145,7 +148,7 @@ However, the structures themselves are quasi-one-dimensional and this poses a
 challenge for building large-scale QCA circuits. A good example is a single long
 wire, which is truly one-dimensional. When we think about switching the input
 for the wire, we think of the information being propagated as a charge density
-wave throughout the line of cells, or, equivalently, as propagating the domain
+wave along the line of cells, or, equivalently, as propagating the domain
 boundary between logic 0 and logic 1. This domain boundary incurs an energy cost
 that the system seeks to minimize, causing the wire to order. For an
 increasingly longer wire, however, the gain in entropy for moving a domain
@@ -153,8 +156,8 @@ boundary freely throughout the wire ($S \sim \log N$, $N$ the number of cells)
 soon exceeds the loss in energy, which is reflected by the free energy of the
 system ($F = U - T S$). Quite generally, a one-dimensional system cannot be
 ordered in the thermodynamic limit except at zero temperature. Therefore, the
-finite-temperature infinitely long wire will always have at least two different
-domains, logic 0 and logic 1, and thus not be able to transmit a signal. The gap
+finite-temperature, infinitely long wire will always exhibit exponentially
+decaying bit correlations and thus not be able to transmit a signal. The gap
 between the first excited state---with two domains---and the completely ordered
 ground state, together with the desired operational temperature will determine
 the maximum system size.
@@ -166,44 +169,44 @@ the maximum system size.
   \includegraphics{clocking}
   \caption{
 Clocked QCA for a line of cells. To avoid entropy-induced disorder in large QCA
-circuits, the system is partitioned into smaller units: unit 1, 2, and 3 in this
-example. By varying the tunnelling barriers, each unit is put through the three
-phases \emph{frozen} (high barrier, light grey cells), \emph{active} (medium
-barrier, dark grey cells), and \emph{delocalized} (low barrier, dark grey cells
-with empty dots). Synchronizing the phases of adjacent units allows to pipeline
-information flow and computations.  The line of cell's three units and their
-tunnelling barriers are shown at three different times, $t_1<t_2<t_3$. A logic 1
-state is propagated from the left to the right.  At $t_3$ a logic 0 state is
-coming in from the left.
+circuits, the system is partitioned into smaller units, labelled 1, 2, and 3 in
+this example. By varying the tunnelling barriers, each unit is put through the
+three phases \emph{frozen} (high barrier, light grey cells), \emph{active}
+(medium barrier, dark grey cells), and \emph{delocalized} (low barrier, dark
+grey cells with empty dots). Synchronizing the phases of adjacent units allows
+to pipeline information flow and computations. The line of cell's three units
+and their tunnelling barriers are shown at three different times, $t_1<t_2<t_3$.
+A logic 1 state is propagated from the left to the right. At $t_3$ a logic 0
+state is coming in from the left.
 }
   \label{fig:clocking}
 \end{figure}
 
-To address this scaling problem we partition large circuits into smaller units.
+To address this scaling problem, we partition large circuits into smaller units.
 The size of each unit is chosen to be small enough to avoid entropy-induced
 disorder at a given operational temperature. Each unit can be turned ``on'' and
-``off'' separately: Ideally, individual gates would allow to effectively raise
-and lower the tunnelling barriers between quantum dots in each unit and thus
-allow to freeze or delocalize the electrons. A unit with \emph{frozen} electrons
-can serve as the input for a unit with more \emph{active} charge carriers, which
-works like a regular QCA circuit. A unit with completely \emph{delocalized}
-electrons, in contrast, will not influence adjacent units. By putting each unit
-through the three phases \emph{delocalized}, \emph{active}, and \emph{frozen}
-and synchronizing adjacent units appropriately, we can control the information
-flow through the system very nicely, as illustrated in Figure~\ref{fig:clocking}.
-Therefore, by partition the circuit and introducing a clocking scheme we not
-only handle the scaling problem, but also arrive at a pipelining architecture.
-If and how the tunnelling barriers can be effectively modified will depend on
-the details of the specific QCA implementation. Also, in practice the QCA
-circuit units cannot be too small as they must be individually addressable.
-Gates which turn QCA units ``on'' and ``off'' provide another potential benefit
-as well. We are able to control how and especially how fast the gate voltage is
-changed and should be able to tune it with respect to the inherent time-scales
-of the QCA system, which are set by the system's parameters and the dissipative
-coupling to its environment. This should afford a better control over the
-dynamics of the switching process and might help mitigate problems like
-oscillating outputs and meta-stable states, mentioned above
-\cite{lent1997device}.
+``off'' separately: ideally, individual gates would allow one to effectively
+raise and lower the tunnelling barriers between quantum dots in each unit and
+thus provide a mechanism to freeze or delocalize the electrons. A unit with
+\emph{frozen} electrons can serve as the input for a unit with more
+\emph{active} charge carriers, which works like a regular QCA circuit. A unit
+with completely \emph{delocalized} electrons, in contrast, will not influence
+adjacent units. By putting each unit through the three phases
+\emph{delocalized}, \emph{active}, and \emph{frozen} and synchronizing adjacent
+units appropriately, we can control the information flow through the system very
+nicely, as illustrated in Figure~\ref{fig:clocking}. Therefore, by partition
+the circuit and introducing a clocking scheme we not only handle the scaling
+problem, but also arrive at a pipelining architecture. If and how the
+tunnelling barriers can be effectively modified will depend on the details of
+the specific QCA implementation. Also, in practice the QCA circuit units cannot
+be too small as they must be individually addressable. Gates which turn QCA
+units ``on'' and ``off'' provide another potential benefit as well. We are able
+to control how and especially how fast the gate voltage is changed and should be
+able to tune it with respect to the inherent time scales of the QCA system,
+which are set by the system's parameters and the dissipative coupling to its
+environment. This should afford a better control over the dynamics of the
+switching process and might help mitigate problems such as oscillating outputs
+and meta-stable states, mentioned above \cite{lent1997device}.
 % TODO: clarify how the raising and lowering of the tunnelling barriers could
 % really plausibly work, e.g. for the silicon system
 
@@ -222,27 +225,27 @@ surface, showing dimer rows. (d) Two closely spaced tunnel-coupled DBs perturbed
 by a third DB. The top right DB is seen to be more negatively charged than the
 other DB of the closely spaced pair, due to Coulomb repulsion from the
 perturbing third DB in the bottom left. All STM images and \emph{ab initio}
-estimates from Wolkow et~al.\ \cite{wolkow2013silicon} \cite{pitters2011tunnel}.
+estimates from Wolkow \emph{et~al}.\ \cite{wolkow2013silicon} \cite{pitters2011tunnel}.
 }
   \label{fig:silicon}
 \end{figure}
 
-Our objective is the general, not implementation-specific characterization of
-the QCA approach. Even so it is still important to consider concrete
-experimental realizations, not only as a motivation for our work, but also to
-put our modelling and results into context. One of the most promising and recent
-experimental implementations of QCA is based on atomic silicon quantum dots and
-we will therefore use them as our experimental reference. Atomic silicon quantum
-dots were first demonstrated as a possible QCA implementation by Wolkow et~al.\
-in 2009, when the group realized one single QCA cell.
-Figure~\ref{fig:silicon}(a) shows a scanning tunnelling microscope (STM) image
-of this cell. Since then impressive advances have been made both in the
-understanding of the electronic properties of these quantum dots as well as in
-the precise fabrication of larger QCA structures. With atomic-scale feature
-sizes this experimental system promises room temperature operation, while at the
-same time tapping into the established and highly sophisticated silicon
-technology. Being based on silicon should also ease integration with existing
-CMOS circuitry.
+Our objective is the general, rather than implementation-specific,
+characterization of the QCA approach. Even so, it is still important to consider
+concrete experimental realizations, not only as a motivation for our work, but
+also to put our modelling and results into context. One of the most promising
+and recent experimental implementations of QCA is based on atomic silicon
+quantum dots, and we will therefore use them as our experimental reference.
+Atomic silicon quantum dots were first demonstrated as a possible QCA
+implementation by Wolkow \emph{et~al}.\ in 2009, when the group first constructed one
+single QCA cell. Figure~\ref{fig:silicon}(a) shows a scanning tunnelling
+microscope (STM) image of their device. Since then impressive advances have been
+made both in the understanding of the electronic properties of these quantum
+dots as well as in the precise fabrication of larger QCA structures. With
+atomic-scale feature sizes, this experimental system promises room temperature
+operation, while at the same time tapping into the established and highly
+sophisticated silicon technology. Being based on silicon should also ease
+integration with existing CMOS circuitry.
 
 Atomic silicon quantum dots are \emph{dangling bonds} on a hydrogen-terminated
 $(100)$ silicon surface. Atoms on a $(100)$ silicon surface have two unsatisfied
@@ -252,23 +255,23 @@ Figure~\ref{fig:silicon}(c) shows a STM image of the reconstructed silicon
 surface, where the dimer rows are clearly visible and the dimensions are
 indicated. By applying a relatively large current through the STM tip,
 individual hydrogen atoms can be removed, with atomic precision. This leaves a
-\emph{dangling bond} (DB) which acts as a quantum dot: Energetically, electrons
+\emph{dangling bond} (DB) that acts as a quantum dot: energetically, electrons
 on the DB orbital sit in the silicon band gap and are therefore decoupled from
-the silicon substrate.  Figure~\ref{fig:silicon}(b) shows the band diagram of a
-DB on a n-doped substrate.  Chemically, DBs have proven to be surprisingly
+the silicon substrate. Figure~\ref{fig:silicon}(b) shows the band diagram of a
+DB on an n-doped substrate. Chemically, DBs have proven to be surprisingly
 robust with respect to environmental molecules. From \emph{ab initio}
-calculations it is known that the $sp^3$ DB orbital extends predominantly into
+calculations it is known that the sp$^3$ DB orbital extends predominantly into
 the bulk and only a little into the vacuum. The orbital's lateral extent is on
-the order of $1\mathrm{nm}$ and therefore spans multiple silicon lattice atoms.
-Due to orbital overlap, closely spaced DBs are tunnel-coupled. A neutral DB
-consists of the positive silicon ion and one electron. In the experimentally
-common strongly n-doped system, the DB accepts one more electron and is
-therefore $-1e$ negatively charged. Conversely, in a p-doped sytem the DB will
-donate its electron and become $+1e$ positively charged. The Coulomb repulsion
-between negatively charged DBs can be used to adjust the filling of DB
-assemblies simply by the DBs' positions. For example, on a n-doped substrate two
-DBs may eject one electron (which goes back to the bulk) and share the remaining
-single electron, when placed close enough together. To proof this, a third DB is
+the order of 1~nm and therefore spans multiple silicon lattice atoms. Due to
+orbital overlap, closely spaced DBs are tunnel-coupled. A neutral DB consists of
+the positive silicon ion and one electron. In the experimentally common strongly
+n-doped system, the DB accepts one more electron and is therefore $-1e$
+negatively charged. Conversely, in a p-doped sytem the DB will donate its
+electron and become $+1e$ positively charged. The Coulomb repulsion between
+negatively charged DBs can be used to adjust the filling of DB assemblies simply
+by controlling the DBs' positions. For example, on an n-doped substrate two DBs
+may eject one electron (which goes back to the bulk) and share the remaining
+single electron, when placed close enough together. To prove this, a third DB is
 placed close by, but not close enough to be tunnel-coupled. The effect of the
 Coulomb repulsion can be seen via STM imaging, Figure~\ref{fig:silicon}(d),
 where the DB farthest from the perturbing external charge is more negatively
@@ -277,7 +280,8 @@ is only possible when both closely-spaced DBs share a single electron. To form
 the previously shown QCA cell, Figure~\ref{fig:silicon}(a), on a strongly
 n-doped silicon substrate four DBs are brought close enough together so that two
 electrons go back to the bulk, leaving the cell with six electrons (two holes)
-in total and a cell net charge of $-2e$---the right charge regime for QCA.
+in total and a cell net charge of $-2e$, which is the right charge regime for
+QCA.
 
 Atomic silicon quantum dots provide some examples of how a real world system
 might be different from the idealized picture we typically employ to describe
@@ -288,7 +292,8 @@ still be able to consider them as localized. We do not consider the substrate
 but treat quantum dots as perfectly isolated entities. Of course, in practice
 the substrate will certainly influence the QCA device. In the silicon system
 free charge carriers will screen the long-ranged Coulomb interactions that the
-QCA scheme relies on. The screening is not necessarily disruptive for QCA and
+QCA scheme relies on, although likely on scales larger than the circuit feature
+size. The screening is not necessarily disruptive for QCA and
 might even be beneficial, for example by minimizing charge-buildup in large
 systems. But to quantify the screening accurately it is necessary to thoroughly
 understand and precisely model the system in detail which, for atomic silicon
@@ -316,9 +321,9 @@ system, but our aim is to investigate universal characteristics of QCA systems.
 As long as a QCA system can be broadly qualitatively described by Hubbard
 physics---and most prospective QCA implementations fall into this category---our
 modelling and findings should be valid. Conversely, for implementations that are
-decidedly not Hubbard-like, our results might not be applicable.  An idealized
+decidedly not Hubbard-like, our results might not be applicable. An idealized
 but semi-realistic description is what we want and for that the Hubbard model is
-indeed an appropriate---and tractable---starting point.  Specifically, the
+indeed an appropriate---and tractable---starting point. Specifically, the
 Hamiltonian we use is
 \begin{equation}
 \begin{split}
@@ -360,7 +365,7 @@ $H^{cc}_{kl}$ and single cell terms $H^c_k$, which capture the kinetics as well
 as the inside-cell Coulomb interactions,
 \begin{equation}
   \label{eq:H_cell}
-  H = - \sum_k H^c_k + \sum_{k<l} H^{cc}_{kl} \, ,
+  H = \sum_k H^c_k + \sum_{k<l} H^{cc}_{kl} \, ,
 \end{equation}
 where $k$ and $l$ number the cells. 
 
@@ -392,7 +397,7 @@ where the dots in each cell are numbered clockwise as indicated in the figure.
 We have also introduced the shorthand notation $n_i = n_{i\uparrow} +
 n_{i\downarrow}$. The cell polarization is $P_k = -1$ for a logic 0 and $P_k =
 +1$ for a logic 1 state. Without any external input the polarization of a cell
-will be $P_k = 0$.  In the example line of cells, the input is set via the
+will be $P_k = 0$. In the example line of cells, the input is set via the
 driver cell's polarization $P_D$ at the left end. The driver cell's four static
 point charges are adjusted to reflect the desired polarization $P_D$. For QCA,
 the cell polarization really is the observable of utmost interest. It indicates
@@ -404,9 +409,9 @@ geometric layouts over a wide range of system parameters will be our main focus.
 
 The QCA cell is characterized by three energy scales: the nearest-neighbour
 hopping $t$, the nearest-neighbour Coulomb repulsion $V_1 = \frac{1}{a}$, and
-the on-site Coulomb repulsion $U$. For QCA operation $U$ is usually assumed to
+the on-site Coulomb repulsion $U$. For QCA operation, $U$ is usually assumed to
 be sufficiently large so that doubly occupied states are gapped out. We can
-introduce $V_2 = \frac{1}{\sqrt{2} a}$, the next-nearest-neighbour Coulomb
+introduce $V_0 = \frac{1}{\sqrt{2} a}$, the next-nearest-neighbour Coulomb
 repulsion, which corresponds to both electrons sitting on the diagonal of the
 cell---our preferred $P_k=\pm1$ states, ideally the ground state. Conversely,
 $V_1$ corresponds to both electrons occupying the edge of the cell. Again, for
@@ -414,12 +419,12 @@ QCA operation we would like the edge states to be sufficiently gapped out. In
 other words, the energy gap $\Delta V$, 
 \begin{equation}
   \label{eq:deltaV}
-  \Delta V = V_1 - V_2 = \frac{2 - \sqrt{2}}{2} \frac{1}{a} \approx 0.3 V_1 \, ,
+  \Delta V = V_1 - V_0 = \frac{2 - \sqrt{2}}{2} \frac{1}{a} \approx 0.3 V_1 \, ,
 \end{equation}
 should be large compared to temperature $\Delta V \gg T$, and similarly $U \gg
 \Delta V \gg T$. The competition between temperature $T$ and $V_1$ will thus
 directly influence how polarized a cell is. In addition, $V_1$, which seeks to
-order the cell, will compete with $t$, which delocalizes and unorders the
+order the cell, will compete with $t$, which delocalizes and disorders the
 electrons. QCA is thought to function in a regime where Coulomb is the
 dominating energy scale and hopping is a small perturbation: the ratio
 $\frac{V_1}{t}$ is large. But it is also clear that if $\frac{V_1}{t}$ becomes
@@ -438,7 +443,7 @@ cell size $\frac{d}{a}$, we characterize any QCA system in dimensionless units.
   \caption{
 Basic characteristics of QCA devices, schematically. (a) The response of a
 cell's polarization to a driver cell's polarization is non-linear and exhibits
-gain.  This gain has been used extensively to argue for the QCA approach's
+gain. This gain has been used extensively to argue for the QCA approach's
 inherent robustness. (b) Cell polarizations of a six-cell wire with input
 polarization $P_D = 1$, as calculated with the intercellular Hatree
 approximation. Most cells are polarized with the same saturation polarization
@@ -449,16 +454,16 @@ output polarization does therefore not depend on the wire length.
 \end{figure}
 % TODO: frame of plots should be grey, not black 
 
-At the time of this writing the QCA idea is over twenty years old. Naturally,
+At the time of this writing, the QCA idea is over twenty years old. Naturally,
 the fundamental building blocks of QCA circuitry such as the single cell itself,
 the wire, and the majority gate have been characterized. Interestingly,
 time-independent properties were investigated relatively briefly and arguably
 not exhaustively. The bulk of the existing theoretical work soon focused on
 system dynamics, building large scale computing architectures with the QCA
-paradigm, and on specific potential experimental implementations. The
-characterization of time-indepentend QCA properties yielded two main results.
-First, the cell-cell response, that is, how the polarization of one cell
-responds to the polarization of a neighbouring cell, was established to be
+paradigm, and on specific potential experimental implementations. Previous work
+on the characterization of time-independent QCA properties yielded two main
+results.  First, the cell-cell response, that is, how the polarization of one
+cell responds to the polarization of a neighbouring cell, was established to be
 non-linear and exhibit gain \cite{lent1993quantum}. Therefore, even an only
 partially polarized cell would fully polarize the cell next to it,
 Figure~\ref{fig:qca_characterization}(a). Of course, gain is highly desirable,
@@ -467,7 +472,7 @@ imperfections and makes the scheme overall robust. Not coincidentally, CMOS
 technology is built around the MOSFET transistor with gain as one of its
 intrinsic properties. Second, lines of cells were seen to be polarized with an
 almost constant polarization throughout the whole line,
-Figure~\ref{fig:qca_characterization}(b) \cite{lent1993lines}: Apart from a few
+Figure~\ref{fig:qca_characterization}(b) \cite{lent1993lines}: apart from a few
 cells next to the driver cell, all remaining cells in the line would be
 polarized with the same \emph{saturation polarization}. As a consequence, the
 output polarization should not depend on the number of cells in the line. The
@@ -477,7 +482,7 @@ the hopping $t$ and the Coulomb energy $V_1$. For unfavourably chosen parameters
 the saturation polarization might be very small, but over a wide range of system
 parameters it was shown to be close to perfect. For example, for large hopping
 $t$ the saturation polarization is expected to be zero. If $t$ is then decreased
-and passes a critical point $t_c$, a first order phase transition takes place.
+and passes a critical point $t_c$, a second-order phase transition takes place.
 The saturation polarization becomes non-zero and in fact very quickly close to
 perfect as $t$ is further decreased. In addition to the cell-cell response and
 the analysis of a line of cells, larger QCA structures such as the majority gate
@@ -494,12 +499,12 @@ quite wrong.
 These early calculations of time-independent QCA properties concentrated almost
 exclusively on the ground state of the system (with one exception
 \cite{tougaw1993bistable}). However, focusing solely on the ground state is not
-sufficient.  While the QCA approach is intended to be operated ``close to the
+sufficient. While the QCA approach is intended to be operated ``close to the
 ground state,'' at least the first excited state is needed to obtain an estimate
 for the operational temperature for these devices---a parameter of significant
 practical interest. More subtly, what the QCA idea calls ground state actually
 corresponds to multiple states, namely one spin singlet and three spin triplet
-states for $P=-1$ and $P=1$, respectively, in a single cell.  While these states
+states for $P=-1$ and $P=1$, respectively, in a single cell. While these states
 can reasonably be expected to be near-degenerate, a thorough study of QCA should
 still consider them. In more practical terms, QCA is expected to operate at
 finite temperatures so simulating the devices at non-zero temperature just makes
@@ -514,13 +519,13 @@ should be chosen for optimal performance.
 
 The exact numerical simulation of QCA systems is challenging and in fact
 intractable for all but the smallest structures. Therefore, approximations are
-necessary. In the literature on QCA two approximations are prevailing: The
+necessary. In the literature on QCA two approximations are prevalent: the
 intercellular Hartree approximation (ICHA) and the two-states-per-cell
 approximation \cite{lent1993quantum} \cite{tougaw1996dynamic}. Most of the
 studies of time-independent QCA properties employ the ICHA. Only the cell-cell
 response is calculated with a ``full'' quantum mechanical model, where the
 ``full'' model is actually already the reduced Hilbert space of exactly two
-electrons per cell. ICHA is a mean field scheme: The Hamiltonian of one cell is
+electrons per cell. ICHA is a mean field scheme: the Hamiltonian of one cell is
 solved exactly in the mean field of the polarizations of all the other cells.
 More specifically, the cell-cell interaction term $H^{cc}_{kl}$ in
 equation~\eqref{eq:H_cell} is rewritten
@@ -553,24 +558,24 @@ the one-cell mean field Hamiltonian becomes
 \begin{equation}
   \label{eq:H_meanfield}
   H^{\mathrm{MF}}_k
-  = - H^c_k + \sum_{i \in k} \left( n_i - q \right) \tilde{V}_i^k \, .
+  = H^c_k + \sum_{i \in k} \left( n_i - q \right) \tilde{V}_i^k \, .
 \end{equation}
 Because the cell polarization is directly related to the occupancies of the
 sites of the cell, we have $\tilde{V}_i^k = \tilde{V}_i^k(\left<P_l\right>)$.
-Solving the one-cell Hamiltonian allows to compute to polarization $\left< P_k
-\right>$ of the cell which in turn is used to set the mean field originating
+Solving the one-cell Hamiltonian allows one to compute to polarization $\left< P_k
+\right>$ of the cell, which in turn is used to set the mean field originating
 from all other cells. The procedure is repeated until a self-consistent cell
 polarization and thus self-consistent solution for
 Equation~\eqref{eq:H_meanfield} is found. By using $n_i n_j \approx n_i \left<
 n_j \right> + \left< n_i \right> n_j$ mean field approximations neglect quantum
 fluctuations. Only at high dimensionality can these fluctuations really average
-to zero and indeed mean field schemes can be shown to become exact in the limit
-of infinite dimensionality \cite{Fehske}.  Conversely, for low dimensional
+to zero, and indeed mean field schemes can be shown to become exact in the limit
+of infinite dimensionality \cite{Fehske}. Conversely, for low dimensional
 systems fluctuations are more important and mean field approximations are
-intuitively expected not to work very well. As an uncontrolled approximation the
+intuitively expected not to work very well. As an uncontrolled approximation, the
 validity of a mean field approach has to be verified on a case by case basis.
-Consequently, because QCA is quasi-one-dimensional it is arguably not
-well-suited for a mean field treatment. Even then a mean field approximation
+Consequently, because QCA is quasi-one-dimensional, it is arguably not
+well suited for a mean field treatment. Even then a mean field approximation
 might be appropriate as a first stab at the problem. But ICHA, having been introduced
 in the very first QCA paper, was never verified or complemented by more accurate
 methods. It is rather remarkable that a large part of the existing work on QCA
@@ -581,7 +586,7 @@ wrong \cite{toth2001role}. Much more recently, it has been shown very explicitly
 that even for the single cell-cell response ICHA introduces artefacts that are
 clearly non-physical \cite{taucer2012consequences}. As an intuitive simple
 example where ICHA will give wrong results we can go back to the infinitely long
-wire we already discussed above: We argued that due to entropy the infinite wire
+wire we already discussed above: we argued that due to entropy the infinite wire
 can only be ordered at zero temperature. In contrast, a mean field approximation
 will predict order up to a finite critical temperature. 
 % TODO: more detail, why do we expect the mean field approach to give a finite
@@ -591,7 +596,7 @@ will predict order up to a finite critical temperature.
 % TODO: better citation for the fact that mean field becomes exact in infinite
 % dimensions
 
-For the calculation of time-dependent properties the two-states-per-cell
+For the calculation of time-dependent properties, the two-states-per-cell
 approximation is typically used, precisely because it was realized that ICHA is
 not sufficient, for example to calculate the switching behaviour of some
 majority gate structures. Perplexingly, in the literature the two-state
@@ -600,7 +605,7 @@ approximation is motivated and justified by the ICHA picture
 polarized with a saturation polarization $P_{sat}$---in ICHA calculations---a
 cell is represented by two basis states, corresponding to $P = P_{sat}$ and $P =
 - P_{sat}$. In a loose sense, the two-states-per-cell model thus comes from a
-picture of how we would like QCA to work: Perfectly bistable, interacting cells.
+picture of how we would like QCA to work: perfectly bistable, interacting cells.
 The approximation has been verified to the extent that it was shown that the
 ground state of the full quantum mechanical model can be represented nearly
 perfectly by the two-state basis, but only for one cell and for one particular
@@ -614,7 +619,7 @@ yields more correct results, not only for dynamics, but also for
 time-independent properties. This comes at the cost of exponential scaling for
 the two-state model, whereas ICHA scales linearly in system size. Therefore,
 even with the two-state approximation only relatively small QCA devices are
-computationally feasible. As a last note, the two-state model is clearly very
+computationally feasible. As a final note, the two-state model is clearly very
 similar to a transverse field quantum Ising model, where the two polarization
 states correspond to a pseudo spin and the hopping is like a transverse field,
 flipping cell polarizations.
@@ -624,7 +629,7 @@ flipping cell polarizations.
 
 We use the exact diagonalization numerical method \cite{Fehske} to simulate QCA
 systems described by the Hamiltonian \eqref{eq:H_QCA}. In principle, exact
-diagonalization is a straightforward method: For a chosen basis the matrix of
+diagonalization is a straightforward method: for a chosen basis the matrix of
 the Hamiltonian is constructed explicitly and then diagonalized, yielding the
 eigenenergies and eigenstates of the system. With that we know everything about
 the system and can calculate observables of interest. The problem is that memory
@@ -640,13 +645,11 @@ finite temperatures and therefore need the full energy spectrum. Typically,
 projective schemes are only useful to calculate the ground state or the few
 lowest energy states. 
 
-\newcommand{\ket}[1]{\left|#1\right>}
-\newcommand{\bra}[1]{\left<#1\right|}
 %
 To decrease the memory requirements and computational cost of
-exact diagonalization symmetries must be exploited. The Hamiltonian matrix is
+exact diagonalization, symmetries must be exploited. The Hamiltonian matrix is
 actually quite sparse---most entries are zero. By using symmetries and a
-suitable basis the Hamiltonian matrix can be brought into block diagonal form
+suitable basis, the Hamiltonian matrix can be brought into block diagonal form
 and then only those much smaller blocks need to be diagonalized. Our QCA system
 is symmetric with respect to the total particle number $\hat{N} = \sum_i
 \hat{n}_{i\uparrow} + \hat{n}_{i\downarrow}$ and the total spin $\hat{S} =
@@ -705,21 +708,22 @@ Computational physics is, true to its name, to considerable extent concerned
 with writing computer code. If ingenious algorithms which bring sophisticated
 physical problems to the computer are the art that excites the computational
 physicist's intellect, then writing good computer code is the craft. It is a
-curious fact that traditionally in computational condensed matter physics little
-weight has been put on collaboration on the code level, the development of
-common tools, coding techniques, and the code itself. This not only frustrates
-the newcomer to the field, for it is a long way from a formally stated algorithm
-to a correct and efficient implementation, but also poses a more fundamental
-problem to science in a time when computing has long become an essential part of
-it. Scientific results obtained from sophisticated numerical algorithms can be
-difficult to verify and reproduce without an openly available implementation of
-those algorithms. But verification and reproducibility are core assets of the
-scientific process.  Fortunately, the culture is slowly changing. In
-computational condensed matter physics, the ALPS and Abinit projects provide
-open implementations of a variety of commonly used methods and algorithms
-\cite{bauer2011alps} \cite{gonze2009abinit}. In the wider scientific community,
-IPython is a shining example of building a powerful computational tool
-collaboratively, with a huge impact across disciplines \cite{perez2007ipython}.
+curious fact that traditionally in computational condensed matter physics,
+little weight has been put on collaboration on the code level, the development
+of common tools, coding techniques, and the code itself. This not only
+frustrates the newcomer to the field, for it is a long way from a formally
+stated algorithm to a correct and efficient implementation, but also poses a
+more fundamental problem to science in a time when computing has long become an
+essential part of it. Scientific results obtained from sophisticated numerical
+algorithms can be difficult to verify and reproduce without an openly available
+implementation of those algorithms. But verification and reproducibility are
+core assets of the scientific process. Fortunately, the culture is slowly
+changing. In computational condensed matter physics, the ALPS and Abinit
+projects provide open implementations of a variety of commonly used methods and
+algorithms \cite{bauer2011alps} \cite{gonze2009abinit}. In the wider scientific
+community, IPython is a shining example of building a powerful computational
+tool collaboratively, with a huge impact across disciplines
+\cite{perez2007ipython}.
 
 Our QCA exact diagonalization implementation is written in C++ and uses the
 excellent Eigen linear algebra library \cite{eigen}. Matrices are stored in

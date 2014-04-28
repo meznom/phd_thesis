@@ -1,9 +1,10 @@
 \chapter{Approximations}
 \graphicspath{{../gfx/chapter02/}{../plots/chapter02/}}
+\newcommand{\ket}[1]{\left|#1\right>}
+\newcommand{\bra}[1]{\left<#1\right|}
 
 % TODO: in chapter 1: change V_2 -> V_0
 % TODO: chapter one, decomposed Hamiltonian: - H^c_k -> + H^c_k
-% TODO: consistent \emph{fixed charge} terminology
 
 \section{Fixed charge model}
 
@@ -14,14 +15,14 @@ systems we need to introduce approximations. Approximating means to simplify.
 However, by carefully establishing successive approximations and their limits,
 we also reduce the problem to its essential ingredients and thus, hopefully, we
 gain a better understanding of the system. As a first step, we reduce the
-Hilbert space to a \emph{fixed} number of particles per cell. We disallow any
+Hilbert space to a fixed number of particles per cell. We disallow any
 charge fluctuations, both for the system as a whole and for each individual
 cell. With that, we omit the chemical potential term in the Hamiltonian, $\mu =
 0$, and prohibit inter-cell hopping. This is a major simplification. However, it
 is in line with the QCA idea: The approach requires a fixed number of charges
 per cell, typically two electrons, and cells are thought to interact only via
 Coulomb forces. In a sense we are shifting the starting point of our
-investigation. If the \emph{fixed} charge approximation is not valid for a given
+investigation. If the \emph{fixed charge} approximation is not valid for a given
 system, then there is no hope of implementing QCA on it. On the other hand, for
 experimental systems like the atomic silicon quantum dots and for a given cell
 layout, it should always be possible, at least in principle, to tune the system
@@ -31,16 +32,16 @@ two-electrons-per-cell sector is lowest in energy and other particle number
 sectors are sufficiently gapped out, that is, at an energy, compared to the
 ground state energy, much larger than temperature. Of course, in practice there
 are very clear limits as to how much the system parameters can be tuned and any
-QCA cell layout considered within the \emph{fixed} charge approximation cannot
+QCA cell layout considered within the fixed charge approximation cannot
 necessarily be readily implemented on a given real-world material system.
 
-For the \emph{fixed} charge system, the state space scales as $N_s =
+For the fixed charge system, the state space scales as $N_s =
 \binom{8}{2}^{N_c} = 28^{N_c}$ ($N_c$ is the number of cells). Using symmetries,
 the largest block of the Hamiltonian matrix is the spin zero sector, of size
 $N_s^{\prime} = 16^{N_c}$. On conventional computer hardware, systems of up to
 four cells are possible, with memory requirements of 32GB. In practice,
 however, calculations for four-cell systems take too long and thus three
-cells is the practical limit for the \emph{fixed}-number-of-particles-per-cell
+cells is the practical limit for the fixed-number-of-particles-per-cell
 model.
 
 
@@ -48,22 +49,28 @@ model.
 
 %
 \begin{figure}
-  % TODO: include numbering of states, e.g. \ket{1}, and so on
   \center
   \includegraphics{bond}
-  \caption{\ldots}
+  \caption{
+  The six bonds of a QCA cell. The basis of a QCA cell in the fixed charge
+  picture consists of six bonds and four doubly occupied dots. Each bond
+  corresponds to one spin singlet and three spin triplet states. The bond model
+  neglects doubly occupied states and keeps only one state per bond for a total
+  of a six states per cell.  From those, the Ising approximation only retains
+  the two lowest energy states, $\ket{1}$ and $\ket{2}$ with energy $V_0$.
+  }
   \label{fig:bond}
 \end{figure}
 %
 At its heart, QCA is a semi-classical idea. It relies solely on charge-charge
 interactions and ignores the particle spins. Therefore, as a next step in our
 quest to access larger system sizes, we neglect the spin degree of freedom in
-our model. The 28 states per cell of the \emph{fixed} charge model can be
+our model. The 28 states per cell of the fixed charge model can be
 reorganized into four doubly occupied dots and six bonds. The six bonds are
 illustrated in Fig.~\ref{fig:bond}. Each bond corresponds to one spin singlet
 and three spin triplet states. The \emph{bond} approximation only keeps one
 state for each bond and discards the doubly occupied states as well. With the
-\emph{bond} model we thus assume that singlet and triplet states are
+bond model we thus assume that singlet and triplet states are
 qualitatively equivalent and energetically degenerate, and that doubly occupied
 dots are sufficiently gapped out, that is, $U \gg T$. As QCA ignores the spin,
 singlets and triplets should be qualitatively equivalent, but they are not quite
@@ -71,7 +78,7 @@ degenerate. We expect that virtual double-occupancy lowers the energies of the
 singlet states and therefore introduces a small singlet-triplet splitting.
 Still, degeneracy is presumably not a bad assumption to start with and we will
 look at the singlet-triplet splitting in detail in due course. For the
-\emph{bond} model the QCA Hamiltonian reduces to
+bond model the QCA Hamiltonian reduces to
 %
 \begin{equation}
   \label{eq:H_bond}
@@ -79,30 +86,29 @@ look at the singlet-triplet splitting in detail in due course. For the
       + \sum_{i<j} V_{ij} \left( n_i - q \right) \left( n_j - q \right) \, .
 \end{equation}
 %
-With six bond states per cell, the Hilbert space of the \emph{bond} model is
+With six bond states per cell, the Hilbert space of the bond model is
 $N_s = 6^{N_c}$ ($N_c$ the number of cells). Five and six cells are doable, with
 memory requirements of 460MB and 16GB, respectively, but for practical
-calculations five cells really is the limit. For the \emph{bond} model there are
+calculations five cells really is the limit. For the bond model there are
 no symmetries that can be exploited.
 
 
 \section{Ising model}
 
-\newcommand{\ket}[1]{\left|#1\right>}
-\newcommand{\bra}[1]{\left<#1\right|}
-
 %
 \begin{figure}
   \center
   \includegraphics{ising}
-  \caption{a) QCA cells $k$ and $l$. b) The two-states-per-cell approximation
-  identifies each cell with a spin $\uparrow$ or $\downarrow$.}
-  \label{fig:cells2}
+  \caption{
+  (a) The Ising approximation identifies each cell with a pseudo spin. Logic 0
+  corresponds to spin down and logic 1 to spin up. (b) QCA cells $k$ and $l$. 
+  }
+  \label{fig:ising}
 \end{figure}
 %
 A linear array of QCA cells where each cell has a state of logic 0 or 1 is
 reminiscent of a 1D spin $\frac{1}{2}$ chain. Indeed, if we reduce the basis to
-only two states per cell, down from six states in the \emph{bond} picture, we
+only two states per cell, down from six states in the bond picture, we
 can map the QCA system to a transverse-field Ising model with long-ranging
 interactions. This is an attractive proposition: The smaller Hilbert space
 allows for larger system sizes with our exact diagonalization method; more
@@ -118,7 +124,7 @@ while bistable two-state cells are certainly the picture we have in mind when we
 talk about QCA, it is not \emph{a priori} clear whether this is a correct
 physical picture. 
 
-We use the \emph{bond} Hamiltonian \eqref{eq:H_bond} as the starting point. We
+We use the bond Hamiltonian \eqref{eq:H_bond} as the starting point. We
 had already discussed in the last chapter that such a Hamiltonian can be
 decomposed into single-cell terms and cell-cell interaction terms,
 \begin{equation}
@@ -134,11 +140,10 @@ Thus, we would like to map the single cell term $H^c_k$ to the transverse field
 term $-\gamma S^x_k$ and the Coulombic cell-cell interaction $H^{cc}_{kl}$ to 
 the Ising term $J_{kl} S^z_k S^z_l$. Each cell $k$ is identified with a pseudo
 spin $S^z_k$, specifically the logic 0 with a spin down state and the logic 1
-with a spin up state, as illustrated in Fig.~\ref{fig:cells2}(b). We will first
+with a spin up state, as illustrated in Fig.~\ref{fig:ising}(a). We will first
 look at how the QCA cell can be represented by only two states and derive an
 approximate expression for the transverse field $\gamma$. Then we will use a
 multipole expansion to derive $J_{kl}$ from the cell-cell Coulomb interaction.
-% TODO: maybe point out again that J_{kl} is long-ranged
 
 To arrive at a single-cell-basis with only two states we can, in principle,
 follow a similar prescription as for the fixed charge and bond approximations:
@@ -369,7 +374,7 @@ $H^{cc}_{kl}$,
 %
 where $i$ and $j$ sum over the four dots $1\ldots4$ of cell $k$ and $l$,
 respectively, $\bm{R}_{kl}$ denotes the vector between the centres of the cells,
-see Fig.~\ref{fig:cells2}(a). We have introduced $\bm{r}_{ij} = \bm{r}_j -
+see Fig.~\ref{fig:ising}(b). We have introduced $\bm{r}_{ij} = \bm{r}_j -
 \bm{r}_i$ and dropped the constant $q^2$ term. There are only four possible
 configurations for two interacting cells: $\uparrow\uparrow$,
 $\downarrow\downarrow$, $\uparrow\downarrow$, and $\downarrow\uparrow$. Using
@@ -597,7 +602,6 @@ the approximations behave in this parameter range.
 
 %
 \begin{figure}
-  % TODO: fix legend in (b); Maybe change y-axis range
   \center
   \includegraphics{fixed_charge_approximation}
   \caption{
@@ -1047,7 +1051,6 @@ accessible with the Ising approximation---up two twelve QCA cells.
   }
   \label{fig:ising_approximation3}
   % parameters: V1 = 100, boa = 3, P_D = 0.1, q = 0.5; 5 cells
-  % TODO: in left plot to not show 3.5,4.5 on x-axis
 \end{figure}
 %
 

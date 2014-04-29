@@ -629,7 +629,7 @@ parameter ranges.
 The fixed charge approximation is a Hilbert space truncation where we only keep
 the states with exactly two electrons per cell.
 Fig.~\ref{fig:fixed_charge_approximation}(a) compares the density of states of
-the fixed charge model against the exact grand canonical system for a two-cell
+the fixed charge model against the exact grand canonical model for a two-cell
 system. The chemical potential is $\mu = 250$ and the nearest-neighbour Coulomb
 energy is $V_1 = 100$, whereas the on-site Coulomb repulsion is $U = 1000$. The
 energies are in units of the hopping $t$, with $t = 1$. The cells are placed a
@@ -643,7 +643,7 @@ cell over temperature and demonstrates the breakdown of the approximation.
 Whereas the fixed charge model gives, per definition, a constant number of
 particles over the whole temperature range, the grand canonical system's cell
 occupancies start to diverge from two electron per cell at around $T \sim 10$.
-This roughly corresponds to the energy states the fixed charge model missed at
+This roughly corresponds to the energy states the fixed charge model misses at
 $E \gtrsim 35$. A small deviation from exactly two electrons per cell is not
 detrimental to QCA, a cell occupied by only one or by three electrons, however,
 renders QCA non-functional. We often use the fixed charge model as the starting
@@ -700,7 +700,7 @@ state is similar to $\ket{1}$, or logic 0, and the four higher energy states
 correspond to $\ket{4}$, $\ket{5}$, $\ket{3}$, and $\ket{6}$, in that order. Of
 course, in general the energy eigenstates are a mixture of all basis states, but
 we can still characterize them by the most dominantly contributing basis state.
-As this a non-charge-neutral system, $q=0$, with a relatively small cell-cell
+As this is a non-charge-neutral system, $q=0$, with a relatively small cell-cell
 distance $d/a = 3$, charge buildup tends to push the electrons to the far edge
 of the cell, thus making $\ket{4}$ lower in energy than $\ket{6}$.
 
@@ -711,14 +711,14 @@ in Fig.~\ref{fig:bond_approximation1}(a) as examples. Contrary to expectations,
 for those states the gap $\Delta E_S$ did not change significantly with the
 on-site Coulomb repulsion $U$. However, it did become smaller for shorter and
 shorter cell-cell distances $d$. Most importantly, for the nearest-neighbour
-Coulomb energy $V_1$ we found $\Delta E \sim \frac{1}{V_1^p}$. The exponent is
+Coulomb energy $V_1$ we found $\Delta E_S \sim \frac{1}{V_1^p}$. The exponent is
 $p \sim 3$ when the cell ``sees'' a biasing external potential (e.g.\ $P_D = \pm
 1$) and $p \sim 1$ otherwise (e.g.\ $P_D = 0$). Even though our method is
 anything but rigorous and the obtained results very likely not universally true,
-the findings should nonetheless give a good enough idea of the principle trends.
-Quite generally, the higher the overall Coulomb potential---large $V_1$, small
+the findings should nonetheless give a good enough idea of the principal trends.
+Quite generally, the higher the overall Coulomb potential---large $V_1$ and small
 $d$---the smaller the singlet-triplet splitting and, conceivably, the more
-accurate the bond approximation. The bond model should work as long as the $T
+accurate the bond approximation. The bond model should work as long as $T
 \gg T_{min}$ with $T_{min} \sim \Delta E_S$, and as a very rough guideline we can
 use $\Delta E_S \sim \frac{t^2}{V_1}$. Of course, we also need $T \ll T_{max}$
 with $T_{max} \sim U$, so that the doubly occupied states are gapped out.
@@ -739,7 +739,7 @@ with $T_{max} \sim U$, so that the doubly occupied states are gapped out.
 \end{figure}
 %
 To illustrate the limitations of the bond approximation we now look at a
-two-cell system---a horizontal line of cells with two active cells and a driver
+two-cell system: a horizontal line of cells with two active cells and a driver
 cell to the left. Fig.~\ref{fig:bond_approximation2} shows the spectra and
 output polarizations of the system for two different Coulomb energies, $V_1 =
 20$ and $V_1 = 100$. Otherwise the parameters are the same as for the one-cell
@@ -775,21 +775,26 @@ Fig.~\ref{fig:bond_approximation1}(b). For the much larger Coulomb energy $V_1 =
 obviously still does not resolve all the lines of the exact density of states,
 as illustrated in Fig.~\ref{fig:bond_approximation2}(c). Therefore, the
 approximation works much better: the polarization curves agree down to much
-lower temperatures and even the discrepancy for the ground state polarizations
-is much reduced, as demonstrated in Fig.~\ref{fig:bond_approximation2}(d).
+lower temperatures and even the discrepancy of the ground state polarizations is
+much reduced, as demonstrated in Fig.~\ref{fig:bond_approximation2}(d).
 Compared to the $V_1 = 20$ system, the ground state polarization is much larger
-and, generally, the higher the cell polarization, the better the agreement
+and, generally, the larger the cell polarization, the better the agreement
 between bond and fixed charge model. We also note that in the spectrum the peaks
 are much more spaced out and thus the $V_1 = 100$ wire retains larger cell
-polarizations up to much higher temperatures.
+polarizations up to much higher temperatures. For any conventional material, a
+Coulomb energy scale such as we have chosen here, $V_1/t \ge 20$, where we have,
+of course, $U/t \gg V_1/t$, seems like an extremely large value. However, we
+will find that such Coulomb energies are generally in agreement with what the
+QCA approach itself requires, and we will discuss this in detail in the next
+chapter.
 
 The polarization of the fixed charge model shows a curious bump at low
-temperatures, for example in Fig.~\ref{fig:bond_approximation2}(b) and
+temperatures, for example in Fig.~\ref{fig:bond_approximation2}(b), and
 similarly, if less visibly, in Fig.~\ref{fig:bond_approximation2}(d).
 Apparently, the ground state is not the most polarized state. Maximum
 polarization is reached at a small, but finite temperature. At the same time,
 for the bond model the ground state is the most polarized state and generally
-its $T=0$ polarization is larger than that of the fixed charge model.
+its zero-temperature polarization is larger than that of the fixed charge model.
 Interestingly, in contrast to the fixed charge model the bond model's ground
 state polarization is largely independent of the magnitude of the driver
 polarization and also only weakly influenced by the cell-cell distance $d$,
@@ -806,7 +811,7 @@ snapping to either $+P_{gs}$ or $-P_{gs}$. Now the bond model's ground state
 corresponds to the fixed charge model's triplet state---one of the lower lying
 excited states, but not the ground state. The true ground state of the more
 exact model is a single singlet state, a superposition of the $+P_{gs}$ and
-$-P_{gs}$ (and other) states. Therefore the polarization of the true ground
+$-P_{gs}$ (and other) states. Therefore, the polarization of the true ground
 state is generally smaller in magnitude than the polarization of the
 corresponding two triplet states, explaining the low temperature bump in the
 polarization curve and the larger polarization of the bond model's ground state.
@@ -830,77 +835,71 @@ polarization curve and the larger polarization of the bond model's ground state.
 %
 The Ising approximation is derived as an effective low-energy model from the
 bond Hamiltonian. It is therefore qualitatively different from the previous two
-approximations: It is not merely a Hilbert space truncation. \emph{A priori} its
-states need not exactly correspond, neither energetically nor qualitatively, to
-either the bond or the fixed charge model. Of course, in the limit where the
-approximations in the derivation become exact, the Ising model's states should
-resemble the bond model's states accurately. Specifically, the derivation
-assumed $E \approx V_0$ ($E$ the energy of the whole system) and therefore $t
-\ll \Delta V$ as well as $\Delta V \gg T$. The neglected edge states need to be
-gapped out. Additionally, cells were assumed to be isolated, so the Ising model
+approximations: it is not merely a Hilbert space truncation. While the Ising
+model should resemble the bond model in the limit where the approximations in
+its derivation become exact, for less than optimal parameters the models' states
+need not be in perfect agreement. The derivation assumed $E \approx V_0$ ($E$
+the energy of the whole system) and therefore $t \ll \Delta V$ as well as $T \ll
+\Delta V$. Additionally, cells were assumed to be isolated, so the Ising model
 presumably requires reasonably large cell-cell distances. Naturally, the model
-inherits the limits of the bond approximation and we would therefore expect $T
+inherits the limits of the bond approximation, and we would therefore expect $T
 \gg \Delta E_S$ ($\Delta E_S$ the singlet-triplet splitting) and $T \ll U$ as
-requirements as well. It is important to keep in mind that the Ising model is
+further requirements. It is important to keep in mind that the Ising model is
 not a low-energy model for the more exact fixed charge Hamiltonian---it is
 derived as the low-energy limit of the bond model, which, however, is not an
 accurate low-energy description of the fixed charge system. The approximation
-can also not hope to capture non-charge neutral systems correctly. It simply
-lacks the edge states that are the manifestation of charge buildup in non-charge
-neutral systems, as discussed in the example of the one-cell bond system above.
-We had seen in the derivation of the Ising model that non-charge-neutral cells
-are very problematic for the QCA approach in general. Consequently, we will
-concentrate on charge-neutral systems, $q = \frac{1}{2}$, for the remainder of
-the chapter.
+can also not hope to capture non-charge-neutral systems correctly. It simply
+lacks the edge states that are the manifestation of charge buildup, as discussed
+in the example of the one-cell bond system above. We had seen in the derivation
+of the Ising model that non-charge-neutral cells are very problematic for the
+QCA approach in general. Consequently, we will concentrate on charge-neutral
+systems with a compensation charge $q = \frac{1}{2}$ for the remainder of the
+chapter.
 
-To understand how the Ising approximation behaves we again start by looking at
-the density of states for a one-cell system,
+To understand how the Ising approximation behaves, we again start by looking at
+the density of states of a one-cell system, shown in
 Fig.~\ref{fig:ising_approximation1}(a). We have plotted both the fixed charge
-and bond models' density of states for comparison and now use slightly different
-system parameters: The nearest-neighbour Coulomb energy is $V_1 = 100$, the
+and bond model's density of states for comparison and now use slightly different
+system parameters: the nearest-neighbour Coulomb energy is $V_1 = 100$, the
 cell-cell distance is $d/a = 4$, and the driver cell is only slightly polarized
 with $P_D = 0.1$. As always, the hopping is $t=1$. We are in for a surprise!
 Evidently, the Ising model reproduces the singlet states and not the bond
 model's triplet states. In line with this observation, the Ising model exactly
 matches the fixed charge model's ground state polarization, but misses the
-triplet-bump at $T \sim 0.05$, Fig.~\ref{fig:ising_approximation1}(b). As a side
-note we observe that here, for the charge-neutral system, the bond model's
-ground state is fully polarized even at this larger cell-cell distance and for a
-very weak driver cell polarization. For the one-cell system the Ising
-approximation unexpectedly captures the system's ground state correctly.
-Apparently, even though we had derived the Ising model from the bond
-Hamiltonian, it does not really resemble the bond model. Instead its states are
-of singlet character. In short, the Ising model's behaviour is very confusing.
-To lift the confusion, we first note, that even though the Ising model correctly
-captures the ground state of the single-cell system, this is not true in
-general for larger systems, as we will see in a moment. Second, we need to be
-very careful when we talk about the bond model. The bond Hamiltonian is simply a
-spinless model that does not distinguish between singlet and triplet states. In
-contrast, the bond model uses a concrete basis and we saw that it chooses the
-triplet states. Therefore, the bond Hamiltonian, from which we derived the Ising
-model, and the bond model are not equivalent. With its choice of basis the Ising
-model captures the singlet states. This makes sense in so far as the Ising model
-is derived as the low-energy effective model and the singlet states are the
-lowest energy states. The Ising and bond model states are therefore different
-energetically and qualitatively. Still, in the limit where the Ising model
-becomes exact, the singlet-triplet splitting should go to zero and the states of
-the two models should become equivalent. On second thought, the fact that the
+triplet-bump at $T \sim 0.05$, as can be seen in
+Fig.~\ref{fig:ising_approximation1}(b). Here, for the charge-neutral system,
+the bond model's ground state is fully polarized even at this large cell-cell
+distance and for a very weak driver cell polarization. Even though we had
+derived the Ising model from the bond Hamiltonian, it does not resemble the bond
+model at all, which is very confusing. To lift the confusion, we first note
+that, even though the Ising model correctly captures the fixed charge ground
+state of the single-cell system, this is not true in general for larger systems,
+as we will see in a moment. Second, we need to be very careful when we talk
+about the bond model. The bond Hamiltonian is simply a spinless model that does
+not distinguish between singlet and triplet states. In contrast, the bond model
+uses a concrete basis and we saw that it chooses the triplet states. Therefore,
+the bond Hamiltonian, from which we derived the Ising model, and the bond model
+are not equivalent. Because the Ising model is an effective low-energy model, it
+makes sense that it captures the singlet states, which are lowest in energy. The
+Ising and bond states should still eventually become energetically and
+qualitatively equivalent, in the limit where the Ising model becomes exact and
+the singlet-triplet splitting goes to zero. On second thought, the fact that the
 Ising model exactly reproduces the ground state of the one-cell system is maybe
-not as surprising, because we had derived the Ising model precisely for a single
+not as surprising, because we had derived it precisely for a single, isolated
 cell.
 
-Close inspection of the energies of the Ising model's only two states as
-compared to the energies of the equivalent fixed charge model's states show that
-they are not exactly the same. The difference is hardly discernible in the
-plotted spectrum, but more pronounced for differently chosen system parameters.
-Given that the Ising approximation is an effective model and used several
-assumptions in its derivation, this is hardly surprising. For the single-cell
-system we can easily study the error of the energies of the Ising states with
-respect to the fixed charge states. The states are in better agreement for
-larger $V_1$ and smaller $t$. The error explodes for very small cell-cell
-distances $d/a < 2$---when the assumption of isolated cells breaks down---but is
-largely independent of $d/a$ otherwise. Therefore, we find the assumptions and
-limits of the derivation confirmed.
+Close inspection of the Ising model's only two states as compared to the
+equivalent fixed charge model's states show that they are not exactly the same
+energetically. The difference is hardly discernible in the plotted spectrum, but
+more pronounced for differently chosen system parameters. Given that the Ising
+approximation is an effective model and used several assumptions in its
+derivation, this is hardly surprising. For the single-cell system we can easily
+study the error of the energies of the Ising states with respect to the fixed
+charge states: the states are in better agreement for larger $V_1$ and smaller
+$t$. The error explodes for very small cell-cell distances $d/a < 2$---when the
+assumption of isolated cells breaks down---but is largely independent of $d/a$
+otherwise. Therefore, we find the assumptions and limits of the derivation
+confirmed.
 
 To be able to better quantitatively compare different models we introduce the
 relative error of the polarization, defined as
@@ -909,16 +908,16 @@ relative error of the polarization, defined as
   \epsilon^I_k = \frac{\left|P^F_k - P^I_k\right|}{P^F_k}
 \end{equation}
 %
-for the Ising model. Here we use the fixed charge model as the reference. Hence,
+for the Ising model. We use the fixed charge model as the reference. Hence,
 $P^F_k$ refers to the polarization of cell $k$ with the fixed charge
 model and $P^I_k$ is the same polarization, but determined using the Ising
 model. The relative error for the bond model, $\epsilon^B_k$, is defined
 equivalently. The relative error is independent of the magnitude of the
-polarization and therefore suitable for comparing models over a wide parameter
+polarization and therefore suitable for comparing models over wide parameter
 ranges. For best results it is also desirable to not drive the systems
 into full polarization. Once cells are saturated at $\left| P_k \right| \sim 1$
 the quantitative differences between the models disappear. This is why for our
-calculations with the Ising model here, which generally requires larger $V_1/t$
+calculations with the Ising model here, which generally require larger $V_1/t$
 ratios, we have chosen larger cell-cell distances and smaller driver cell
 polarizations, resulting in less polarized cells.
 
@@ -928,15 +927,15 @@ polarizations, resulting in less polarized cells.
   \includegraphics{ising_approximation2}
   \caption{
   Comparing the fixed charge, bond, and Ising model for the two-cell
-  charge-neutral QCA system. (a)(c) Low-energy density of states. The Ising
-  model's spectrum is qualitatively quite wrong, although it is in better
-  agreement with the bond model's spectrum for larger $V_1$. (b)(d) Relative
-  error of the output polarization of the bond and Ising model, with respect to
-  the fixed charge model. The bond model's error is small over a large range of
-  temperatures. At $T \sim U \sim 1000$ the neglected doubly occupied states
-  become noticeable. The Ising model's error is small only over a relatively
-  small range of temperatures. Its ground state no longer agrees with the fixed
-  charge model's ground state.
+  charge-neutral QCA system at $V_1 = 100$ and $V_1 = 200$. (a)(c) Low-energy
+  density of states. The Ising model's spectrum is qualitatively quite wrong,
+  although it is in better agreement with the bond model's spectrum for larger
+  $V_1$. (b)(d) Relative error of the output polarization of the bond and Ising
+  model, with respect to the fixed charge model. The bond model's error is small
+  over a large range of temperatures. At $T \sim U \sim 1000$ the neglected
+  doubly occupied states become noticeable. The Ising model's error is small
+  only over a relatively narrow temperature range. Its ground state no longer
+  agrees with the fixed charge model's ground state.
   }
   \label{fig:ising_approximation2}
   % parameters: V1 = 100, 200, boa = 3, P_D = 0.1, q = 0.5, U=1E3
@@ -944,42 +943,41 @@ polarizations, resulting in less polarized cells.
 %
 Fig.~\ref{fig:ising_approximation2} shows the relative error over temperature
 together with the density of states for all three models for a two-cell system
-at $V_1 = 100$ and $V_1 = 200$. As before we find that the bond approximation
+at $V_1 = 100$ and $V_1 = 200$. As before, we find that the bond approximation
 works much better when its spectrum looks qualitatively more similar to the
 fixed charge spectrum. At $V_1 = 100$ the bond model yields an almost fully
-polarized ground state, whereas the fixed charge model's $T=0$ polarization is
-much smaller, resulting in a very large relative error as indicated in
-Fig.~\ref{fig:ising_approximation2}(b). At $V_1 = 200$,
-Fig.~\ref{fig:ising_approximation2}(d), both fixed charge and bond are almost
-fully polarized at low temperatures and the relative error is therefore very
-small. For these calculations we used $U=1000$ and indeed we can see that the
-bond model starts to diverge for $T \gtrsim 200$. Even at $T=1000$ the error is
-relatively small, because the polarization is quite insensitive to doubly
-occupied dots, being defined solely as the difference in charge of one diagonal
-versus the other diagonal of the cell. At these large temperatures the actual
+polarized ground state, whereas the fixed charge model's zero-temperature
+polarization is much smaller, resulting in a very large relative error, as
+indicated in Fig.~\ref{fig:ising_approximation2}(b). At $V_1 = 200$, both the
+fixed charge and the bond system are almost fully polarized at low temperatures
+and the relative error is therefore very small, as demonstrated in
+Fig.~\ref{fig:ising_approximation2}(d). For these calculations we used $U=1000$
+for the on-site Coulomb repulsion, but otherwise the same parameters as for the
+one-cell system above. Accordingly, we can see that the bond model starts to
+diverge for $T \gtrsim 200$. Even at $T=1000$ the error is relatively small,
+because the polarization is quite insensitive to doubly occupied dots, being
+defined solely as the difference in charge of one diagonal versus the other
+diagonal of the cell. Note that at these large temperatures the actual
 polarization is already very small.
 
-Looking at the relative error of the Ising model we first notice that it becomes
-very large for $T > T_{max}$ with $T_{max} \sim 5 \ldots 10$. Of course, this is
-a consequence of the Ising model missing the gapped out edge states, where the
-gap is $\Delta V \sim 0.3 V_1$. Accordingly, $T_{max}$ is larger for $V_1 = 200$
-than for $V_1 = 100$, though maybe not by as much as we might expect. In stark
-contrast to the one-cell system, for two cells the Ising model's ground state no
-longer agrees with the ground state of the fixed charge model. The Ising $T=0$
-polarization is generally smaller than the polarization of the more exact model.
-Similarly to the bond model, the relative error of the ground state polarization
-decreases for increasing $V_1$. We never expected the Ising model to get the
-low-temperature behaviour right and in this light, the surprising agreement of
-the ground state for the one-cell system can be viewed as a curious coincidence,
-related to the details of how exactly we had derived the Ising model. The
-relative error curves of the Ising model reveal that the temperature range where
-the error is actually small---that is, where the Ising model can be considered
+Looking at the relative error of the Ising model, we first notice that it
+becomes very large for $T > T_{max}$ with $T_{max} \sim 5 \ldots 10$. Of course,
+this is a consequence of the Ising model missing the gapped out edge states,
+where the gap is $\Delta V \sim 0.3 V_1$. Accordingly, $T_{max}$ is larger for
+$V_1 = 200$ than for $V_1 = 100$, though maybe not by as much as we might
+expect. In stark contrast to the one-cell system, for two cells the Ising
+model's ground state no longer agrees with the ground state of the fixed charge
+model. The Ising zero-temperature polarization is generally smaller than the
+polarization of the more exact model, and, similarly to the bond model, the
+zero-temperature relative error decreases for increasing $V_1$. The relative
+error curves of the Ising model reveal that the temperature range where the
+error is actually small---that is, where the Ising model can be considered
 valid---is quite narrow. For $V_1 = 100$ it is almost like a sweet spot, a very
 narrow window around $T \sim 1$. For $V_1 = 200$ the situation is much better,
 the error is close to zero in the temperature range $T = T_{min} \ldots T_{max}
 \sim 0.8 \ldots 8$. This temperature range only very weakly depends on the
 cell-cell distance $d/a$ or the driver polarization $P_D$. It is dominantly set
-by $V_1$. Roughly speaking, the lower temperature limit $T_{min}$ is set by the
+by $V_1$.  Roughly speaking, the lower temperature limit $T_{min}$ is set by the
 singlet-triplet splitting, which becomes smaller with increasing $V_1$, and the
 upper temperature limit $T_{max}$ is set by $\Delta V$ which is, of course,
 directly proportional to $V_1$. Here we have, as always, kept the hopping
@@ -987,54 +985,58 @@ constant at $t=1$. In agreement with our analysis for the one-cell system, the
 relative error at a fixed temperature decreases with increasing $V_1$, but is
 largely independent of $d/a$ as long as $d/a$ is not too small.
 
-The spectra of the Ising approximation do not compare well with the fixed charge
-or bond model, especially at $V_1 = 100$. Clearly, the Ising model gets the
-energy levels completely wrong. However, we have to keep in mind that, in
-contrast to the bond model, the Ising model's states may be qualitatively
-different from the more exact models' states. Therefore, even though the
-spectrum looks completely wrong, the Ising model still does work correctly, if
-in a very small temperature range. In the right limit the Ising model should
-eventually resemble the bond model and accordingly, at $V_1 = 200$, the two
-models' spectra do look more agreeable. The qualitative agreement of the spectra
-becomes better for smaller cell-cell distances and larger driver cell
-polarizations as well, thus generally when the cells are more fully polarized.
+The spectrum of the Ising approximation does not compare well with the fixed charge
+or bond model, especially at $V_1 = 100$, shown in
+Fig.~\ref{fig:ising_approximation2}(a). Clearly, the Ising model gets the energy
+levels completely wrong. However, we have to keep in mind that, in contrast to
+the bond model, the Ising model's states may be qualitatively different from the
+more exact models' states. Therefore, even though the spectrum looks completely
+wrong, the Ising model still does work correctly, if in a very small temperature
+range. In the right limit the Ising model should eventually resemble the bond
+model and accordingly, at $V_1 = 200$, the two models' spectra do look more
+agreeable, as can be seen in Fig.~\ref{fig:ising_approximation2}(c). The
+qualitative agreement of the spectra becomes better for smaller cell-cell
+distances and larger driver cell polarizations as well, thus generally when the
+cells are more fully polarized.
 
 All told, the Ising model is a tricky approximation. It is conceptually
 confusing, because, even though it is derived from the bond Hamiltonian, it does
 not exactly resemble the bond model. Adding to this confusion is the fact that
-it gets the ground state of the one-cell system right. From a practical point of
-view, the Ising model requires very large $V_1/t$ ratios and its operational
-window can be very small. Great care should be exercised when using the Ising
-approximation for calculations. They should be verified with a more exact model
-as much as possible and the error, and trends of the error, should be kept in
-check. Where an explicit verification is not possible, for larger systems, its
-result should be taken with a grain of salt.
+it gets the ground state of the one-cell fixed charge system right. From a
+practical point of view, the Ising model requires very large $V_1/t$ ratios and
+its operational window can be very small, unless one is willing to go to
+obscenely large $V_1/t$ ratios. Therefore, for moderately large Coulomb
+energies, great care should be exercised when using the Ising approximation.
+Calculations should be verified with a more exact model as much as possible and the
+error, and trends of the error, should be kept in check. Where an explicit
+verification is not possible, for larger systems, its results should be taken
+with a grain of salt.
 
-As a final step we look at a few concrete systems and their error trends. For a
-horizontal line of cells with three to five cells with a cell-cell distance of
-$d/a = 4$ and a nearest-neighbour Coulomb energy $V_1 = 100$,
+As a final step, we look at a few concrete systems and their error trends. For a
+horizontal wire with three to five cells, a cell-cell distance of $d/a = 4$, and
+a nearest-neighbour Coulomb energy $V_1 = 100$,
 Fig.~\ref{fig:ising_approximation3}(a) shows the relative error as a function of
 the number of cells in the system. For these larger systems the Ising
 approximation and its error are benchmarked against the bond model and not the
 fixed charge model as before. We notice that for these wires the error is quite
-a bit smaller at $T = 2$ compared to $T = 1$, and 1\% error seems to be the best
-we can do. Most worryingly, the error increases with the number of cells in the
-wire. This trend holds quite generally, for a range of systems with different
-cell-cell distances $d/a$ and Coulomb energies $V_1$. Consequently, we expect
-the error to grow with increasing system sizes and once the systems are too
-large for bond model calculations we will not be able to give a good upper error
-bound. The error will become uncontrolled. On a slightly more optimistic note,
-the error seems to decrease from cell to cell inside each wire. This is explored
-in more detail in Fig.~\ref{fig:ising_approximation3}(b), where we have plotted
-the error of each cell inside a five-cell wire. Evidently, the error decreases
-along the wire and we can expect this decrease to counter the generally growing
-error for longer and longer wires, at least as long as we are mainly interested
-in the output polarization of the wire. This trend is not true generally and for
-differently chosen system parameters the error may also remain constant along
-the wire. Still, for this particular QCA structure for the chosen system
-parameters we are relatively confident that the error of the output
-polarization, while not well controlled, will not grow very large for systems
-accessible with the Ising approximation---up two twelve QCA cells. 
+a bit smaller at $T = 2$ compared to $T = 1$, and an error of 1\% seems to be
+the best we can do. Most worryingly, the error increases with the number of
+cells in the wire. This trend holds quite generally, for a range of systems with
+different cell-cell distances $d/a$ and Coulomb energies $V_1$. Consequently, we
+expect the error to grow with increasing system sizes and once the systems are
+too large for bond model calculations, we will not be able to give a good upper
+error bound. The error will become uncontrolled. On a slightly more optimistic
+note, the error seems to decrease from cell to cell inside each wire. This is
+explored in more detail in Fig.~\ref{fig:ising_approximation3}(b), where we have
+plotted the error of each cell inside a five-cell wire. Evidently, the error
+decreases along the wire and we can expect this decrease to counter the
+generally growing error for longer and longer wires, at least as long as we are
+mainly interested in the output polarization of the wire. However, this trend is
+not true generally, and for differently chosen system parameters the error may
+also remain constant along the wire. Still, for this particular QCA structure
+and for the chosen system parameters, we are relatively confident that the error
+of the output polarization, while not well controlled, will not grow very large
+for systems accessible with the Ising approximation---up two twelve QCA cells. 
 %
 \begin{figure}
   \center
@@ -1045,8 +1047,8 @@ accessible with the Ising approximation---up two twelve QCA cells.
   the wire the larger becomes the error. The error is no longer well controlled.
   (b) The Ising model's relative error for each cell's polarization in a
   five-cell charge-neutral wire. For the chosen parameters the error decreases
-  along the wire. At least for the output polarization the effect of a growing
-  error with increasing wire length is therefore countered.
+  along the wire. At least for the output polarization, the effect of a growing
+  error with increasing wire length is therefore compensated.
   }
   \label{fig:ising_approximation3}
   % parameters: V1 = 100, boa = 3, P_D = 0.1, q = 0.5; 5 cells
@@ -1054,31 +1056,46 @@ accessible with the Ising approximation---up two twelve QCA cells.
 %
 
 In this chapter we introduced and established three approximations for QCA
-systems, the fixed charge, the bond, and the Ising model. We usually use the
+systems: the fixed charge, the bond, and the Ising model. We usually use the
 fixed charge model as the starting point, without further explicit verification.
-In principle, whether the fixed charge approximation holds for some chosen set
-of parameters has to be checked for each potential QCA implementation on a case
-by case basis. If the fixed charge model is not applicable, then there is also
+In principle, whether the fixed charge approximation holds for a chosen set of
+parameters, has to be checked for each potential QCA implementation on a case by
+case basis. If the fixed charge model is not applicable, then there is also
 generally no hope of implementing QCA on the given experimental system. We
 generally assume doubly occupied states to be sufficiently gapped out and put
 $U$ at infinity. The bond approximation is then a very good description of QCA
 systems at high temperatures. It starts breaking down when the temperature
-becomes comparable to the singlet-triplet splitting and therefore for small
+becomes comparable to the singlet-triplet splitting, and therefore for small
 $V_1$ and too large cell-cell distances. While it is conceptually deeply
 rewarding to map QCA to an Ising system, we have seen the Ising approximation to
-be difficult to handle and control for practical calculations. It is only valid
-in a relatively small parameter window and great care has to be taken with its
-application. Generally speaking, both the bond and the Ising approximation
-become exact in the same limits---large $V_1/t$ and small (but not too small)
-cell-cell distances. Not coincidentally, those are the limits where the QCA
-approach works best. Both approximations are useless for low-temperature
-calculations and for ground state properties we thus have to rely on the fixed
-charge model, which, however, only allows system sizes of up to three cells. We
-will use the bond model for most of our QCA characterization work at finite
-temperature. With system sizes of up to six cells it already allows for some
-interesting insights. The Ising model is problematic and we will employ it
-sparingly and only to look at larger structures such as gates.
+be difficult to handle for practical calculations. It is only valid in a
+relatively small parameter window, at least for moderate system parameters, and
+great care has to be taken with its application. Generally speaking, both the
+bond and the Ising approximation become exact in the same limits---large $V_1/t$
+and small (but not too small) cell-cell distances. Not coincidentally, those are
+the limits where the QCA approach works best, as we will find out in the next
+chapter. Both approximations are useless for low-temperature calculations and
+for ground state properties we thus have to rely on the fixed charge model,
+which, however, only allows system sizes of up to three cells. We will use the
+bond model for most of our QCA characterization work at finite temperature. With
+system sizes of up to six cells it already allows for some interesting insights.
+The Ising model is problematic and we will employ it sparingly and only to look
+at larger structures such as gates.
+% TODO: mention again that Ising is the same as the two-state-approximation used
+% in the literature (?)
 
+% TODO: I should maybe work out in more detail how bond and Ising are different
+% --- i.e. why is Ising problematic, but not the bond approximation? Both are
+% valid in some parameter window, and the size of that window in only relative
+% to the other parameters. Maybe it would be sufficient to be less dramatic
+% about the Ising model. Of course, my discussion here is already coloured,
+% because I already know where, for which parameters QCA will work and where it
+% won't.
+%
+% TODO: I could also argue that the Ising approximation is a more complex
+% approximation (i.e. an effective model) and therefore more tricky / involved
+% than the bond approximation.
+%
 % TODO: Include partition function argument / explanation somewhere?
 % TODO: good argument why there are two degenerate ground states for the bond
 % model? (triplet, symmetry argument?)

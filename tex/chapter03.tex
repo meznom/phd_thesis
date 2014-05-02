@@ -13,17 +13,23 @@
   \label{fig:three_cells_PP}
 \end{figure}
 %
-We choose a simple QCA system, the three-cell wire we had already introduced in
-the first chapter in Fig.~\ref{fig:short_wire}(b), to investigate general
-time-independent characteristics of QCA circuits. Specifically, we are
-interested in how the polarization of one cell \emph{responds} the the
+We choose a simple QCA system, the three-cell wire that we had already
+introduced in Fig.~\ref{fig:short_wire}(b) in the first chapter, to investigate
+general time-independent characteristics of QCA circuits. Specifically, we are
+interested in how the polarization of one cell \emph{responds} to the
 polarization of a second cell, and how cell polarizations depend on cell-cell
-distance and inter-cell angle. We use the parameters $t = 1, T = 1, V_1 =
-\frac{1}{a} = 40, d/a = 2.2$ and concentrate on a horizontal wire for now
-(meaning $\theta = 0$). For these parameters the bond approximation is valid,
-which we deploy throughout. We investigate systems both without compensation
-charges $q = 0$, here the net cell charge is $- 2 e$, and with a compensation
-charge of $q=\frac{1}{2}$, yielding cells with zero net charge.
+distance and inter-cell angle. For the nearest-neighbour Coulomb repulsion we
+use $V_1 = 40$ and the cell-cell distance is $d/a = 2.2$, where $a$ is the edge
+length of the cell. Most of our calculations will be at finite temperature, $T =
+1$ and we will concentrate on horizontal wires for now (meaning the inter-cell
+angle is $\theta = 0^{\circ}$). Both the Coulomb energy scale $V_1$ and the
+temperature are in units of the hopping $t$, with $t = 1$.  For these parameters
+the bond approximation is valid, which we deploy unless otherwise noted. We
+investigate systems both without compensation charges $q = 0$, here the net cell
+charge is $- 2 e$, and with a compensation charge of $q=\frac{1}{2}$, yielding
+charge-neutral cells.
+
+% ---
 
 The driver cell sets the input for the three-cell wire with $P_D$ taking values
 in the range $-1 \ldots 1$. The three active cells respond to the input
@@ -31,7 +37,7 @@ polarization. Formally, we can define the polarization response of cell $k$ with
 respect to cell $l$ as
 
 \begin{equation}
-  %\label{eq:polarization_response}
+  \label{eq:polarization_response}
   \chi_{kl} = \frac{\partial P_k}{\partial P_l}\big|_{P_l = 0} \, .
 \end{equation}
 

@@ -136,7 +136,7 @@ def define_parameters(e):
         for boa in boas:
             e.add_parameter_set(m,T,N,boa)
     
-    Ns = range(1,5)
+    Ns = range(1,6)
     m = 'QcaBond'
     for N in Ns:
         for boa in boas:

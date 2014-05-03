@@ -9,6 +9,12 @@
   \center
   \includegraphics{three_cells_PP}
   \caption{
+  The cell-cell polarization response. The response of the first cell with
+  respect to the driver cell is non-linear and exhibits gain. In contrast, the
+  response of the second cell with respect to the first cell, and similarly
+  for the third with respect to the second, is linear and without gain. At zero
+  temperature, the responses are generally improved, but the qualitative
+  behaviour remains the same.
   }
   \label{fig:three_cells_PP}
 \end{figure}
@@ -18,29 +24,27 @@ introduced in Fig.~\ref{fig:short_wire}(b) in the first chapter, to investigate
 general time-independent characteristics of QCA circuits. Specifically, we are
 interested in how the polarization of one cell \emph{responds} to the
 polarization of a second cell, and how cell polarizations depend on cell-cell
-distance and inter-cell angle. For the nearest-neighbour Coulomb repulsion we
-use $V_1 = 40$ and the cell-cell distance is $d/a = 2.2$, where $a$ is the edge
-length of the cell. Most of our calculations will be at finite temperature, $T =
-1$ and we will concentrate on horizontal wires for now (meaning the inter-cell
-angle is $\theta = 0^{\circ}$). Both the Coulomb energy scale $V_1$ and the
-temperature are in units of the hopping $t$, with $t = 1$.  For these parameters
-the bond approximation is valid, which we deploy unless otherwise noted. We
-investigate systems both without compensation charges $q = 0$, here the net cell
-charge is $- 2 e$, and with a compensation charge of $q=\frac{1}{2}$, yielding
-charge-neutral cells.
+distance and inter-cell angle. For the three-cell wire we use a
+nearest-neighbour Coulomb repulsion $V_1 = 40$ and the cell-cell distance is
+$d/a = 2.2$, where $a$ is the edge length of the cell. Most of our calculations
+will be at finite temperature, $T = 1$, and we will concentrate on horizontal
+wires for now (meaning the inter-cell angle is $\theta = 0^{\circ}$). Both the
+Coulomb energy scale $V_1$ and the temperature $T$ are in units of the hopping $t$,
+with $t = 1$. For these parameters the bond approximation is valid, which we
+deploy unless otherwise noted. We investigate systems both without compensation
+charges $q = 0$, here the net cell charge is $-2e$, and with a compensation
+charge of $q=\frac{1}{2}$, yielding charge-neutral cells.
 
-% ---
-
-The driver cell sets the input for the three-cell wire with $P_D$ taking values
-in the range $-1 \ldots 1$. The three active cells respond to the input
-polarization. Formally, we can define the polarization response of cell $k$ with
-respect to cell $l$ as
-
+The driver cell sets the input for the three-cell wire with its
+polarization $P_D$ taking values in the range $-1$ to $+1$. The three active
+cells respond to the driver polarization. For our discussion, we define the
+linear polarization response of cell $k$ with respect to cell $l$ as
+%
 \begin{equation}
   \label{eq:polarization_response}
   \chi_{kl} = \frac{\partial P_k}{\partial P_l}\big|_{P_l = 0} \, .
 \end{equation}
-
+%
 Fig.~\ref{fig:three_cells_PP}(a)~and~(b) show the polarization of the first cell
 with respect to the driver cell, the polarization of the second cell with
 respect to the first cell, and so on. For the first cell, the response is
@@ -50,39 +54,55 @@ exhibit gain, i.e.\ $\chi_{21} \le 1$ and $\chi_{32} \le 1$. Generally, the
 polarization decreases monotonically from cell to cell, $|P_D| \ge |P_1| \ge
 |P_2| \ge |P_3|$. In fact, for the $q=0$ system the polarization rapidly drops
 to zero for the chosen parameters. The transmission is much improved for charge
-neutral cells.  In that case, the response is almost perfect, $\chi_{21} \sim
+neutral cells. In that case, the response is almost perfect, $\chi_{21} \sim
 \chi_{32} \sim 1$.
 
 It is worth pointing out that at zero temperature, where we have to use the
-fixed-charge model rather than the inapplicable bond approximation, we observe
-the same polarization response characteristics. Quantitatively, for the same
-system parameters the response is much improved at zero temperature compared to
-$T=1$. But it remains true that the response inside the wire ($\chi_{21},
-\chi_{32}$) is always linear and without gain.
+fixed charge model rather than the inapplicable bond approximation, we observe
+the same polarization response characteristics, as demonstrated in
+Fig.~\ref{fig:three_cells_PP}(c)~and~(d). Quantitatively, for the same system
+parameters the response is improved at zero temperature compared to $T=1$. For
+example, the first cell's polarization response becomes a near-perfect step
+function for the chosen parameters. But, importantly, it remains true that the
+response inside the wire ($\chi_{21}, \chi_{32}$) is always linear and without
+gain. Without compensation charges, the polarization of the third cell remains
+zero even in the ground state, indicating that the cells are so closely spaced
+that charge buildup pushes the electrons of the rightmost cell to the rightmost
+edge.
 
 In the literature, the non-linear nature of $P_1(P_D)$ has been noted
 \cite{lent1993quantum} \cite{lent1993lines}, and the apparent gain $\chi_{1D} >
 1$ has been invoked to argue for the robustness and fault-tolerance of the QCA
 scheme. However, as our graph shows, this is only strictly true for the response
 with respect to the driver cell. We believe that the picture where each cell
-switches with gain with respect to its neighbours is an artifact of the ICHA
-approximation, which treats each cell individually in the static charge mean
-field of the other cells in the system. In other words, in the ICHA scheme, for
-each cell the rest of the system is approximated by an effective driver cell.
+switches with gain with respect to its neighbours is an artifact of the
+intercellular Hartree approximation (ICHA), which we had introduced in more
+detail in chapter \ref{ch:QCA_intro}. ICHA treats each cell individually in the
+static charge mean field of the other cells in the system. In other words, in
+the ICHA scheme, for each cell the rest of the system is approximated by an
+effective driver cell.
 
 %
 \begin{figure}
   \center
   \includegraphics{three_cells_P_over_d}
   \caption{
+  (a)(b)~Cell polarization over cell-cell distance. In the non-charge-neutral
+  system ($q = 0$), due to charge buildup the maximum polarization for
+  consecutive cells is at increasingly large cell-cell distances. Even at
+  optimal distance the output polarization $P_3$ is very small. The output
+  polarization is drastically improved for the charge-neutral system. Each cell
+  attains its optimal polarization in the same range of cell-cell distances.
+  (c)(d)~Cell polarization over very large cell-cell distances. For large
+  distances $d/a > 10$ the polarizations settle into an universal long distance
+  tail $d^{-5}$, independent of $q$ and as predicted by the Ising interaction
+  $J$.
   }
   \label{fig:three_cells_P_over_d}
 \end{figure}
 %
-
 We now fix the driver polarization at $P_D = 1$ and look at how the
-polarizations of the active cells depend on the cell-cell distance $d$, which we
-report in units of the cell size $a$, see
+polarizations of the active cells depend on the cell-cell distance $d/a$, see
 Fig.~\ref{fig:three_cells_P_over_d}(a)~and~(b). At $d/a = 2$ all quantum dots in
 the system are equally spaced, cells are placed a distance $a$ apart. At this
 separation and smaller, our basic assumption of no inter-cell hopping breaks
@@ -96,43 +116,42 @@ As already observed above, and in line with our intuition, polarizations
 generally decrease from cell to cell as we go further away from the driver cell.
 Without compensation charges ($q=0$) the polarization quickly falls off to very
 small values, whereas for charge neutral cells ($q = \frac{1}{2}$) the situation
-is much improved. (As far as we know, no one else has previously identified the
-crucial role played by charge neutrality.)(Correction by Kevin.) The graph shows
-that there is a cell-cell distance that yields maximal polarization for each
-cell. For the $q=0$ system---non-charge-neutral cells---the optimal distance
-increases from cell to cell, due to charge buildup. In contrast, with
-charge-neutral cells ($q=\frac{1}{2}$) the cell-cell distance yielding optimal
-polarization does not change notably from cell to cell. In fact, here a range of
-distances gives very good polarizations, as the polarization saturates at values
-close to $P = 1$. Of course, for a wire what really matters is the output
-polarization. For the chosen parameters, this calculation demonstrates that for
-a $q=0$ system we should choose $d/a \sim 3$. For $q=\frac{1}{2}$ the range $d/a
-\sim 1.3 \ldots 2.3$ {[}more exact values!{]} gives the best output
-polarization. Worryingly, this range is very close to the lower, unphysical
-limit!
+is much improved. The graph shows that there is a cell-cell distance that yields
+maximal polarization for each cell. For the $q=0$ system---non-charge-neutral
+cells---the optimal distance increases from cell to cell, due to charge buildup.
+In contrast, with charge-neutral cells ($q=\frac{1}{2}$) the cell-cell distance
+yielding optimal polarization does not change notably from cell to cell. In
+fact, here a range of distances gives very good polarizations, as the
+polarization saturates at values close to $P = 1$. Of course, for a wire what
+really matters is the output polarization. For the chosen parameters, this
+calculation demonstrates that for a $q=0$ system we should choose $d/a \sim
+2.9$. For $q=\frac{1}{2}$ the range $d/a \sim 1.3 \ldots 2.3$ gives the best
+output polarization. Worryingly, this range is very close to the lower,
+unphysical limit!
 
 Especially for the non-charge-neutral system it is beneficial to allow for
-different distances between different adjacent cells along the wire.  Thus a
+different distances between different adjacent cells along the wire. Thus a
 single $d/a$ parameter is replaced by $d_k/a$ with $k = 1,2,3$ for the
-three-cell wire. Using a stochastic optimization scheme we can optimize the
-$d_k/a$ for optimal output polarization {[}reference{]}. We find that the output
-polarization is significantly improved from $P_3 = 0.06$ for uniformly spaced
-cells to $P_3 = 0.15$ for cells with individual cell-cell distances. Not
-surprisingly, cells are farther spaced to the right (the output) and closer
-spaced to the left (the input). This is a manifestation of charge buildup in the
-system. The situation is very similar for longer wires and different parameters
-for non-charge-neutral wires. We can do the same stochastic optimization for
-charge-neutral wires ($q=1/2$), but find that little is gained by allowing
-non-uniform cell-cell distances. Looking at Fig.~\ref{fig:three_cells_P_over_d}
-this is really not surprising at all and in turn a consequence of having no
-charge buildup in the system. It should be emphasized how much better the output
-polarization is for charge-neutral wires. At least for the chosen parameters,
-even very short wires seem unrealistic for a non-charge-neutral system.
-% TODO: Kevin: Doesn't this have implications for the directionality of
-% polarization signal transport?
-% --- Yes, I should mention that. We should say that this demonstrates that in
-% principle for a non-charge-neutral device we can optimize the functionality /
-% output polarization by slightly moving cells around.
+three-cell wire. Using a stochastic optimization scheme introduced by Sandvik
+\emph{et al}.\ \cite{Sandvik2007}, we can optimize the $d_k/a$ for optimal
+output polarization. We find that the output polarization is significantly
+improved from $P_3 = 0.06$ for uniformly spaced cells to $P_3 = 0.15$ for cells
+with individual cell-cell distances. Not surprisingly, cells are farther spaced
+to the right (the output) and closer spaced to the left (the input). This is a
+manifestation of charge buildup in the system. The situation is very similar for
+longer wires and different parameters for non-charge-neutral wires. Of course,
+non-uniformely spaced cells have implications for the directionality of
+transport in a wire, which would have to be considered when designing QCA
+circuitry. More generally, we should be able to optimize the functionality of
+any given non-charge-neutral QCA layout by allowing for slightly adjustable cell
+placement. We can do the same stochastic optimization for charge-neutral wires
+($q=1/2$), but find that little is gained by allowing non-uniform cell-cell
+distances. Looking at Fig.~\ref{fig:three_cells_P_over_d} this is really not
+surprising at all, and simply a consequence of having no charge buildup in the
+system. It should be emphasized how much better the output polarization is for
+charge-neutral wires. At least for the chosen parameters, even very short wires
+seem unrealistic for a non-charge-neutral system.
+% TODO: appendix with details on stochastic optimization?
 
 It is instructive to plot the polarizations over cell-cell distance up to very
 large distances in a log-log graph as shown in
@@ -140,65 +159,90 @@ Fig.~\ref{fig:three_cells_P_over_d}(c)~and~(d). Even though large distances come
 with extremely small polarizations that are not of practical interest, this
 graph yields valuable insights into the nature of the interaction that mediates
 the polarization. At distances $d/a > 10$ we see that the polarization settles
-into an universal long range tail with $P(d) \sim d^{-5}$.  This is consistent
+into an universal long range tail with $P(d) \sim d^{-5}$. This is consistent
 with our understanding that the polarization is mediated by a
-quadrupole-quadrupole interaction. But remarkably, for these large distances the
-polarization is exactly the same for both the $q=0$ and the $q=\frac{1}{2}$
-systems. Hence, having non-charge-neutral cells does not actually alter the
-characteristics of the cell-cell interaction. Instead, it suppresses the
-cell-cell interaction at small distances. That is, charge repulsion competes
-with the quadrupole interaction. Of course, we are mostly interested in small
-distances, where the polarization is relatively large. This is the regime where
-it is not quadrupolic and is suppressed for $q = 0$. For small distances the
-polarization falls of faster than $d^{-5}$, thinking in terms of a multipole
-expansion, we need to include higher-order corrections.
+quadrupole-quadrupole interaction. For these large distances the polarization is
+exactly the same for both the $q=0$ and the $q=\frac{1}{2}$ systems. Hence,
+having non-charge-neutral cells does not actually alter the characteristics of
+the cell-cell interaction. Instead, it suppresses the cell-cell interaction at
+small distances. That is, charge repulsion competes with the quadrupole
+interaction. The graph exactly confirms our analysis from chapter
+\ref{ch:approximations}. There, we had derived an approximate expression for the
+mediating cell-cell interaction in the Ising picture, $J \sim d^{-5}$, to
+leading order, and the derived $J$ was independent of $q$. At the time we had
+seen that, in general, we can only map QCA to a modified Ising model with an
+additional cell-cell interaction $J^{\prime}$, which does depend on $q$.
+However, for the horizontal wire $J^{\prime}$ vanishes and we are left with the
+pure Ising model, and at large enough distances the behaviour of the
+polarization is just as predicted. Of course, we are mostly interested in small
+distances, where the polarization is relatively large. Here, the polarization
+falls off faster than $d^{-5}$ and, remembering the derivation of $J$, we would
+need to include higher order corrections in the multipole expansion to
+accurately describe this behaviour. Even with higher order terms the Ising model
+and its $J$ cannot, however, correctly reproduce the suppression of the
+quadrupole interaction at short distances in the case of $q=0$.
 
 %
 \begin{figure}
   \center
   \includegraphics{three_cells_P_over_theta}
   \caption{
+  Cell polarization over the inter-cell angle. The charge-neutral system is
+  invariant under rotations by $90^{\circ}$ and closely matches the behaviour
+  predicted by the Ising $J$. At $45^{\circ}$ cell polarizations are
+  alternating. For the non-charge-neutral system, the polarizations are
+  predominantly set by the angle, and not by the driver polarization. The system
+  is invariant under rotations by $180^{\circ}$, as predicted by the modified
+  Ising $J^{\prime}$. In the non-charge-neutral case QCA does not work at all,
+  except for horizontal or vertical wires.
   }
   \label{fig:three_cells_P_over_theta}
 \end{figure}
 %
-We expect the inter-cell angle to influence the polarization of the wire.
-Therefore we explore the behaviour as we rotate the wire from a horizontal
-configuration ($\theta = 0^{\circ}$) over a ``diagonal'' configuration ($\theta
-= 45^{\circ}$) to vertical ($\theta = 90^{\circ}$) back to horizontal ($\theta =
-180^{\circ}$) and look at the cell polarizations, shown in
-Fig.~\ref{fig:three_cells_P_over_theta}. Alternatively, we can think of the
-process as rotating the cells themselves about their centre while keeping the
-wire unchanged. Let us start by looking at the charge-neutral system, with
-$q=\frac{1}{2}$. The wire seems to work properly, i.e.~transmit a signal
-reasonably well, within the angle ranges $\theta = n \cdot 45^{\circ} \pm
-10^{\circ}$ where $n$ is an integer and the range depends on the specifically
-chosen system parameters. In between those ranges are nodes, e.g.~at $\theta =
-22.5^{\circ}$, which would obviously not be useful angles if we are trying to
-transmit a signal, but might, in contrast, be very helpful if we are trying to
-isolate cells from each other. An important detail is that for diagonal wires,
-at $\theta = 45^{\circ}$, for example, the polarizations are alternating: $P_D
-\sim 1, P_1 \sim -1, P_2 \sim 1,$ and $P_3 \sim -1$.  Considering the Coulombic
-interactions in such a system, Fig.~\ref{fig:short_wire}(b), we convince us that
-this is indeed the expected behaviour. We note that the system is invariant
-under rotations by $90^{\circ}$.
+From the discussion of the Ising model in chapter \ref{ch:approximations}, we
+already know that cell polarizations should change with the inter-cell angle.
+The polarizations are mediated by the cell-cell interactions $J$ and
+$J^{\prime}$, and specifically we had found $J \sim \cos{4 \theta}$, whereas
+$J^{\prime} \sim \sin{2 \theta}$. We rotate the three-cell wire from a
+horizontal configuration ($\theta = 0^{\circ}$) over diagonal ($\theta =
+45^{\circ}$) to vertical ($\theta = 90^{\circ}$), and back to horizontal
+($\theta = 180^{\circ}$), and look at the cell polarizations in the process.
+Fig.~\ref{fig:three_cells_P_over_theta}(b) shows the polarization as a function
+of the angle for the charge-neutral system, where $J^{\prime} = 0$. Indeed, the
+cell polarizations follow the behaviour predicted by $J$: they are rotationally
+invariant under rotations by $90^{\circ}$ and peak at the angles $0^{\circ},
+90^{\circ}$, and so on, where $J > 0$. At $45^{\circ}$, where $J < 0$, cell
+polarizations are alternating, e.g.~$P_D \sim 1$, $P_1 \sim -1, P_2 \sim 1$, and
+$P_3 \sim -1$. In between, for example at $\theta = 22.5^{\circ}$, $J = 0$ and
+the polarization is zero accordingly. The wire can be used to transmit signals
+in a range of about $20^{\circ}$ around $\theta = n \cdot 45^{\circ}$, where $n$
+is an integer and the usable angle range depends on the chosen system
+parameters. Of course, at $45^{\circ}$ we have to make sure to use an even
+number of cells for transmission, as the signal will be inverted otherwise.
+Conceivably, the nodes at $22.5^{\circ}, 67.5^{\circ}$, and so on could be used
+to decouple closely spaced cells.
 
-The situation is very different for non-charge-neutral system, with $q=0$.
-First, the system is rotationally invariant under $180^{\circ}$ which already
-seems odd. Second, the graph shows that the magnitudes of the cell polarizations
-are actually larger at $\theta \ne 0$ compared to $\theta = 0$. This is
-especially impressive for $P_3$, with $|P_3| \sim 0$ at $\theta=0^{\circ}$ and
-$|P_3| \sim 0.6$ at $\theta = 90^{\circ}$ {[}better numbers!{]}. But it is at
-$\theta = 0$, the horizontal wire, where we know the systems behaves as
-expected.  Therefore, we suspect that the cell polarizations are predominantly
-set by the angle, and not by the driver polarization. Indeed, the same graph for
-a driver polarization of $P_D = -1$ instead of $P_D = 1$ looks almost identical,
-except for very small ranges of angles $\theta = n \cdot 90^{\circ} \pm
-2^{\circ}$. This observation has far reaching consequences: The
-non-charge-neutral system will never work as a QCA circuit unless all we want to
-do is build linear chains of cells.  Even in this case the system becomes very
-fragile with respect to angular displacement. Thus, for QCA charge-neutral
-cells, $q=\frac{1}{2}$, are essential.
+The situation is very different for non-charge-neutral systems, as shown in
+Fig.~\ref{fig:three_cells_P_over_theta}(a). In this case, $J^{\prime} \ne 0$ and
+we see that the polarization is actually predominantly set by $J^{\prime}$,
+which is rotationally invariant under rotations by $180^{\circ}$. This is in
+line with our derivation where we had found, to leading order, $J^{\prime} \sim
+d^{-3}$, whereas $J \sim d^{-5}$, and thus, $J^{\prime}$ was expected to
+dominate. The graph shows that the cell polarizations are much larger in
+magnitude away from $0^{\circ}, 90^{\circ}$, and so on, where we know that the
+system behaves as expected. In fact, the presented graph looks exactly the same
+for $P_D = 1$ and $P_D = -1$, except for a small range of angles of about
+$5^{\circ}$ around $\theta = n \cdot 90^{\circ}$, where the angle range again
+depends on the chosen system parameters. In short, the cells' polarizations are
+set by the inter-cell angle, and not by the driver polarization. The importance
+of charge neutrality had first emerged in our discussion of the Ising model.
+Here we see this finding most impressively confirmed. The non-charge-neutral
+system will never work as a QCA circuit unless all we want to do is build linear
+chains of cells. Even in this case the system becomes very fragile with respect
+to angular displacement. Thus, for QCA charge-neutral cells, $q=\frac{1}{2}$,
+are absolutely essential. In the literature charge neutrality has usually been
+assumed, either explicitly or implicitly, but as far as we know, no one else has
+previously identified its crucial role.
 
 
 \section{Workable parameters for QCA}
@@ -212,6 +256,27 @@ cells, $q=\frac{1}{2}$, are essential.
   \label{fig:critical_V1}
 \end{figure}
 %
+In the previous section we found charge-neutral cells to be essential for QCA.
+Therefore we will from now on restrict ourselves to $q=\frac{1}{2}$ systems.
+Additionally, we saw that in a line of cells the polarization is at best
+preserved but generally decreases from cell to cell. There is no inter-cell
+gain. If the cell-cell polarization response is less than ideal then the
+polarization will eventually decrease to zero for a long line of cells,
+rendering the wire non-functional. It is therefore important to identify a
+parameter regime where the response is ideal or close-to-ideal as a prerequisite
+for functional QCA circuits.
+
+We use a cluster mean field approach beyond the single-site ICHA approximation
+to calculate the polarizations of semi-infinite wires. A small cluster of active
+cells is embedded in a large number of driver cells---the mean field---whose
+polarization is set as the average of the active cells. We made a point of how
+problematic mean field approximations can be. Here we use the approach to
+establish a \emph{lower bound} on workable parameters. In principle, the number
+of active cells can be indefinitely increased and properties of interest can be
+extrapolated to the thermodynamic limit; the approximation is asymptotically
+correct. Of course, in practice the number of active cells allowed by the
+available computer resources is actually quite small and probably far from the
+asymptotic behaviour.
 
 %
 \begin{figure}

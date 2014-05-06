@@ -17,15 +17,15 @@ def define_parameters(e):
     
     model = 'QcaIsing'
     T = 2.0
-    Ns = range(1,13)
-    V1s = [100,200]
+    Ns = [2,4,6,8,10,12]
+    V1s = [200]
     Ps = [1.0,0.5,0.1]
-    boas = [1.2,1.5,2.0,2.5,3.0]
+    boas = np.linspace(0.1,5.0,50)
     for P in Ps:
         for N in Ns:
             for V1 in V1s:
                 for boa in boas:
-                    e.add_parameter_set(model,T,N,V1,boa,P)
+                    e.add_parameter_set(model,T,N,V1,round(boa,4),P)
 
 @require('qca')
 def run_it(p):
@@ -62,4 +62,4 @@ def run_experiment(reset=False):
     print('Ran {} out of {} measurements'.format(r,t))
 
 if __name__ == '__main__':
-    run_experiment(False)
+    run_experiment(True)

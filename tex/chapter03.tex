@@ -420,7 +420,7 @@ implies that perfect cell-cell response is impossible---the polarization along
 the wire will always decreases monotonically---and that QCA systems are limited
 in size. We already know from entropy arguments, laid out in section
 \ref{sec:an_alternative_computing_paradigm}, that we cannot build infinitely
-large QCA systems, so having second size limit is not a show stopper. The
+large QCA systems, so having a second size limit is not a show stopper. The
 crucial question is whether we can achieve device units large enough in size to
 do practical computations.
 
@@ -541,62 +541,61 @@ practical circuit units that perform meaningful computations.
   (b) The threshold cell-cell distance at which the output polarization drops
   below $0.9$, over wire length and for different $V_1$. The threshold distance
   decreases monotonically, if slowly, and is expected to eventually drop below
-  the lower physical limit $d/a = 2.0$ for very long wires. Similarly, smaller
-  Coulomb energies $V_1$ push the threshold closer to the lower physical limit.
+  the lower physical limit $d/a = 2.0$ for very long wires. Smaller Coulomb
+  energies $V_1$ push the threshold closer to the lower physical limit.
   }
   \label{fig:cell_cell_distance_threshold}
 \end{figure}
 
-To investigate the astounding quantitative difference between the two $d/a =
-2.2$ and $d/a = 3.0$ systems, we again plot the polarization over cell-cell
-distance. Fig.~\ref{cell_cell_distance_threshold}(a) shows the output
-polarization of two- to twelve cell wires. The graph looks qualitatively similar
-to Fig.~\ref{fig:three_cell_P_over_d}(b) from the last section: for small
+To investigate the astounding quantitative difference between the two systems,
+we again plot the polarization over cell-cell distance.
+Fig.~\ref{fig:cell_cell_distance_threshold}(a) shows the output polarization of
+two- to twelve-cell wires. The graph looks qualitatively similar to
+Fig.~\ref{fig:three_cells_P_over_d}(b) from the last section: for small
 distances the output polarization is close to perfect in a plateau-like region,
 but for $d/a \gtrsim 2.5$ rapidly drops to zero. And it drops increasingly
 faster to zero for longer wires. Therefore, for large, functional QCA devices we
 want to make sure we operate in the plateau-like regime at small distances.
 Fig.~\ref{fig:cell_cell_distance_threshold}(b) plots the cell-cell distance
-$d_{th}/a$ at which the output polarization drops below $0.9$ for a range of
-wires and at three different nearest-neighbour Coulomb energies $V_1$. In other
-words, it cuts through the curves in
-Fig~\ref{fig:cell_cell_distance_threshold}(a) at $P = 0.9$ and plots the
-corresponding distances. The threshold distance $d_{th}/a$ decreases
+$d_{th}/a$ at which the output polarization drops below $0.9$ for the same two-
+to twelve-cell wires with $V_1 = 200$. In other words, it cuts through the
+curves in Fig~\ref{fig:cell_cell_distance_threshold}(a) at $P = 0.9$ and plots
+the corresponding distances. The threshold distance $d_{th}/a$ decreases
 monotonically for an increasing number of cells per wire, but more slowly for
 longer wires. We expect it to eventually fall below the lower physical limit
 $d/a = 2.0$, but, similarly to the polarization falling off very slowly in
 Fig~\ref{fig:wire_polarization}(a), this might only happen for very long wires.
 As long as we stay well below the threshold distance, we should achieve very
-good output polarization and very large system sizes. In line with our
-intuition, larger $V_1$ values allow larger workable cell-cell distances.
-Conversely, for significantly smaller $V_1$ the workable distances will quickly
-approach the lower physical limit.
+good output polarization and very large system sizes. The figure additionally
+includes the threshold distance at two different Coulomb energies $V_1$. In line
+with our intuition, larger $V_1$ values allow larger workable cell-cell
+distances.  Conversely, for significantly smaller $V_1$ the workable distances
+will quickly approach the lower physical limit. Both graphs in
+Fig.~\ref{fig:cell_cell_distance_threshold} can be readily understood using the
+simple model \eqref{eq:simple_model}. In the plateau region at small cell-cell
+distances the cell responses interior to the wire are close to perfect, $\chi
+\sim 1$. For larger distances, $\chi < 1$ and therefore the polarization $P_k
+\sim \chi^k$ quickly falls off to zero for long wires. For very long wires we
+expect Fig.~\ref{fig:cell_cell_distance_threshold}(a) to resemble a step
+function. While $\chi$ does not depend on the driver polarization, it does
+depend on other system parameters, like $d/a$ and $V_1$, and to be able to scale
+up to large system sizes we want $\chi \sim 1$ and have to choose the parameters
+accordingly.
 
-Both graphs in Fig.~\ref{fig:cell_cell_distance_threshold} can be readily
-understood using the simple model \eqref{eq:simpel_model}. In the plateau region
-at small cell-cell distances the cell responses interior to the wire are close
-to perfect, $\chi \sim 1$. For larger distances, $\chi < 1$ and therefore the
-polarization $P_k \sim \chi^k$ quickly falls off to zero for long wires. For
-very long wires we expect Fig.~\ref{fig:cell_cell_distance_threshold}(a) to
-resemble a step function. While $\chi$ does not depend on the driver
-polarization, it does depend on other system parameters, like $d/a$ and $V_1$,
-and to be able to scale up to large system sizes we want $\chi \sim 1$ and have
-to choose the parameters accordingly.
-
-We have found that the model $P_k \sim \chi^k$ is the right physical picture for
-QCA wires, and by pushing the system's parameters to extreme limits we will be
-able to push the response increasingly close to perfect, but will never truly
-achieve exactly $\chi = 1$. As a consequence, in the thermodynamic limit the
-polarization will always be zero. This picture agrees with our observations of
-the critical $V_1$, which we had seen to grow to infinity for infinitely large
-systems. Therefore, the polarization inside a wire is never truly constant, but
-always decreases, if very slowly. The picture of constantly and fully polarized
-QCA systems employed in the literature is qualitatively wrong. Of course, by
-choosing the right system parameters and making $\chi$ large enough, we can, in
-principle, achieve system sizes that should be more than sufficient to build
-practical device units. The questions remains whether parameters as extreme as
-those we have employed throughout this section can be realized on an
-experimental system.
+Our calculations show that the model $P_k \sim \chi^k$ is the right physical
+picture for QCA wires, and by pushing the system's parameters to extreme limits
+we will be able to push the response increasingly close to perfect. Truly
+perfect response, with $\chi = 1$, however, is not possible. As a consequence, in the
+thermodynamic limit the polarization will always be zero. This picture agrees
+with our observations of the critical $V_1$, which we had seen to grow to
+infinity for infinitely large systems. Therefore, the polarization inside a wire
+is never truly constant, but always decreases, if very slowly. The picture of
+constantly and fully polarized QCA systems employed in the literature is
+qualitatively wrong. Of course, by choosing the right system parameters and
+making $\chi$ large enough, we can, in principle, achieve system sizes that
+should be more than sufficient to build practical device units. The questions
+remains whether parameters as extreme as those we have employed in this
+section can be realized on an experimental system.
 
 We have used dimensionless parameters throughout. In the extended Hubbard model,
 the energy scale is set by the hopping parameter and we have chosen $t = 1$. We
@@ -604,10 +603,10 @@ use $V_1$ to characterize the Coulombic energies and found that very large
 $\frac{V_1}{t}$ are a requirement for QCA. This Coulomb energy is set directly
 by the cell size, $V_1 = \frac{1}{a}$. Therefore, we need either a very large
 $V_1$, and therefore very small cell sizes, or a very small hopping $t$. Of
-course, as the overlap integral the hopping $t$ also depends on the quantum-dot
-quantum-dot distance, and thus the cell size. In a highly idealized system we
-can assume the overlap integral to decay exponenitally with dot-dot distance,
-whereas the Coulomb interactions falls off as $\frac{1}{r}$. Therefore, in
+course, as the overlap integral the hopping $t$ also depends on the distance
+between quantum dots, and thus the cell size. In a highly idealized system we
+can assume the overlap integral to decay exponentially with dot-dot distance,
+whereas the Coulomb interaction falls off as $\frac{1}{r}$. Therefore, in
 principle, we can achieve the required large $\frac{V_1}{t}$ ratios simply by
 making the QCA cells large enough. In practice, even if such an engineered
 $\frac{V_1}{t}$ ratio was achievable, it might not gain us much. An increasingly
@@ -616,47 +615,35 @@ reducing the usefulness for computation. The temperature is also in units of the
 hopping parameter, and a small $t$ therefore potentially brings down the
 tempterature to the cryogenic regime. Lastly, bringing down the overall energy
 scales by reducing $t$ presumably would make the device more susceptible to
-external perturbations on a less-than-perfect material system.
+external perturbations in a less-than-perfect material system.
 
 To put the parameters we have used in a more tangible context, we return to the
 atomic silicon quantum dots which we introduced in detail in
 section~\ref{sec:atomic_silicon_quantum_dots}. Even though this system is quite
 different from our model---it uses six electrons per cell instead of two, and,
 more importantly, is not charge neutral---it is close enough to get a rough idea
-of what real world numbers might look like. Using \emph{ab initio} estimates for
-the hopping rate $t$ and the Coulomb repulsion $V_1$ at various dot-dot
-distances from reference \cite{Pitters2011Tunnel}, and fitting the data with the
-simple assumptions $t \sim e^{-b a}$ and $V \sim b a^{-1}$, where $b$ is a fit
+of what real world numbers might look like. Using \emph{ab initio} estimates
+from reference \cite{pitters2011tunnel} for the hopping rate $t$ and the Coulomb
+repulsion $V_1$ at various dot-dot distances, and fitting the data with the
+simple assumptions $t \sim e^{-b a}$ and $V_1 \sim b a^{-1}$, where $b$ is a fit
 parameter and $a$ the dot-dot separation, allows us to provide approximative
-dot-dot distances for the $V_1/t$ ratios we have used. For example, we find
-that to achieve $V_1/t = 100$ would require a dot-dot distance and hence cell
-size of roughly $a = 32 \mathring{\mathrm{A}}$, whereas $V_1/t = 200$ would be
-$a = 36 \mathring{\mathrm{A}}$. For $T/t = 2$, this corresponds to temperatures
-$T = 9K$ and $T = 4K$, respectively. While these are very rough estimates, they
-still illustrate the challenge posed for experimental systems by the extreme
+dot-dot distances for the $V_1/t$ ratios we have used. For example, to achieve
+$V_1/t = 100$ would require a dot-dot distance and hence cell size of roughly $a
+= 32 \mathring{\mathrm{A}}$, whereas $V_1/t = 200$ would require $a = 36
+\mathring{\mathrm{A}}$. For $T/t = 2$, this corresponds to temperatures $T = 9K$
+and $T = 4K$, respectively. While these are very rough estimates, they still
+illustrate the challenge posed for experimental systems by the extreme
 parameters required for QCA operation. On the silicon (100) surface the
 dimer-dimer distance is $a = 3.84 \mathring{\mathrm{A}}$---the closest possible
-spacing for two quantum dots. Therefore, the required dot separation for our
-parameters corresponds to almost ten lattice spacings. The hopping constant
-becomes very small and as a consequence the operational temperature moves to the
-single-digit Kelvin regime. This is markedly different from the experiments and
-envisioned setup of the group of Wolkow \emph{et al}., illustrated with a few
-examples in Fig.~\ref{fig:silicon}, where dots a place only a few lattice
-spacings apart from each other and room temperature is used. At such large
-dot-dot distances and low energy scales, it is also not clear how well our
-extended Hubbard model describes the dot assembly.
-
-
-% This section's discussion is not very logical: In the open paragraph I say
-% that for less than ideal cell-cell response the polarization should be zero
-% for long wires --- it is therefore not surprising that V_1crit becomes
-% infinite in that limit.
-%
-% In that light the new insight from the wire polarization plots is that the
-% cell-cell polarization is actually the same everywhere inside the wire ---
-% which, however, is also not that surprising, from a symmetry point of view.
-
-
+spacing for two quantum dots. Therefore, the found dot separations correspond
+to almost ten lattice spacings. The hopping constant becomes very small and as a
+consequence the operational temperature moves to the single-digit Kelvin regime.
+This is markedly different from the experiments and envisioned setup of the
+group of Wolkow \emph{et al}., illustrated with a few examples in
+Fig.~\ref{fig:silicon}, where dots are placed only a few lattice spacings apart
+from each other and room temperature is used. At such large dot-dot distances
+and low energy scales, it is also not clear how well our extended Hubbard model
+describes the dot assembly.
 
 % TODO: This section should end by saying very clearly what the workable
 % parameters are.

@@ -9,37 +9,50 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{bm}
+\usepackage{setspace}
 %\pagestyle{empty}
-\begin{document}
-
-\graphicspath{}
-
-% TODO: title
-\title{Characterizing Quantum-Dot Cellular Automata}
-%\institute{Department of Physics\\University of Alberta}
-\author{Burkhard~Ritter\\Supervised by Prof.~Kevin~Beach}
-\date{May 2014}
-\maketitle
-
-\tableofcontents
 
 % http://kb.mit.edu/confluence/pages/viewpage.action?pageId=3907057
 % ``LaTeX's margins are, by default, 1.5 inches wide on 12pt documents, 1.75
 % inches wide on 11pt documents, and 1.875 inches wide on 10pt documents.''
 % Page size for letter paper format is 8.5 by 11 inches.
 % For 11pt this means the text is 8.5-2*1.75=5 inches wide.
-% I am not sure why, but in gnuplot with the epslatex terminal a width of
-% 6inches seems to fit best.
+
+\begin{document}
+
+\onehalfspacing
+%\raggedbottom
+
+\graphicspath{}
 
 % custom tex commands
 \newcommand{\ket}[1]{\left|#1\right>}
 \newcommand{\bra}[1]{\left<#1\right|}
 
-%\include{introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TODO: so far the page numbering for abstract and introduction is not exactly
+% as prescribed by the FGSR
+\frontmatter
+% TODO: title
+
+\include{titlepage}
+\include{abstract}
+\include{acknowledgments}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
+
+% TODO: bibliography is not in table of contents---should it?
+\tableofcontents
+\listoftables
+\listoffigures
+
+\include{introduction}
 \include{chapter01}
 \include{chapter02}
 \include{chapter03}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliography{bibliography}{}
 \bibliographystyle{utcaps}
 

@@ -1,3 +1,112 @@
 \chapter{Introduction}
 
+The rise of electronic information technology has been the main driver of
+economical and societal change over the past seventy years. Even more than the
+computerization of industry and office work, has the advent of the internet
+transformed how we live, work, socialize, and communicate. Technology has become
+ubiquitous, from the Netflix-streaming television, to the office computer, to
+the smart phone and IPad tablets, and cloud computing and storage. The impact on
+our lives is tremendous, and we are only beginning to understand it. Readily
+available mobile internet and social media have changed the way we communicate,
+read, write, and think. Benefits of information technology are so multifaceted
+and obvious that it is sometimes difficult to not take them for granted. Innovations in computer science help to better diagnose
+illnesses, find the answer to almost any question on Google Search, promise to
+bring cheap and better education to the world at large and help us to quicker
+find Taxis in New York and even to run computer simulations to understand
+quantum spin systems. Yet the advent of ubiquitous computing comes with a great
+hunger for energy. Large data centres are strategically constructed next to
+power plants. We would like the wearable watches and the internet of things,
+that is supposed to connect everything from our car to our toaster to our shoes,
+to be always on, rich in functionality and thus equipped with fast processors,
+and low in power consumption, so that we don't have to recharge batteries all
+day as we do with our smart phones. The desire to build functional and at the
+same time power efficient computing technology has led to efforts at all levels
+of the technology stack, from more efficient data centres, for example, by using
+waste heat, to using more efficient processor architectures, for example by
+using ARM instead of x86, to better and more parallel algorithms; or innovation
+in compiler technology, for example the Javascript VM.
 
+The penetration of computing technology into all aspects of life has been
+fuelled by the incredible success of the complementary metal-oxide semiconductor
+(CMOS) integrated circuit. Invented in the early 1960s, it has since doubled the
+number of transistors per chip roughly every two years, the exponential growth
+known as Moore's law. Whereas in the eighties feature sizes were on the order of
+micrometres, today's CPUs use a 22 nm process, using immersion lithography for
+manufacturing and integrate billions of transistors on a single chip. CMOS uses
+complementary nMOSFETS and pMOSFETS (metal-oxide-semiconductor field-effect
+transistors), where one of the two transistors is always off, to greatly reduce
+power consumption compared to older technologies. Ideally, the system would only
+see a brief current during switching, when both transistors are on for a brief
+time.
+
+One of the main reasons for the relentless miniaturization of CMOS technology is
+cost reduction. In the manufacturing process, the cost is dominantly set per
+wafer, thus increasing the number of devices per wafer, either by increasing the
+wafer in size (wafers are as large as 300 mm in diameter these days), or by
+higher device density and thus smaller feature sizes. In principle, smaller
+feature sizes also lead to faster switching times and switching energy. Industry
+and consumer have, by asking for ever more capable and functionally rich
+devices, financed this push towards higher and higher device densities. In the
+past, obstacles that seemed to inhibit the continued downscaling were time and
+again overcome by scientific and engineering ingenuity, so that in the end so
+far the exponential growth pace has been kept and Moore's law fulfilled.
+
+Historically, the scaling was limited by the photolithographic process used to
+manufacture semiconductor integrated circuits. But advances in lithography have
+pushed feature sizes below 32 nm with immersion lithography, 10 nm are thought
+to be possible, and beyond that extreme ultraviolet lithography is being developed.
+With feature sizes that small, the atomic limit is approached, and the scaling
+is now limited by fundamental physical limits of the MOSFET. As the MOSFET is
+scaled down in size, leakage currents increase. It is estimated that the gate
+size is 5.9 nm, before electrons tunnelling directly from the source to
+the drain through the barrier of the channel region becomes substantial.
+Similarly, the gate voltage has to shrink with shrinking feature sized, which
+increases the subthreshold current through the channel region. Lastly, if the
+gate oxide becomes too thin, electrons can again tunnel from the gate to the
+drain, leading to leakage currents. In the current generation of microprocessors
+the previously used silicon dioxide has therefore been replaced with materials
+with a higher relative permittivity, referred to as high-$\kappa$ dielectrics,
+such as, for example, hafnium oxide, to increase the oxide layer thickness while
+keeping its capacity constant. Overall, smaller feature sizes, which lead to
+faster switching times and higher device density, lead to
+significantly higher leakage currents which can, for the current generation, be
+a substantial part of the total power consumption of a chip. Therefore, we
+trade off speed and number of transistors per chip with power efficiency.
+
+The International Technology Roadmap for Seminconductors (ITRS) maps out the
+pace of future CMOS miniaturization and estimates that feature size and voltage
+scaling can continue for one or two decades before reaching its absolute lower
+limit. Even with the scaling limits approaching CMOS is still a very viable
+technology with several strategies for future improvements. On the MOSFET level,
+specialized FETs for specific applications (possibly on the same chip) could be
+used, for example, transistors with fast switching speeds, but high leakage, and
+slow, but very power-efficient transistors. On a higher level, design and
+architecture could work around and optimize for the changed electronic
+characteristics of down-scaled devices. For manufacturing, higher parallelism in
+fabrication, e.g.~larger wafers, could cut down costs. More clever packaging,
+for example by stacking circuits on top of each other, could increase device
+density further. Lastly, the integration of different and complementary
+technologies with CMOS directly on the chip holds significant promise for future
+applications. Here, optics---waveguides, detectors, LEDs and lasers---, radio
+frequency devices, microelectromachanical systems (MEMs) and others could all be
+integrated for richer functionality. Eventually, however, merely pushing CMOS
+further will not be enough, and consequently, considerable effort has been put
+into completely new computing paradigms, that are inherently more power
+efficient, faster, or allow different computing architectures with more high
+level operations per binary switch. Any new technology faces the challenge of
+competing with the vastly successful CMOS technology and so far no clear viable
+alternative to CMOS has been found. It is also conceivable that new emerging
+technologies would be used only for special applications, e.g.~memory, and thus
+complement the existing CMOS circuitry.
+
+
+
+
+% Datta, 2010: Digital electronic circuits store information in the form of
+% capacitor charges that are manipulated using transistor-based switches.
+% Switches of this type cur- rently operate with a supply voltage of one volt
+% involv- ing ≈ 104 − 105 electrons, requiring 1 − 10 femto-Joules (fJs),
+% dissipating 1-10 μW per switch if operating at 1 GHz. This dissipation per
+% switch is believed to be the single most important impediment to continued
+% minia- turization and there is a serious attempt to “reinvent the transistor”1
+% so as to operate at lower voltages.

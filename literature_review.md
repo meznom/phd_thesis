@@ -1,3 +1,12 @@
+## The evolution of scaling from the homogeneous era to the heterogeneous era
+
+Mark Bohr
+2011/12/5
+
+* Nice paper on scaling of CMOS
+* Can use it as a reference for "billions" of transistors on a chip
+
+
 ## Design and simulation of sequential circuits in quantum-dot cellular automata: Falling edge-triggered flip-flop and counter study
 
 Li Cai, Xiaohui Zhao, Nansheng Zhang; 2009

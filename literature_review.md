@@ -192,9 +192,12 @@ quantum chemistry calculations for their molecules; I don’t understand the det
 
 ## Molecular QCA papers:
 
+* Craig S Lent; 2000/6/2; Science
+  Bypassing the transistor paradigm Lent groupx QCAx
+    * a perspective, not a pape
+    * seems to be the first thing that mentions molecular QCA
 * Craig S. Lent , Beth Isaksen , and Marya Lieberman; J. Am. Chem. Soc., 2003, 125 (4), pp 1056–1063; DOI: 10.1021/ja026856g; “Molecular Quantum-Dot Cellular Automata”
-* Yuhui Lu1, Mo Liu1 and Craig Lent, J. Appl. Phys. 102, 034311 (2007); http://dx.doi.org/10.1063/1.2767 Molecular quantum-dot cellular automata: From molecular structure to circuit dy-
-namics
+* Yuhui Lu1, Mo Liu1 and Craig Lent, J. Appl. Phys. 102, 034311 (2007); http://dx.doi.org/10.1063/1.2767 Molecular quantum-dot cellular automata: From molecular structure to circuit dynamics
 * Rahimi and Nejad Nanoscale Research Letters 2012, 7:274; Quasi-classical modeling of molecular quantum-dot cellular automata multidriver gates
 
 
@@ -219,20 +222,40 @@ shift registers, RAM, digital data storage, and simple microprocessors”
 
 
 ## Experimental realization papers:
-* A. O. Orlov, I. Amlani, G. H. Bernstein, C. S. Lent, and G. L. Snider, Science 277, 928 (1997) “Realization of a functional cell for quantum-dot cellular automata”
+* A. O. Orlov, I. Amlani, G. H. Bernstein, C. S. Lent, and G. L. Snider, Science 277, 928 (1997)
+  "Realization of a functional cell for quantum-dot cellular automata"
+
+* Islamshah Amlani, Alexei O Orlov, Geza Toth, Gary H Bernstein, Craig S Lent, Gregory L Snider; Science (1999/4/9)
+  "Digital logic gate using quantum-dot cellular automata"
+    * Logic gate = One single cell; with inputs set by electrodes
+
+* Alexei O Orlov, Islamshah Amlani, Geza Toth, Craig S Lent, Gary H Bernstein, Gregory L Snider
+  1999/5/10
+  Applied physics letters
+  Experimental demonstration of a binary wire for quantum-dot cellular automata
+    * looks to me like those are two cells next to each other
+    * this is the metall island system
+
 * Evidence for transfer of polarization in a quantum dot cellular automata cell con- sisting of semiconductor quantum dots; ..., CG Smith, J Cooper, DA Ritchie, EH Linfield, Y Jin - Physical Review B, 2003 - APS (GaAs/AlGaAs)
     * single cell
+
 * Demonstration of a silicon-based quantum cellular automata cell; ..., RP Starrett, E Gauja, R Brenner, RG Clark. . . - Applied physics . . . , 2006 - scitation.aip.org (Silicon)
     * single cell
     * metallically doped (n+) phosphorus-implanted nanoscale dots / ion-implanted phosphorus-doped silicon (Si:P)
+
 * Wolkow group
+
 * Molecular quantum cellular automata cells. Electric field driven switching of a silicon surface bound array of vertically oriented two-dot molecular quantum cellular ...; H Qi, S Sharma, Z Li, GL Snider, AO Orlov... - Journal of the ..., 2003 - ACS Publications
     * calling this an experimental realization might go a bit far
+
 * My impression is that there is no genuine experimental realization for these molecular systems. But maybe I am wrong. After all, for example the Silicon surface system is also not really a fully working QCA system.
+
 * Experimental realizations of more complex systems (i.e. more than one cell)
     * Quasiadiabatic switching for metal-island quantum-dot cellular automata; G Tth, CS Lent - Journal of Applied physics, 1999
     * Orlov AO, Kummamuru R, Ramasubramaniam R, Lent CS, Bernstein GH, Snider GL: Clocked quantum-dot cellular automata shift register. Surf Sci 2003, 532–535:1193–1198.
         * an experimental shift register
+    * Ravi K Kummamuru, Alexei O Orlov, Rajagopal Ramasubramaniam, Craig S Lent, Gary H Bernstein, Gregory L Snider; 2003/9; IEEE
+      "Operation of a quantum-dot cellular automata (QCA) shift register and analysis of errors"
 
 
 # Theorecical papers / Books

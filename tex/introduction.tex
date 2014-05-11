@@ -1,118 +1,119 @@
 \chapter{Introduction}
 
-The rise of electronic information technology has been the main driver of
-economical and societal change over the past seventy years. Even more than the
-computerization of industry and office work, has the advent of the internet
-transformed how we live, work, socialize, and communicate. Technology has become
-ubiquitous, from the Netflix-streaming television, to the office computer, to
-the smart phone and IPad tablets, and cloud computing and storage. The impact on
-our lives is tremendous, and we are only beginning to understand it. Readily
-available mobile internet and social media have changed the way we communicate,
-read, write, and think. Benefits of information technology are so multifaceted
-and obvious that it is sometimes difficult to not take them for granted. Innovations in computer science help to better diagnose
-illnesses, find the answer to almost any question on Google Search, promise to
-bring cheap and better education to the world at large and help us to quicker
-find Taxis in New York and even to run computer simulations to understand
-quantum spin systems. Yet the advent of ubiquitous computing comes with a great
-hunger for energy. Large data centres are strategically constructed next to
-power plants. We would like the wearable watches and the internet of things,
-that is supposed to connect everything from our car to our toaster to our shoes,
-to be always on, rich in functionality and thus equipped with fast processors,
-and low in power consumption, so that we don't have to recharge batteries all
-day as we do with our smart phones. The desire to build functional and at the
-same time power efficient computing technology has led to efforts at all levels
-of the technology stack, from more efficient data centres, for example, by using
-waste heat, to using more efficient processor architectures, for example by
-using ARM instead of x86, to better and more parallel algorithms; or innovation
-in compiler technology, for example the Javascript VM.
+The rise of electronic information technology has been one of the main drivers
+of economical and societal change over the past seventy years. Computers have
+flown us to the moon, trade stocks, diagnose illnesses and even run simulations
+of quantum spin systems. The advent of the internet, invented some 25 years ago,
+and the relentless march of an army of mobile gadgets, from the venerable
+notebook, over the smart phone and tablet, to wearable tech of all forms and
+colours, together with readily available mobile data connections, is changing
+the way we communicate, socialize, read, write and think. The benefits of
+information technology are so multifaceted and ubiquitous that it is easy to
+take them for granted. Yet at the same time as we ask for faster, more
+functionally rich, and lighter devices, the data centres that feed us our cloud
+streams have developed a great hunger for energy. And if the internet of things
+is supposed to happen, it sure needs more energy-efficient devices than the
+phones that we always keep in sight of a power outlet. The desire to build
+functional and at the same time more power-efficient computing technology has
+led to efforts at all levels of the technology stack, from the data centres, to
+the processor architectures, to better and more parallel algorithms. Digital
+circuitry and specifically the transistor, underpinning all of modern day
+information technology, have not been an exception.
 
-The penetration of computing technology into all aspects of life has been
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The penetration of computing technology into all aspects of modern life has been
 fuelled by the incredible success of the complementary metal-oxide semiconductor
-(CMOS) integrated circuit. Invented in the early 1960s, it has since doubled the
-number of transistors per chip roughly every two years, the exponential growth
-known as Moore's law. Whereas in the eighties feature sizes were on the order of
-micrometres, today's CPUs use a 22 nm process, using immersion lithography for
-manufacturing and integrate billions of transistors on a single chip. CMOS uses
-complementary nMOSFETS and pMOSFETS (metal-oxide-semiconductor field-effect
-transistors), where one of the two transistors is always off, to greatly reduce
-power consumption compared to older technologies. Ideally, the system would only
-see a brief current during switching, when both transistors are on for a brief
-time.
+(CMOS) integrated circuit. Computer chips have become ever more cheaper,
+smaller, power-efficient, and at the same time much more capable. But now it has
+been argued that CMOS is close to its scaling limits---that it can no longer
+become ever faster and cheaper. CMOS uses two complementary n- and
+p-metal-oxide-semiconductor field-effect transistors (MOSFETs), greatly reducing
+power consumption compared to older technologies, such as NMOS. Invented in the
+early 1960s, the CMOS integrated circuit has since seen the number of
+transistors per chip double roughly every two years, an exponential growth
+predicted by Gordon Moore and hence known as Moore's law
+\cite{moore1965cramming}. Whereas in the eighties feature sizes were on the
+order of micrometres, today's processors use a 22 nm process and integrate
+billions of transistors on a single chip \cite{bohr2011evolution}. One of the
+main reasons for the relentless miniaturization of CMOS technology is cost
+reduction. In the manufacturing process, the cost is dominantly set per
+wafer---the slab of pure crystalline silicon used as the device substrate.
+Therefore, chips become cheaper by either increasing the size of the
+wafer---current silicon wafers are typically 30 cm in diameter---or by
+increasing the device density and thus by smaller feature sizes. Obviously,
+higher device densities means more functionality per same-area chip, but smaller
+feature sizes also, in principle, lead to shorter switching times and reduced
+switching energy, and thus faster and more power-efficient devices. In the past,
+obstacles that seemed to inhibit the continued downscaling were time and again
+overcome by scientific and engineering ingenuity, and the exponential growth
+predicted by Moore's law has been kept pace with. Technological innovation has
+been fuelled and financed by consumer demand for more capable and functionally
+rich devices.
 
-One of the main reasons for the relentless miniaturization of CMOS technology is
-cost reduction. In the manufacturing process, the cost is dominantly set per
-wafer, thus increasing the number of devices per wafer, either by increasing the
-wafer in size (wafers are as large as 300 mm in diameter these days), or by
-higher device density and thus smaller feature sizes. In principle, smaller
-feature sizes also lead to faster switching times and switching energy. Industry
-and consumer have, by asking for ever more capable and functionally rich
-devices, financed this push towards higher and higher device densities. In the
-past, obstacles that seemed to inhibit the continued downscaling were time and
-again overcome by scientific and engineering ingenuity, so that in the end so
-far the exponential growth pace has been kept and Moore's law fulfilled.
+Historically, feature size scaling was limited by the photolithographic process
+used to manufacture semiconductor integrated circuits. But advances in
+fabrication technology, such as 193 nm immersion lithography and double
+patterning, have pushed below the 32 nm mark, with 10 nm deemed possible.
+Beyond, extreme ultraviolet lithography is being developed, promising even
+smaller feature sizes. These dimensions approach the atomic scale and further
+downsizing is increasingly inhibited by the fundamental physical limits of the
+MOSFET. Simply put, the smaller the transistor in size, the higher the leakage
+currents. There are several leakage channels. If the distance between source and
+drain becomes too small, then electrons can tunnel through the channel region
+regardless of the gate barrier, and it has been estimated that 5.9 nm is the
+minimal gate dimension before this tunnelling current becomes substantial
+\cite{cavin2012science}. Similarly, the gate voltage has to shrink with
+shrinking feature sizes, which increases the subthreshold current through the
+channel region. Lastly, if the gate oxide layer becomes too thin, electrons can
+tunnel from the gate to the drain, again leading to a leakage current. Some of
+these problems can be mitigated by technological advances. For example, current
+generation microprocessors substitute the traditionally used silicon dioxide
+with materials with higher relative permittivities, such as hafnium oxide, for
+the gate oxide, allowing thicker oxide layers and thus decreasing electron
+tunnelling. But overall, smaller feature sizes, which lead to faster switching
+times and higher device densities, significantly increase leakage currents.
+Already, leakage is a substantial part of the total power consumption of current
+devices.
 
-Historically, the scaling was limited by the photolithographic process used to
-manufacture semiconductor integrated circuits. But advances in lithography have
-pushed feature sizes below 32 nm with immersion lithography, 10 nm are thought
-to be possible, and beyond that extreme ultraviolet lithography is being developed.
-With feature sizes that small, the atomic limit is approached, and the scaling
-is now limited by fundamental physical limits of the MOSFET. As the MOSFET is
-scaled down in size, leakage currents increase. It is estimated that the gate
-size is 5.9 nm, before electrons tunnelling directly from the source to
-the drain through the barrier of the channel region becomes substantial \cite{cavin2012science}.
-Similarly, the gate voltage has to shrink with shrinking feature sized, which
-increases the subthreshold current through the channel region. Lastly, if the
-gate oxide becomes too thin, electrons can again tunnel from the gate to the
-drain, leading to leakage currents. In the current generation of microprocessors
-the previously used silicon dioxide has therefore been replaced with materials
-with a higher relative permittivity, referred to as high-$\kappa$ dielectrics,
-such as, for example, hafnium oxide, to increase the oxide layer thickness while
-keeping its capacity constant. Overall, smaller feature sizes, which lead to
-faster switching times and higher device density, lead to
-significantly higher leakage currents which can, for the current generation, be
-a substantial part of the total power consumption of a chip. Therefore, we
-trade off speed and number of transistors per chip with power efficiency.
-
-The International Technology Roadmap for Seminconductors (ITRS) \cite{itrs2011} maps out the
-pace of future CMOS miniaturization and estimates that feature size and voltage
-scaling can continue for one or two decades before reaching its absolute lower
-limit. Even with the scaling limits approaching CMOS is still a very viable
-technology with several strategies for future improvements. On the MOSFET level,
-specialized FETs for specific applications (possibly on the same chip) could be
-used, for example, transistors with fast switching speeds, but high leakage, and
-slow, but very power-efficient transistors \cite{cavin2012science}. On a higher level, design and
-architecture could work around and optimize for the changed electronic
-characteristics of down-scaled devices. For manufacturing, higher parallelism in
+The International Technology Roadmap for Seminconductors (ITRS) \cite{itrs2011}
+maps out the pace of future CMOS miniaturization and estimates that feature size
+and voltage scaling can continue for one or two decades, before reaching its
+absolute lower limit. Even with the scaling limits approaching, CMOS is still a
+very viable technology with several strategies for future improvements. On the
+MOSFET level, specialized FETs for specific applications could be used, possibly
+on the same chip. For example, if speed is paramount then transistors with short
+switching times, but high leakage and therefore high power consumption can be
+employed. Conversely, for power-conscious applications slower transistors with
+larger feature sizes but less leakage would be preferable
+\cite{cavin2012science}. On a higher level, architecture and circuit design
+could---and already do to some extend---work around the changed electronic
+characteristics of downscaled devices. For manufacturing, higher parallelism in
 fabrication, e.g.~larger wafers, could cut down costs. More clever packaging,
 for example by stacking circuits on top of each other, could increase device
 density further. Lastly, the integration of different and complementary
 technologies with CMOS directly on the chip holds significant promise for future
-applications. Here, optics---waveguides, detectors, LEDs and lasers---, radio
-frequency devices, microelectromachanical systems (MEMs) and others could all be
-integrated for richer functionality. Eventually, however, merely pushing CMOS
-further will not be enough, and consequently, considerable effort has been put
-into completely new computing paradigms, that are inherently more power
-efficient, faster, or allow different computing architectures with more high
-level operations per binary switch. Any new technology faces the challenge of
-competing with the vastly successful CMOS technology and so far no clear viable
-alternative to CMOS has been found. It is also conceivable that new emerging
-technologies would be used only for special applications, e.g.~memory, and thus
-complement the existing CMOS circuitry.
-
-
+applications. Combining CMOS circuitry with optical devices, such as waveguides,
+detectors, LEDs, and Lasers, or radio frequency, or micro-electro-mechanical
+systems (MEMs), to name just a few possibilities, would all yield devices with
+richer functionality. Eventually, however, merely pushing CMOS further will not
+be enough, and, consequently, considerable effort has been put into the search
+and development of completely new computing paradigms that could one day replace
+CMOS technology. Even if an emerging new computing technology could not compete
+with CMOS in all aspects, it could, conceivably, be used for specific
+applications, e.g.~memory, and thus complement traditional circuitry.
 % \cite{zhirnov2003limits} --- fundamental limits of CMOS-like architecture
-% \cite{bernstein2010device} --- another overview over beyond CMOS devices
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 There is not shortage of ideas for novel computing principles and architectures
-to replace or complement the existing CMOS technology \cite{nikonov2013overview} \cite{cavin2012science}. Broadly speaking, these
-ideas fall into three categories. First, some device proposals seek to
-incrementally improve the MOSFET. They might exploit better materials, or be
-based on other physical principles internally, but show the same characteristics
-and outside functionality as the transistor. They would be a drop-in replacement
-for MOSFETs, and the computing architecture would remain otherwise unchanged.
+to replace or complement the existing technology \cite{cavin2012science}
+\cite{bernstein2010device}. Broadly speaking, these ideas fall into three
+categories. First, some device proposals seek to incrementally improve the
+MOSFET. They might exploit better materials, or be based on other physical
+principles internally, but show the same characteristics and outside
+functionality as the transistor. They would be a drop-in replacement for
+MOSFETs, and the computing architecture would remain otherwise unchanged.
 Second, devices have been suggested that implement Boolean logic, but use
 different physical properties to store and communicate binary state and might,
 as a consequence, allow different architectural designs that better and more
@@ -126,122 +127,128 @@ various stages of development. Some are only concepts, others have seen
 extensive numerical studies, and other still have been realized experimentally.
 However, not any of the ideas for novel computing architectures is anywhere
 close to becoming a mature technology that could rival CMOS, and there is also
-no obvious most promising candidate that could be pushed forward in that
-direction.
+no obvious candidate that could be pushed forward as the most promising future
+technology.
 
-Devices implementing Boolean logic can be characterized by the physical property
-used---the computational variable---to represent binary state, input and output.
-For example, the MOSFET uses charge on the oxide capacitor as its state
-variable, but voltage for input and output. Other computational variables
-include electronic or atomic spin, used in spintronic and nanomagnetic devices,
-position, used in some micro-electro-mechanical approaches, or the electric dipole
-moment, used for ferroelectric systems, to name just a few examples. For this
-class of devices characteristics similar to the transistor are usually required,
-such as gain, non-reciprocity, i.e.~the input side is not influenced by the
-output side, and the ability to chain the binary switches. Similarly,
-benchmarking often concentrates on switching time and energy, as well as device
-density. However, if the proposed architecture is sufficiently dissimilar to
-CMOS, then these metrics and requirements become less applicable. As an example,
-the requirement of non-reciprocity can be circumvented by introducing clocking
-schemes; switches with more than two inputs could potentially perform logic
-operations differently, or multiple operations at the same time.
+Devices implementing Boolean logic can be characterized by the physical
+property---the computational variable---used to represent binary state, as well
+as input and output \cite{nikonov2013overview}. For example, the MOSFET uses
+charge on the oxide capacitor as its state variable, but voltage for input and
+output. Other computational variables include electronic or atomic spin, used in
+spintronic and nanomagnetic devices, position, used in some
+micro-electro-mechanical approaches, or the electric dipole moment, used for
+ferroelectric systems. For Boolean logic devices, binary switches with
+characteristics similar to the transistor are usually required, such as gain,
+non-reciprocity, i.e.~no feedback from the output to the input, and the ability
+to chain the switches. Similarly, benchmarking often concentrates on switching
+time and energy, as well as device density. However, if the proposed
+architecture is sufficiently dissimilar to CMOS, then these metrics and
+requirements become less applicable. As an example, the requirement of
+non-reciprocity can be circumvented by introducing clocking schemes; switches
+with more than two inputs could potentially perform logic operations
+differently, or multiple operations at the same time.
 
 Different materials are being explored to improve the characteristics of the
 existing field-effect transistor. For example, {\romannumeral 3}-{\romannumeral
 5} compounds such as InAs can be used for the channel of the transistor to
 increase electron mobility and hence switching speeds. Similarly, making the
-channel a carbon nanotube---carbon nanotube field-effect transistors
-(CNTFET)---achieves nearly ballistic transport. The fantastic electronic
-properties of graphene have let to experimentation with graphene FETs, although
-the absence of a band gap provides a challenge. As another example,
-tunnel-junction field-effect transistors may be used to realize binary switches
-\cite{nikonov2013overview} \cite{cavin2012science}.
-For most of these approaches, however, insufficient accurate and reproducible
-manufacturing, the integration with silicon and, not least, the up-scaling of
-production pose severe challenges. While still working with the existing
-computing architecture, a slightly different route is pursued by incorporating
-mechanical elements into the circuit, thus that mechanical switches instead of
-electronic switches are uses. Micro-electro-mechanical (MEM) relays are
+channel a carbon nanotube achieves nearly ballistic transport, and these devices
+are then called carbon nanotube field-effect transistors (CNTFET). As another
+example, tunnel-junction field-effect transistors may be used to realize binary
+switches \cite{nikonov2013overview} \cite{cavin2012science}. For most of these
+approaches, however, insufficient accurate and reproducible manufacturing, the
+integration with silicon and, not least, the upscaling of fabrication pose
+severe challenges. A different route is pursued by replacing the electronic
+binary switches with micro-mechanical switches, while still using the same
+conventional computing architecture. Micro-electro-mechanical (MEM) relays are
 relatively slow, but provide negligible leakage currents and are easy to
 manufacture, making them attractive for ultra-low-power applications, such as
-environmental sensing logic \cite{kam2011design}. Prototypical MEM circuits have been experimentally
-demonstrated \cite{spencer2011demonstration}. Spintronic devices use the spin degree of freedom to encode binary
-information \cite{wolf2001spintronics}. For example, domain wall devices use the spin-transfer torque to
-move the domain wall in a ferromagnetic wire and the wire's magnetization can
-then be sensed with a magnetic tunnel junction \cite{allwood2005magnetic}. Spin wave devices encode
+environmental sensing logic \cite{kam2011design}. Prototypical MEM circuits have
+been experimentally demonstrated \cite{spencer2011demonstration}. Further
+removed from CMOS circuitry are spintronic devices, which use the spin degree of
+freedom to encode binary information \cite{wolf2001spintronics}. Device
+proposals cover a wide range of ideas of how the spin is used, stored, and
+interfaced with. For example, domain wall devices represent bits by
+magnetization domains in ferromagnetic wires forming a network. The domain walls
+are propagated through the wire and junctions and other geometrical layouts
+implement logic functions. The wire's magnetization can then be sensed with a
+magnetic tunnel junction \cite{allwood2005magnetic}. Spin wave devices encode
 information in the phase of spin waves, which interfere constructively or
-destructively at junctions. Potentially, multiple signals at different
-frequencies could be processed in parallel. All-spin logic devices is another
-proposed technology, and store binary state in nanomagnets which communicate
-with spin-polarized currents \cite{behin2010proposal}. To build logic, spin-polarized currents can mix
-and the majority spin wins and sets the output.
+destructively at junctions, and, multiple signals at different frequencies can
+potentially be processed in parallel \cite{khitun2005nano}
+\cite{kostylev2005spin}. All-spin logic devices are yet another proposed
+technology that stores binary state in nanomagnets which communicate with
+spin-polarized currents. For logic functionality, a majority gate has been
+proposed where spin-polarized currents mix and the majority spin polarization
+wins and sets the output \cite{behin2010proposal} \cite{srinivasan2011all}. 
 
 Quantum-dot cellular automata (QCA) is a beyond-CMOS computing paradigm that is
 a more radical departure from conventional CMOS circuit design than most of the
 approaches discussed so far \cite{lent1993quantum}. The binary state is encoded
 as a bistable charge distribution---electric dipoles---in a cell consisting of
-several quantum dots.  Cells interact through electrostatic forces in a fashion
+several quantum dots. Cells interact through electrostatic forces in a fashion
 similar to a cellular automaton, where each cell's state is dominantly set by
 its closest neighbouring cells. The device functionality is determined by the
-geometrical layout of the cells. For example, cells placed next to each other in
+geometrical arrangement of the cells. For example, cells placed next to each other in
 a horizontal line can transport a signal and therefore function as a wire
 \cite{lent1993lines}. Multiple input cells placed as closest neighbours to a
-fourth cell vote on the cell's state, and the majority wins.  This majority gate
+fourth cell vote on that cell's state, and the majority wins. This majority gate
 is used to realize AND and OR logic, a different geometric arrangement
 implements an inverter. \emph{A priori}, the information flow in quantum-dot
 cellular automata is not directional. Rather, the computation process can be
-understood as perturbing the system by setting fixed external inputs for the
-device, which then dissipatively propagates to its ground state, which
-corresponds to the computational solution of the problem the circuit was
+understood as perturbing the system out of its ground state by setting external
+inputs, where the device then dissipatively propagates to its new ground state,
+which corresponds to the computational solution of the problem the circuit was
 designed to solve. The approach is current-free and promises extremely low-power
 operation. On a higher level, to design large-scale QCA circuits, directionality
 in information flow is enforced by introducing a clocking scheme
-\cite{lent1997device}.
+\cite{lent1997device}. Quantum-dot cellular automata are the subject of this
+thesis.
 
 The underlying idea of QCA---bistable interacting cells---is quite versatile and
 can be recast in different physical domains. For example, within the last decade
 the possibility of molecular QCA implementations has been explored
 \cite{lent2000bypassing} \cite{lent2003molecular}. Cells would be comprised of
 molecules instead of quantum dots and these molecules have to allow for bistable
-electron charge distributions. Due to the molecular scale these devices would
-operate at room temperature and allow extremely high device densities. Molecular
-electronics also offers the prospect of efficient self-assembly. However, a
+electron charge distributions. Due to the molecular scale these devices promise
+to operate at room temperature and allow extremely high device densities.
+Molecular electronics offers the prospect of efficient self-assembly. However, a
 molecular QCA scheme also poses some severe challenges: suitable molecules need
-to be identified, synthesized reliably, attached to a surface and arranged for
-the desired geometric cell layout.  Interfacing input and output with more
+to be identified, synthesized reliably, attached to a surface and arranged in
+the desired geometric cell layout. Interfacing input and output with more
 conventional electronics might be difficult. A second interesting adaptation of
 the QCA idea is in the magnetic domain. Magnetic quantum-dot cellular automata
-(MQCA) \cite{cowburn2000room} \cite{bernstein2005magnetic}, sometimes more
+(MQCA) \cite{cowburn2000room} \cite{bernstein2005magnetic}, occasionally more
 generally referred to as nanomagnetic logic (NML) \cite{cavin2012science},
 employ bistable nanomagnets as cells which are coupled through magnetic instead
 of electrostatic fields. MQCA works at room temperature, promises very low power
-dissipation, and is non-volatile.  Lines of cells, the majority gate and
-clocking have all been demonstrated experimentally \cite{imre2006majority}
+dissipation, and is non-volatile. Lines of cells, the majority gate and clocking
+have all been demonstrated experimentally \cite{imre2006majority}
 \cite{alam2007clocking} \cite{alam2012chip}.
 
 For the original QCA scheme, sometimes referred to as electrostatic QCA (EQCA)
-to distinguish it from the molecular and magnetic variants, a variety of systems
-have been explored for experimental realization. Lent \emph{et al}.\
-demonstrated the first QCA cell in 1997 in a metal-island system
-\cite{orlov1997realization}. Aluminum islands of micrometer size are
-tunnel-coupled through aluminum-oxide tunnel junctions at Millikelvin
-temperatures and the bistable nature of the cell could be demonstrated.
-Experiments were then extended to demonstrate binary wires (two cells), majority
-gate operation (a single cell with three inputs), and a shift register
-(consisting of six dots) \cite{orlov1999experimental} \cite{amlani1999digital}
-\cite{kummamuru2003operation}. Single QCA cells have also been realized in GaAs
-/ AlGaAs heterostructures , ion-implanted phosphorus-doped silicon, and, most
-recently, on a hydrogenated silicon surface \cite{gardelis2003evidence}
+to distinguish it from the molecular and magnetic variants, a number of systems
+have been explored for experimental implementation. Lent \emph{et al}.\
+demonstrated the first experimental QCA cell in 1997 in a metal-island system
+\cite{orlov1997realization}. The quantum dots were realized as tunnel-coupled
+aluminum islands of micrometer size at millikelvin temperatures, and the
+bistable nature of the cell was observed.  Experiments were then extended to
+demonstrate binary wires (two cells), majority gate operation (a single cell
+with three inputs), and a shift register (consisting of six dots)
+\cite{orlov1999experimental} \cite{amlani1999digital}
+\cite{kummamuru2003operation}. Single QCA cells have also been implemented in
+GaAs / AlGaAs heterostructures, ion-implanted phosphorus-doped silicon, and,
+most recently, on a hydrogenated silicon surface \cite{gardelis2003evidence}
 \cite{mitic2006demonstration} \cite{haider2009controlled}. On the hydrogenated
-silicon surface, individual hydrogen atoms can be removed with an scanning
+silicon surface, individual hydrogen atoms are removed with a scanning
 tunnelling microscope tip. The remaining dangling bonds act as quantum dots.
 These atomic silicon quantum dots are tunnel-coupled when placed close enough
 together (a few nanometers), at larger distances they interact only via Coulomb
 repulsion \cite{pitters2011tunnel}. This silicon-based QCA implementation is
 particularly exciting, because it promises room temperature operation due to its
 small feature sizes and large electrostatic energy scales, and potentially easy
-integration with existing CMOS technology. The precision and up-scaling of the
-manufacturing capabilities have seen encouraging progress recently
+integration with the existing CMOS technology. The precision and upscaling of
+the fabrication capabilities have seen encouraging progress recently
 \cite{wolkow2013silicon}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -249,49 +256,85 @@ manufacturing capabilities have seen encouraging progress recently
 On the theoretical side, the building blocks of QCA circuitry, such as the
 single cell or a line of cells, have been characterized and the dynamical
 behaviour of larger systems such as gates has been studied \cite{lent1993lines}
-\cite{tougaw1996dynamic}. Clocking schemes have been introduced to improve the
-reliability and speed of QCA computations and, starting from the basic building
-blocks, more complex circuits like shift registers, adders and memory have been
-explored \cite{lent1997device} \cite{hennessy2001clocking}
-\cite{rahimi2008quantum}. A circuit design and simulation program exists, which
-treats the QCA system with a high level of abstraction and strongly ideally
-cells \cite{walus2004qcadesigner}.
+\cite{tougaw1996dynamic}. Importantly, the cell-cell response---the switching
+behaviour of a cell with respect to an input cell---was found to be non-linear
+and exhibit gain, two of the main requirements for building traditional
+CMOS-like integrated logic circuits. As a consequence, lines of cell are always
+fully switched and fanout and concatenation of devices do not pose difficulties.
+Clocking schemes have been introduced to improve the reliability and speed of
+QCA computations and, starting from the basic building blocks, more complex
+circuits like shift registers, adders and memory have been explored
+\cite{lent1997device} \cite{hennessy2001clocking} \cite{rahimi2008quantum}. A
+circuit design and simulation program exists, which treats the QCA system with a
+high level of abstraction and strongly idealized cells
+\cite{walus2004qcadesigner}.
 
-Theoretical work on QCA typically starts from an extended Hubbard model.
-However, because the full quantum mechanical problem becomes computationally
-intractable very quickly even for small systems, two ubiquitous approximations
-are employed: the intercellular Hatree approximation (ICHA) and the
-two-state-per-cell approximation \cite{lent1993quantum}
-\cite{tougaw1996dynamic}. Crucially, even though there are plausibility
-arguments to motivate their use, neither of these approximations has been
-rigorously validated. The ICHA approximation in
+Numerical work on QCA typically starts from an extended Hubbard model. However,
+because the full quantum mechanical problem becomes computationally intractable
+very quickly even for small systems, two ubiquitous approximations are employed:
+the intercellular Hartree approximation (ICHA) and the two-state-per-cell
+approximation \cite{lent1993quantum} \cite{tougaw1996dynamic}. Crucially, even
+though there are plausibility arguments to motivate their use, neither of these
+approximations has been rigorously validated. The ICHA approximation in
 particular is problematic: as a mean field scheme ICHA should be expected to
 over-emphasize charge-density-wave order in low-dimensional structures and
 therefore potentially yield results that are too optimistic regarding the
-operational range of the devices. To
-our knowledge, almost all previous efforts to characterize QCA building blocks
-rest on ICHA, and there is a danger that the whole emerging physical picture of
-the QCA approach is coloured by the particularities of this mean field
-approximation. Recently, Taucer \emph{et al}.~explicitly identified the need to go
-beyond the ICHA approximation \cite{taucer2012consequences}. Concentrating on
-system dynamics they showed that ICHA yields quantitatively and qualitatively
-wrong results. QCA was found to be more fragile than previously predicted. Although it
-has been argued that in practical systems quantum decoherence would stabilize QCA,
-the fact that the approximation underlying most theoretical work on QCA is not
-well understood and known to be qualitatively wrong in some cases remains
+operational range of the devices. To our knowledge, almost all previous efforts
+to characterize QCA building blocks rest on ICHA, and there is a danger that the
+whole emerging physical picture of the QCA approach is coloured by the
+particularities of this mean field approximation. Recently, Taucer \emph{et
+al}.~explicitly identified the need to go beyond the ICHA approximation
+\cite{taucer2012consequences}. Concentrating on system dynamics they showed that
+ICHA yields quantitatively and qualitatively wrong results. QCA was found to be
+more fragile than previously predicted. Although it has been argued that in
+practical systems, quantum decoherence would stabilize QCA, the fact that the
+approximation underlying most theoretical work on QCA is not well understood and
+known to be qualitatively wrong in some cases remains
 \cite{blair2013environmental}.
 
-% TODO
-In this work we approach QCA from a different angle. We do away with common
-approximations like ICHA and the two-state-per-cell basis.  Instead we introduce
-a number of carefully controlled Hilbert space truncations whose limits we study
-and understand. We concentrate on a few simple building blocks of QCA---the cell
-and a line of cells---, but aim to characterize them as detailed and unbiased as
-possible. We restrict ourselves to time-independent properties. Remarkably, even
-for these very simple QCA systems we already find notable differences to
-previously published results. We explore the systems' characteristics over a
-wide range of parameters and establish the parameter regime where QCA works
-best. We identify the limits where the approach breaks down.
+In this work we undertake a thorough and rigorous numerical study of the
+electrostatic QCA approach. We do not attempt the quantitative accurate
+modelling of a specific material system, but aim for the generic, semi-realistic
+description of QCA devices. Starting from the extended Hubbard model and using
+exact diagonalization, we do away with the ICHA approximation. Instead, we
+introduce two controlled Hilbert space truncations, the fixed-charge and the
+bond model, whose limits we study and understand. We derive the
+two-states-per-cell model---which is equivalent to a transverse-field Ising
+model---and show the limits in which it is an appropriate description of QCA
+systems. Restricting ourselves to time-independent properties, we concentrate on
+a few simple building blocks of QCA---the cell and a line of cells---but aim to
+characterize them as detailed and unbiased as possible. Remarkably, even for
+these very simple QCA systems we already find notable differences to previously
+published results. In particular, the cell-cell response is linear and does not
+exhibit gain. This has profound consequences and essentially changes the whole
+physical picture of QCA. We explore the systems' characteristics over a wide
+range of parameters and establish minimal requirements for QCA operation as well
+as parameters for optimal performance. Using the two-states-per-cell model in a
+tightly controlled parameter regime, we briefly investigate wires of up to
+twelve cells in length and the majority gate.
 
-
-% TODO: more details on what was found theoretically; mention Ising model
+The following chapter introduces the QCA approach in detail. We explain the
+basic idea, logic gates as the building blocks of QCA circuitry, and the
+clocking of larger devices. As an example experimental system, we discuss atomic
+silicon quantum dots, which we use as a reference throughout the thesis. We then
+dive into the modelling of QCA systems, and specifically the extended Hubbard
+model which we use as our starting point. Previous theoretical results are
+presented, along with a more detailed explanation of the intercellular Hartree
+approximation. We conclude the chapter with a brief overview of our exact
+diagonalization implementation. Chapter three focuses on the approximations we
+use. Two Hilbert space truncations are introduced, the fixed-charge model and
+the bond model. We then derive an Ising-like model---the two-states-per-cell
+approximation---as an effective low-energy model from the bond Hamiltonian. This
+derivation will already yield some insights into the characteristics of the QCA
+paradigm. The last part of the chapter goes into great detail to understand how
+the approximations work and in which regime they are valid. The fourth chapter
+presents the numerical results from our study. We use a three-cell wire as an
+exemplary QCA system to investigate its basic characteristics. We then employ an
+extended mean field scheme in an effort to establish lower boundaries for
+workable QCA system parameters. Using the Ising model for lines of up to twelve
+cells, we identify a set of parameters where the QCA approach works well, and
+put those parameters into context by contrasting them with corresponding
+parameter estimates for the atomic silicon quantum dots. The chapter concludes
+with a brief numerical exploration of the majority gate. The last chapter
+summarizes our results and offers a perspective on future directions for
+research on the QCA approach.

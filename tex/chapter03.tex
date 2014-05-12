@@ -4,23 +4,6 @@
 
 \section{The three-cell wire}
 
-%
-\begin{figure}
-  \center
-  \includegraphics{three_cells_PP}
-  \caption
-  [The cell-cell polarization response]
-  {
-  The cell-cell polarization response. The response of the first cell with
-  respect to the driver cell is non-linear and exhibits gain. In contrast, the
-  response of the second cell with respect to the first cell, and similarly
-  for the third with respect to the second, is linear and without gain. At zero
-  temperature, the responses are generally improved, but the qualitative
-  behaviour remains the same.
-  }
-  \label{fig:three_cells_PP}
-\end{figure}
-%
 We choose a simple QCA system, the three-cell wire that we had already
 introduced in Fig.~\ref{fig:short_wire}(b) in the first chapter, to investigate
 general time-independent characteristics of QCA circuits. Specifically, we are
@@ -36,6 +19,42 @@ with $t = 1$. For these parameters the bond approximation is valid, which we
 deploy unless otherwise noted. We investigate systems both without compensation
 charges $q = 0$, here the net cell charge is $-2e$, and with a compensation
 charge of $q=\frac{1}{2}$, yielding charge-neutral cells.
+
+\begin{figure}
+  \center
+  \includegraphics{three_cells_PP}
+  \caption
+  [The cell-cell polarization response]
+  {
+  The cell-cell polarization response. The response of the first cell with
+  respect to the driver cell is non-linear and exhibits gain. In contrast, the
+  response of the second cell with respect to the first cell, and similarly
+  for the third with respect to the second, is linear and without gain. At zero
+  temperature, the responses are generally improved, but the qualitative
+  behaviour remains the same.
+  }
+  \label{fig:three_cells_PP}
+\end{figure}
+
+\begin{figure}
+  \center
+  \includegraphics{three_cells_P_over_d}
+  \caption
+  [Cell polarization over cell-cell distance]
+  {
+  (a)(b)~Cell polarization over cell-cell distance. In the non-charge-neutral
+  system ($q = 0$), due to charge buildup the maximum polarization for
+  consecutive cells is at increasingly large cell-cell distances. Even at
+  optimal distance the output polarization $P_3$ is very small. The output
+  polarization is drastically improved for the charge-neutral system. Each cell
+  attains its optimal polarization in the same range of cell-cell distances.
+  (c)(d)~Cell polarization over very large cell-cell distances. For large
+  distances $d/a > 10$ the polarizations settle into an universal long distance
+  tail $d^{-5}$, independent of $q$ and as predicted by the Ising interaction
+  $J$.
+  }
+  \label{fig:three_cells_P_over_d}
+\end{figure}
 
 The driver cell sets the input for the three-cell wire with its
 polarization $P_D$ taking values in the range $-1$ to $+1$. The three active
@@ -84,27 +103,6 @@ static charge mean field of the other cells in the system. In other words, in
 the ICHA scheme, for each cell the rest of the system is approximated by an
 effective driver cell.
 
-%
-\begin{figure}
-  \center
-  \includegraphics{three_cells_P_over_d}
-  \caption
-  [Cell polarization over cell-cell distance]
-  {
-  (a)(b)~Cell polarization over cell-cell distance. In the non-charge-neutral
-  system ($q = 0$), due to charge buildup the maximum polarization for
-  consecutive cells is at increasingly large cell-cell distances. Even at
-  optimal distance the output polarization $P_3$ is very small. The output
-  polarization is drastically improved for the charge-neutral system. Each cell
-  attains its optimal polarization in the same range of cell-cell distances.
-  (c)(d)~Cell polarization over very large cell-cell distances. For large
-  distances $d/a > 10$ the polarizations settle into an universal long distance
-  tail $d^{-5}$, independent of $q$ and as predicted by the Ising interaction
-  $J$.
-  }
-  \label{fig:three_cells_P_over_d}
-\end{figure}
-%
 We now fix the driver polarization at $P_D = 1$ and look at how the
 polarizations of the active cells depend on the cell-cell distance $d/a$, see
 Fig.~\ref{fig:three_cells_P_over_d}(a)~and~(b). At $d/a = 2$ all quantum dots in
@@ -188,7 +186,6 @@ accurately describe this behaviour. Even with higher order terms the Ising model
 and its $J$ cannot, however, correctly reproduce the suppression of the
 quadrupole interaction at short distances in the case of $q=0$.
 
-%
 \begin{figure}
   \center
   \includegraphics{three_cells_P_over_theta}
@@ -206,7 +203,7 @@ quadrupole interaction at short distances in the case of $q=0$.
   }
   \label{fig:three_cells_P_over_theta}
 \end{figure}
-%
+
 From the discussion of the Ising model in chapter \ref{ch:approximations}, we
 already know that cell polarizations should change with the inter-cell angle.
 The polarizations are mediated by the cell-cell interactions $J$ and
@@ -265,21 +262,6 @@ rendering the wire non-functional. It is therefore important to identify a
 parameter regime where the response is ideal or close-to-ideal as a prerequisite
 for functional QCA circuits.
 
-\begin{figure}
-  \center
-  \includegraphics{semi_infinite_wire}
-  \caption
-  [The semi-infinite wire]
-  {
-  Semi-infinite wire. A small number of active cells is embedded in a large
-  number of driver cells on both sides. The driver cells' polarization is
-  determined self-consistently from the polarization of the active cells. This
-  mean-field approach allows to establish a lower bound $V_{1crit}$ for workable
-  nearest-neighbour Coulomb energies $V_1$.
-  }
-  \label{fig:semi_infinite_wire}
-\end{figure}
-
 We use a cluster mean field approach beyond the single-site ICHA approximation
 to calculate the polarizations of semi-infinite wires. A small cluster of active
 cells is embedded in a large number of driver cells---the mean field---whose
@@ -317,6 +299,20 @@ calculations we use 100 driver cells on each side of the active cells.
 
 \begin{figure}
   \center
+  \includegraphics{semi_infinite_wire}
+  \caption
+  [The semi-infinite wire]
+  {
+  Semi-infinite wire. A small number of active cells is embedded in a large
+  number of driver cells on both sides. The driver cells' polarization is
+  determined self-consistently from the polarization of the active cells. This
+  mean-field approach allows to establish a lower bound $V_{1crit}$ for workable
+  nearest-neighbour Coulomb energies $V_1$.
+  }
+  \label{fig:semi_infinite_wire}
+  
+  \vspace*{0.75cm}
+  
   \includegraphics{critical_V1}
   \caption
   [Self-consistent polarization and critical $V_1$]
@@ -332,36 +328,6 @@ calculations we use 100 driver cells on each side of the active cells.
   }
   \label{fig:critical_V1}
 \end{figure}
-
-\begin{table}
-  \center
-  \begin{tabular}{c c r @{.} l p{0cm} c c r @{.} l}
-    $T$ & $d/a$ & \multicolumn{2}{c}{$V_{1crit}$} & &
-    $T$ & $d/a$ & \multicolumn{2}{c}{$V_{1crit}$} \\
-    \hline 
-    $1$ & $2.2$ & $ 14$&$71$ & &
-    $2$ & $2.2$ & $ 25$&$99$ \\
-    $1$ & $3.0$ & $ 55$&$10$ & &
-    $2$ & $3.0$ & $107$&$90$ \\
-    $1$ & $4.0$ & $230$&$24$ & &
-    $2$ & $4.0$ & $459$&$87$ \\
-  \end{tabular}
-%  \begin{tabular}{c c r @{.} l}
-%    $T$ & $d/a$ & \multicolumn{2}{c}{$V_{1crit}$} \\
-%    \hline 
-%    $1$ & $2.2$ & $ 14$&$71$ \\
-%    $1$ & $3.0$ & $ 55$&$10$ \\
-%    $1$ & $4.0$ & $230$&$24$ \\
-%    $2$ & $2.2$ & $ 25$&$99$ \\
-%    $2$ & $3.0$ & $107$&$90$ \\
-%    $2$ & $4.0$ & $459$&$87$ \\
-%  \end{tabular}
-  \caption[Critical $V_1$ for different systems]{
-  The critical $V_1$ obtained from bond model calculations with three active
-  cells for a number of different systems.
-  }
-  \label{tab:critical_V1}
-\end{table}
 
 We now use a larger cell-cell distance $d/a = 3.0$ and a higher temperature $T =
 2$, and calculate the self-consistent polarization with three active cells over
@@ -393,6 +359,36 @@ a seven-cell wire, has been reported in the literature previously
 lacking. In particular, the significance and consequences of employing a mean
 field scheme were not understood, and the critical values were therefore not
 identified as lower boundaries, but taken at face value.
+
+\begin{table}
+  \center
+  \begin{tabular}{c c r @{.} l p{0cm} c c r @{.} l}
+    $T$ & $d/a$ & \multicolumn{2}{c}{$V_{1crit}$} & &
+    $T$ & $d/a$ & \multicolumn{2}{c}{$V_{1crit}$} \\
+    \hline 
+    $1$ & $2.2$ & $ 14$&$71$ & &
+    $2$ & $2.2$ & $ 25$&$99$ \\
+    $1$ & $3.0$ & $ 55$&$10$ & &
+    $2$ & $3.0$ & $107$&$90$ \\
+    $1$ & $4.0$ & $230$&$24$ & &
+    $2$ & $4.0$ & $459$&$87$ \\
+  \end{tabular}
+%  \begin{tabular}{c c r @{.} l}
+%    $T$ & $d/a$ & \multicolumn{2}{c}{$V_{1crit}$} \\
+%    \hline 
+%    $1$ & $2.2$ & $ 14$&$71$ \\
+%    $1$ & $3.0$ & $ 55$&$10$ \\
+%    $1$ & $4.0$ & $230$&$24$ \\
+%    $2$ & $2.2$ & $ 25$&$99$ \\
+%    $2$ & $3.0$ & $107$&$90$ \\
+%    $2$ & $4.0$ & $459$&$87$ \\
+%  \end{tabular}
+  \caption[Critical $V_1$ for different systems]{
+  The critical $V_1$ obtained from bond model calculations with three active
+  cells for a number of different systems.
+  }
+  \label{tab:critical_V1}
+\end{table}
 
 We now investigate how the critical $V_1$ changes with the number of active
 cells and whether we can extrapolate to the thermodynamic limit, where the mean
@@ -450,6 +446,26 @@ do practical computations.
   nearly constant for all wires, indicating that the model works well.
   }
   \label{fig:wire_polarization}
+  % TODO
+
+  \vspace*{1cm}
+  
+  \includegraphics{chis}
+  \caption
+  [Output polarization over cell-cell distance for two- to twelve-cell wires]
+  {
+  (a) Output polarization over cell-cell distance for different wires. The
+  output polarization is perfect in a plateau-like region at small distances.
+  For larger distances, $d/a \gtrsim 2.5$, the polarization very quickly drops
+  to zero.
+  (b) The threshold cell-cell distance at which the output polarization drops
+  below $0.9$, over wire length and for different $V_1$. The threshold distance
+  decreases monotonically, if slowly, and is expected to eventually drop below
+  the lower physical limit $d/a = 2.0$ for very long wires. Smaller Coulomb
+  energies $V_1$ push the threshold closer to the lower physical limit.
+  }
+  \label{fig:chis}
+  % TODO
 \end{figure}
 
 To put the found mean field $V_{1crit}$ values into perspective for small QCA
@@ -541,25 +557,6 @@ to $d/a = 2.2$ is most dramatic. For the smaller cell-cell distance the
 potentially achievable system sizes are orders of magnitude larger than for the
 larger cell spacing. With something like $30,000$ cells we can clearly build
 practical circuit units that perform meaningful computations.
-
-\begin{figure}
-  \center
-  \includegraphics{cell_cell_distance_threshold}
-  \caption
-  [Output polarization over cell-cell distance for two- to twelve-cell wires]
-  {
-  (a) Output polarization over cell-cell distance for different wires. The
-  output polarization is perfect in a plateau-like region at small distances.
-  For larger distances, $d/a \gtrsim 2.5$, the polarization very quickly drops
-  to zero.
-  (b) The threshold cell-cell distance at which the output polarization drops
-  below $0.9$, over wire length and for different $V_1$. The threshold distance
-  decreases monotonically, if slowly, and is expected to eventually drop below
-  the lower physical limit $d/a = 2.0$ for very long wires. Smaller Coulomb
-  energies $V_1$ push the threshold closer to the lower physical limit.
-  }
-  \label{fig:cell_cell_distance_threshold}
-\end{figure}
 
 To investigate the astounding quantitative difference between the two systems,
 we again plot the polarization over cell-cell distance.

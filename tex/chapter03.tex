@@ -690,13 +690,102 @@ describes the dot assembly.
 
 \section{The majority gate}
 
+In the last section we identified a set of parameters for which the QCA approach
+works very well up to large system sizes, specifically $T = 2, V_1 = 200, q =
+1/2$, and $d/a = 2.2$, with, as always $t = 1$. For these parameters, we can use
+the Ising model with good accuracy. It is instructive to look at more complex
+QCA structures than the simple horizontal wire, and we pick the majority
+gate---the single most important QCA logic device---as an example. The setup is
+illustrated in Fig.~\ref{fig:gates}(a). The inputs are set with the driver cell
+polarizations $I_1$, $I_2$, and $I_3$, the gate output is the polarization of
+the rightmost cell, denoted by $O$. Each input lead consists of two active
+cells, and similarly there are two cells for the output lead, for a total of
+nine active cells. The polarizations of the input leads are thought to ``vote''
+on the central device cell, the majority polarization wins and sets the output.
+We test the AND and OR functionality of the gate by fixing one of its inputs to
+$-1$ and $1$, respectively, and we use $I_2$ as the fixed input, for symmetry
+reasons.
+
 \begin{figure}
   \center
   \includegraphics{majority_gate_contour}
   \caption
   [The majority gate]
   {
-  The majority gate. \ldots
+  Output polarization $O$ over input polarizations $I_1^{\prime}$ and
+  $I_3^{\prime}$ of a majority gate in AND (with $I_2 = -1$) and OR (with $I_2 =
+  1$) configuration. (a)(b) The majority gate with a cell-cell distance $d/a =
+  2.2$. The gate correctly reproduces the AND and OR truth tables. The output
+  polarization is linear with both input polarizations. (c)(d) The majority gate with
+  a cell-cell distance $d/a = 2.6$---slightly outside the optimal parameter
+  regime. The output polarization range becomes asymmetric with respect to the
+  input polarizations. A non-zero input threshold is introduced.
   }
   \label{fig:majority_gate_contour}
 \end{figure}
+
+Fig.~\ref{fig:majority_gate_contour}(a)~and~(b) show the output polarization as
+a function of the two inputs for AND and OR gate configurations. Because the
+response to driver cells is strongly non-linear, we do not plot directly against
+$I_1$ and $I_3$, but use instead the polarizations $I_1^{\prime}$ and
+$I_3^{\prime}$ of the cells right next to the driver cells, i.e.  the topmost
+and bottommost active cells. This gives a more accurate picture for a gate in a
+large circuit, far from the input driver cells. The gate implements the truth
+table of $I_1 \land I_3$ and $I_1 \lor I_3$ correctly, for example $1 \land 1 =
+1$ and $1 \land -1 = -1$. Unsurprisingly, the gate inherits the linear cell-cell
+response, and therefore switches completely linearly with the input
+polarizations. As an example, $0.5 \land 0.5 = 0.5$, and perfect output
+polarization is only achieved for perfect input polarization. There is no input
+threshold: any $I_{1,3} > 0$ is treated as a logic 1 state, and any $I_{1,3} <
+0$ corresponds to logic 0. This is reflected by the fact that the zero contour
+line exactly traces the outline of the upper right and lower left quadrant for
+AND and OR gate, respectively.
+
+We gain further insight into the characteristics of the QCA majority gate by
+operating it slightly outside of the optimal parameter regime.
+Fig.~\ref{fig:majority_gate_contour}(c)~and~(d) show again the output
+polarization for AND and OR gate configurations, but now at a larger cell-cell
+distance $d/a = 2.6$. As can be expected, the output of the gate no longer spans
+the whole polarization range from $-1$ to $+1$. The output range becomes
+asymmetric with respect to the input range, for example $1 \land 1 \sim 0.8$,
+but $-1 \land -1 \sim -1$. Similarly, we find that now there is a threshold
+$I_{th} \sim 0.2$, where we require $\left| I_{1,3} \right| > I_{th}$ so that
+the output is correct. Below the threshold, the gate switches incorrectly, for
+example $0.1 \land 0.1 \sim - 0.1$. This asymmetry is understood by considering
+the geometry of the gate. The cells of the input leads $I_1$ and $I_3$ couple
+diagonally to the output lead and therefore induce a polarization that is
+opposite to their own. Outside of the optimal parameter regime polarizations
+generally decrease from cell to cell, starting from the driver cells. Thus, at
+larger cell-cell distances where the central cell is only relatively weakly
+polarized, the influence of the more strongly polarized input leads on the
+output lead becomes more important and consequently decreases the overall output
+polarization and introduces a threshold. In this regime, if instead of the
+symmetric $I_2$ one of the other two inputs, $I_1$ or $I_3$, is used as the
+fixed input, then the output polarization also becomes asymmetric with respect
+to switching the inputs.
+
+Because QCA has no in-build directionality, different inputs are not decoupled
+from each other. For example, the driver cell $I_3$ influences cells in the lead
+of input $I_1$. This aspect is not directly captured by the presented graphs
+which are plotted against the effective cell polarizations $I_1^{\prime}$ and
+$I_3^{\prime}$, which are directly or indirectly set by all three driver cell
+polarizations $I_1$, $I_2$, and $I_3$. But as a consequence, the ranges of the
+inputs $I_1^{\prime}$ and $I_3^{\prime}$ in the plots
+\ref{fig:majority_gate_contour}(c)~and~(d) are truncated, simply because the
+cells next to the driver cells never attain some polarization values. For
+example in the AND configuration, if $I_3 = -1$, then we can never have
+$I_1^{\prime} = 1$. We expect that for the design of larger circuits, consisting
+of a network of gates and other elements, the relative magnitude of gate input
+polarizations and the interference of various input driver settings need to be
+considered. As a simple example, for the presented majority gate with
+non-optimal parameters, input leads of different lengths would significantly
+alter the behaviour.
+
+Overall, we find that in the optimal parameter regime the majority gate works
+well and functions as expected. The gate attains some undesirable
+characteristics outside the optimal regime, such as an asymmetric output range
+and non-zero input threshold, and in a real-world system these characteristics
+might be exposed by fabrication imperfections and other perturbations.
+
+% TODO: disucss that we could do optimize cell layouts classically; mention
+% SSE montecarlo

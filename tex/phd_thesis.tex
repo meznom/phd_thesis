@@ -10,6 +10,8 @@
 \usepackage{subcaption}
 \usepackage{bm}
 \usepackage{setspace}
+\usepackage{changepage}
+%\usepackage{layout}
 %\pagestyle{empty}
 
 % http://kb.mit.edu/confluence/pages/viewpage.action?pageId=3907057
@@ -30,8 +32,6 @@
 \newcommand{\bra}[1]{\left<#1\right|}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% TODO: so far the page numbering for abstract and introduction is not exactly
-% as prescribed by the FGSR
 \frontmatter
 % TODO: title
 
@@ -51,7 +51,7 @@
 \include{chapter01}
 \include{chapter02}
 \include{chapter03}
-%% \include{conclusion}
+\include{conclusion}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliography{bibliography}{}

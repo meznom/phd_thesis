@@ -1,4 +1,4 @@
-% Burkhard Ritter, April 2014
+% Burkhard Ritter, April, May 2014
 
 \documentclass[11pt]{book}
 \usepackage{amsmath,amssymb}
@@ -9,16 +9,34 @@
 \usepackage{subcaption}
 \usepackage{bm}
 \usepackage{setspace}
-\usepackage{changepage}
-\usepackage{hyperref}
+\usepackage{color}
+%\usepackage{changepage}
 %\usepackage{layout}
 %\pagestyle{empty}
+% hyperref should always be the last included package
+\usepackage{hyperref}
 
 % http://kb.mit.edu/confluence/pages/viewpage.action?pageId=3907057
 % ``LaTeX's margins are, by default, 1.5 inches wide on 12pt documents, 1.75
 % inches wide on 11pt documents, and 1.875 inches wide on 10pt documents.''
 % Page size for letter paper format is 8.5 by 11 inches.
 % For 11pt this means the text is 8.5-2*1.75=5 inches wide.
+
+% allows adjustment of space between paragraphs, including "rubber" values;
+% however, I find that the default looks better
+%\setlength{\parskip}{0pt plus12pt minus0pt}
+
+% TODO: Do I want coloured links?
+\pdfoutput=1
+\definecolor{LinkColor}{rgb}{0.256,0.439,0.588}
+\hypersetup{
+   pdfauthor={Burkhard Ritter},
+   pdftitle={Characterizing Quantum-Dot Cellular Automata},
+   colorlinks=true,
+   citecolor=LinkColor,
+   linkcolor=LinkColor,
+   urlcolor=LinkColor
+}
 
 \begin{document}
 
@@ -33,7 +51,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frontmatter
-% TODO: title
 
 \include{titlepage}
 \include{abstract}

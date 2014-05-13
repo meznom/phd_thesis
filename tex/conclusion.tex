@@ -1,1 +1,63 @@
 \chapter{Conclusion}
+
+We have undertaken the first in-depth numerical study of quantum-dot cellular
+automata (QCA), a beyond-CMOS computing paradigm which represents binary state
+as bistable charge distributions in cells consisting of several quantum dots. We
+have concentrated on the time-independent properties of small and simple
+structures, such as horizontal lines of cells, but strove to characterize them
+as detailed and unbiased as possible, in a material-agnostic but semi-realistic
+manner. Starting from an extended Hubbard model, our exact diagonalization
+calculations avoid commonly used but problematic approximations, such as the
+inter-cellular Hartree approximation, and instead introduce two controlled
+Hilbert space truncations: the fixed charge and the bond model. We studied the
+limits of these truncations and established the parameter range where they are
+valid. We were the first to cleanly derive an effective transverse-field Ising
+model for the QCA approach---another commonly used approximation---and
+explicitly show in which limits it is valid, which we found to be quite
+restrictive.
+
+In contrast to previously published results, we found that the cell-cell response
+function is linear and does not exhibit gain. In our calculations, gain and
+non-linearity, hitherto claimed as important QCA characteristics, are only
+observed in the response to static-charge input driver cells. As a consequence,
+QCA systems cannot retain finite polarization---a definite logic state---in the
+thermodynamic limit. In practical terms, the maximum size of a QCA device is
+finite and determined by the quality of the cell-cell response. The cell-cell
+response characteristic is universal for all system parameters, including zero
+and finite temperatures. The absence of gain has profound implications for logic
+applications---QCA's raison d'\^etre---which, at least for traditional CMOS-style
+computing architectures, require binary switches with gain. Implicitly, our
+findings indicate that the inter-cellular Hartree approximation is incorrect
+and its results cannot be trusted.
+
+We have identified charge neutral cells as a strict requirement for operational
+QCA devices. Additionally, we have established lower limits for a functional QCA
+system's parameters. Generally, short cell-cell distances are desirable for
+optimal operation. The lower physical limit for the distance is cells placed one
+cell apart, where inter-cell hopping starts to compete with intra-cell hopping,
+and the upper limit depends on the nearest-neighbour Coulomb energy $V_1$ and
+the temperature, where larger Coulomb terms and lower temperature increase the
+operational distance range. For the Coulombic energy scale we identified an
+absolute lower bound of $V_1/t > 20$ (in units of the hopping $t$), a limit that
+is significantly increased at temperatures that are not very small. These
+requirements---charge neutrality and large $V_1/t$ ratios---pose severe
+challenges for experimental realizations of the QCA approach. The quality
+of the cell-cell response increases with increasing Coulomb scale $V_1$. It is
+in this limit, where additionally temperatures are not too high and cell-cell
+distances not too large, that practically sufficiently large system sizes are
+attainable for QCA. For a chosen set of system parameters, we showed explicitly
+that devices with tens of thousands of cells are feasible.
+
+It has to be noted that our characterization and results only apply to QCA
+implementations that can be described, with good accuracy, by the extended
+Hubbard model. Molecular QCA realizations, for example, are expected to behave
+differently. Similarly, the aluminum island system, which has seen the most
+experimental work on QCA so far, uses quantum dots with micrometer diameters and
+is therefore not necessarily well-represented by a Hubbard model. In contrast,
+our findings should be applicable to atomic silicon quantum dots and other truly
+molecular-scale semiconductor-based experiments.
+
+% outlook
+
+% majority gate (?)
+% only for systems covered by the extended Hubbard model

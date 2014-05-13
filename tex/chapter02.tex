@@ -2,7 +2,6 @@
 \label{ch:approximations}
 \graphicspath{{../gfx/chapter02/}{../plots/chapter02/}}
 
-
 \section{Fixed charge model}
 
 Exact diagonalization scales exponentially with system size. With the full
@@ -598,7 +597,6 @@ we can use the approximations and get sufficiently accurate results, and also
 give us a better understanding of how the approximations behave in those
 parameter ranges.
 
-%
 \begin{figure}
   \center
   \includegraphics{fixed_charge_approximation}
@@ -613,11 +611,9 @@ parameter ranges.
   }
   \label{fig:fixed_charge_approximation}
   % parameters: V_1 = 100, boa = 2, U = 1000, mu = 250, 2 cells, q = 0
-\end{figure}
-%
-%
-\begin{figure}
-  \center
+ 
+  \vspace*{0.75cm}
+
   \includegraphics{bond_approximation1}
   \caption
   [The bond approximation for a one-cell system]
@@ -634,7 +630,7 @@ parameter ranges.
   \label{fig:bond_approximation1}
   % parameters: V_1 = 20, boa = 2, U = 1E6, q = 0, P_D = 1, T = 1, mu = 0
 \end{figure}
-%
+
 The fixed charge approximation is a Hilbert space truncation where we only keep
 the states with exactly two electrons per cell.
 Fig.~\ref{fig:fixed_charge_approximation}(a) compares the density of states of
@@ -732,7 +728,6 @@ accurate the bond approximation. The bond model should work as long as $T
 use $\Delta E_S \sim \frac{t^2}{V_1}$. Of course, we also need $T \ll T_{max}$
 with $T_{max} \sim U$, so that the doubly occupied states are gapped out.
 
-%
 \begin{figure}
   \center
   \includegraphics{bond_approximation2}
@@ -748,7 +743,7 @@ with $T_{max} \sim U$, so that the doubly occupied states are gapped out.
   }
   \label{fig:bond_approximation2}
 \end{figure}
-%
+
 To illustrate the limitations of the bond approximation we now look at a
 two-cell system: a horizontal line of cells with two active cells and a driver
 cell to the left. Fig.~\ref{fig:bond_approximation2} shows the spectra and

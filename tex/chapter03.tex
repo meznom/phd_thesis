@@ -440,29 +440,20 @@ do practical computations.
   wires for two different cell-cell distances. Individual cell polarizations are
   hardly changed as the wire is made longer. The polarizations for the $d/a =
   2.2$ wire are essentially perfect.
-  (b) The cell-cell response $\chi$, assumed to be the same for all cells in the
-  wire, and the response to the driver cell $\chi_e$, as obtained from fitting a
-  simple model to the polarization curves in (a). The cell-cell response is
-  nearly constant for all wires, indicating that the model works well.
+  (b) Output polarization over cell-cell distance for different wires. The
+  output polarization is perfect in a plateau-like region at small distances.
+  For larger distances, $d/a \gtrsim 2.5$, the polarization very quickly drops
+  to zero.
   }
   \label{fig:wire_polarization}
-  % TODO
 
   \vspace*{1cm}
   
   \includegraphics{chis}
   \caption
-  [Output polarization over cell-cell distance for two- to twelve-cell wires]
+  [Cell-cell response over $V_1$ and cell-cell distance for different
+  temperatures]
   {
-  (a) Output polarization over cell-cell distance for different wires. The
-  output polarization is perfect in a plateau-like region at small distances.
-  For larger distances, $d/a \gtrsim 2.5$, the polarization very quickly drops
-  to zero.
-  (b) The threshold cell-cell distance at which the output polarization drops
-  below $0.9$, over wire length and for different $V_1$. The threshold distance
-  decreases monotonically, if slowly, and is expected to eventually drop below
-  the lower physical limit $d/a = 2.0$ for very long wires. Smaller Coulomb
-  energies $V_1$ push the threshold closer to the lower physical limit.
   }
   \label{fig:chis}
   % TODO
@@ -488,18 +479,26 @@ for functional QCA devices, even for relatively small systems.
 Fig.~\ref{fig:wire_polarization}(a) also includes cell polarizations for wires
 with a cell-cell distance $d/a = 2.2$. For these systems,
 Table~\ref{tab:critical_V1} lists $V_{1crit} = 25.99$, which was determined for
-three active cells in a semi-infinite wire. An Ising model calculation with twelve
-active cells yields $V_{1crit} \sim 45$, which likely overestimates the critical
-$V_1$ and, for these small $V_1$ values, should really be taken as a very rough
-guideline. At $V_1 = 200$ we are therefore almost an
-order of magnitude larger than the critical $V_1$. At these shorter cell-cell
-distances the cell polarizations are essentially perfect for all two- to
-twelve-cell wires. When we zoom in, however, we find that the behaviour is
-qualitatively the same as for the $d/a = 3.0$ wires: the polarizations still
-decrease monotonically along the wire. But quantitatively the short cell-cell
-distance is quite a different story. The polarizations fall off so slowly,
-that we can reasonably expect to achieve sufficiently large output polarizations
-for very long wires.
+three active cells in a semi-infinite wire. An Ising model calculation with
+twelve active cells yields $V_{1crit} \sim 45$, which likely overestimates the
+critical $V_1$ and, for these small $V_1$ values, should really be taken as a
+very rough guideline. At $V_1 = 200$ we are therefore almost an order of
+magnitude larger than the critical $V_1$. At these shorter cell-cell distances
+the cell polarizations are essentially perfect for all two- to twelve-cell
+wires. When we zoom in, however, we find that the behaviour is qualitatively the
+same as for the $d/a = 3.0$ wires: the polarizations still decrease
+monotonically along the wire. But quantitatively the short cell-cell distance is
+quite a different story. The polarizations fall off so slowly, that we can
+reasonably expect to achieve sufficiently large output polarizations for very
+long wires. To investigate the astounding quantitative difference between the
+two systems, we again plot the polarization over cell-cell distance.
+Fig.~\ref{fig:wire_polarization}(b) shows the output polarization of two- to
+twelve-cell wires. The graph looks qualitatively similar to
+Fig.~\ref{fig:three_cells_P_over_d}(b) from the last section: for small
+distances the output polarization is close to perfect in a plateau-like region,
+but for $d/a \gtrsim 2.5$ rapidly drops to zero. And it drops increasingly
+faster to zero for longer wires. Therefore, for large, functional QCA devices we
+want to make sure we operate in the plateau-like regime at small distances.
 
 The cell polarization curves for all two- to twelve-cell wires in
 Fig.~\ref{fig:wire_polarization}(a) almost lie on top of each other, implying
@@ -526,20 +525,30 @@ Here, $P_k$ is the polarization of cell $k$ in the wire, $\chi$ is the
 polarization response which is assumed to be the same for all cells in the wire,
 and $\chi_e(P_D)$ is the system response to the driver cell polarization $P_D$.
 If the response to the driver cell was the same as for a regular cell, then we
-would have $\chi_e(P_D) = 1$. We fit this model to the polarization curves,
-with $P_D = 1$ fixed, and find that it works surprisingly well, as can be seen
-in Fig.~\ref{fig:wire_polarization}(b), where we have plotted the fitted
-$\chi_e$ and $\chi$ for three- to twelve-cell wires. The errors are on the order
-of $10^{-3}$ for $d/a = 3.0$ and $10^{-7}$ for $d/a = 2.2$. Generally, we find
-that $\chi_e$ decreases for longer and longer wires, in line with the decreasing
-$\chi_{1D}$, whereas $\chi$ increases ever so slightly. If the model worked
-perfectly then both parameters would be the same for all wires, which is
-arguably true for $\chi$ and, to a lesser extend, also for $\chi_e$. Thus, given
-that the model is so simple, we feel that it works reasonably well, and over a
-range of system parameters. The assumption of constant cell responses throughout
-the wire starts to break down for larger cell-cell distances $d/a \gtrsim 4$,
-where, however, the actual polarizations are already very small for a majority
-of the cells.
+would have $\chi_e(P_D) = 1$. We fit this model to the polarization curves, with
+$P_D = 1$ fixed, and find that it works surprisingly well. Averaging over all
+wires, we find $\chi_e = 0.999114(8)$ and $\chi = 0.999997(0)$ for $d/a=2.2$,
+and $\chi_e = 0.97(4)$ and $\chi = 0.884(0)$ for $d/a = 3.0$. Similar to
+$\chi_{1D}$, $\chi_e$ decreases slightly for longer wires, whereas $\chi$ is
+almost perfectly constant (it increases very, very slightly with wire length).
+If the model worked perfectly then both parameters would be the same for all
+wires, but given that the model is so simple, we feel that it works reasonably
+well, and over a range of system parameters. The assumption of constant cell
+responses throughout the wire starts to break down for larger cell-cell
+distances $d/a \gtrsim 4$, where, however, the actual polarizations are already
+very small for a majority of the cells.
+% TODO: better numbers and _errors_ for chi_e and chi --- calculate the errors
+% from the distribution of chi values
+
+The graph in Fig.~\ref{fig:wire_polarization}(b) can be readily understood using
+the simple model \eqref{eq:simple_model}. In the plateau region at small
+cell-cell distances the cell responses interior to the wire are close to
+perfect, $\chi \sim 1$. For larger distances, $\chi < 1$ and therefore the
+polarization $P_k \sim \chi^k$ quickly falls off to zero for long wires. For
+very long wires we expect the figure to resemble a step function. While $\chi$
+does not depend on the driver polarization, it does depend on other system
+parameters, like $d/a$ and $V_1$, and to be able to scale up to large system
+sizes we want $\chi \sim 1$ and have to choose the parameters accordingly.
 
 We can use the found values for $\chi_e$ and $\chi$ to roughly estimate how long
 we can make the wires before the output polarization falls below a certain
@@ -558,43 +567,8 @@ potentially achievable system sizes are orders of magnitude larger than for the
 larger cell spacing. With something like $30,000$ cells we can clearly build
 practical circuit units that perform meaningful computations.
 
-To investigate the astounding quantitative difference between the two systems,
-we again plot the polarization over cell-cell distance.
-Fig.~\ref{fig:cell_cell_distance_threshold}(a) shows the output polarization of
-two- to twelve-cell wires. The graph looks qualitatively similar to
-Fig.~\ref{fig:three_cells_P_over_d}(b) from the last section: for small
-distances the output polarization is close to perfect in a plateau-like region,
-but for $d/a \gtrsim 2.5$ rapidly drops to zero. And it drops increasingly
-faster to zero for longer wires. Therefore, for large, functional QCA devices we
-want to make sure we operate in the plateau-like regime at small distances.
-Fig.~\ref{fig:cell_cell_distance_threshold}(b) plots the cell-cell distance
-$d_{th}/a$ at which the output polarization drops below $0.9$ for the same two-
-to twelve-cell wires with $V_1 = 200$. In other words, it cuts through the
-curves in Fig~\ref{fig:cell_cell_distance_threshold}(a) at $P = 0.9$ and plots
-the corresponding distances. The threshold distance $d_{th}/a$ decreases
-monotonically for an increasing number of cells per wire, but more slowly for
-longer wires. We expect it to eventually fall below the lower physical limit
-$d/a = 2.0$, but, similarly to the polarization falling off very slowly in
-Fig~\ref{fig:wire_polarization}(a), this might only happen for very long wires.
-As long as we stay well below the threshold distance, we should achieve very
-good output polarization and very large system sizes. The figure additionally
-includes the threshold distance at two different Coulomb energies $V_1$. In line
-with our intuition, larger $V_1$ values allow larger workable cell-cell
-distances.  Conversely, for significantly smaller $V_1$ the workable distances
-will quickly approach the lower physical limit. Both graphs in
-Fig.~\ref{fig:cell_cell_distance_threshold} can be readily understood using the
-simple model \eqref{eq:simple_model}. In the plateau region at small cell-cell
-distances the cell responses interior to the wire are close to perfect, $\chi
-\sim 1$. For larger distances, $\chi < 1$ and therefore the polarization $P_k
-\sim \chi^k$ quickly falls off to zero for long wires. For very long wires we
-expect Fig.~\ref{fig:cell_cell_distance_threshold}(a) to resemble a step
-function. While $\chi$ does not depend on the driver polarization, it does
-depend on other system parameters, like $d/a$ and $V_1$, and to be able to scale
-up to large system sizes we want $\chi \sim 1$ and have to choose the parameters
-accordingly.
-
 Our calculations show that the model $P_k \sim \chi^k$ is the right physical
-picture for QCA wires, and by pushing the system's parameters to extreme limits
+picture for QCA wires, and by cranking up the system's parameters
 we will be able to push the response increasingly close to perfect. Truly
 perfect response, with $\chi = 1$, however, is not possible. As a consequence, in the
 thermodynamic limit the polarization will always be zero. This picture agrees
@@ -604,9 +578,75 @@ is never truly constant, but always decreases, if very slowly. The picture of
 constantly and fully polarized QCA systems employed in the literature is
 qualitatively wrong. Of course, by choosing the right system parameters and
 making $\chi$ large enough, we can, in principle, achieve system sizes that
-should be more than sufficient to build practical device units. The questions
-remains whether parameters as extreme as those we have employed in this
-section can be realized on an experimental system.
+should be more than sufficient to build practical device units. 
+
+We have shown explicitly that a set of parameters exists where QCA works well up
+to large system sizes: $V_1/t = 200, T/t = 2$, and $d/a = 2.2$. These parameters
+are pretty extreme and were partly chosen so that the Ising approximation is
+valid, which allowed us to do calculations with wires of up to twelve cells. For
+practical QCA implementations, however, it is important to identify minimal
+workable parameters, specifically a minimal $V_1$ and a range of cell-cell
+distances at a given temperature. The mean field $V_{1crit}$ is an indicative
+value, of course, but we have just seen that it is ultimately not very reliable.
+Following the simple model \eqref{eq:simple_model}, we can calculate the
+cell-cell response $\chi$ in short wires with more accurate models over wide
+parameter ranges, and use this short-wire response as an estimate for the
+response inside very long wires. According to the model those responses should
+be exactly the same. In practice, there are small differences due to more
+pronounced edge effects in short wires.
+
+Fig.~\ref{fig:chis}(a) shows the cell-cell response over $V_1$ for three
+different temperatures and for three different wires and models. Specifically,
+the $\chi$ is calculated as the response of the sixth cell in an eight-cell wire
+with the Ising model, as the response of the third cell in a four-cell wire with
+the bond model, and as the response of the second cell in a two-cell wire with
+the fixed charge model, which is the most accurate model of the three. If the
+assumption of constant $\chi$ for all wires is true, and if we are additionally
+in a parameter regime where all three approximations become exact, then all
+three curves should agree. The presented calculation uses a cell-cell distance
+$d/a = 2.2$ and very small driver cell polarizations $P_D = 0.01$. The latter is
+chosen so that cell polarizations do not saturate, $P_k < 1$, over the whole
+parameter range.
+
+For all three temperatures, the responses of the Ising, bond, and fixed charge
+wires all agree at large enough $V_1$, where we find $\chi \sim 1$.
+Concentrating on the $T = 2$ curves, we see that bond and Ising agree for $V_1
+\gtrsim 100$---where the Ising model becomes accurate---and their responses
+become close to perfect around $V_1 \sim 120$. In contrast, the fixed charge
+$\chi$ is slightly smaller and only achieves $\chi \sim 1$ around $V_1 \sim
+140$. In this regime, the bond and Ising model are both accurate, and the
+difference between those two models' $\chi$ and the fixed charge model's $\chi$
+is due to edge effects of the shorter two-cell fixed charge wire. Thus, while
+the fixed charge two-cell $\chi$ slightly underestimates the response in longer
+wires, it clearly follows the trend of the other two models and can therefore be
+used as a good estimate for the in-wire response in longer wires. At $T = 0.1$,
+for example, bond and Ising model are no longer valid and give wrong results.
+The fixed charge model indicates that even at these small temperatures, perfect
+response is only achieved for $V_1 > V_{1min}$ with $V_{1min} \sim 20$, and this
+is also the minimum $V_1$ for any temperature. For $T = 1$ and $T = 2$, we find
+$V_{1min} \sim 60$ and $V_{1min} \sim 120$, respectively.
+
+We investigate how $\chi$ depends on the cell-cell distance.
+Fig.~\ref{fig:chis}(b) plots the fixed charge two-wire response over the
+cell-cell distance at $T = 1.0$, and for different values of $V_1$. Clearly, the
+cell-cell distance range yielding $\chi \sim 1$ depends on the Coulomb energy
+$V_1$: the larger $V_1$, the larger the distance range. In agreement with
+Fig.~\ref{fig:chis}(a), the graph demonstrates that at $V_1 = 40$ close to
+perfect response is not possible, even when going down to the lower physical
+inter-cell distance limit $d/a = 2.0$. While $V_1 \sim 60$ is workable, $V_1
+\sim 100$ seems like a comfortable regime where a range of cell-cell distances
+$2.0 < d/a <2.5$ yield very good cell-cell responses. The figure remains
+qualitatively unchanged at different temperatures. We find that the $\chi \sim
+1$ distance range increase for lower temperatures, as can be expected. However,
+at $T = 0.1$ and $V_1 = 20$ we cannot achieve close to perfect response at any
+cell-cell distance.  Therefore, $V_{1min} \sim 20$ really is the lower limit for
+operational QCA devices, at all temperatures. Summarizing, Fig.~\ref{fig:chis}
+provides us with rough estimates for minimal workable parameters, and we have
+used a loosely defined close to perfect polarization $\chi > 0.99$ to establish
+them. As discussed above, how close to perfect is good enough depends on the
+desired system sizes. However, we saw that for $\chi \lesssim 0.9$ only very
+small systems are realistically achievable, and for $V_1 < V_{1min}$ the
+response quickly drops below that mark.
 
 We have used dimensionless parameters throughout. In the extended Hubbard model,
 the energy scale is set by the hopping parameter and we have chosen $t = 1$. We
@@ -628,8 +668,8 @@ tempterature to the cryogenic regime. Lastly, bringing down the overall energy
 scales by reducing $t$ presumably would make the device more susceptible to
 external perturbations in a less-than-perfect material system.
 
-To put the parameters we have used in a more tangible context, we return to the
-atomic silicon quantum dots which we introduced in detail in
+To put the minimal workable parameters we have found in a more tangible context,
+we return to the atomic silicon quantum dots which we introduced in detail in
 section~\ref{sec:atomic_silicon_quantum_dots}. Even though this system is quite
 different from our model---it uses six electrons per cell instead of two, and,
 more importantly, is not charge neutral---it is close enough to get a rough idea
@@ -640,50 +680,28 @@ simple assumptions $t \sim e^{-b a}$ and $V_1 \sim b a^{-1}$, where $b$ is a fit
 parameter and $a$ the dot-dot separation, allows us to provide approximative
 dot-dot distances for the $V_1/t$ ratios we have used. For example, to achieve
 $V_1/t = 100$ would require a dot-dot distance and hence cell size of roughly $a
-= 32 \mathring{\mathrm{A}}$, whereas $V_1/t = 200$ would require $a = 36
-\mathring{\mathrm{A}}$. For $T/t = 2$, this corresponds to temperatures $T = 9K$
-and $T = 4K$, respectively. While these are very rough estimates, they still
-illustrate the challenge posed for experimental systems by the extreme
-parameters required for QCA operation. On the silicon (100) surface the
-dimer-dimer distance is $a = 3.84 \mathring{\mathrm{A}}$---the closest possible
-spacing for two quantum dots. Therefore, the found dot separations correspond
-to almost ten lattice spacings. The hopping constant becomes very small and as a
-consequence the operational temperature moves to the single-digit Kelvin regime.
-This is markedly different from the experiments and envisioned setup of the
-group of Wolkow \emph{et al}., illustrated with a few examples in
-Fig.~\ref{fig:silicon}, where dots are placed only a few lattice spacings apart
-from each other and room temperature is used. At such large dot-dot distances
-and low energy scales, it is also not clear how well our extended Hubbard model
-describes the dot assembly.
+= 32 \mathring{\mathrm{A}}$. At $T/t = 1$, this corresponds to a temperature $T
+= 4K$. We had found the absolute minimum $V_1$ to be $V_{1min}/t = 20$,
+requiring $T/t \lesssim 0.1$. This would correspond to dot-dot distances $a = 22
+\mathring{\mathrm{A}}$ and a temperature $T = 3 K$. While these are very rough
+estimates, they still illustrate the challenge posed for experimental systems by
+the large parameters required for QCA operation. On the silicon (100) surface
+the dimer-dimer distance is $a = 3.84 \mathring{\mathrm{A}}$---the closest
+possible spacing for two quantum dots. Therefore, the found dot separations
+correspond to six to eight lattice spacings. The hopping constant becomes very
+small and as a consequence the operational temperature moves to the single-digit
+Kelvin regime. This is markedly different from the experiments and envisioned
+setup of the group of Wolkow \emph{et al}., illustrated with a few examples in
+Fig.~\ref{fig:silicon}, where dots are placed close to each other and room
+temperature is used.
 
 % TODO: This section should end by saying very clearly what the workable
 % parameters are.
-
-% TODO: maybe I can investigate how \chi depends on the temperature --- if it
-% does not depend on the temperature (or only very little) that would be a nice
-% result and show that we need these crazy V_1 values even at low temperatures;
-% but I would expect that it does depend on temperature ... 
-% Maybe I could, alternatively, change my T=0 P-P plot; show that for some
-% parameters even at T=0 the response is far from optimal, and how, for these
-% parameters (which should match my parameters here), the response changes with
-% temperature
-
-% TODO: One question that I am not addressing: Could I bring down the
-% temperature and with the temperature also V_{1crit} --- and thus make QCA work
-% at much smaller V1s, at the cost of requiring low temperatures? The answer
-% should be no, because I also need V1 >> t, but, and that's the point, this is
-% not addressed explicitly in the text. Of course, one of the problems is that
-% my approximations don't work at lower temperatures. We could try to
-% extrapolate to lower temperatures and would ideally see the V_1crit level off.
-% Or do it for a two-cell fixed charge system.
 
 % TODO: I think I don't explicitly address that bond model is valid for T = 1
 % and especially down to which temperatures it still would be valid
 
 % TODO: I do not understand very well why the chi_e falls off for longer wires.
-
-% TODO: Should I mention that the exploration of the parameter space is in some
-% ways limited by the Ising approximation (smaller V1 is not feasible)?
 
 \section{The majority gate}
 

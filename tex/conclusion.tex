@@ -4,19 +4,19 @@ We have undertaken the first in-depth numerical study of quantum-dot cellular
 automata (QCA), a beyond-CMOS computing paradigm which represents binary state
 as bistable charge distributions in cells consisting of several quantum dots. We
 have concentrated on the time-independent properties of small and simple
-structures, such as horizontal lines of cells, but strove to characterize them
-as detailed and unbiased as possible, in a material-independent but
+structures, such as horizontal lines of cells, but have striven to characterize them
+with as much detail and as little bias as possible, in a material-independent but
 semi-realistic manner. Starting from an extended Hubbard model, our exact
 diagonalization calculations avoid commonly used but problematic approximations,
 such as the inter-cellular Hartree approximation, and instead introduce two
 controlled Hilbert space truncations: the fixed-charge and the bond model. We
-studied the limits of these truncations and established the parameter range
-where they are valid. We were the first to cleanly derive an effective
+studied the limits of these truncations and established the parameter ranges
+where they are valid. We were the first to derive (rather than presume) an effective
 transverse-field Ising model for the QCA approach---another commonly used
-approximation---and explicitly show the parameter range where it can be used,
+approximation---and to establish the parameter range in which it can be used,
 which we observed to be quite restrictive.
 
-In contrast to previously published results, we found that the cell-cell
+In contradiction to previously published results, we found that the cell-cell
 response function is linear and does not exhibit gain. In our calculations, gain
 and non-linearity, hitherto claimed as important QCA characteristics, are only
 observed in the response to static-charge input driver cells. As a consequence,
@@ -39,15 +39,15 @@ otherwise cells are no longer distinct physical entities. The upper limit of an
 operational range of cell-cell distances depends on the nearest-neighbour
 Coulomb energy $V_1$ and the temperature, with larger Coulomb terms and lower
 temperatures increasing the range. For the Coulombic energy scale, we identified
-an absolute lower bound of $V_1/t > 20$ (in units of the hopping $t$), a limit
-that is significantly increased at moderate and high temperatures. The quality
-of the cell-cell response increases with increasing Coulomb scale $V_1$. It is
-in this limit, where additionally temperatures are not too high and cell-cell
-distances not too large, that practically sufficiently large system sizes are
+an absolute lower bound of $V_1/t > 20$ (in units of the hopping $t$), a value
+that increases significantly at moderate and high temperatures. The cell-cell
+response improves with increasing Coulomb scale $V_1$. It is in this limit,
+where additionally temperatures are not too high and cell-cell distances not too
+large, that systems of a size practical for building extended circuits are
 attainable for QCA. For a chosen set of system parameters, we showed explicitly
-that devices with tens of thousands of cells are feasible. The identified
-requirements---charge neutrality and large $V_1/t$ ratios---pose potentially
-severe challenges for experimental realizations of the QCA approach.
+that devices with tens of thousands of cells are feasible. Nonetheless, the
+identified requirements---charge neutrality and large $V_1/t$ ratios---pose
+potentially severe challenges for experimental realizations of the QCA approach.
 
 It has to be noted that our characterization and results only apply to QCA
 implementations that can be described, with good accuracy, by the extended
@@ -65,19 +65,19 @@ small systems, our exact diagonalization method can be extended to the
 calculation of time-resolved properties. Notably, this requires the inclusion of
 a sufficiently accurate dissipative term. The calculation of the switching time
 of the majority gate and the signal transmission time of wires will then allow
-to estimate the overall time-scale of QCA devices, and therefore permit more
-in-depth comparisons to CMOS technology and other proposed novel computing
-architectures.
+one to estimate the overall operational time-scale of QCA devices and therefore
+permit more in-depth comparisons to CMOS technology and other proposed novel
+computing architectures.
 
-With the Ising approximation, stochastic series expansion Monte Carlo techniques
-can be used for numerical simulations of the QCA approach, and would make much
+Within the Ising approximation, stochastic series expansion Monte Carlo techniques
+can be used for numerical simulations of the QCA approach and would make much
 larger system sizes computationally accessible. While the Ising approximation is
 only valid in restricted and rather extreme parameter regimes, this would
 provide an avenue to study large-scale phenomena such as the design of
 complex QCA circuits. So far, this has been the domain of inter-cellular Hartree
-calculations, which we have proven to be inadequate.
+calculations, which we have proven to be deeply flawed.
 
-A third possibility for future numerical work are models which are closer to
+A third possibility for future numerical work are models that are closer to
 specific material systems. For example, for the atomic silicon quantum dots
 \emph{ab initio} calculations shed light on this material's properties on a very
 small scale. We have now provided a QCA characterization that is general and
@@ -85,8 +85,8 @@ therefore relatively abstract. Informed by \emph{ab initio} estimates, our
 Hubbard model could be extended to include more material-specific
 characteristics, for example a screening term or a detailed, non-isotropic
 hopping term. As such modelling becomes very difficult very quickly, it should
-best be pursued in tandem with experiments that allow to benchmark and verify
-the theoretical predictions.
+best be pursued in tandem with experiments that allow one to benchmark and
+verify the theoretical predictions.
 
 In our opinion, the most promising path for QCA in the near future lies in the
 experimental domain. We have identified lower bounds for QCA systems' parameters
@@ -99,13 +99,8 @@ manufacturing of small to medium sized structures is within reach. We propose
 that for a line of cells with more than two or three cells, static signal
 transmission can be tested by sensing the charge distribution in the cells.
 Presently, for these systems the strongly perturbative scanning tunnelling
-microscope measurement process is a challenge, which, however, surely can be
+microscope measurement process is a challenge, but this will surely be
 resolved with further work. The observation of a signal transmission charge
 pattern in a line of ten cells, for example, would establish that QCA does work,
-in principle, for the atomic silicon quantum dot system, and mark a major
+in principle, for the atomic silicon quantum dot system and mark a major
 breakthrough for the QCA approach.
-
-
-% TODO: mentions robustness with respect to perturbations?; QCA is more fragile
-% than previously found
-% we identified optimal parameters (kind of)

@@ -15,8 +15,8 @@ $d/a = 2.2$, where $a$ is the edge length of the cell. Most of our calculations
 will be at finite temperature, $T = 1$, and we will concentrate on horizontal
 wires for now (meaning the inter-cell angle is $\theta = 0^{\circ}$). Both the
 Coulomb energy scale $V_1$ and the temperature $T$ are in units of the hopping $t$,
-with $t = 1$. For these parameters the bond approximation is valid, which we
-deploy unless otherwise noted. We investigate systems both without compensation
+with $t = 1$. For these parameters the bond approximation is valid, and we
+employ it unless otherwise noted. We investigate systems both without compensation
 charges $q = 0$, here the net cell charge is $-2e$, and with a compensation
 charge of $q=\frac{1}{2}$, yielding charge-neutral cells.
 
@@ -56,7 +56,7 @@ charge of $q=\frac{1}{2}$, yielding charge-neutral cells.
   \label{fig:three_cells_P_over_d}
 \end{figure}
 
-The driver cell sets the input for the three-cell wire with its
+The driver cell sets the input for the three-cell wire, with its
 polarization $P_D$ taking values in the range $-1$ to $+1$. The three active
 cells respond to the driver polarization. For our discussion, we define the
 linear polarization response of cell $k$ with respect to cell $l$ as
@@ -66,7 +66,7 @@ linear polarization response of cell $k$ with respect to cell $l$ as
   \chi_{kl} = \frac{\partial P_k}{\partial P_l}\big|_{P_l = 0} \, .
 \end{equation}
 %
-Fig.~\ref{fig:three_cells_PP}(a)~and~(b) show the polarization of the first cell
+Figure~\ref{fig:three_cells_PP}(a)~and~(b) show the polarization of the first cell
 with respect to the driver cell, the polarization of the second cell with
 respect to the first cell, and so on. For the first cell, the response is
 non-linear and shows gain, therefore $\chi_{1D} > 1$. In contrast, the
@@ -79,7 +79,7 @@ neutral cells. In that case, the response is almost perfect, $\chi_{21} \sim
 \chi_{32} \sim 1$.
 
 It is worth pointing out that at zero temperature, where we have to use the
-fixed charge model rather than the inapplicable bond approximation, we observe
+fixed-charge model rather than the inapplicable bond approximation, we observe
 the same polarization response characteristics, as demonstrated in
 Fig.~\ref{fig:three_cells_PP}(c)~and~(d). Quantitatively, for the same system
 parameters the response is improved at zero temperature compared to $T=1$. For
@@ -95,10 +95,10 @@ In the literature, the non-linear nature of $P_1(P_D)$ has been noted
 \cite{lent1993quantum} \cite{lent1993lines}, and the apparent gain $\chi_{1D} >
 1$ has been invoked to argue for the robustness and fault-tolerance of the QCA
 scheme. However, as our graph shows, this is only strictly true for the response
-with respect to the driver cell. We believe that the picture where each cell
-switches with gain with respect to its neighbours is an artifact of the
+with respect to the static-charge driver cell. We believe that the picture where each cell
+switches with gain with respect to its neighbours is an artefact of the
 intercellular Hartree approximation (ICHA), which we had introduced in more
-detail in chapter \ref{ch:QCA_intro}. ICHA treats each cell individually in the
+detail in Chapter \ref{ch:QCA_intro}. ICHA treats each cell individually in the
 static charge mean field of the other cells in the system. In other words, in
 the ICHA scheme, for each cell the rest of the system is approximated by an
 effective driver cell.
@@ -133,7 +133,7 @@ $q=\frac{1}{2}$ the range $d/a \sim 1.3 \ldots 2.3$ gives the best output
 polarization. Worryingly, this range is very close to the lower, unphysical
 limit!
 
-Especially for the non-charge-neutral system it is beneficial to allow for
+Especially for the non-charge-neutral system, it is beneficial to allow for
 different distances between different adjacent cells along the wire. Thus a
 single $d/a$ parameter is replaced by $d_k/a$ with $k = 1,2,3$ for the
 three-cell wire. Using a stochastic optimization scheme introduced by Sandvik
@@ -155,7 +155,6 @@ surprising at all, and simply a consequence of having no charge buildup in the
 system. It should be emphasized how much better the output polarization is for
 charge-neutral wires. At least for the chosen parameters, even very short wires
 seem unrealistic for a non-charge-neutral system.
-% TODO: appendix with details on stochastic optimization?
 
 It is instructive to plot the polarizations over cell-cell distance up to very
 large distances in a log-log graph as shown in
@@ -170,13 +169,13 @@ exactly the same for both the $q=0$ and the $q=\frac{1}{2}$ systems. Hence,
 having non-charge-neutral cells does not actually alter the characteristics of
 the cell-cell interaction. Instead, it suppresses the cell-cell interaction at
 small distances. That is, charge repulsion competes with the quadrupole
-interaction. The graph exactly confirms our analysis from chapter
+interaction. The graph exactly confirms our analysis from Chapter
 \ref{ch:approximations}. There, we had derived an approximate expression for the
 mediating cell-cell interaction in the Ising picture, $J \sim d^{-5}$, to
 leading order, and the derived $J$ was independent of $q$. At the time we had
 seen that, in general, we can only map QCA to a modified Ising model with an
 additional cell-cell interaction $J^{\prime}$, which does depend on $q$.
-However, for the horizontal wire $J^{\prime}$ vanishes and we are left with the
+However, for the horizontal wire, $J^{\prime}$ vanishes and we are left with the
 pure Ising model, and at large enough distances the behaviour of the
 polarization is just as predicted. Of course, we are mostly interested in small
 distances, where the polarization is relatively large. Here, the polarization
@@ -204,7 +203,7 @@ quadrupole interaction at short distances in the case of $q=0$.
   \label{fig:three_cells_P_over_theta}
 \end{figure}
 
-From the discussion of the Ising model in chapter \ref{ch:approximations}, we
+From the discussion of the Ising model in Chapter \ref{ch:approximations}, we
 already know that cell polarizations should change with the inter-cell angle.
 The polarizations are mediated by the cell-cell interactions $J$ and
 $J^{\prime}$, and specifically we had found $J \sim \cos{4 \theta}$, whereas
@@ -212,7 +211,7 @@ $J^{\prime} \sim \sin{2 \theta}$. We rotate the three-cell wire from a
 horizontal configuration ($\theta = 0^{\circ}$) over diagonal ($\theta =
 45^{\circ}$) to vertical ($\theta = 90^{\circ}$), and back to horizontal
 ($\theta = 180^{\circ}$), and look at the cell polarizations in the process.
-Fig.~\ref{fig:three_cells_P_over_theta}(b) shows the polarization as a function
+Figure~\ref{fig:three_cells_P_over_theta}(b) shows the polarization as a function
 of the angle for the charge-neutral system, where $J^{\prime} = 0$. Indeed, the
 cell polarizations follow the behaviour predicted by $J$: they are rotationally
 invariant under rotations by $90^{\circ}$ and peak at the angles $0^{\circ},
@@ -239,7 +238,7 @@ system behaves as expected. In fact, the presented graph looks exactly the same
 for $P_D = 1$ and $P_D = -1$, except for a small range of angles of about
 $5^{\circ}$ around $\theta = n \cdot 90^{\circ}$, where the angle range again
 depends on the chosen system parameters. In short, the cells' polarizations are
-set by the inter-cell angle, and not by the driver polarization. The importance
+set by the inter-cell angle and not by the driver polarization. The importance
 of charge neutrality had first emerged in our discussion of the Ising model.
 Here we see this finding most impressively confirmed. The non-charge-neutral
 system will never work as a QCA circuit unless all we want to do is build linear
@@ -266,7 +265,7 @@ We use a cluster mean field approach beyond the single-site ICHA approximation
 to calculate the polarizations of semi-infinite wires. A small cluster of active
 cells is embedded in a large number of driver cells---the mean field---whose
 polarization is set as the average of the active cells. The setup is illustrated
-in Fig.~\ref{fig:semi_infinite_wire}, for three active cells. Therefore, instead
+in Fig.~\ref{fig:semi_infinite_wire} for three active cells. Therefore, instead
 of solving only the one-cell mean field Hamiltonian $H^{\mathrm{MF}}_k$
 \eqref{eq:H_meanfield} introduced in section \ref{sec:basic_characterization},
 as for the ICHA scheme, we solve a cluster mean field Hamiltonian
@@ -306,7 +305,7 @@ calculations we use 100 driver cells on each side of the active cells.
   Semi-infinite wire. A small number of active cells is embedded in a large
   number of driver cells on both sides. The driver cells' polarization is
   determined self-consistently from the polarization of the active cells. This
-  mean-field approach allows to establish a lower bound $V_{1crit}$ for workable
+  mean-field approach allows to establish a lower bound $V_{1\textrm{crit}}$ for workable
   nearest-neighbour Coulomb energies $V_1$.
   }
   \label{fig:semi_infinite_wire}
@@ -332,29 +331,30 @@ calculations we use 100 driver cells on each side of the active cells.
 We now use a larger cell-cell distance $d/a = 3.0$ and a higher temperature $T =
 2$, and calculate the self-consistent polarization with three active cells over
 a wide range of values of $V_1$, shown in Fig.~\ref{fig:critical_V1}(a). We
-observe a second-order phase transition at $V_{1crit}$. For $V_1 < V_{1crit}$ no
-self-consistent solution with $P_D > 0 $ exists. This regime is therefore
-inhibitive for QCA devices. Above the critical $V_1$ the polarization rises very
-sharply and quickly saturates towards full polarization. The presence of a phase
-transition is likely an artifact of the mean field method. Still, the scale of
-the critical $V_1$ sheds light on what order of magnitude to expect for a
-workable $V_1$. For our system, we find that $V_1 \gtrsim 150$ should yield
-large cell polarizations, and as before this is in units of the hopping, with $t
-= 1$. For more favourably chosen parameters the critical $V_1$ can also be much
-smaller. Table~\ref{tab:critical_V1} lists the $V_{1crit}$ for a variety of
-different system parameters. In particular, for the parameters used for the
-three-cell wire in the last section, $T = 1$ and $d/a = 2.2$, the critical $V_1$
-is only $V_{1crit} = 14.71$. The table also demonstrates that the critical $V_1$
-grows very rapidly for larger cell-cell distances. This is in line with what we
-had seen in Fig.~\ref{fig:three_cells_P_over_d}(a)~and~(b), where we had plotted
-the cell polarizations as a function of the cell-cell distance. In that graph,
-after a plateau-like feature at small distances, the polarization had dropped
-off very quickly for growing inter-cell spacing. Both observations emphasize
-that small cell-cell distances are crucial, and, generally, we want distances as
-small as possible while still satisfying our underlying physical assumptions,
-such as no inter-cell hopping. Let us note that a graph qualitatively similar in
-appearance to Fig.~\ref{fig:critical_V1}(a), obtained from ICHA calculations for
-a seven-cell wire, has been reported in the literature previously
+observe a second-order phase transition at $V_{1\textrm{crit}}$. For $V_1 <
+V_{1\textrm{crit}}$ no self-consistent solution with $P_D > 0 $ exists. This
+regime is therefore inhibitive for QCA devices. Above the critical $V_1$ the
+polarization rises very sharply and quickly saturates towards full polarization.
+The presence of a phase transition is likely an artefact of the mean field
+method. Still, the scale of the critical $V_1$ sheds light on what order of
+magnitude to expect for a workable $V_1$. For our system, we find that $V_1
+\gtrsim 150$ should yield large cell polarizations, and as before this is in
+units of the hopping, with $t = 1$. For more favourably chosen parameters the
+critical $V_1$ can also be much smaller. Table~\ref{tab:critical_V1} lists the
+$V_{1\textrm{crit}}$ for a variety of different system parameters. In
+particular, for the parameters used for the three-cell wire in the last section,
+$T = 1$ and $d/a = 2.2$, the critical $V_1$ is only $V_{1\textrm{crit}} =
+14.71$. The table also demonstrates that the critical $V_1$ grows very rapidly
+for larger cell-cell distances. This is in line with what we had seen in
+Fig.~\ref{fig:three_cells_P_over_d}(a)~and~(b), where we had plotted the cell
+polarizations as a function of the cell-cell distance. In that graph, after a
+plateau-like feature at small distances, the polarization had dropped off very
+quickly with growing inter-cell spacing. Both observations emphasize that small
+cell-cell distances are crucial, and, generally, we want distances as small as
+possible while still satisfying our underlying physical assumptions, such as no
+inter-cell hopping. Let us note that a graph qualitatively similar in appearance
+to Fig.~\ref{fig:critical_V1}(a), obtained from single-cell ICHA calculations
+for a seven-cell wire, has been reported in the literature previously
 \cite{lent1993lines}. However, the reference's interpretation of the graph is
 lacking. In particular, the significance and consequences of employing a mean
 field scheme were not understood, and the critical values were therefore not
@@ -363,8 +363,8 @@ identified as lower boundaries, but taken at face value.
 \begin{table}
   \center
   \begin{tabular}{c c r @{.} l p{0cm} c c r @{.} l}
-    $T$ & $d/a$ & \multicolumn{2}{c}{$V_{1crit}$} & &
-    $T$ & $d/a$ & \multicolumn{2}{c}{$V_{1crit}$} \\
+    $T$ & $d/a$ & \multicolumn{2}{c}{$V_{1\textrm{crit}}$} & &
+    $T$ & $d/a$ & \multicolumn{2}{c}{$V_{1\textrm{crit}}$} \\
     \hline 
     $1$ & $2.2$ & $ 14$&$71$ & &
     $2$ & $2.2$ & $ 25$&$99$ \\
@@ -374,7 +374,7 @@ identified as lower boundaries, but taken at face value.
     $2$ & $4.0$ & $459$&$87$ \\
   \end{tabular}
 %  \begin{tabular}{c c r @{.} l}
-%    $T$ & $d/a$ & \multicolumn{2}{c}{$V_{1crit}$} \\
+%    $T$ & $d/a$ & \multicolumn{2}{c}{$V_{1\textrm{crit}}$} \\
 %    \hline 
 %    $1$ & $2.2$ & $ 14$&$71$ \\
 %    $1$ & $3.0$ & $ 55$&$10$ \\
@@ -392,41 +392,42 @@ identified as lower boundaries, but taken at face value.
 
 We now investigate how the critical $V_1$ changes with the number of active
 cells and whether we can extrapolate to the thermodynamic limit, where the mean
-field scheme becomes exact. Fig.~\ref{fig:critical_V1}(b) traces $V_{1crit}$ as
-the number of active cells is increased. With the more accurate bond model only
-up to five cells are computationally feasible, and we have therefore included
-calculations with the Ising model for up to twelve active cells. For the chosen
-system parameters, the obtained values of the critical $V_1$ are relatively
-large and the Ising model is therefore expected to give sufficiently accurate
-results. Comparing the bond and Ising model in the graph, we see that they
-indeed agree well. The bond model gives slightly larger $V_{1crit}$ than the
-Ising model for one and two active cells, but for four and five active cells the
-situation is reversed. Therefore, extrapolating the trend, we believe that the
-Ising model slightly overstimates the critical $V_1$ for larger numbers of
-active cells. This is in line with our observation in section
-\ref{sec:validity_of_the_approximations} that the Ising model generally
-underestimates the polarization. Most importantly, the graph shows that the
-critical $V_1$ grows monotonically and substantially with an increasing number
-of active cells. For the chosen parameters, the $V_{1crit}$ for twelve active
-cells is more than twice the $V_{1crit}$ for only one active cell. The critical
-$V_1$ grows more slowly for larger numbers of active cells, but does not
-saturate, and there is no clear identifiable scaling behaviour otherwise.
-Therefore, we conclude that the $V_1$ grows indefinitely and becomes infinite in
-the thermodynamic limit. Conversely, for a finite $V_1$ the polarization of the
-infintely long wire will be zero.
+field scheme becomes exact. Figure~\ref{fig:critical_V1}(b) traces
+$V_{1\textrm{crit}}$ as the number of active cells is increased. With the more
+accurate bond model only up to five cells are computationally feasible, and we
+have therefore included calculations with the Ising model for up to twelve
+active cells. For the chosen system parameters, the obtained values of the
+critical $V_1$ are relatively large and the Ising model is therefore expected to
+give sufficiently accurate results. Comparing the bond and Ising model in the
+graph, we see that they indeed agree well. The bond model gives slightly larger
+$V_{1\textrm{crit}}$ than the Ising model for one and two active cells, but for
+four and five active cells the situation is reversed. Therefore, extrapolating
+the trend, we believe that the Ising model slightly overestimates the critical
+$V_1$ for larger numbers of active cells. This is in line with our observation
+in section \ref{sec:validity_of_the_approximations} that the Ising model
+generally underestimates the polarization. Most importantly, the graph shows
+that the critical $V_1$ grows monotonically and substantially with an increasing
+number of active cells. For the chosen parameters, the $V_{1\textrm{crit}}$ for
+twelve active cells is more than twice the $V_{1\textrm{crit}}$ for only one
+active cell. The critical $V_1$ grows more slowly for larger numbers of active
+cells, but does not saturate, and there is no clear identifiable scaling
+behaviour otherwise.  Therefore, we strongly suspect that the $V_1$ grows
+indefinitely and becomes infinite in the thermodynamic limit. Conversely, for a
+finite $V_1$ the polarization of the infinitely long wire will be zero.
 
-We used a mean field semi-infinite wire to obtain a lower bound $V_{1crit}$ for
-workable $V_1$ values. But we find that the $V_{1crit}$ grows significantly with
-the number of activce cells and in fact eventually becomes infinite. The
-$V_{1crit}$ should still yield a valid scale for finite size QCA systems,
-presumably of a size comparable to the number of active cells in the mean field
-scheme, and certainly $V_1 < V_{1crit}$ is a range where QCA is non-functional.
-More importantly though, the fact the no finite thermodynamic limit exists
-implies that perfect cell-cell response is impossible---the polarization along
-the wire will always decreases monotonically---and that QCA systems are limited
-in size. We already know from entropy arguments, laid out in section
+We used a mean field semi-infinite wire to obtain a lower bound
+$V_{1\textrm{crit}}$ for workable $V_1$ values. But we find that the
+$V_{1\textrm{crit}}$ grows significantly with the number of active cells and in
+fact eventually becomes infinite. The $V_{1\textrm{crit}}$ should still yield a
+valid scale for finite size QCA systems, presumably of a size comparable to the
+number of active cells in the mean field scheme, and certainly $V_1 <
+V_{1\textrm{crit}}$ is a range where QCA is non-functional. More importantly
+though, the fact that no finite thermodynamic limit exists implies that perfect
+cell-cell response is impossible---the polarization along the wire will always
+decreases monotonically---and that QCA systems are limited in size. We already
+know from entropy arguments, laid out in section
 \ref{sec:an_alternative_computing_paradigm}, that we cannot build infinitely
-large QCA systems, so having a second size limit is not a show stopper. The
+large QCA systems, so having a second size bound is not a show stopper. The
 crucial question is whether we can achieve device units large enough in size to
 do practical computations.
 
@@ -454,22 +455,23 @@ do practical computations.
   [Cell-cell response over $V_1$ and cell-cell distance]
   {
   (a) The cell-cell response over the Coulomb energy $V_1$ at different
-  temperatures and calculated with different models and wires. The fixed charge
+  temperatures and calculated with different models and wires. The fixed-charge
   wire slightly understimates the in-wire response, but is otherwise the most
   accurate model over the whole parameter range. For close to perfect response,
   $V_1 > V_{1min}$ is required with $V_{1min} \sim 120$, $V_{1min} \sim 60$, and
   $V_{1min} \sim 20$ for $T = 2$, $T = 1$, and $T = 0.1$, respectively.
-  (b) The cell-cell response of the fixed charge wire over cell-cell distance at
+  (b) The cell-cell response of the fixed-charge wire over cell-cell distance at
   $T = 1$. The distance range yielding close to perfect response increases with
   the Coulomb energy $V_1$. At $V_1 = 40$, close to perfect response is not
   achieved at any cell-cell distance.
   }
   \label{fig:chis}
+  % TODO: too large
 \end{figure}
 
-To put the found mean field $V_{1crit}$ values into perspective for small QCA
-systems, we calculate the cell polarizations in two- to twelve-cell wires at
-$V_1 = 200$---well above all the $V_{1crit}$ values in
+To put into perspective the mean field $V_{1\textrm{crit}}$ values we found for
+small QCA systems, we calculate the cell polarizations in two- to twelve-cell
+wires at $V_1 = 200$---well above all the $V_{1\textrm{crit}}$ values in
 Fig.~\ref{fig:critical_V1}(b)---and with a driver polarization of $P_D = 1$.
 According to Fig.~\ref{fig:critical_V1}(a), which was calculated for three
 active cells, at $V_1 = 200$ we should have a self-consistent average
@@ -480,15 +482,15 @@ Fig.~\ref{fig:wire_polarization}(a) in the $d/a = 3.0$ curve. For a six-cell
 wire the output polarization is already less than half of the input
 polarization, for twelve cells it is almost a fifth. The graph strongly suggests
 that the polarization will continue to drop to zero for longer wires.  It
-therefore becomes apparent that the mean field $V_{1crit}$ really does set a
-lower boundary, and in practice significantly larger $V_1$ values are necessary
-for functional QCA devices, even for relatively small systems.
+therefore becomes apparent that the mean field $V_{1\textrm{crit}}$ really does
+set a lower boundary, and in practice significantly larger $V_1$ values are
+necessary for functional QCA devices, even for relatively small systems.
 
-Fig.~\ref{fig:wire_polarization}(a) also includes cell polarizations for wires
+Figure~\ref{fig:wire_polarization}(a) also includes cell polarizations for wires
 with a cell-cell distance $d/a = 2.2$. For these systems,
-Table~\ref{tab:critical_V1} lists $V_{1crit} = 25.99$, which was determined for
+Table~\ref{tab:critical_V1} lists $V_{1\textrm{crit}} = 25.99$, which was determined for
 three active cells in a semi-infinite wire. An Ising model calculation with
-twelve active cells yields $V_{1crit} \sim 45$, which likely overestimates the
+twelve active cells yields $V_{1\textrm{crit}} \sim 45$, which likely overestimates the
 critical $V_1$ and, for these small $V_1$ values, should really be taken as a
 very rough guideline. At $V_1 = 200$ we are therefore almost an order of
 magnitude larger than the critical $V_1$. At these shorter cell-cell distances
@@ -500,7 +502,7 @@ quite a different story. The polarizations fall off so slowly, that we can
 reasonably expect to achieve sufficiently large output polarizations for very
 long wires. To investigate the astounding quantitative difference between the
 two systems, we again plot the polarization over cell-cell distance.
-Fig.~\ref{fig:wire_polarization}(b) shows the output polarization of two- to
+Figure~\ref{fig:wire_polarization}(b) shows the output polarization of two- to
 twelve-cell wires. The graph looks qualitatively similar to
 Fig.~\ref{fig:three_cells_P_over_d}(b) from the last section: for small
 distances the output polarization is close to perfect in a plateau-like region,
@@ -518,7 +520,7 @@ driver cell and therefore behaves differently, and the last two cells, which
 have slightly lower responses, due to edge effects. Additionally, the responses
 are largely independent of the driver polarization, with the exception of the
 response of the first cell, $\chi_{1D}$, of course, which we also find to
-decrease for longer wires. The observed behaviour matches our intuition: We
+decrease for longer wires. The observed behaviour matches our intuition: we
 know that the cell polarization responses interior to the wire are linear.
 Symmetry suggests that the responses of cells far from the edges in a long wire
 should be the same. Therefore, we are inspired to fit the cell polarization
@@ -543,8 +545,8 @@ If the model worked perfectly then both parameters would be the same for all
 wires, but given that the model is so simple, we feel that it works reasonably
 well, and over a range of system parameters. The assumption of constant cell
 responses throughout the wire starts to break down for larger cell-cell
-distances $d/a \gtrsim 4$, where, however, the actual polarizations are already
-very small for a majority of the cells.
+distances $d/a \gtrsim 4$, where the actual polarizations are already very small
+for a majority of the cells.
 % TODO: better numbers and _errors_ for chi_e and chi --- calculate the errors
 % from the distribution of chi values
 
@@ -590,25 +592,25 @@ should be more than sufficient to build practical device units.
 
 We have shown explicitly that a set of parameters exists where QCA works well up
 to large system sizes: $V_1/t = 200, T/t = 2$, and $d/a = 2.2$. These parameters
-are pretty extreme and were partly chosen so that the Ising approximation is
+are rather extreme and were partly chosen so that the Ising approximation is
 valid, which allowed us to do calculations with wires of up to twelve cells. For
 practical QCA implementations, however, it is important to identify minimal
 workable parameters, specifically a minimal $V_1$ and a range of cell-cell
-distances at a given temperature. The mean field $V_{1crit}$ is an indicative
+distances at a given temperature. The mean field $V_{1\textrm{crit}}$ is an indicative
 value, of course, but we have just seen that it is ultimately not very reliable.
 Following the simple model \eqref{eq:simple_model}, we can calculate the
 cell-cell response $\chi$ in short wires with more accurate models over wide
-parameter ranges, and use this short-wire response as an estimate for the
-response inside very long wires. According to the model those responses should
+parameter ranges and use this short-wire response as an estimate for the
+response inside very long wires. According to the model, those responses should
 be exactly the same. In practice, there are small differences due to more
 pronounced edge effects in short wires.
 
-Fig.~\ref{fig:chis}(a) shows the cell-cell response over $V_1$ for three
+Figure~\ref{fig:chis}(a) shows the cell-cell response over $V_1$ for three
 different temperatures and for three different wires and models. Specifically,
 the $\chi$ is calculated as the response of the sixth cell in an eight-cell wire
 with the Ising model, as the response of the third cell in a four-cell wire with
 the bond model, and as the response of the second cell in a two-cell wire with
-the fixed charge model, which is the most accurate model of the three. If the
+the fixed-charge model, which is the most accurate model of the three. If the
 assumption of constant $\chi$ for all wires is true, and if we are additionally
 in a parameter regime where all three approximations become exact, then all
 three curves should agree. The presented calculation uses a cell-cell distance
@@ -616,27 +618,27 @@ $d/a = 2.2$ and very small driver cell polarizations $P_D = 0.01$. The latter is
 chosen so that cell polarizations do not saturate, $P_k < 1$, over the whole
 parameter range.
 
-For all three temperatures, the responses of the Ising, bond, and fixed charge
+For all three temperatures, the responses of the Ising, bond, and fixed-charge
 wires all agree at large enough $V_1$, where we find $\chi \sim 1$.
 Concentrating on the $T = 2$ curves, we see that bond and Ising agree for $V_1
 \gtrsim 100$---where the Ising model becomes accurate---and their responses
-become close to perfect around $V_1 \sim 120$. In contrast, the fixed charge
+become close to perfect around $V_1 \sim 120$. In contrast, the fixed-charge
 $\chi$ is slightly smaller and only achieves $\chi \sim 1$ around $V_1 \sim
 140$. In this regime, the bond and Ising model are both accurate, and the
-difference between those two models' $\chi$ and the fixed charge model's $\chi$
-is due to edge effects of the shorter two-cell fixed charge wire. Thus, while
-the fixed charge two-cell $\chi$ slightly underestimates the response in longer
+difference between those two models' $\chi$ and the fixed-charge model's $\chi$
+is due to edge effects of the shorter two-cell fixed-charge wire. Thus, while
+the fixed-charge two-cell $\chi$ slightly underestimates the response in longer
 wires, it clearly follows the trend of the other two models and can therefore be
 used as a good estimate for the in-wire response in longer wires. At $T = 0.1$,
 for example, bond and Ising model are no longer valid and give wrong results.
-The fixed charge model indicates that even at these small temperatures, perfect
+The fixed-charge model indicates that even at these small temperatures, perfect
 response is only achieved for $V_1 > V_{1min}$ with $V_{1min} \sim 20$, and this
 is also the minimum $V_1$ for any temperature. For $T = 1$ and $T = 2$, we find
 $V_{1min} \sim 60$ and $V_{1min} \sim 120$, respectively.
 
 We investigate how $\chi$ depends on the cell-cell distance.
-Fig.~\ref{fig:chis}(b) plots the fixed charge two-wire response over the
-cell-cell distance at $T = 1.0$, and for different values of $V_1$. Clearly, the
+Figure~\ref{fig:chis}(b) plots the fixed-charge two-wire response over the
+cell-cell distance at $T = 1.0$ and for different values of $V_1$. Clearly, the
 cell-cell distance range yielding $\chi \sim 1$ depends on the Coulomb energy
 $V_1$: the larger $V_1$, the larger the distance range. In agreement with
 Fig.~\ref{fig:chis}(a), the graph demonstrates that at $V_1 = 40$ close to
@@ -648,27 +650,27 @@ qualitatively unchanged at different temperatures. We find that the $\chi \sim
 1$ distance range increase for lower temperatures, as can be expected. However,
 at $T = 0.1$ and $V_1 = 20$ we cannot achieve close to perfect response at any
 cell-cell distance.  Therefore, $V_{1min} \sim 20$ really is the lower limit for
-operational QCA devices, at all temperatures. Summarizing, Fig.~\ref{fig:chis}
+operational QCA devices, at all temperatures. In summary, Fig.~\ref{fig:chis}
 provides us with rough estimates for minimal workable parameters, and we have
-used a loosely defined close to perfect polarization $\chi > 0.99$ to establish
+used a loosely defined close-to-perfect polarization $\chi > 0.99$ to establish
 them. As discussed above, how close to perfect is good enough depends on the
 desired system sizes. However, we saw that for $\chi \lesssim 0.9$ only very
 small systems are realistically achievable, and for $V_1 < V_{1min}$ the
 response quickly drops below that mark.
 
 We have used dimensionless parameters throughout. In the extended Hubbard model,
-the energy scale is set by the hopping parameter and we have chosen $t = 1$. We
+the energy scale is set by the hopping parameter, and we have chosen $t = 1$. We
 use $V_1$ to characterize the Coulombic energies and found that very large
-$\frac{V_1}{t}$ are a requirement for QCA. This Coulomb energy is set directly
-by the cell size, $V_1 = \frac{1}{a}$. Therefore, we need either a very large
-$V_1$, and therefore very small cell sizes, or a very small hopping $t$. Of
+$V_1/t$ is a requirement for QCA. This Coulomb energy is set directly
+by the cell size, $V_1 = 1/a$. Therefore, to achieve a very large
+$V_1$, we need either very small cell sizes or a very small hopping $t$. Of
 course, as the overlap integral the hopping $t$ also depends on the distance
 between quantum dots, and thus the cell size. In a highly idealized system we
 can assume the overlap integral to decay exponentially with dot-dot distance,
-whereas the Coulomb interaction falls off as $\frac{1}{r}$. Therefore, in
-principle, we can achieve the required large $\frac{V_1}{t}$ ratios simply by
+whereas the Coulomb interaction falls off as $1/r$. Therefore, in
+principle, we can achieve the required large $V_1/t$ ratios simply by
 making the QCA cells large enough. In practice, even if such an engineered
-$\frac{V_1}{t}$ ratio was achievable, it might not gain us much. An increasingly
+$V_1/t$ ratio were achievable, we might not gain much from it. An increasingly
 small $t$ would ``freeze'' the system: dynamics would be very slow, greatly
 reducing the usefulness for computation. The temperature is also in units of the
 hopping parameter, and a small $t$ therefore potentially brings down the
@@ -678,7 +680,7 @@ external perturbations in a less-than-perfect material system.
 
 To put the minimal workable parameters we have found in a more tangible context,
 we return to the atomic silicon quantum dots which we introduced in detail in
-section~\ref{sec:atomic_silicon_quantum_dots}. Even though this system is quite
+Section~\ref{sec:atomic_silicon_quantum_dots}. Even though this system is quite
 different from our model---it uses six electrons per cell instead of two, and,
 more importantly, is not charge neutral---it is close enough to get a rough idea
 of what real world numbers might look like. Using \emph{ab initio} estimates
@@ -695,15 +697,13 @@ requiring $T/t \lesssim 0.1$. This would correspond to dot-dot distances $a = 22
 estimates, they still illustrate the challenge posed for experimental systems by
 the large parameters required for QCA operation. On the silicon (100) surface
 the dimer-dimer distance is $a = 3.84 \mathring{\mathrm{A}}$---the closest
-possible spacing for two quantum dots. Therefore, the found dot separations
+possible spacing for two quantum dots. Therefore, the estimated dot separations
 correspond to six to eight lattice spacings. The hopping constant becomes very
 small and as a consequence the operational temperature moves to the single-digit
 Kelvin regime. This is markedly different from the experiments and envisioned
 setup of the group of Wolkow \emph{et al}., illustrated with a few examples in
 Fig.~\ref{fig:silicon}, where dots are placed close to each other and room
 temperature is used.
-
-\clearpage
 
 
 \section{The majority gate}
@@ -715,14 +715,14 @@ the Ising model with good accuracy. It is instructive to look at more complex
 QCA structures than the simple horizontal wire, and we pick the majority
 gate---the single most important QCA logic device---as an example. The setup is
 illustrated in Fig.~\ref{fig:gates}(a). The inputs are set with the driver cell
-polarizations $I_1$, $I_2$, and $I_3$, the gate output is the polarization of
+polarizations $I_1$, $I_2$, and $I_3$; the gate output is the polarization of
 the rightmost cell, denoted by $O$. Each input lead consists of two active
 cells, and similarly there are two cells for the output lead, for a total of
-nine active cells. The polarizations of the input leads are thought to ``vote''
-on the central device cell, the majority polarization wins and sets the output.
-We test the AND and OR functionality of the gate by fixing one of its inputs to
-$-1$ and $1$, respectively, and we use $I_2$ as the fixed input, for symmetry
-reasons.
+nine active cells. The polarizations of the input leads are understood to
+``vote'' on the central device cell, with the majority polarization winning and
+setting the final output.  We test the AND and OR functionality of the gate by
+fixing one of its inputs to $-1$ and $1$, respectively, and we use $I_2$ as the
+fixed input, for symmetry reasons.
 
 \begin{figure}
   \center
@@ -742,7 +742,7 @@ reasons.
   \label{fig:majority_gate_contour}
 \end{figure}
 
-Fig.~\ref{fig:majority_gate_contour}(a)~and~(b) show the output polarization as
+Figure~\ref{fig:majority_gate_contour}(a)~and~(b) show the output polarization as
 a function of the two inputs for AND and OR gate configurations. Because the
 response to driver cells is strongly non-linear, we do not plot directly against
 $I_1$ and $I_3$, but use instead the polarizations $I_1^{\prime}$ and
@@ -761,31 +761,31 @@ AND and OR gate, respectively.
 
 We gain further insight into the characteristics of the QCA majority gate by
 operating it slightly outside of the optimal parameter regime.
-Fig.~\ref{fig:majority_gate_contour}(c)~and~(d) show again the output
+Figure~\ref{fig:majority_gate_contour}(c)~and~(d) show again the output
 polarization for AND and OR gate configurations, but now at a larger cell-cell
 distance $d/a = 2.6$. As can be expected, the output of the gate no longer spans
 the whole polarization range from $-1$ to $+1$. The output range becomes
 asymmetric with respect to the input range, for example $1 \land 1 \sim 0.8$,
 but $-1 \land -1 \sim -1$. Similarly, we find that now there is a threshold
-$I_{th} \sim 0.2$, where we require $\left| I_{1,3} \right| > I_{th}$ so that
-the output is correct. Below the threshold, the gate switches incorrectly, for
-example $0.1 \land 0.1 \sim - 0.1$. This asymmetry is understood by considering
-the geometry of the gate. The cells of the input leads $I_1$ and $I_3$ couple
-diagonally to the output lead and therefore induce a polarization that is
-opposite to their own. Outside of the optimal parameter regime polarizations
-generally decrease from cell to cell, starting from the driver cells. Thus, at
-larger cell-cell distances where the central cell is only relatively weakly
-polarized, the influence of the more strongly polarized input leads on the
-output lead becomes more important and consequently decreases the overall output
-polarization and introduces a threshold. In this regime, if instead of the
-symmetric $I_2$ one of the other two inputs, $I_1$ or $I_3$, is used as the
-fixed input, then the output polarization also becomes asymmetric with respect
-to switching the inputs.
+$I_{\textrm{th}} \sim 0.2$, where we require $\left| I_{1,3} \right| >
+I_{\textrm{th}}$ so that the output is correct. Below the threshold, the gate
+switches incorrectly, for example $0.1 \land 0.1 \sim - 0.1$. This asymmetry is
+understood by considering the geometry of the gate. The cells of the input leads
+$I_1$ and $I_3$ couple diagonally to the output lead and therefore induce a
+polarization that is opposite to their own. Outside of the optimal parameter
+regime, polarizations generally decrease from cell to cell, starting from the
+driver cells. Thus, at larger cell-cell distances where the central cell is only
+relatively weakly polarized, the influence of the more strongly polarized input
+leads on the output lead becomes more important and consequently decreases the
+overall output polarization and introduces a threshold. In this regime, if
+instead of the symmetric $I_2$ one of the other two inputs, $I_1$ or $I_3$, is
+used as the fixed input, then the output polarization also becomes asymmetric
+with respect to switching the inputs.
 
-Because QCA has no in-build directionality, different inputs are not decoupled
+Because QCA has no in-built directionality, different inputs are not decoupled
 from each other. For example, the driver cell $I_3$ influences cells in the lead
-of input $I_1$. This aspect is not directly captured by the presented graphs
-which are plotted against the effective cell polarizations $I_1^{\prime}$ and
+of input $I_1$. This aspect is not directly captured by the graphs presented.
+These are plotted against the effective cell polarizations $I_1^{\prime}$ and
 $I_3^{\prime}$, which are directly or indirectly set by all three driver cell
 polarizations $I_1$, $I_2$, and $I_3$. But as a consequence, the ranges of the
 inputs $I_1^{\prime}$ and $I_3^{\prime}$ in the plots

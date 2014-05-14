@@ -434,6 +434,7 @@ do practical computations.
 \begin{figure}
   \center
   \includegraphics{wire_polarization}
+  \vspace*{-0.5cm}
   \caption
   [Cell polarizations along two- to twelve-cell wires]
   {
@@ -448,25 +449,23 @@ do practical computations.
   }
   \label{fig:wire_polarization}
 
-  \vspace*{1cm}
+  \vspace*{0.75cm}
   
   \includegraphics{chis}
+  \vspace*{-0.5cm}
   \caption
   [Cell-cell response over $V_1$ and cell-cell distance]
   {
   (a) The cell-cell response over the Coulomb energy $V_1$ at different
   temperatures and calculated with different models and wires. The fixed-charge
   wire slightly understimates the in-wire response, but is otherwise the most
-  accurate model over the whole parameter range. For close to perfect response,
-  $V_1 > V_{1min}$ is required with $V_{1min} \sim 120$, $V_{1min} \sim 60$, and
-  $V_{1min} \sim 20$ for $T = 2$, $T = 1$, and $T = 0.1$, respectively.
+  accurate model over the whole parameter range. The minimum $V_1$ required for
+  close-to-perfect response increases with temperature.
   (b) The cell-cell response of the fixed-charge wire over cell-cell distance at
-  $T = 1$. The distance range yielding close to perfect response increases with
-  the Coulomb energy $V_1$. At $V_1 = 40$, close to perfect response is not
-  achieved at any cell-cell distance.
+  $T = 1$. The distance range yielding close-to-perfect response increases with
+  the Coulomb energy $V_1$.
   }
   \label{fig:chis}
-  % TODO: too large
 \end{figure}
 
 To put into perspective the mean field $V_{1\textrm{crit}}$ values we found for
@@ -641,22 +640,22 @@ Figure~\ref{fig:chis}(b) plots the fixed-charge two-wire response over the
 cell-cell distance at $T = 1.0$ and for different values of $V_1$. Clearly, the
 cell-cell distance range yielding $\chi \sim 1$ depends on the Coulomb energy
 $V_1$: the larger $V_1$, the larger the distance range. In agreement with
-Fig.~\ref{fig:chis}(a), the graph demonstrates that at $V_1 = 40$ close to
-perfect response is not possible, even when going down to the lower physical
-inter-cell distance limit $d/a = 2.0$. While $V_1 \sim 60$ is workable, $V_1
-\sim 100$ seems like a comfortable regime where a range of cell-cell distances
-$2.0 < d/a <2.5$ yield very good cell-cell responses. The figure remains
-qualitatively unchanged at different temperatures. We find that the $\chi \sim
-1$ distance range increase for lower temperatures, as can be expected. However,
-at $T = 0.1$ and $V_1 = 20$ we cannot achieve close to perfect response at any
-cell-cell distance.  Therefore, $V_{1min} \sim 20$ really is the lower limit for
-operational QCA devices, at all temperatures. In summary, Fig.~\ref{fig:chis}
-provides us with rough estimates for minimal workable parameters, and we have
-used a loosely defined close-to-perfect polarization $\chi > 0.99$ to establish
-them. As discussed above, how close to perfect is good enough depends on the
-desired system sizes. However, we saw that for $\chi \lesssim 0.9$ only very
-small systems are realistically achievable, and for $V_1 < V_{1min}$ the
-response quickly drops below that mark.
+Fig.~\ref{fig:chis}(a), the graph demonstrates that at $V_1 = 40$
+close-to-perfect response is not possible, even when going down to the lower
+physical inter-cell distance limit $d/a = 2.0$. While $V_1 \sim 60$ is workable,
+$V_1 \sim 100$ seems like a comfortable regime where a range of cell-cell
+distances $2.0 < d/a <2.5$ yield very good cell-cell responses. The figure
+remains qualitatively unchanged at different temperatures. We find that the
+$\chi \sim 1$ distance range increase for lower temperatures, as can be
+expected. However, at $T = 0.1$ and $V_1 = 20$ we cannot achieve
+close-to-perfect response at any cell-cell distance.  Therefore, $V_{1min} \sim
+20$ really is the lower limit for operational QCA devices, at all temperatures.
+In summary, Fig.~\ref{fig:chis} provides us with rough estimates for minimal
+workable parameters, and we have used a loosely defined close-to-perfect
+polarization $\chi > 0.99$ to establish them. As discussed above, how close to
+perfect is good enough depends on the desired system sizes. However, we saw that
+for $\chi \lesssim 0.9$ only very small systems are realistically achievable,
+and for $V_1 < V_{1min}$ the response quickly drops below that mark.
 
 We have used dimensionless parameters throughout. In the extended Hubbard model,
 the energy scale is set by the hopping parameter, and we have chosen $t = 1$. We

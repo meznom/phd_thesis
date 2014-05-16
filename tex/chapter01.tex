@@ -399,7 +399,7 @@ even in a different state altogether. The \emph{cell polarization} $P_k$
 quantifies the state of the cell,
 \begin{equation}
   \label{eq:polarization}
-  P_k = \frac{1}{2} \left( n_{4k+2} + n_{4k+4} - n_{4k-1} + n_{4k-3} \right) \, ,
+  P_k = \frac{1}{2} \left( n_{4k+2} + n_{4k+4} - n_{4k+1} - n_{4k+3} \right) \, ,
 \end{equation}
 where the dots in each cell are numbered clockwise as indicated in the figure.
 We have also introduced the shorthand notation $n_i = n_{i\uparrow} +
@@ -660,21 +660,21 @@ projective schemes are only useful to calculate the ground state or the few
 lowest energy states. 
 
 %
-To decrease the memory requirements and computational cost of
-exact diagonalization, symmetries must be exploited. The Hamiltonian matrix is
+To decrease the memory requirements and computational cost of exact
+diagonalization, symmetries must be exploited. The Hamiltonian matrix is
 actually quite sparse---most entries are zero. By using symmetries and a
 suitable basis, the Hamiltonian matrix can be brought into block diagonal form
 and then only those much smaller blocks need to be diagonalized. Our QCA system
-is symmetric with respect to the total particle number $\hat{N} = \sum_i
-\hat{n}_{i\uparrow} + \hat{n}_{i\downarrow}$ and the total spin $\hat{S} =
-\sum_i \hat{n}_{i\uparrow} - \hat{n}_{i\downarrow}$, i.e.\ $[\hat{N},\hat{H}]_-
-= [\hat{S},\hat{H}]_- = 0$. If we now use basis states which are eigenstates of
-the symmetry operators, $\ket{n,s,l}$, with
+is symmetric with respect to the total particle number operator $N = \sum_i
+n_{i\uparrow} + n_{i\downarrow}$ and the total spin operator $S^z = \sum_i
+n_{i\uparrow} - n_{i\downarrow}$, i.e.\ $[N,H]_- = [S^z,H]_- = 0$. If we now use
+basis states which are eigenstates of the symmetry operators, $\ket{n,s,l}$,
+with
 %
 \begin{equation}
 \begin{split}
-  \hat{N} \ket{n,s,l} &= n \ket{n,s,l} \, , \\
-  \hat{S} \ket{n,s,l} &= s \ket{n,s,l} \, ,
+  N \ket{n,s,l} &= n \ket{n,s,l} \, , \\
+  S^z \ket{n,s,l} &= s \ket{n,s,l} \, ,
 \end{split}
 \end{equation}
 %
@@ -682,11 +682,11 @@ then we have
 %
 \begin{equation}
 \begin{split}
-  \bra{n^{\prime},s^{\prime},l^{\prime}} [\hat{N},\hat{H}]_- \ket{n,s,l} = 
-  (n^{\prime} - n) \bra{n^{\prime},s^{\prime},l^{\prime}} \hat{H} \ket{n,s,l}
+  \bra{n^{\prime},s^{\prime},l^{\prime}} [N,H]_- \ket{n,s,l} = 
+  (n^{\prime} - n) \bra{n^{\prime},s^{\prime},l^{\prime}} H \ket{n,s,l}
   \stackrel{!}{=} 0 \\
-  \bra{n^{\prime},s^{\prime},l^{\prime}} [\hat{S},\hat{H}]_- \ket{n,s,l} = 
-  (s^{\prime} - s) \bra{n^{\prime},s^{\prime},l^{\prime}} \hat{H} \ket{n,s,l}
+  \bra{n^{\prime},s^{\prime},l^{\prime}} [S^z,H]_- \ket{n,s,l} = 
+  (s^{\prime} - s) \bra{n^{\prime},s^{\prime},l^{\prime}} H \ket{n,s,l}
   \stackrel{!}{=} 0
 \end{split}
 \end{equation}
@@ -694,7 +694,7 @@ then we have
 and therefore
 %
 \begin{equation}
-  \bra{n^{\prime},s^{\prime},l^{\prime}} \hat{H} \ket{n,s,l} = 0 \qquad
+  \bra{n^{\prime},s^{\prime},l^{\prime}} H \ket{n,s,l} = 0 \qquad
   \textrm{for } n \ne n^{\prime} \textrm{ or } s \ne s^{\prime} \, .
 \end{equation}
 %

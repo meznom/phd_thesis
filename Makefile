@@ -3,6 +3,7 @@ all:
 	cd tex; \
 	pdflatex phd_thesis.tex; \
 	bibtex phd_thesis; \
+	makeglossaries phd_thesis; \
 	pdflatex phd_thesis.tex; \
 	pdflatex phd_thesis.tex; \
 	cd ..; \

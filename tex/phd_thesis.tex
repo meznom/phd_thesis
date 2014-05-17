@@ -15,6 +15,8 @@
 %\pagestyle{empty}
 % hyperref should always be the last included package
 \usepackage{hyperref}
+% glossaries comes after hyperref
+\usepackage[nopostdot,nonumberlist,nogroupskip]{glossaries}
 
 % http://kb.mit.edu/confluence/pages/viewpage.action?pageId=3907057
 % ``LaTeX's margins are, by default, 1.5 inches wide on 12pt documents, 1.75
@@ -29,6 +31,7 @@
 % Coloured links
 \pdfoutput=1
 \definecolor{LinkColor}{rgb}{0.256,0.439,0.588}
+\definecolor{GlossaryLink}{rgb}{0,0,0}
 \hypersetup{
    pdfauthor={Burkhard Ritter},
    pdftitle={Characterizing Quantum-Dot Cellular Automata},
@@ -38,6 +41,10 @@
    urlcolor=LinkColor
 }
 
+% medium weight instead of bold fonts in the glossary
+\renewcommand*{\glsnamefont}[1]{\textmd{#1}}
+\makeglossaries
+
 \begin{document}
 
 \onehalfspacing
@@ -45,9 +52,17 @@
 
 \graphicspath{}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % custom tex commands
 \newcommand{\ket}[1]{\left|#1\right>}
 \newcommand{\bra}[1]{\left<#1\right|}
+
+% Different colours for glossary links --- basically redefine all glossary
+% commands. Is there a better way to do this?
+\newcommand{\cgls}[1]{\hypersetup{linkcolor=GlossaryLink}\gls{#1}\hypersetup{linkcolor=LinkColor}}
+\newcommand{\cglspl}[1]{\hypersetup{linkcolor=GlossaryLink}\glspl{#1}\hypersetup{linkcolor=LinkColor}}
+\newcommand{\cGls}[1]{\hypersetup{linkcolor=GlossaryLink}\Gls{#1}\hypersetup{linkcolor=LinkColor}}
+\newcommand{\cGlspl}[1]{\hypersetup{linkcolor=GlossaryLink}\Glspl{#1}\hypersetup{linkcolor=LinkColor}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frontmatter
@@ -59,6 +74,10 @@
 \tableofcontents
 \listoftables
 \listoffigures
+\printglossary[title=Acronyms]
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \mainmatter

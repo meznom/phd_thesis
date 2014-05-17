@@ -8,4 +8,8 @@ phd_thesis.out
 phd_thesis.toc
 phd_thesis.lof
 phd_thesis.lot
+phd_thesis.glg
+phd_thesis.glo
+phd_thesis.gls
+phd_thesis.ist
 .ipynb_checkpoints/

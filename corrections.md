@@ -22,7 +22,8 @@ Corrections to version 1.0.0.
       should be
       "cannot retain logic states" 
       (really?)
-    * (?)
+      --- clarified: sentence is missing something; probably should be "a logic
+      state"
 * List of symbols, glossary of acronyms (major)
 * page 2: "But advances in fabrication technology, ..." --- needs reference
 * page 7: It is not clear what reference 42 exactly refers to; it should be made
@@ -38,6 +39,8 @@ Corrections to version 1.0.0.
       exhaustively" --- reference missing
     * Mark: There is actually a parallel in nanomagnetism, so I'm curious to
       learn omre about this.
+    * Clarified: I should put in references, presumably referencing all the
+      static characterization work that has been done
 * page 28:
     * on the section / the example that ICHA gives wrong result in infinitely
       long wire, Mark: May not have the same problem at finite wire however?

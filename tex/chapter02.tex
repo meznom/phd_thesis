@@ -5,29 +5,29 @@
 \section{Fixed charge model}
 
 Exact diagonalization scales exponentially with system size. With the full
-\emph{grand canonical} QCA Hamiltonian \eqref{eq:H_QCA}, only devices of up to
-two cells are computationally feasible. Therefore, we need to introduce
+\emph{grand canonical} \cgls{QCA} Hamiltonian \eqref{eq:H_QCA}, only devices of
+up to two cells are computationally feasible. Therefore, we need to introduce
 approximations to access larger systems. Approximating means to simplify.
 However, by carefully establishing successive approximations and their limits,
 we also reduce the problem to its essential ingredients and thus, hopefully, we
-gain a better understanding of the QCA approach. As a first step, we reduce the
-Hilbert space to states with a fixed number of particles per cell. We disallow
-any charge fluctuations, both for the system as a whole and for each individual
-cell. With that, we omit the chemical potential term in the Hamiltonian, $\mu =
-0$, and prohibit inter-cell hopping. This is a major simplification. However, it
-is in line with the QCA idea: the approach requires a fixed number of charges
-per cell, typically two electrons, and cells are thought to interact only via
-Coulomb forces. If the \emph{fixed-charge} approximation is not valid for a
-given system, then there is no hope of implementing QCA on it. For experimental
-systems like the atomic silicon quantum dots, it should always be possible, at
-least in principle, to tune the system parameters so that for a given cell
-layout each cell is occupied by the same number of electrons. The
-two-electrons-per-cell sector has to be lowest in energy and other particle
-number sectors need to be sufficiently gapped out, that is, at an energy much
-larger than temperature. Of course, in practice there are very clear limits as
-to how much the system parameters can be tuned. Any QCA cell layout considered
-within the fixed-charge approximation cannot necessarily be readily implemented
-on a given real-world material system.
+gain a better understanding of the \cgls{QCA} approach. As a first step, we
+reduce the Hilbert space to states with a fixed number of particles per cell. We
+disallow any charge fluctuations, both for the system as a whole and for each
+individual cell. With that, we omit the chemical potential term in the
+Hamiltonian, $\mu = 0$, and prohibit inter-cell hopping. This is a major
+simplification. However, it is in line with the \cgls{QCA} idea: the approach
+requires a fixed number of charges per cell, typically two electrons, and cells
+are thought to interact only via Coulomb forces. If the \emph{fixed-charge}
+approximation is not valid for a given system, then there is no hope of
+implementing \cgls{QCA} on it. For experimental systems like the atomic silicon
+quantum dots, it should always be possible, at least in principle, to tune the
+system parameters so that for a given cell layout each cell is occupied by the
+same number of electrons. The two-electrons-per-cell sector has to be lowest in
+energy and other particle number sectors need to be sufficiently gapped out,
+that is, at an energy much larger than temperature. Of course, in practice there
+are very clear limits as to how much the system parameters can be tuned. Any
+\cgls{QCA} cell layout considered within the fixed-charge approximation cannot
+necessarily be readily implemented on a given real-world material system.
 
 For the fixed-charge model, the state space scales as $N_s = \binom{8}{2}^{N_c}
 = 28^{N_c}$ ($N_c$ is the number of cells). Using symmetries, the largest block
@@ -46,17 +46,17 @@ long and therefore three-cell systems are the practical limit.
   \caption
   [The six bonds of a QCA cell]
   {
-  The six bonds of a QCA cell. The basis of a QCA cell in the fixed-charge
-  picture consists of six bonds and four doubly occupied dots. Each bond
-  corresponds to one spin singlet and three spin triplet states. The bond model
-  neglects doubly occupied states and keeps only one state per bond for a total
-  of six states per cell. From those, the Ising approximation only retains
+  The six bonds of a \cgls{QCA} cell. The basis of a \cgls{QCA} cell in the
+  fixed-charge picture consists of six bonds and four doubly occupied dots. Each
+  bond corresponds to one spin singlet and three spin triplet states. The bond
+  model neglects doubly occupied states and keeps only one state per bond for a
+  total of six states per cell. From those, the Ising approximation only retains
   the two lowest energy states, $\ket{1}$ and $\ket{2}$ with energy $V_0$.
   }
   \label{fig:bond}
 \end{figure}
 %
-At its heart, QCA is a semi-classical idea. It relies dominantly on
+At its heart, \cgls{QCA} is a semi-classical idea. It relies dominantly on
 charge-charge interactions and ignores the particle spin. Therefore, as a next
 step in our quest to access larger system sizes, we neglect the spin degrees of
 freedom. The 28 states of each cell in the fixed-charge model can be reorganized
@@ -66,13 +66,13 @@ triplet states. The \emph{bond} approximation only keeps one state for each bond
 and discards the doubly occupied states as well. With the bond model, we thus
 assume that singlet and triplet states are energetically equivalent and that
 doubly occupied dots are sufficiently gapped out, that is, $U \gg T$. Because
-the operation of QCA does not rely on the spin, singlets and triplets should
-behave qualitatively the same---for example, they should yield the same cell
-polarizations. However, we can speculate that virtual double-occupancy lowers
-the energies of the singlet states and therefore introduces a small
+the operation of \cgls{QCA} does not rely on the spin, singlets and triplets
+should behave qualitatively the same---for example, they should yield the same
+cell polarizations. However, we can speculate that virtual double-occupancy
+lowers the energies of the singlet states and therefore introduces a small
 singlet-triplet splitting. Neglecting this small splitting presumably does not
 introduce a large error, but we will have to verify this assumption and look at
-the splitting in more detail in due course. For the bond model the QCA
+the splitting in more detail in due course. For the bond model the \cgls{QCA}
 Hamiltonian reduces to
 %
 \begin{equation}
@@ -90,6 +90,8 @@ additional symmetries that can be exploited.
 
 \section{Ising model}
 
+\newacronym{SSE}{SSE}{stochastic series expansion}
+
 %
 \begin{figure}
   \center
@@ -98,34 +100,41 @@ additional symmetries that can be exploited.
   [Mapping QCA to an Ising-like model]
   {
   (a) The Ising approximation identifies each cell with a pseudo spin. Logic 0
-  corresponds to spin down and logic 1 to spin up. (b) QCA cells $k$ and $l$. 
+  corresponds to spin down and logic 1 to spin up. (b) \cgls{QCA} cells $k$ and
+  $l$. 
   }
   \label{fig:ising}
 \end{figure}
 %
-A linear array of QCA cells where each cell has a state of logic 0 or 1 is
-reminiscent of a 1D spin-half chain. Indeed, if we reduce the basis to
-only two states per cell, down from six states in the bond picture, we can map
-the QCA system to a transverse-field Ising model with long-ranged interactions.
-This is an attractive proposition: the smaller Hilbert space allows for larger
-system sizes with our exact diagonalization method; more importantly, the
-transverse-field Ising model is amenable to sign-problem-free Stochastic series
-expansion (SSE) quantum Monte Carlo schemes \cite{Sandvik2003}. These methods do
-not scale exponentially\footnote{SSE quantum Monte Carlo methods roughly scale
-as $N \ln N$ where $N$ is the system size.} and consequently allow access to
-much larger systems. Last, but not least, such a mapping connects the QCA
-approach to the established and well studied Ising model. The prospect hinges on
-the assumption that the two-states-per-cell basis actually is a good
-approximation for QCA systems. And while bistable two-state cells are certainly
-the picture we have in mind when we talk about QCA, it is not \emph{a priori}
-clear whether this is a correct physical picture. The transverse-field Ising
-model is equivalent to the two-states-per-cell approximation that has been used
-extensively, but was never satisfyingly derived, in the literature to study the
-dynamics of QCA systems.
+A linear array of \cgls{QCA} cells where each cell has a state of logic 0 or 1
+is reminiscent of a 1D spin-half chain. Indeed, if we reduce the basis to only
+two states per cell, down from six states in the bond picture, we can map the
+\cgls{QCA} system to a transverse-field Ising model with long-ranged
+interactions. This is an attractive proposition: the smaller Hilbert space
+allows for larger system sizes with our exact diagonalization method; more
+importantly, the transverse-field Ising model is amenable to sign-problem-free
+\cgls{SSE} quantum Monte Carlo schemes \cite{Sandvik2003}. These methods do not
+scale exponentially%
+%
+\footnote{
+\cgls{SSE} quantum Monte Carlo methods roughly scale as $N \ln N$ where $N$ is
+the system size.
+}
+%
+and consequently allow access to much larger systems. Last, but not least, such
+a mapping connects the \cgls{QCA} approach to the established and well studied
+Ising model. The prospect hinges on the assumption that the two-states-per-cell
+basis actually is a good approximation for \cgls{QCA} systems. And while
+bistable two-state cells are certainly the picture we have in mind when we talk
+about \cgls{QCA}, it is not \emph{a priori} clear whether this is a correct
+physical picture. The transverse-field Ising model is equivalent to the
+two-states-per-cell approximation that has been used extensively, but was never
+satisfyingly derived, in the literature to study the dynamics of \cgls{QCA}
+systems.
 
-We use the bond Hamiltonian \eqref{eq:H_bond} as the starting point. We
-had already discussed in the last chapter that such a Hamiltonian can be
-decomposed into single-cell terms and cell-cell interaction terms,
+We use the bond Hamiltonian \eqref{eq:H_bond} as the starting point. We had
+already discussed in the last chapter that such a Hamiltonian can be decomposed
+into single-cell terms and cell-cell interaction terms,
 \begin{equation}
   H = \sum_k H^c_k + \sum_{k<l} H^{cc}_{kl} \, .
 \end{equation}
@@ -139,10 +148,10 @@ Thus, we would like to map the single cell term $H^c_k$ to the transverse-field
 term $-\gamma S^x_k$ and the Coulombic cell-cell interaction $H^{cc}_{kl}$ to
 the Ising term $J_{kl} S^z_k S^z_l$. Each cell $k$ is identified with a pseudo
 spin $S^z_k$, specifically logic 0 with spin down and logic 1 with spin up, as
-illustrated in Fig.~\ref{fig:ising}(a). We will first look at how the QCA cell
-can be represented by only two basis states and derive an approximate expression
-for the transverse field $\gamma$. Then we will use a multipole expansion to
-derive $J_{kl}$ from the cell-cell Coulomb interaction.
+illustrated in Fig.~\ref{fig:ising}(a). We will first look at how the \cgls{QCA}
+cell can be represented by only two basis states and derive an approximate
+expression for the transverse field $\gamma$. Then we will use a multipole
+expansion to derive $J_{kl}$ from the cell-cell Coulomb interaction.
 
 To arrive at a single-cell-basis with only two states we can, in principle,
 follow a similar prescription as for the fixed-charge and bond approximations:
@@ -159,30 +168,30 @@ low-energy subspace. For the high-energy states to be sufficiently gapped out,
 we require $\Delta V = V_1 - V_0 \gg T$. In contrast to the fixed-charge and
 bond model, merely truncating the Hilbert space is not sufficient for the Ising
 model. For our previous two approximations, the Hamiltonian had remained
-essentially unchanged, apart from dropping terms that were no longer relevant, such as the
-chemical potential term or the Hubbard $U$ term. The states retained were
-exactly the same states as in the full, untruncated model. But with only two
-states per cell the existing Hamiltonian \eqref{eq:H_bond} does not ``work'':
-there is no process that takes the cell from $\ket{1}$ to $\ket{2}$, and the
-system would be stuck in either of the two spin states eternally. In the bond
-picture, in comparison, for the system to transition from state $\ket{1}$ to
-$\ket{2}$ it can take different paths, for example $\ket{1} \rightarrow \ket{3}
-\rightarrow \ket{2}$, consisting of two hopping processes with an interim
-high-energy edge state. We need to derive an effective, low-energy Hamiltonian
-from the bond model that treats those processes perturbatively, as
+essentially unchanged, apart from dropping terms that were no longer relevant,
+such as the chemical potential term or the Hubbard $U$ term. The states retained
+were exactly the same states as in the full, untruncated model. But with only
+two states per cell the existing Hamiltonian \eqref{eq:H_bond} does not
+``work'': there is no process that takes the cell from $\ket{1}$ to $\ket{2}$,
+and the system would be stuck in either of the two spin states eternally. In the
+bond picture, in comparison, for the system to transition from state $\ket{1}$
+to $\ket{2}$ it can take different paths, for example $\ket{1} \rightarrow
+\ket{3} \rightarrow \ket{2}$, consisting of two hopping processes with an
+interim high-energy edge state. We need to derive an effective, low-energy
+Hamiltonian from the bond model that treats those processes perturbatively, as
 \emph{virtual} excitations, yielding an effective hopping term for the
 transition $\ket{1} \leftrightarrow \ket{2}$. This effective hopping is
 precisely the transverse field $\gamma$ which flips the spin in the Ising
 picture.
 
-A single QCA cell is described by the time-independent Schr\"odinger equation
-$H^c_k \ket{\psi} = E_k \ket{\psi}$, with $\ket{\psi} = \left[ \ket{\psi_P}
-\ket{\psi_Q} \right]$. Our aim it to truncate the basis to $\ket{\psi_P}$ and
-derive an effective Hamiltonian $\tilde{H}^c_k$ with the subspace
-Schr\"odinger equation $\tilde{H}^c_k \ket{\psi_p} = E_k \ket{\psi_p}$. Using
-the basis depicted in Fig.~\ref{fig:bond}, the single-cell bond Hamiltonian is
-very simple and can be written down explicitly. As the single-cell Hamiltonian
-is the same for all cells, we can drop the index $k$.
+A single \cgls{QCA} cell is described by the time-independent Schr\"odinger
+equation $H^c_k \ket{\psi} = E_k \ket{\psi}$, with $\ket{\psi} = \left[
+\ket{\psi_P} \ket{\psi_Q} \right]$. Our aim it to truncate the basis to
+$\ket{\psi_P}$ and derive an effective Hamiltonian $\tilde{H}^c_k$ with the
+subspace Schr\"odinger equation $\tilde{H}^c_k \ket{\psi_p} = E_k \ket{\psi_p}$.
+Using the basis depicted in Fig.~\ref{fig:bond}, the single-cell bond
+Hamiltonian is very simple and can be written down explicitly. As the
+single-cell Hamiltonian is the same for all cells, we can drop the index $k$.
 %
 \begin{equation}
 \begin{split}
@@ -330,18 +339,18 @@ cells, then the effective Hamiltonian would be much more involved and certainly
 could not be mapped to an Ising-like model.
 
 We have successfully derived an effective hopping term and therefore also an
-effective two-state model for the QCA Hamiltonian. With only two states per cell
-the Hilbert space scales as $N_s = 2^{N_c}$ ($N_c$ the number of cells) and up
-to 14 cells are computationally feasible, with memory requirements of 2GB. In
-practice, we restrict the calculations to a maximum of 12 cells. For our
+effective two-state model for the \cgls{QCA} Hamiltonian. With only two states
+per cell the Hilbert space scales as $N_s = 2^{N_c}$ ($N_c$ the number of cells)
+and up to 14 cells are computationally feasible, with memory requirements of
+2GB. In practice, we restrict the calculations to a maximum of 12 cells. For our
 calculations, we can use the two-state approximation with the effective hopping
 term but still retain the original cell-cell interaction term $H^{cc}_{kl}$.
 From a computational point of view, nothing is gained by expressing the
 cell-cell interaction as an Ising interaction. However, deriving $J_{kl}$ from
 $H^{cc}_{kl}$ is very rewarding conceptually and will already allow some key
-insights into the characteristics of QCA devices. Therefore, we now undertake
-the derivation of an expression for $J_{kl}$. The obvious starting point is the
-cell-cell interaction term $H^{cc}_{kl}$, 
+insights into the characteristics of \cgls{QCA} devices. Therefore, we now
+undertake the derivation of an expression for $J_{kl}$. The obvious starting
+point is the cell-cell interaction term $H^{cc}_{kl}$, 
 %
 \begin{equation}
 \begin{split}
@@ -475,15 +484,15 @@ E^{\downarrow\downarrow} = \tilde{E}^{\downarrow\downarrow}$, and so on,
   \left( V_{24} - V_{13} \right) \, .
 \end{align}
 These results, while abstract, are remarkable in two ways. First, the newly
-introduced term $J^{\prime}_{kl}$ vanishes for $q=\frac{1}{2}$. In that special case,
-$E^{\uparrow\uparrow} = E^{\downarrow\downarrow}$. Thus, only for charge neutral
-cells do we recover the genuine, unmodified transverse-field Ising model. Second,
-the Ising $J_{kl}$ itself is independent of the compensation charge $q$. We
-will see that $J_{kl}$ is the quadrupole-quadrupole cell-cell interaction, to
-leading order. Thus, it is fair to say that $J_{kl}$ is the pure QCA
-interaction. With the above equations we can also already look at rotational
-symmetries of $J_{kl}$ and $J^{\prime}_{kl}$: $J_{kl}$ is invariant under
-rotations by $90^{\circ}$ as can be seen by permuting the dots $1,2,3,4
+introduced term $J^{\prime}_{kl}$ vanishes for $q=\frac{1}{2}$. In that special
+case, $E^{\uparrow\uparrow} = E^{\downarrow\downarrow}$. Thus, only for charge
+neutral cells do we recover the genuine, unmodified transverse-field Ising
+model. Second, the Ising $J_{kl}$ itself is independent of the compensation
+charge $q$. We will see that $J_{kl}$ is the quadrupole-quadrupole cell-cell
+interaction, to leading order. Thus, it is fair to say that $J_{kl}$ is the pure
+\cgls{QCA} interaction. With the above equations we can also already look at
+rotational symmetries of $J_{kl}$ and $J^{\prime}_{kl}$: $J_{kl}$ is invariant
+under rotations by $90^{\circ}$ as can be seen by permuting the dots $1,2,3,4
 \rightarrow 4,1,2,3$. This is what we expect intuitively. For example, a
 horizontal straight line of cells ($\theta = 0^{\circ}$) should behave exactly
 the same as a vertical straight line of cells ($\theta = 90^{\circ}$). In
@@ -493,13 +502,13 @@ fact, applying the same dot permutation yields $J^{\prime}_{kl}
 $J^{\prime}_{kl}$ is symmetric under rotations by $180^{\circ}$. It is also
 clear that a non-zero $J^{\prime}_{kl}$ breaks the system's symmetry under spin
 inversion---$\tilde{H}^{cc}_{kl}$ is not unchanged for $\uparrow\uparrow \,
-\rightarrow \, \downarrow\downarrow$. This has profound implications for QCA.
-For non-zero $J^{\prime}_{kl}$ we would, for example, expect different
-polarization responses for two spin-down cells versus two spin-up cells, and as
-a consequence the device would behave differently for logic 0 and logic 1
-signals. From an application point of view, this is definitely not what we want.
-For QCA operation we therefore require charge neutral cells and a genuine,
-unmodified Ising model.
+\rightarrow \, \downarrow\downarrow$. This has profound implications for
+\cgls{QCA}. For non-zero $J^{\prime}_{kl}$ we would, for example, expect
+different polarization responses for two spin-down cells versus two spin-up
+cells, and as a consequence the device would behave differently for logic 0 and
+logic 1 signals. From an application point of view, this is definitely not what
+we want. For \cgls{QCA} operation we therefore require charge neutral cells and
+a genuine, unmodified Ising model.
 
 To obtain more tangible expressions for $J_{kl}$ and $J^{\prime}_{kl}$ we
 perform a multipole expansion of the $V_{ij}$ terms. Specifically,
@@ -550,9 +559,9 @@ The leading order term of $J_{kl}$ is $R^{-5}$, the quadrupole-quadrupole
 interaction. In contrast, the leading order term of $J^{\prime}_{kl}$ is
 $R^{-3}$ and therefore, in general, $J^{\prime}_{kl}$ would be the dominant
 term---yet another argument why a non-zero $J^{\prime}_{kl}$ is highly
-undesirable for functioning QCA devices. Of course, we find our general symmetry
-observations confirmed by these more concrete expressions for $J_{kl}$ and
-$J^{\prime}_{kl}$: the former is invariant under $90^{\circ}$ rotations, the
+undesirable for functioning \cgls{QCA} devices. Of course, we find our general
+symmetry observations confirmed by these more concrete expressions for $J_{kl}$
+and $J^{\prime}_{kl}$: the former is invariant under $90^{\circ}$ rotations, the
 latter only under rotations of $180^{\circ}$. Both terms vanish at select
 angles. For example, we have $J^{\prime}_{kl} = 0$ for $\theta = 0^{\circ}$, so
 that at least for an exactly straight line of cells we recover the unmodified
@@ -569,8 +578,8 @@ exactly. We will see in due course that for the small cell-cell distances that
 we are typically interested in, an expansion up to $R^{-5}$ is indeed not
 sufficient, and higher order terms would have to be included.
 
-In summary, we have successfully mapped the QCA bond
-Hamiltonian \eqref{eq:H_bond} to a modified transverse-field Ising model,
+In summary, we have successfully mapped the \cgls{QCA} bond Hamiltonian
+\eqref{eq:H_bond} to a modified transverse-field Ising model,
 \begin{equation}
   \label{eq:H_Ising}
   %
@@ -593,11 +602,11 @@ where $J_{kl}$ and $J^{\prime}_{kl}$ are given by Eqs.~\eqref{eq:J_} and
 \label{sec:validity_of_the_approximations}
 
 In the last three sections we have introduced three successive approximations
-for the QCA Hamiltonian: the fixed-charge model, the bond model, and the Ising
-model. However, even though we know the extreme theoretical limits in which
-those approximations become exact, we have given little thought to the practical
-bounds of applicability. Numerical benchmarks will help us establish the
-parameter regimes where we can use the approximations and get sufficiently
+for the \cgls{QCA} Hamiltonian: the fixed-charge model, the bond model, and the
+Ising model. However, even though we know the extreme theoretical limits in
+which those approximations become exact, we have given little thought to the
+practical bounds of applicability. Numerical benchmarks will help us establish
+the parameter regimes where we can use the approximations and get sufficiently
 accurate results, and also give us a better understanding of how the
 approximations behave in those parameter ranges.
 
@@ -608,10 +617,10 @@ approximations behave in those parameter ranges.
   [The fixed-charge approximation]
   {
   (a) Low-energy density of states of the exact grand canonical and the
-  approximative fixed-charge two-cell QCA system. For small energies the curves
-  agree perfectly (up to $E \lesssim 35$). (b) Particle number per cell over
-  temperature for the same two-cell system. The curves diverge for $T \gtrsim
-  10$.
+  approximative fixed-charge two-cell \cgls{QCA} system. For small energies the
+  curves agree perfectly (up to $E \lesssim 35$). (b) Particle number per cell
+  over temperature for the same two-cell system. The curves diverge for $T
+  \gtrsim 10$.
   }
   \label{fig:fixed_charge_approximation}
   % parameters: V_1 = 100, boa = 2, U = 1000, mu = 250, 2 cells, q = 0
@@ -622,7 +631,7 @@ approximations behave in those parameter ranges.
   \caption
   [The bond approximation for a one-cell system]
   {
-  (a) Low-energy density of states of a one-cell QCA system for both the
+  (a) Low-energy density of states of a one-cell \cgls{QCA} system for both the
   fixed-charge and the bond model. The bond approximation only reproduces the
   triplet states, but omits the singlet states. The ``measurement'' temperature
   is indicated. (b) The same spectrum, but ``measured'' at a higher temperature.
@@ -654,41 +663,42 @@ particles over the whole temperature range, the grand canonical system's cell
 occupancies start to diverge from two electron per cell at around $T \sim 10$.
 This roughly corresponds to the energy states the fixed-charge model misses at
 $E \gtrsim 35$. A small deviation from exactly two electrons per cell is not
-detrimental to QCA; a cell occupied by only one or by three electrons, however,
-renders QCA non-functional. We often use the fixed-charge model as the starting
-point and assume, without further investigation, that a practical QCA
-implementation can be tuned to be in the right charge regime at a given
-temperature.
+detrimental to \cgls{QCA}; a cell occupied by only one or by three electrons,
+however, renders \cgls{QCA} non-functional. We often use the fixed-charge model
+as the starting point and assume, without further investigation, that a
+practical \cgls{QCA} implementation can be tuned to be in the right charge
+regime at a given temperature.
 
 The bond model neglects doubly occupied states and represents the four states of
 a bond---one singlet and three triplets---with only one single bond state. The
 model thus assumes that singlet and triplet states are energetically equivalent,
 but we had already asserted that we might expect a small singlet-triplet
-splitting. Figure~\ref{fig:bond_approximation1}(a) shows the density of states of
-a single QCA cell for both the fixed-charge and the bond model. The hopping is
-again $t=1$, the nearest-neighbour Coulomb energy is $V_1 = 20$, and the on-site
-Coulomb repulsion is $U = 10^6$---practically at infinity. A driver cell placed
-at a distance $d/a = 3$ to the left of the single cell serves as an input. We have
-chosen the driver cell's polarization to be $P_D = 1$. Indeed, each bond state
-corresponds to three fixed-charge states---the triplet---and one ``close-by''
-state---the singlet. They are not energetically equivalent, but split by a small
-energy gap, $\Delta E_S$, the singlet-triplet splitting. Like the fixed-charge
-model, the bond approximation truncates the Hilbert space and the retained
-states are exact. Evidently, the bond model keeps one triplet state, but
-discards the other two and the singlet. We speculate that, similar to the
-antiferromagnetic Heisenberg coupling constant $J$ emerging in the low-energy
-limit of the Hubbard model (with $J \sim \frac{t^2}{U}$) \cite{Auerbach}, here,
-virtual excitations to high-energy doubly occupied states lower the energy of
-the singlet state and make it the ground state. Because the bond model misses
-those doubly occupied states, it cannot accommodate singlet states and hence
-reproduces the triplet states. Consequently, we cannot hope that the bond model
-is correct for ground state and low-temperature properties. We assert that as
-long as the singlet-triplet splitting is ``washed out'', that is, as long as the
-temperature is much larger than the singlet-triplet gap, $T \gg \Delta E_S$, the
-approximation should give good results. At high enough temperatures, the system
-no longer ``sees'' the difference between the singlet and the triplet states.
-This is illustrated in Fig.~\ref{fig:bond_approximation1}(b) where the spectrum
-is ``measured'' at a higher temperature:%
+splitting. Figure~\ref{fig:bond_approximation1}(a) shows the density of states
+of a single \cgls{QCA} cell for both the fixed-charge and the bond model. The
+hopping is again $t=1$, the nearest-neighbour Coulomb energy is $V_1 = 20$, and
+the on-site Coulomb repulsion is $U = 10^6$---practically at infinity. A driver
+cell placed at a distance $d/a = 3$ to the left of the single cell serves as an
+input. We have chosen the driver cell's polarization to be $P_D = 1$. Indeed,
+each bond state corresponds to three fixed-charge states---the triplet---and one
+``close-by'' state---the singlet. They are not energetically equivalent, but
+split by a small energy gap, $\Delta E_S$, the singlet-triplet splitting. Like
+the fixed-charge model, the bond approximation truncates the Hilbert space and
+the retained states are exact. Evidently, the bond model keeps one triplet
+state, but discards the other two and the singlet. We speculate that, similar to
+the antiferromagnetic Heisenberg coupling constant $J$ emerging in the
+low-energy limit of the Hubbard model (with $J \sim \frac{t^2}{U}$)
+\cite{Auerbach}, here, virtual excitations to high-energy doubly occupied states
+lower the energy of the singlet state and make it the ground state. Because the
+bond model misses those doubly occupied states, it cannot accommodate singlet
+states and hence reproduces the triplet states. Consequently, we cannot hope
+that the bond model is correct for ground state and low-temperature properties.
+We assert that as long as the singlet-triplet splitting is ``washed out'', that
+is, as long as the temperature is much larger than the singlet-triplet gap, $T
+\gg \Delta E_S$, the approximation should give good results. At high enough
+temperatures, the system no longer ``sees'' the difference between the singlet
+and the triplet states. This is illustrated in
+Fig.~\ref{fig:bond_approximation1}(b) where the spectrum is ``measured'' at a
+higher temperature:%
 %
 \footnote{
 We calculate the density of states graphs by folding the energy
@@ -696,7 +706,7 @@ eigenvalues of the system---a delta function energy spectrum---with a Lorentzian
 with the half-width at half-maximum set by a ``measurement'' temperature. Very
 roughly speaking, this corresponds to a photoemission / inverse photoemission
 spectroscopy experiment at this temperature.
-}%
+}
 %
 the singlet and triplets are no longer resolved separately. Instead, each bond
 state corresponds to four fixed-charge states at roughly the same energy.
@@ -796,8 +806,8 @@ polarizations up to much higher temperatures. For any conventional material, a
 Coulomb energy scale such as we have chosen here, $V_1/t \ge 20$, where we have,
 of course, $U/t \gg V_1/t$, seems like an extremely large value. However, we
 will find that such Coulomb energies are generally in agreement with what the
-QCA approach itself requires, and we will discuss this in detail in the next
-chapter.
+\cgls{QCA} approach itself requires, and we will discuss this in detail in the
+next chapter.
 
 The polarization of the fixed-charge model shows a curious bump at low
 temperatures, for example in Fig.~\ref{fig:bond_approximation2}(b), and
@@ -836,7 +846,7 @@ larger polarization of the bond model's ground state.
   [The Ising approximation for a one-cell system]
   {
   Comparing the fixed-charge, bond, and Ising model for the one-cell
-  charge-neutral QCA system. (a) Low-energy density of states. The Ising model
+  charge-neutral \cgls{QCA} system. (a) Low-energy density of states. The Ising model
   reproduces the singlet and not the triplet states, as the bond model does. (b)
   Cell polarization over temperature. At larger temperatures $T \gtrsim 0.3$ all
   three models seem to agree. At $T = 0$ the bond model is wrongly fully
@@ -866,9 +876,9 @@ can also not hope to capture non-charge-neutral systems correctly. It simply
 lacks the edge states that are the manifestation of charge buildup, as discussed
 in the example of the one-cell bond system above. We had seen in the derivation
 of the Ising model that non-charge-neutral cells are very problematic for the
-QCA approach in general. Consequently, we will concentrate on charge-neutral
-systems with a compensation charge $q = \frac{1}{2}$ for the remainder of the
-chapter.
+\cgls{QCA} approach in general. Consequently, we will concentrate on
+charge-neutral systems with a compensation charge $q = \frac{1}{2}$ for the
+remainder of the chapter.
 
 To understand how the Ising approximation behaves, we again start by looking at
 the density of states of a one-cell system, shown in
@@ -943,15 +953,15 @@ polarizations, resulting in less polarized cells.
   [The Ising approximation for a two-cell system]
   {
   Comparing the fixed-charge, bond, and Ising model for the two-cell
-  charge-neutral QCA system at $V_1 = 100$ and $V_1 = 200$. (a)(c) Low-energy
-  density of states. The Ising model's spectrum is qualitatively quite wrong,
-  although it is in better agreement with the bond model's spectrum for larger
-  $V_1$. (b)(d) Relative error of the output polarization of the bond and Ising
-  model, with respect to the fixed-charge model. The bond model's error is small
-  over a large range of temperatures. At $T \sim U \sim 1000$ the neglected
-  doubly occupied states become noticeable. The Ising model's error is small
-  only over a relatively narrow temperature range. Its ground state no longer
-  agrees with the fixed-charge model's ground state.
+  charge-neutral \cgls{QCA} system at $V_1 = 100$ and $V_1 = 200$. (a)(c)
+  Low-energy density of states. The Ising model's spectrum is qualitatively
+  quite wrong, although it is in better agreement with the bond model's spectrum
+  for larger $V_1$. (b)(d) Relative error of the output polarization of the bond
+  and Ising model, with respect to the fixed-charge model. The bond model's
+  error is small over a large range of temperatures. At $T \sim U \sim 1000$ the
+  neglected doubly occupied states become noticeable. The Ising model's error is
+  small only over a relatively narrow temperature range. Its ground state no
+  longer agrees with the fixed-charge model's ground state.
   }
   \label{fig:ising_approximation2}
   % parameters: V1 = 100, 200, boa = 3, P_D = 0.1, q = 0.5, U=1E3
@@ -993,7 +1003,7 @@ spot, a very narrow window around $T \sim 1$. For $V_1 = 200$ the situation is
 much better, the error is close to zero in the temperature range $T =
 T_{\textrm{min}} \ldots T_{\textrm{max}} \sim 0.8 \ldots 8$. This temperature
 range only very weakly depends on the cell-cell distance $d/a$ or the driver
-polarization $P_D$. It is dominantly set by $V_1$.  Roughly speaking, the lower
+polarization $P_D$. It is dominantly set by $V_1$. Roughly speaking, the lower
 temperature limit $T_{\textrm{min}}$ is set by the singlet-triplet splitting,
 which becomes smaller with increasing $V_1$, and the upper temperature limit
 $T_{\textrm{max}}$ is set by $\Delta V$ which is, of course, directly
@@ -1050,10 +1060,11 @@ decreases along the wire and we can expect this decrease to counter the
 generally growing error for longer and longer wires, at least as long as we are
 mainly interested in the output polarization of the wire. However, this trend is
 not true generally, and for differently chosen system parameters the error may
-also remain constant along the wire. Still, for this particular QCA structure
-and for the chosen system parameters, we are relatively confident that the error
-of the output polarization, while not well controlled, will not grow very large
-for systems accessible with the Ising approximation---up two twelve QCA cells. 
+also remain constant along the wire. Still, for this particular \cgls{QCA}
+structure and for the chosen system parameters, we are relatively confident that
+the error of the output polarization, while not well controlled, will not grow
+very large for systems accessible with the Ising approximation---up two twelve
+\cgls{QCA} cells. 
 %
 \begin{figure}
   \center
@@ -1074,29 +1085,30 @@ for systems accessible with the Ising approximation---up two twelve QCA cells.
 \end{figure}
 %
 
-In this chapter we introduced and established three approximations for QCA
-systems: the fixed-charge, the bond, and the Ising model. We usually use the
-fixed-charge model as the starting point, without further explicit verification.
-In principle, whether the fixed-charge approximation holds for a chosen set of
-parameters, has to be checked for each potential QCA implementation on a case by
-case basis. If the fixed-charge model is not applicable, then there is also
-generally no hope of implementing QCA on the given experimental system. We
-generally assume doubly occupied states to be sufficiently gapped out and put
-$U$ at infinity. The bond approximation is then a very good description of QCA
-systems at high temperatures. It starts breaking down when the temperature
-becomes comparable to the singlet-triplet splitting, and therefore for small
-$V_1$ and too large cell-cell distances. While it is conceptually rewarding to
-map QCA to an Ising system, we have seen the Ising approximation to be difficult
-to handle for practical calculations. It is only valid in a relatively small
-parameter window, at least for moderate system parameters, and great care has to
-be taken with its application. Generally speaking, both the bond and the Ising
-approximation become exact in the same limits---large $V_1/t$ and small (but not
-too small) cell-cell distances. Not coincidentally, those are the limits where
-the QCA approach works best, as we will find out in the next chapter. Both
-approximations are useless for low-temperature calculations, and for ground state
-properties we thus have to rely on the fixed-charge model, which only
+In this chapter we introduced and established three approximations for
+\cgls{QCA} systems: the fixed-charge, the bond, and the Ising model. We usually
+use the fixed-charge model as the starting point, without further explicit
+verification. In principle, whether the fixed-charge approximation holds for a
+chosen set of parameters, has to be checked for each potential \cgls{QCA}
+implementation on a case by case basis. If the fixed-charge model is not
+applicable, then there is also generally no hope of implementing \cgls{QCA} on
+the given experimental system. We generally assume doubly occupied states to be
+sufficiently gapped out and put $U$ at infinity. The bond approximation is then
+a very good description of \cgls{QCA} systems at high temperatures. It starts
+breaking down when the temperature becomes comparable to the singlet-triplet
+splitting, and therefore for small $V_1$ and too large cell-cell distances.
+While it is conceptually rewarding to map \cgls{QCA} to an Ising system, we have
+seen the Ising approximation to be difficult to handle for practical
+calculations. It is only valid in a relatively small parameter window, at least
+for moderate system parameters, and great care has to be taken with its
+application. Generally speaking, both the bond and the Ising approximation
+become exact in the same limits---large $V_1/t$ and small (but not too small)
+cell-cell distances. Not coincidentally, those are the limits where the
+\cgls{QCA} approach works best, as we will find out in the next chapter. Both
+approximations are useless for low-temperature calculations, and for ground
+state properties we thus have to rely on the fixed-charge model, which only
 allows system sizes of up to three cells. We will use the bond model for most of
-our QCA characterization work at finite temperature. With system sizes of up to
-six cells, it already allows for some interesting insights.  The Ising model is
-problematic and we will employ it sparingly and only to look at larger
+our \cgls{QCA} characterization work at finite temperature. With system sizes of
+up to six cells, it already allows for some interesting insights. The Ising
+model is problematic and we will employ it sparingly and only to look at larger
 structures such as gates.

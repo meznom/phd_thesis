@@ -24,7 +24,7 @@ Corrections to version 1.0.0.
       (really?)
       --- clarified: sentence is missing something; probably should be "a logic
       state"
-* List of symbols, glossary of acronyms (major)
+* List of symbols, glossary of acronyms (major) [FIXED]
 * page 2: "But advances in fabrication technology, ..." --- needs reference
 * page 7: It is not clear what reference 42 exactly refers to; it should be made
   clear that reference 42 is the one that argues that decoherence stabilizes QCA

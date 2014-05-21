@@ -16,7 +16,7 @@
 % hyperref should always be the last included package
 \usepackage{hyperref}
 % glossaries comes after hyperref
-\usepackage[nopostdot,nonumberlist,nogroupskip]{glossaries}
+\usepackage[nopostdot,nonumberlist,nogroupskip,acronym]{glossaries}
 
 % http://kb.mit.edu/confluence/pages/viewpage.action?pageId=3907057
 % ``LaTeX's margins are, by default, 1.5 inches wide on 12pt documents, 1.75
@@ -43,6 +43,7 @@
 
 % medium weight instead of bold fonts in the glossary
 \renewcommand*{\glsnamefont}[1]{\textmd{#1}}
+\newglossary[nlg]{notation}{not}{ntn}{Notation}
 \makeglossaries
 
 \begin{document}
@@ -74,10 +75,13 @@
 \tableofcontents
 \listoftables
 \listoffigures
-\printglossary[title=Acronyms]
-
-
-
+%\glossarystyle{longborder}
+%\glossarystyle{long}
+\setlength{\glsdescwidth}{4.7in}
+\printglossary[style=long,type=acronym,title=Acronyms]
+\include{notation}
+\setlength{\glsdescwidth}{4.9in}
+\printglossary[style=long,type=notation]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \mainmatter

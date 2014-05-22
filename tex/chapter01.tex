@@ -235,15 +235,16 @@ oscillating outputs and meta-stable states, mentioned above
 {
 \glsreset{STM}
 \glsreset{DB}
-Atomic silicon quantum dots are \emph{\cglspl{DB}} on a hydrogenated
-(100) silicon surface. (a) A \cgls{STM} image of an
-atomic silicon quantum dot \cgls{QCA} cell. (b) Band diagram of a \cgls{DB} on a strongly
-n-doped silicon substrate. (c) The reconstructed (100) hydrogenated silicon
-surface, showing dimer rows. (d) Two closely spaced tunnel-coupled \cglspl{DB} perturbed
-by a third \cgls{DB}. The top right \cgls{DB} is seen to be more negatively charged than the
-other \cgls{DB} of the closely spaced pair, due to Coulomb repulsion from the
-perturbing third \cgls{DB} in the bottom left. All \cgls{STM} images and \emph{ab initio}
-estimates from Wolkow \emph{et~al}.\ \cite{wolkow2013silicon} \cite{pitters2011tunnel}.
+Atomic silicon quantum dots are \emph{\cglspl{DB}} on a hydrogenated (100)
+silicon surface. (a) A \cgls{STM} image of an atomic silicon quantum dot
+\cgls{QCA} cell. (b) Band diagram of a \cgls{DB} on a strongly n-doped silicon
+substrate. (c) The reconstructed (100) hydrogenated silicon surface, showing
+dimer rows. (d) Two closely spaced tunnel-coupled \cglspl{DB} perturbed by a
+third \cgls{DB}. The top right \cgls{DB} is seen to be more negatively charged
+than the other \cgls{DB} of the closely spaced pair, due to Coulomb repulsion
+from the perturbing third \cgls{DB} in the bottom left. All \cgls{STM} images
+and \emph{ab initio} estimates from Wolkow \emph{et~al}.\
+\cite{wolkow2013silicon, pitters2011tunnel}.
 }
   \label{fig:silicon}
 \end{figure}
@@ -255,7 +256,8 @@ characterization of the \cgls{QCA} approach. Even so, it is still important to
 consider concrete experimental realizations, not only as a motivation for our
 work, but also to put our modelling and results into context. One of the most
 promising and recent experimental implementations of \cgls{QCA} is based on
-atomic silicon quantum dots, and we will therefore use them as our experimental
+atomic silicon quantum dots \cite{haider2009controlled, pitters2011tunnel,
+wolkow2013silicon}, and we will therefore use them as our experimental
 reference. Atomic silicon quantum dots were first demonstrated as a possible
 \cgls{QCA} implementation by Wolkow \emph{et~al}.\ in 2009, when the group first
 constructed a single \cgls{QCA} cell. Figure~\ref{fig:silicon}(a) shows a
@@ -315,18 +317,20 @@ the substrate but treat quantum dots as perfectly isolated entities. Of course,
 in practice the substrate will certainly influence the \cgls{QCA} device. In the
 silicon system, free charge carriers will screen the long-ranged Coulomb
 interactions that the \cgls{QCA} scheme relies on, although likely on scales
-larger than the circuit feature size. The screening is not necessarily
-disruptive for \cgls{QCA} and might even be beneficial, for example by
-minimizing charge buildup in large systems. But to quantify the screening
-accurately it is necessary to thoroughly understand and precisely model the
-system; for atomic silicon quantum dots, which live at the surface, that would
-surely be very challenging. The silicon substrate could also, conceivable,
-provide a second tunnelling channel between \cglspl{DB}. In addition to
-electrons hopping directly from \cgls{DB} to \cgls{DB} they could first tunnel
-from \cgls{DB} to substrate and then back to another \cgls{DB}. Therefore an
-accurate model for atomic silicon quantum dots might need to accommodate the
-nature of the \cgls{DB} orbitals, screening, multiple tunnelling channels, and
-possibly other effects.
+larger than the circuit feature size. The screening---which to some extent
+should be controllable via the doping---is not necessarily disruptive for
+\cgls{QCA} and might even be beneficial, for example by minimizing charge
+buildup in large systems. But to quantify the screening accurately it is
+necessary to thoroughly understand and precisely model the system; for atomic
+silicon quantum dots, which live at the surface, that would surely be very
+challenging. The silicon substrate could also, conceivably, provide a second
+tunnelling channel between \cglspl{DB}. In addition to electrons hopping
+directly from \cgls{DB} to \cgls{DB} they could first tunnel from \cgls{DB} to
+substrate and then back to another \cgls{DB}. Therefore, an accurate model for
+atomic silicon quantum dots might need to accommodate the nature of the
+\cgls{DB} orbitals, screening, multiple tunnelling channels, and possibly other
+phenomena. As we are aiming at a general description of \cgls{QCA} devices, we
+will not include any of these effects in our model.
 
 
 \section{The extended Hubbard model}
@@ -486,44 +490,46 @@ At the time of this writing, the \cgls{QCA} idea is over twenty years old.
 Naturally, the fundamental building blocks of \cgls{QCA} circuitry such as the
 single cell itself, the wire, and the majority gate have been characterized.
 Interestingly, time-independent properties were investigated relatively briefly
-and arguably not exhaustively. The bulk of the existing theoretical work soon
-came to focus on system dynamics, the building of large-scale computing
-architectures with the \cgls{QCA} paradigm, and specific potential experimental
-implementations. Previous work on the characterization of time-independent
-\cgls{QCA} properties yielded two main results. First, the cell-cell response,
-that is, how the polarization of one cell responds to the polarization of a
-neighbouring cell, was established to be non-linear and exhibit gain
-\cite{lent1993quantum}. Therefore, even an only partially polarized cell would
-fully polarize the cell next to it, Fig.~\ref{fig:qca_characterization}(a). Of
-course, gain is highly desirable, if not essential, for building digital
-circuits. It compensates for any loss or imperfections and makes the scheme
-overall robust. Not coincidentally, \cgls{CMOS} technology is built around the
-\cgls{MOSFET} transistor with gain as one of its intrinsic properties. Second,
-lines of cells were seen to be polarized with an almost constant polarization
-throughout the whole line, Fig.~\ref{fig:qca_characterization}(b)
-\cite{lent1993lines}: apart from a few cells next to the driver cell, all
-remaining cells in the line would be polarized with the same \emph{saturation
-polarization}. As a consequence, the output polarization should not depend on
-the number of cells in the line. The saturation polarization was observed to be
-largely independent of the driver cell's polarization, but solely determined by
-the system's parameters such as the hopping $t$ and the Coulomb energy $V_1$.
-For unfavourably chosen parameters, the saturation polarization might be very
-small, but over a wide range of system parameters it was shown to be close to
-perfect. For example, for large hopping $t$, the saturation polarization is
-expected to be zero. If $t$ is then decreased and passes a critical value $t_c$,
-a second-order phase transition takes place. The saturation polarization becomes
-non-zero and in fact very quickly close to perfect as $t$ is further decreased. 
-
-%
-In addition to the cell-cell response and the analysis of a line of cells,
-larger \cgls{QCA} structures such as the majority gate were reported to function
-correctly for a select set of parameters but were not analyzed in depth.
-Overall, the physical picture emerging from the early time-independent
-calculations is of bistable cells readily snapping into the correct fully
-polarized state throughout the whole device. It is a picture where the
-\cgls{QCA} approach works robustly and in fact almost perfectly over a
-presumably wide range of parameters. It is the prevailing picture to this day.
-It is also quite wrong.
+and arguably not exhaustively \cite{lent1993quantum, lent1993lines,
+tougaw1993bistable, lent1993bistable}. The bulk of the existing theoretical work
+soon came to focus on system dynamics \cite{tougaw1996dynamic, toth2001role},
+the building of large-scale computing architectures with the \cgls{QCA} paradigm
+\cite{tougaw1994logical, lent1997device, hennessy2001clocking}, and specific
+potential experimental implementations \cite{orlov1999experimental,
+amlani1999digital, kummamuru2003operation, gardelis2003evidence,
+mitic2006demonstration, haider2009controlled}. Previous work on the
+characterization of time-independent \cgls{QCA} properties yielded two main
+results. First, the cell-cell response, that is, how the polarization of one
+cell responds to the polarization of a neighbouring cell, was established to be
+non-linear and exhibit gain \cite{lent1993quantum}. Therefore, even an only
+partially polarized cell would fully polarize the cell next to it,
+Fig.~\ref{fig:qca_characterization}(a). Of course, gain is highly desirable, if
+not essential, for building digital circuits. It compensates for any loss or
+imperfections and makes the scheme overall robust. Not coincidentally,
+\cgls{CMOS} technology is built around the \cgls{MOSFET} transistor with gain as
+one of its intrinsic properties. Second, lines of cells were seen to be
+polarized with an almost constant polarization throughout the whole line,
+Fig.~\ref{fig:qca_characterization}(b) \cite{lent1993lines}: apart from a few
+cells next to the driver cell, all remaining cells in the line would be
+polarized with the same \emph{saturation polarization}. As a consequence, the
+output polarization should not depend on the number of cells in the line. The
+saturation polarization was observed to be largely independent of the driver
+cell's polarization, but solely determined by the system's parameters such as
+the hopping $t$ and the Coulomb energy $V_1$. For unfavourably chosen
+parameters, the saturation polarization might be very small, but over a wide
+range of system parameters it was shown to be close to perfect. For example, for
+large hopping $t$, the saturation polarization is expected to be zero. If $t$ is
+then decreased and passes a critical value $t_c$, a second-order phase
+transition takes place. The saturation polarization becomes non-zero and in fact
+very quickly close to perfect as $t$ is further decreased. In addition to the
+cell-cell response and the analysis of a line of cells, larger \cgls{QCA}
+structures such as the majority gate were reported to function correctly for a
+select set of parameters but were not analyzed in depth.  Overall, the physical
+picture emerging from the early time-independent calculations is of bistable
+cells readily snapping into the correct fully polarized state throughout the
+whole device. It is a picture where the \cgls{QCA} approach works robustly and
+in fact almost perfectly over a presumably wide range of parameters. It is the
+prevailing picture to this day.  It is also quite wrong.
 
 These early calculations of time-independent \cgls{QCA} properties concentrated
 almost exclusively on the ground state of the system (with one exception
@@ -537,24 +543,22 @@ and three spin triplet states for $P=-1$ and $P=1$, respectively, in each cell.
 While these states can reasonably be expected to be near-degenerate, a thorough
 study of \cgls{QCA} should still consider them. In more practical terms,
 \cgls{QCA} is expected to operate at finite temperatures, so simulating the
-devices at non-zero temperature is appropriate. 
-
-%
-Similarly, the existing work on time-independent \cgls{QCA} properties is not
-exhaustive with regard to the exploration of other parameters. For example,
-while the saturation polarization's dependence on $V_1$ and $t$ is roughly
-mapped out, concrete numerical values for these quantities are hard to come by.
-In other cases, the Coulomb scale $V_1$ is not indicated explicitly at all.
-Cells are assumed to be charge-neutral, but the effects of non-charge-neutrality
-are not investigated. Different cell-cell distances are not discussed, nor what
-system parameters should be chosen for optimal performance.
+devices at non-zero temperature is appropriate. Similarly, the existing work on
+time-independent \cgls{QCA} properties is not exhaustive with regard to the
+exploration of other parameters. For example, while the saturation
+polarization's dependence on $V_1$ and $t$ is roughly mapped out, concrete
+numerical values for these quantities are hard to come by.  In other cases, the
+Coulomb scale $V_1$ is not indicated explicitly at all.  Cells are assumed to be
+charge-neutral, but the effects of non-charge-neutrality are not investigated.
+Different cell-cell distances are not discussed, nor what system parameters
+should be chosen for optimal performance.
 
 \glsreset{ICHA}
 The exact numerical simulation of \cgls{QCA} systems is challenging and in fact
 intractable for all but the smallest structures. Therefore, approximations are
 necessary. In the literature on \cgls{QCA} two approximations are prevalent: the
-\cgls{ICHA} and the two-states-per-cell approximation \cite{lent1993quantum}
-\cite{tougaw1996dynamic}. Most of the studies of time-independent \cgls{QCA}
+\cgls{ICHA} and the two-states-per-cell approximation \cite{lent1993quantum,
+tougaw1996dynamic}. Most of the studies of time-independent \cgls{QCA}
 properties employ the \cgls{ICHA}. Only the cell-cell response is calculated
 with a ``full'' quantum mechanical model, where the ``full'' model is actually
 already the reduced Hilbert space of exactly two electrons per cell. 
@@ -755,7 +759,7 @@ implementation of those algorithms. But verification and reproducibility are
 core assets of the scientific process. Fortunately, the culture is slowly
 changing. In computational condensed matter physics, the ALPS and Abinit
 projects provide open implementations of a variety of commonly used methods and
-algorithms \cite{bauer2011alps} \cite{gonze2009abinit}. In the wider scientific
+algorithms \cite{bauer2011alps, gonze2009abinit}. In the wider scientific
 community, IPython is a shining example of building a powerful computational
 tool collaboratively, with a huge impact across disciplines
 \cite{perez2007ipython}.
@@ -782,19 +786,18 @@ data input, output and storage becomes a breeze, especially compared to the
 chore these tasks are in pure C++. Python makes it easy to script and distribute
 (i.e.\ simply parallelize) simulation runs, and, being well established in the
 scientific community, comes with extensive libraries for data analysis and
-plotting, for example SciPy and Matplotlib \cite{scipy}
-\cite{hunter2007matplotlib}. Consequently, the integration with Python
-facilitates quickly trying out new ideas, implementing new features and more
-fluid data analysis. The advent of the fantastic IPython notebook ties all of
-these pieces together in a consistent, productive and highly enjoyable workflow
-\cite{perez2007ipython}. The IPython notebook is also an apt format for
-effectively communicating results with colleagues. The disadvantages of the
-Python integration are the additional dependencies, although both Python and
-Boost are commonly available on any number of platforms these days, and the more
-involved (and hence error-prone) build process. We have written a small Python
-library to support our data storage and organization needs. The library
-facilitates storing and retrieving data in standard file formats and allows to
-define and run ``numerical experiments,'' which can be distributed across
-multiple computers. Both the \cgls{QCA} exact diagonalization code and the
-Python library are available under an open license on GitHub \cite{githubqca}
-\cite{githubcoma}.
+plotting, for example SciPy and Matplotlib \cite{scipy, hunter2007matplotlib}.
+Consequently, the integration with Python facilitates quickly trying out new
+ideas, implementing new features and more fluid data analysis. The advent of the
+fantastic IPython notebook ties all of these pieces together in a consistent,
+productive and highly enjoyable workflow \cite{perez2007ipython}. The IPython
+notebook is also an apt format for effectively communicating results with
+colleagues. The disadvantages of the Python integration are the additional
+dependencies, although both Python and Boost are commonly available on any
+number of platforms these days, and the more involved (and hence error-prone)
+build process. We have written a small Python library to support our data
+storage and organization needs. The library facilitates storing and retrieving
+data in standard file formats and allows to define and run ``numerical
+experiments,'' which can be distributed across multiple computers. Both the
+\cgls{QCA} exact diagonalization code and the Python library are available under
+an open license on GitHub \cite{githubqca, githubcoma}.

@@ -1,5 +1,4 @@
-\chapter{Approximations}
-\label{ch:approximations}
+\chapter{\label{ch:approximations}Approximations}
 \graphicspath{{../gfx/chapter02/}{../plots/chapter02/}}
 
 \section{Fixed charge model}
@@ -46,6 +45,7 @@ long and therefore three-cell systems are the practical limit.
   \caption
   [The six bonds of a QCA cell]
   {
+  \label{fig:bond}
   The six bonds of a \cgls{QCA} cell. The basis of a \cgls{QCA} cell in the
   fixed-charge picture consists of six bonds and four doubly occupied dots. Each
   bond corresponds to one spin singlet and three spin triplet states. The bond
@@ -53,7 +53,6 @@ long and therefore three-cell systems are the practical limit.
   total of six states per cell. From those, the Ising approximation only retains
   the two lowest energy states, $\ket{1}$ and $\ket{2}$ with energy $V_0$.
   }
-  \label{fig:bond}
 \end{figure}
 %
 At its heart, \cgls{QCA} is a semi-classical idea. It relies dominantly on
@@ -99,11 +98,11 @@ additional symmetries that can be exploited.
   \caption
   [Mapping QCA to an Ising-like model]
   {
+  \label{fig:ising}
   (a) The Ising approximation identifies each cell with a pseudo spin. Logic 0
   corresponds to spin down and logic 1 to spin up. (b) \cgls{QCA} cells $k$ and
   $l$. 
   }
-  \label{fig:ising}
 \end{figure}
 %
 A linear array of \cgls{QCA} cells where each cell has a state of logic 0 or 1
@@ -136,7 +135,7 @@ We use the bond Hamiltonian \eqref{eq:H_bond} as the starting point. We had
 already discussed in the last chapter that such a Hamiltonian can be decomposed
 into single-cell terms and cell-cell interaction terms,
 \begin{equation}
-  H = \sum_k H^c_k + \sum_{k<l} H^{cc}_{kl} \, .
+  H = \sum_k H^\text{c}_k + \sum_{k<l} H^\text{cc}_{kl} \, .
 \end{equation}
 In comparison, the transverse-field Ising model is described by
 %
@@ -144,8 +143,8 @@ In comparison, the transverse-field Ising model is described by
   \tilde{H} = - \sum_k \gamma S^x_k + \sum_{k<l} J_{kl} S^z_k S^z_l \, .
 \end{equation}
 %
-Thus, we would like to map the single cell term $H^c_k$ to the transverse-field
-term $-\gamma S^x_k$ and the Coulombic cell-cell interaction $H^{cc}_{kl}$ to
+Thus, we would like to map the single cell term $H^\text{c}_k$ to the transverse-field
+term $-\gamma S^x_k$ and the Coulombic cell-cell interaction $H^\text{cc}_{kl}$ to
 the Ising term $J_{kl} S^z_k S^z_l$. Each cell $k$ is identified with a pseudo
 spin $S^z_k$, specifically logic 0 with spin down and logic 1 with spin up, as
 illustrated in Fig.~\ref{fig:ising}(a). We will first look at how the \cgls{QCA}
@@ -185,10 +184,10 @@ precisely the transverse field $\gamma$ which flips the spin in the Ising
 picture.
 
 A single \cgls{QCA} cell is described by the time-independent Schr\"odinger
-equation $H^c_k \ket{\psi} = E_k \ket{\psi}$, with $\ket{\psi} = \left[
+equation $H^\text{c}_k \ket{\psi} = E_k \ket{\psi}$, with $\ket{\psi} = \left[
 \ket{\psi_P} \ket{\psi_Q} \right]$. Our aim it to truncate the basis to
-$\ket{\psi_P}$ and derive an effective Hamiltonian $\tilde{H}^c_k$ with the
-subspace Schr\"odinger equation $\tilde{H}^c_k \ket{\psi_p} = E_k \ket{\psi_p}$.
+$\ket{\psi_P}$ and derive an effective Hamiltonian $\tilde{H}^\text{c}_k$ with the
+subspace Schr\"odinger equation $\tilde{H}^\text{c}_k \ket{\psi_p} = E_k \ket{\psi_p}$.
 Using the basis depicted in Fig.~\ref{fig:bond}, the single-cell bond
 Hamiltonian is very simple and can be written down explicitly. As the
 single-cell Hamiltonian is the same for all cells, we can drop the index $k$.
@@ -196,7 +195,7 @@ single-cell Hamiltonian is the same for all cells, we can drop the index $k$.
 \begin{equation}
 \begin{split}
   \label{eq:H_marix}
-  H^c
+  H^\text{c}
   &=
   %
   \left(
@@ -260,7 +259,7 @@ and therefore
 %
 \begin{equation}
   \label{eq:H_effective}
-  \tilde{H}^c = H_{PP} + H_{PQ} \frac{1}{E - H_{QQ}} H_{QP} \, .
+  \tilde{H}^\text{c} = H_{PP} + H_{PQ} \frac{1}{E - H_{QQ}} H_{QP} \, .
 \end{equation}
 %
 Assuming that the system is predominantly in the subspace spanned by
@@ -272,7 +271,7 @@ Hamiltonian becomes
 %
 \begin{equation}
 \begin{split}
-  \tilde{H}^c_{ij}
+  \tilde{H}^\text{c}_{ij}
   %
   &=
   \left( V_0 \right)_{ii} \delta_{ij}
@@ -291,7 +290,7 @@ we can subtract the constant diagonal term $\tilde{H}_{ii} = V_0 - \frac{4
 t^2}{\Delta V}$, and arrive at
 %
 \begin{equation}
-  \tilde{H}^c
+  \tilde{H}^\text{c}
   =
   \begin{pmatrix}
     0 & - \frac{4 t^2}{\Delta V} \\
@@ -305,7 +304,7 @@ compare this matrix with the transverse-field term of the Ising model,
 %
 \begin{equation}
 \begin{split}
-  \tilde{H}^c
+  \tilde{H}^\text{c}
   &=
   - \gamma S^x_k \\
   &=
@@ -344,24 +343,22 @@ per cell the Hilbert space scales as $N_s = 2^{N_c}$ ($N_c$ the number of cells)
 and up to 14 cells are computationally feasible, with memory requirements of
 2GB. In practice, we restrict the calculations to a maximum of 12 cells. For our
 calculations, we can use the two-state approximation with the effective hopping
-term but still retain the original cell-cell interaction term $H^{cc}_{kl}$.
+term but still retain the original cell-cell interaction term $H^\text{cc}_{kl}$.
 From a computational point of view, nothing is gained by expressing the
 cell-cell interaction as an Ising interaction. However, deriving $J_{kl}$ from
-$H^{cc}_{kl}$ is very rewarding conceptually and will already allow some key
+$H^\text{cc}_{kl}$ is very rewarding conceptually and will already allow some key
 insights into the characteristics of \cgls{QCA} devices. Therefore, we now
 undertake the derivation of an expression for $J_{kl}$. The obvious starting
-point is the cell-cell interaction term $H^{cc}_{kl}$, 
+point is the cell-cell interaction term $H^\text{cc}_{kl}$, 
 %
 \begin{equation}
 \begin{split}
 \label{eq:Hcckl}
-  H^{cc}_{kl} 
+  H^\text{cc}_{kl} 
   %
   &=
   %
   \sum_{\substack{i \in k\\j \in l}} V_{ij} \left( n_i - q \right) \left( n_j - q \right) \\
-  %
-  H^{cc}_{kl}
   %
   &= 
   %
@@ -427,7 +424,7 @@ cell-cell interaction term of the form
 \begin{equation}
   \label{eq:Ising_term}
   %
-  \tilde{H}^{cc}_{kl}
+  \tilde{H}^\text{cc}_{kl}
   = 
   J_{kl} S^z_k S^z_l + 
   J^{\prime}_{kl} \left( S^z_k + S^z_l \right) \, .
@@ -501,7 +498,7 @@ fact, applying the same dot permutation yields $J^{\prime}_{kl}
 \xrightarrow{\,\, 90^{\circ}} - J^{\prime}_{kl}$. Consequently,
 $J^{\prime}_{kl}$ is symmetric under rotations by $180^{\circ}$. It is also
 clear that a non-zero $J^{\prime}_{kl}$ breaks the system's symmetry under spin
-inversion---$\tilde{H}^{cc}_{kl}$ is not unchanged for $\uparrow\uparrow \,
+inversion---$\tilde{H}^\text{cc}_{kl}$ is not unchanged for $\uparrow\uparrow \,
 \rightarrow \, \downarrow\downarrow$. This has profound implications for
 \cgls{QCA}. For non-zero $J^{\prime}_{kl}$ we would, for example, expect
 different polarization responses for two spin-down cells versus two spin-up
@@ -598,8 +595,7 @@ where $J_{kl}$ and $J^{\prime}_{kl}$ are given by Eqs.~\eqref{eq:J_} and
 \clearpage
 
 
-\section{Validity of the approximations}
-\label{sec:validity_of_the_approximations}
+\section{\label{sec:validity_of_the_approximations}Validity of the approximations}
 
 In the last three sections we have introduced three successive approximations
 for the \cgls{QCA} Hamiltonian: the fixed-charge model, the bond model, and the
@@ -616,13 +612,13 @@ approximations behave in those parameter ranges.
   \caption
   [The fixed-charge approximation]
   {
+  \label{fig:fixed_charge_approximation}
   (a) Low-energy density of states of the exact grand canonical and the
   approximative fixed-charge two-cell \cgls{QCA} system. For small energies the
-  curves agree perfectly (up to $E \lesssim 35$). (b) Particle number per cell
-  over temperature for the same two-cell system. The curves diverge for $T
+  curves agree perfectly (up to $E \lesssim 35$).  (b) Particle number per cell
+  over temperature for the same two-cell system.  The curves diverge for $T
   \gtrsim 10$.
   }
-  \label{fig:fixed_charge_approximation}
   % parameters: V_1 = 100, boa = 2, U = 1000, mu = 250, 2 cells, q = 0
  
   \vspace*{0.75cm}
@@ -631,6 +627,7 @@ approximations behave in those parameter ranges.
   \caption
   [The bond approximation for a one-cell system]
   {
+  \label{fig:bond_approximation1}
   (a) Low-energy density of states of a one-cell \cgls{QCA} system for both the
   fixed-charge and the bond model. The bond approximation only reproduces the
   triplet states, but omits the singlet states. The ``measurement'' temperature
@@ -640,7 +637,6 @@ approximations behave in those parameter ranges.
   model state corresponds to four fixed-charge states at roughly the same
   energy.
   }
-  \label{fig:bond_approximation1}
   % parameters: V_1 = 20, boa = 2, U = 1E6, q = 0, P_D = 1, T = 1, mu = 0
 \end{figure}
 
@@ -651,7 +647,8 @@ the fixed-charge model against the exact grand canonical model for a two-cell
 system. The chemical potential is $\mu = 250$ and the nearest-neighbour Coulomb
 energy is $V_1 = 100$, whereas the on-site Coulomb repulsion is $U = 1000$. The
 energies are in units of the hopping $t$, with $t = 1$. The cells are placed a
-distance $d/a = 3$ apart, horizontally. This system does not have any
+distance $d/a = 3$ apart, horizontally; a driver cell to the left sets the input
+$P_\text{D} = 1$. This system does not have any
 compensation charges, hence $q = 0$. The approximation reproduces the low-energy
 spectrum exactly, in the plot up to $E \lesssim 35$. Therefore, as long as the
 two-electrons-per-cell sector is lowest in energy and the temperature is small
@@ -678,13 +675,13 @@ of a single \cgls{QCA} cell for both the fixed-charge and the bond model. The
 hopping is again $t=1$, the nearest-neighbour Coulomb energy is $V_1 = 20$, and
 the on-site Coulomb repulsion is $U = 10^6$---practically at infinity. A driver
 cell placed at a distance $d/a = 3$ to the left of the single cell serves as an
-input. We have chosen the driver cell's polarization to be $P_D = 1$. Indeed,
+input. We have chosen the driver cell's polarization to be $P_\text{D} = 1$. Indeed,
 each bond state corresponds to three fixed-charge states---the triplet---and one
 ``close-by'' state---the singlet. They are not energetically equivalent, but
-split by a small energy gap, $\Delta E_S$, the singlet-triplet splitting. Like
+split by a small energy gap, $\Delta E_\text{S}$, the singlet-triplet splitting. Like
 the fixed-charge model, the bond approximation truncates the Hilbert space and
 the retained states are exact. Evidently, the bond model keeps one triplet
-state, but discards the other two and the singlet. We speculate that, similar to
+state, but discards the other two and the singlet. We understand that, similar to
 the antiferromagnetic Heisenberg coupling constant $J$ emerging in the
 low-energy limit of the Hubbard model (with $J \sim \frac{t^2}{U}$)
 \cite{Auerbach}, here, virtual excitations to high-energy doubly occupied states
@@ -694,7 +691,7 @@ states and hence reproduces the triplet states. Consequently, we cannot hope
 that the bond model is correct for ground state and low-temperature properties.
 We assert that as long as the singlet-triplet splitting is ``washed out'', that
 is, as long as the temperature is much larger than the singlet-triplet gap, $T
-\gg \Delta E_S$, the approximation should give good results. At high enough
+\gg \Delta E_\text{S}$, the approximation should give good results. At high enough
 temperatures, the system no longer ``sees'' the difference between the singlet
 and the triplet states. This is illustrated in
 Fig.~\ref{fig:bond_approximation1}(b) where the spectrum is ``measured'' at a
@@ -713,7 +710,7 @@ state corresponds to four fixed-charge states at roughly the same energy.
 
 The figure shows all six bond states of the single cell---the complete spectrum
 apart from the doubly occupied states. As this cell is perturbed by a nearby
-driver cell with $P_D = 1$, the ground state is qualitatively closest to the
+driver cell with $P_\text{D} = 1$, the ground state is qualitatively closest to the
 logic 1 state, or $\ket{2}$ in Fig.~\ref{fig:bond}. Similarly, the first excited
 state is similar to $\ket{1}$, or logic 0, and the four higher energy states
 correspond to $\ket{4}$, $\ket{5}$, $\ket{3}$, and $\ket{6}$, in that order. Of
@@ -724,22 +721,22 @@ distance $d/a = 3$, charge buildup tends to push the electrons to the far edge
 of the cell, thus making $\ket{4}$ lower in energy than $\ket{6}$.
 
 Since the bond model ignores the singlet-triplet splitting, it is important to
-understand how the gap $\Delta E_S$ depends on various system parameters. To
+understand how the gap $\Delta E_\text{S}$ depends on various system parameters. To
 that end we picked out a few selected singlet-triplet states from the spectrum
 in Fig.~\ref{fig:bond_approximation1}(a) as examples. Contrary to expectations,
-for those states the gap $\Delta E_S$ did not change significantly with the
+for those states the gap $\Delta E_\text{S}$ did not change significantly with the
 on-site Coulomb repulsion $U$. However, it did become smaller for shorter and
 shorter cell-cell distances $d$. Most importantly, for the nearest-neighbour
-Coulomb energy $V_1$ we found $\Delta E_S \sim \frac{1}{V_1^p}$. The exponent is
-$p \sim 3$ when the cell ``sees'' a biasing external potential (e.g.\ $P_D = \pm
-1$) and $p \sim 1$ otherwise (e.g.\ $P_D = 0$). Even though our method is
+Coulomb energy $V_1$ we found $\Delta E_\text{S} \sim \frac{1}{V_1^p}$. The exponent is
+$p \sim 3$ when the cell ``sees'' a biasing external potential (e.g.\ $P_\text{D} = \pm
+1$) and $p \sim 1$ otherwise (e.g.\ $P_\text{D} = 0$). Even though our method is
 anything but rigorous and the obtained results very likely not universally true,
 the findings should nonetheless give a good enough idea of the principal trends.
 Quite generally, the higher the overall Coulomb potential---large $V_1$ and
 small $d$---the smaller the singlet-triplet splitting and, conceivably, the more
 accurate the bond approximation. The bond model should work as long as $T \gg
-T_{\textrm{min}}$ with $T_{\textrm{min}} \sim \Delta E_S$, and as a very rough
-guideline we can use $\Delta E_S \sim \frac{t^2}{V_1}$. Of course, we also need
+T_{\textrm{min}}$ with $T_{\textrm{min}} \sim \Delta E_\text{S}$, and as a very rough
+guideline we can use $\Delta E_\text{S} \sim \frac{t^2}{V_1}$. Of course, we also need
 $T \ll T_{\textrm{max}}$ with $T_{\textrm{max}} \sim U$, so that the doubly
 occupied states are gapped out.
 
@@ -749,6 +746,7 @@ occupied states are gapped out.
   \caption
   [The bond approximation for a two-cell system]
   {
+  \label{fig:bond_approximation2}
   The two-cell fixed-charge and bond systems at $V_1 = 20$ and $V_1 = 100$.
   (a)(c) Low-energy density of states. (b)(d) Output polarization $P_2$ over
   temperature. For a small Coulomb repulsion the density of states curves look
@@ -756,7 +754,6 @@ occupied states are gapped out.
   well (b). At a larger Coulomb repulsion the density of states curves look much
   more alike (c) and the bond approximation works much better (d).
   }
-  \label{fig:bond_approximation2}
 \end{figure}
 
 To illustrate the limitations of the bond approximation we now look at a
@@ -845,6 +842,7 @@ larger polarization of the bond model's ground state.
   \caption
   [The Ising approximation for a one-cell system]
   {
+  \label{fig:ising_approximation1}
   Comparing the fixed-charge, bond, and Ising model for the one-cell
   charge-neutral \cgls{QCA} system. (a) Low-energy density of states. The Ising model
   reproduces the singlet and not the triplet states, as the bond model does. (b)
@@ -853,7 +851,6 @@ larger polarization of the bond model's ground state.
   polarized, whereas the Ising model exactly reproduces the fixed-charge model's
   ground state polarization.
   }
-  \label{fig:ising_approximation1}
   % parameters: V1 = 100, boa = 3, P_D = 0.1, q = 0.5
 \end{figure}
 %
@@ -867,7 +864,7 @@ the energy of the whole system) and therefore $t \ll \Delta V$ as well as $T \ll
 \Delta V$. Additionally, cells were assumed to be isolated, so the Ising model
 presumably requires reasonably large cell-cell distances. Naturally, the model
 inherits the limits of the bond approximation, and we would therefore expect $T
-\gg \Delta E_S$ ($\Delta E_S$ the singlet-triplet splitting) and $T \ll U$ as
+\gg \Delta E_\text{S}$ ($\Delta E_\text{S}$ the singlet-triplet splitting) and $T \ll U$ as
 further requirements. It is important to keep in mind that the Ising model is
 not a low-energy model for the more exact fixed-charge Hamiltonian---it is
 derived as the low-energy limit of the bond model, which, however, is not an
@@ -886,7 +883,7 @@ Fig.~\ref{fig:ising_approximation1}(a). We have plotted both the fixed-charge
 and bond model's density of states for comparison and now use slightly different
 system parameters: the nearest-neighbour Coulomb energy is $V_1 = 100$, the
 cell-cell distance is $d/a = 4$, and the driver cell is only slightly polarized
-with $P_D = 0.1$. As always, the hopping is $t=1$. We are in for a surprise!
+with $P_\text{D} = 0.1$. As always, the hopping is $t=1$. We are in for a surprise!
 Evidently, the Ising model reproduces the singlet states and not the bond
 model's triplet states. In line with this observation, the Ising model exactly
 matches the fixed-charge model's ground state polarization, but misses the
@@ -929,13 +926,15 @@ To be able to better quantitatively compare different models we introduce the
 relative error of the polarization, defined as
 %
 \begin{equation}
-  \epsilon^I_k = \frac{\left|P^F_k - P^I_k\right|}{P^F_k}
+  \epsilon^\text{I}_k
+  = 
+  \frac{\left|P^\text{F}_k - P^\text{I}_k\right|}{P^\text{F}_k}
 \end{equation}
 %
 for the Ising model. We use the fixed-charge model as the reference. Hence,
-$P^F_k$ refers to the polarization of cell $k$ with the fixed-charge
-model and $P^I_k$ is the same polarization, but determined using the Ising
-model. The relative error for the bond model, $\epsilon^B_k$, is defined
+$P^\text{F}_k$ refers to the polarization of cell $k$ with the fixed-charge
+model and $P^\text{I}_k$ is the same polarization, but determined using the Ising
+model. The relative error for the bond model, $\epsilon^\text{B}_k$, is defined
 equivalently. The relative error is independent of the magnitude of the
 polarization and therefore suitable for comparing models over wide parameter
 ranges. For best results it is also desirable not to drive the systems
@@ -952,6 +951,7 @@ polarizations, resulting in less polarized cells.
   \caption
   [The Ising approximation for a two-cell system]
   {
+  \label{fig:ising_approximation2}
   Comparing the fixed-charge, bond, and Ising model for the two-cell
   charge-neutral \cgls{QCA} system at $V_1 = 100$ and $V_1 = 200$. (a)(c)
   Low-energy density of states. The Ising model's spectrum is qualitatively
@@ -963,7 +963,6 @@ polarizations, resulting in less polarized cells.
   small only over a relatively narrow temperature range. Its ground state no
   longer agrees with the fixed-charge model's ground state.
   }
-  \label{fig:ising_approximation2}
   % parameters: V1 = 100, 200, boa = 3, P_D = 0.1, q = 0.5, U=1E3
 \end{figure}
 %
@@ -1003,7 +1002,7 @@ spot, a very narrow window around $T \sim 1$. For $V_1 = 200$ the situation is
 much better, the error is close to zero in the temperature range $T =
 T_{\textrm{min}} \ldots T_{\textrm{max}} \sim 0.8 \ldots 8$. This temperature
 range only very weakly depends on the cell-cell distance $d/a$ or the driver
-polarization $P_D$. It is dominantly set by $V_1$. Roughly speaking, the lower
+polarization $P_\text{D}$. It is dominantly set by $V_1$. Roughly speaking, the lower
 temperature limit $T_{\textrm{min}}$ is set by the singlet-triplet splitting,
 which becomes smaller with increasing $V_1$, and the upper temperature limit
 $T_{\textrm{max}}$ is set by $\Delta V$ which is, of course, directly
@@ -1063,7 +1062,7 @@ not true generally, and for differently chosen system parameters the error may
 also remain constant along the wire. Still, for this particular \cgls{QCA}
 structure and for the chosen system parameters, we are relatively confident that
 the error of the output polarization, while not well controlled, will not grow
-very large for systems accessible with the Ising approximation---up two twelve
+very large for systems accessible with the Ising approximation---up to twelve
 \cgls{QCA} cells. 
 %
 \begin{figure}
@@ -1072,6 +1071,7 @@ very large for systems accessible with the Ising approximation---up two twelve
   \caption
   [The Ising approximation for three- to five-cell wires]
   {
+  \label{fig:ising_approximation3}
   (a) The Ising model's relative error of the cell polarization for three-cell
   to five-cell charge-neutral wires at two different temperatures. The longer
   the wire the larger becomes the error. The error is no longer well controlled.
@@ -1080,7 +1080,6 @@ very large for systems accessible with the Ising approximation---up two twelve
   along the wire. At least for the output polarization, the effect of a growing
   error with increasing wire length is therefore compensated.
   }
-  \label{fig:ising_approximation3}
   % parameters: V1 = 100, boa = 3, P_D = 0.1, q = 0.5; 5 cells
 \end{figure}
 %

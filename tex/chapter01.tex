@@ -1,10 +1,8 @@
-\chapter{Quantum-dot cellular automata}
-\label{ch:QCA_intro}
+\chapter{\label{ch:QCA_intro}Quantum-dot cellular automata}
 \graphicspath{{../gfx/chapter01/}}
 
 
-\section{An alternative computing paradigm}
-\label{sec:an_alternative_computing_paradigm}
+\section{\label{sec:an_alternative_computing_paradigm}An alternative computing paradigm}
 
 \begin{figure}
   \center
@@ -12,6 +10,7 @@
   \caption
 [Building blocks of quantum-dot cellular automata (QCA) circuitry]
 {
+\label{fig:intro_qca}
 \glsreset{QCA}
 Building blocks of \cgls{QCA}. (a) A \cgls{QCA} cell consists of four quantum
 dots on the corners of a square and is occupied by two electrons. Due to Coulomb
@@ -22,7 +21,6 @@ functions as a wire and transmits a signal. (d) A diagonal line of cells (cells
 rotated by $45^{\circ}$) transmits a signal alternating from cell to cell. Wires
 can have kinks.
 }
-  \label{fig:intro_qca}
 \end{figure}
 %
 \begin{figure}
@@ -31,13 +29,14 @@ can have kinks.
   \caption
 [QCA gates]
 {
+\label{fig:gates}
 \cgls{QCA} gates. (a) The majority gate's three inputs ``vote'' on the output. The gate
 is commonly operated with one fixed input, for example $I_3$, and then functions
 as an AND ($I_3 = 1$) or OR gate ($I_3 = 0$) for the remaining two inputs. Here
 the gate performs the computation $1 \land 0 = 1$. (b) The inverter performs
 logical negation, swapping logic 0 for logic 1 and vice versa.
 }
-  \label{fig:gates}
+% TODO: Either update text, or change figure again (I_1 versus In 1, etc)
 \end{figure}
 
 \glsreset{QCA}
@@ -179,6 +178,7 @@ the maximum system size.
   \caption
 [Clocked QCA for a line of cells]
 {
+\label{fig:clocking}
 Clocked \cgls{QCA} for a line of cells. To avoid entropy-induced disorder in large \cgls{QCA}
 circuits, the system is partitioned into smaller units, labelled 1, 2, and 3 in
 this example. By varying the tunnelling barriers, each unit is put through the
@@ -190,7 +190,6 @@ and their tunnelling barriers are shown at three different times, $t_1<t_2<t_3$.
 A logic 1 state is propagated from the left to the right. At $t_3$ a logic 0
 state is coming in from the left.
 }
-  \label{fig:clocking}
 \end{figure}
 
 To address this scaling problem, we partition large circuits into smaller units.
@@ -221,8 +220,7 @@ oscillating outputs and meta-stable states, mentioned above
 \cite{lent1997device}.
 
 
-\section{Atomic silicon quantum dots}
-\label{sec:atomic_silicon_quantum_dots}
+\section{\label{sec:atomic_silicon_quantum_dots}Atomic silicon quantum dots}
 
 \newacronym{DB}{DB}{dangling bond}
 \newacronym{STM}{STM}{scanning tunnelling microscope}
@@ -233,6 +231,7 @@ oscillating outputs and meta-stable states, mentioned above
   \caption
 [Atomic silicon quantum dots]
 {
+\label{fig:silicon}
 \glsreset{STM}
 \glsreset{DB}
 Atomic silicon quantum dots are \emph{\cglspl{DB}} on a hydrogenated (100)
@@ -246,7 +245,6 @@ from the perturbing third \cgls{DB} in the bottom left. All \cgls{STM} images
 and \emph{ab initio} estimates from Wolkow \emph{et~al}.\
 \cite{wolkow2013silicon, pitters2011tunnel}.
 }
-  \label{fig:silicon}
 \end{figure}
 
 \glsreset{STM}
@@ -390,11 +388,11 @@ dots from different cells is larger than the distance between dots within one
 cell, the assumption will introduce only a small error. Still, this is something
 to keep in mind if we place cells very close to each other. Note that without
 inter-cell hopping we can decompose the Hamiltonian into purely Coulombic
-cell-cell interaction terms $H^{cc}_{kl}$ and single cell terms $H^c_k$, which
+cell-cell interaction terms $H^\text{cc}_{kl}$ and single cell terms $H^\text{c}_k$, which
 capture the kinetics as well as the inside-cell Coulomb interactions,
 \begin{equation}
   \label{eq:H_cell}
-  H = \sum_k H^c_k + \sum_{k<l} H^{cc}_{kl} \, ,
+  H = \sum_k H^\text{c}_k + \sum_{k<l} H^\text{cc}_{kl} \, ,
 \end{equation}
 where $k$ and $l$ number the cells. 
 
@@ -403,32 +401,38 @@ where $k$ and $l$ number the cells.
   \includegraphics{short_wire}
   \caption
   [Parameterizing QCA layouts]
-  {Parameterizing \cgls{QCA} layouts. (a) The edge length of a \cgls{QCA} cell is
-  denoted by $a$. The dots of each cell are numbered clockwise. (b) A
-  three-cell wire. The cell-cell distance is denoted by $d$, the cell-cell angle
-  by $\theta$. The wire's input is set by the driver cell's polarization $P_D$,
-  the active cells' polarizations are $P_1$, $P_2$, and $P_3$.}
+  {
   \label{fig:short_wire}
+  Parameterizing a three-cell \cgls{QCA} wire. The quantum dots are numbered
+  clockwise for each cell and consecutively from cell to cell. The edge length
+  of a \cgls{QCA} cell is denoted by $a$, the cell-cell distance by $d$, and the
+  cell-cell angle by $\theta$. The wire's input is set by the driver cell's
+  polarization $P_\text{D}$, the active cells' polarizations are $P_1$, $P_2$, and
+  $P_3$.
+  }
 \end{figure}
 
 To parameterize the Coulomb term $V_{kl}$ and specifically $r_{ij}$, the
 distance between quantum dots $i$ and $j$, we introduce the cell edge length $a$
-and the cell-cell distance $d$, as illustrated in
-Fig.~\ref{fig:short_wire}(a)~and~(b), where we have used a short line of cells
-as an example \cgls{QCA} system. The angle between adjacent cells is denoted by
-$\theta$. Ideally each cell should be in logic state 0 or logic state 1, but, of
-course, in practice a cell can be in any superposition of the two states or even
-in a different state altogether. The \emph{cell polarization} $P_k$ quantifies
-the state of the cell, \begin{equation} \label{eq:polarization} P_k =
+and the cell-cell distance $d$, as illustrated in Fig.~\ref{fig:short_wire},
+where we have used a short line of cells as an example \cgls{QCA} system. The
+angle between adjacent cells is denoted by $\theta$. Ideally each cell should be
+in logic state 0 or logic state 1, but, of course, in practice a cell can be in
+any superposition of the two states or even in a different state altogether. The
+\emph{cell polarization} $P_k$ quantifies the state of the cell,
+\begin{equation}
+  \label{eq:polarization}
+  P_k =
   \frac{1}{2} \left( n_{4k+2} + n_{4k+4} - n_{4k+1} - n_{4k+3} \right) \, ,
-\end{equation} where the dots in each cell are numbered clockwise as indicated
+\end{equation}
+where the dots in each cell are numbered clockwise as indicated
 in the figure. We have also introduced the shorthand notation $n_i =
 n_{i\uparrow} + n_{i\downarrow}$. The cell polarization is $P_k = -1$ for a
 logic 0 and $P_k = +1$ for a logic 1 state. Without any external input the
 polarization of a cell will be $P_k = 0$. In the example line of cells, the
-input is set via the driver cell's polarization $P_D$ at the left end. The
+input is set via the driver cell's polarization $P_\text{D}$ at the left end. The
 driver cell's four static point charges are adjusted to reflect the desired
-polarization $P_D$. For \cgls{QCA}, the cell polarization really is the
+polarization $P_\text{D}$. For \cgls{QCA}, the cell polarization really is the
 observable of utmost interest. It indicates whether a cell is more in logic
 state 0 or logic state 1 and how polarized the cell is, where ideally it should
 always be fully polarized, $|P_k| = 1$. In short, the cell polarizations will
@@ -465,8 +469,7 @@ cell-cell distance in units of the cell size $d/a$, we characterize any
 \cgls{QCA} system in dimensionless units.
 
 
-\section{Basic characterization}
-\label{sec:basic_characterization}
+\section{\label{sec:basic_characterization}Basic characterization}
 
 \begin{figure}
   \center
@@ -474,16 +477,16 @@ cell-cell distance in units of the cell size $d/a$, we characterize any
   \caption
 [Basic characteristics of QCA devices]
 {
+\label{fig:qca_characterization}
 Basic characteristics of \cgls{QCA} devices, schematically. (a) The response of a
 cell's polarization to a driver cell's polarization is non-linear and exhibits
 gain. This gain has been used extensively to argue for the \cgls{QCA} approach's
 inherent robustness. (b) Cell polarizations of a six-cell wire with input
-polarization $P_D = 1$, as calculated with the intercellular Hatree
+polarization $P_\text{D} = 1$, as calculated with the intercellular Hartree
 approximation. Most cells are polarized with the same saturation polarization
 and only the leftmost and rightmost cells deviate slightly. In this picture, the
 output polarization does therefore not depend on the wire length.
 }
-  \label{fig:qca_characterization}
 \end{figure}
 
 At the time of this writing, the \cgls{QCA} idea is over twenty years old.
@@ -566,12 +569,12 @@ already the reduced Hilbert space of exactly two electrons per cell.
 %
 \cgls{ICHA} is a mean field scheme: the Hamiltonian of one cell is solved
 exactly in the mean field of the polarizations of all the other cells. More
-specifically, the cell-cell interaction term $H^{cc}_{kl}$ in
+specifically, the cell-cell interaction term $H^\text{cc}_{kl}$ in
 equation~\eqref{eq:H_cell} is rewritten
 \begin{equation}
 \begin{split}
   \label{eq:H_kl_meanfield}
-  H^{cc}_{kl} 
+  H^\text{cc}_{kl} 
   %
   &=
   %
@@ -583,6 +586,8 @@ equation~\eqref{eq:H_cell} is rewritten
        \left[ \left( n_i - q \right) \left( \left< n_j \right> - q \right)
               +
               \left( \left< n_i \right> - q \right) \left( n_j - q \right)
+              +
+              \text{const.}
        \right] \, ,
 \end{split}
 \end{equation}
@@ -597,7 +602,7 @@ the one-cell mean field Hamiltonian becomes
 \begin{equation}
   \label{eq:H_meanfield}
   H^{\mathrm{MF}}_k
-  = H^c_k + \sum_{i \in k} \left( n_i - q \right) \tilde{V}_i^k \, .
+  = H^\text{c}_k + \sum_{i \in k} \left( n_i - q \right) \tilde{V}_i^k \, .
 \end{equation}
 Because the cell polarization is directly related to the occupancies of the
 sites of the cell, we have $\tilde{V}_i^k = \tilde{V}_i^k(\left<P_l\right>)$.
@@ -605,8 +610,10 @@ Solving the one-cell Hamiltonian allows one to compute the polarization $\left<
 P_k \right>$ of the cell, which in turn is used to set the mean field
 originating from all other cells. The procedure is repeated until a
 self-consistent cell polarization and thus self-consistent solution for
-Equation~\eqref{eq:H_meanfield} is found. By using $n_i n_j \approx n_i \left<
-n_j \right> + \left< n_i \right> n_j$ mean field approximations neglect quantum
+Eq.~\eqref{eq:H_meanfield} is found. By using
+$n_i n_j \approx n_i \left< n_j \right> + \left< n_i \right> n_j - 
+\left< n_i \right> \left< n_j \right>$
+mean field approximations neglect quantum
 fluctuations. Only at high dimensionality can these fluctuations really tend to
 zero, and indeed mean field schemes can be shown to become exact in the limit of
 infinite dimensionality \cite{Fehske}. Conversely, for low dimensional systems
@@ -688,11 +695,11 @@ To decrease the memory requirements and computational cost of exact
 diagonalization, symmetries must be exploited. The Hamiltonian matrix is
 actually quite sparse---most entries are zero. By using symmetries and a
 suitable basis, the Hamiltonian matrix can be brought into block diagonal form
-and then only those much smaller blocks need to be diagonalized. Our \cgls{QCA}
-system is symmetric with respect to the total particle number operator $N =
-\sum_i n_{i\uparrow} + n_{i\downarrow}$ and the total spin operator $S^z =
-\sum_i n_{i\uparrow} - n_{i\downarrow}$, i.e.\ $[N,H]_- = [S^z,H]_- = 0$. If we
-now use basis states which are eigenstates of the symmetry operators,
+and then only those much smaller blocks need to be diagonalized. In our
+\cgls{QCA} system, the total particle number operator $N = \sum_i n_{i\uparrow}
++ n_{i\downarrow}$ and the total spin operator $S^z = \sum_i n_{i\uparrow} -
+n_{i\downarrow}$ are good quantum numbers, i.e.\ $[N,H]_- = [S^z,H]_- = 0$. If
+we now use basis states which are eigenstates of the symmetry operators,
 $\ket{n,s,l}$, with
 %
 \begin{equation}

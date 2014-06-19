@@ -28,10 +28,10 @@
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
-     inkscape:window-width="1366"
-     inkscape:window-height="744"
+     inkscape:window-width="1920"
+     inkscape:window-height="1032"
      inkscape:window-x="0"
-     inkscape:window-y="24"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      units="in"
      objecttolerance="20"
@@ -430,7 +430,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -814,17 +814,19 @@
          id="text5524"
          y="978.09143"
          x="23.440609"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#666666;fill-opacity:1;stroke:none;font-family:Open Sans;-inkscape-font-specification:Open Sans"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#666666;fill-opacity:1;stroke:none;font-family:STIXGeneral;-inkscape-font-specification:STIXGeneral"
          xml:space="preserve"><tspan
            y="978.09143"
            x="23.440609"
            id="tspan5526"
-           sodipodi:role="line">V<tspan
-   id="tspan5528"
-   style="font-size:65.00091553%;baseline-shift:sub;fill:#666666">0</tspan></tspan></text>
+           sodipodi:role="line"><tspan
+             style="font-style:italic;-inkscape-font-specification:STIXGeneral Italic"
+             id="tspan7494">V</tspan><tspan
+             style="font-size:65%;baseline-shift:sub"
+             id="tspan7496">0</tspan></tspan></text>
       <text
          xml:space="preserve"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#666666;fill-opacity:1;stroke:none;font-family:Open Sans;-inkscape-font-specification:Open Sans"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#666666;fill-opacity:1;stroke:none;font-family:STIXGeneral;-inkscape-font-specification:STIXGeneral"
          x="236.82552"
          y="978.09143"
          id="text5530"
@@ -832,9 +834,12 @@
            sodipodi:role="line"
            id="tspan5532"
            x="236.82552"
-           y="978.09143">V<tspan
-   style="font-size:65.00091553%;baseline-shift:sub;fill:#666666"
-   id="tspan5534">1</tspan></tspan></text>
+           y="978.09143"
+           style="font-size:;baseline-shift:baseline"><tspan
+             style="font-style:italic;-inkscape-font-specification:STIXGeneral Italic"
+             id="tspan7498">V</tspan><tspan
+             style="font-size:65%;baseline-shift:sub"
+             id="tspan7500">1</tspan></tspan></text>
     </g>
     <g
        id="g3207">

@@ -134,6 +134,10 @@ $q=\frac{1}{2}$ the range $d/a \sim 1.3 \ldots 2.3$ gives the best output
 polarization. Worryingly, this range is very close to the lower, unphysical
 limit!
 
+% optimization data is from notebook.000003
+% 3 cells, V_1 = 40, q = 0
+% uniform wire: P_out = 0.06, b/a = 1.92
+% non-uniform wire: P_out = 0.15, b/a = [1.21, 1.55, 2.25]
 Especially for the non-charge-neutral system, it is beneficial to allow for
 different distances between different adjacent cells along the wire. Thus a
 single $d/a$ parameter is replaced by $d_k/a$ with $k = 1,2,3$ for the
@@ -141,7 +145,11 @@ three-cell wire. Using a stochastic optimization scheme introduced by Sandvik
 \emph{et al}.\ \cite{Sandvik2007}, we can optimize the $d_k/a$ for optimal
 output polarization. We find that the output polarization is significantly
 improved from $P_3 = 0.06$ for uniformly spaced cells to $P_3 = 0.15$ for cells
-with individual cell-cell distances. Not surprisingly, cells are farther spaced
+with individual cell-cell distances. For the uniform wire we find the optimal
+cell-cell distance $d/a = 2.92$, in agreement with
+Fig.~\ref{fig:three_cells_P_over_d}(a), whereas the best distances for the
+non-uniform wire are $d_1/a = 2.21, d_2/a = 2.55$, and $d_3/a = 3.25$. 
+Not surprisingly, cells are farther spaced
 to the right (the output) and closer spaced to the left (the input). This is a
 manifestation of charge buildup in the system. The situation is very similar for
 longer wires and different parameters for non-charge-neutral wires. Of course,
@@ -318,12 +326,13 @@ calculations we use 100 driver cells on each side of the active cells.
   [Self-consistent polarization and critical $V_1$]
   {
   \label{fig:critical_V1}
-  (a) Self-consistent polarization of a semi-infinite wire with three active cells.
+  (a) Self-consistent polarization of a charge-neutral semi-infinite wire with three active
+  cells. The cell-cell distance is $d/a = 3.0$, the temperature is $T = 2$.
   Below a critical $V_1$ no self-consistent solution exists and the polarization
   is zero throughout the wire. Above the critical $V_1$ the polarization grows
   quickly and saturates towards a perfectly polarized wire.
   (b) The critical $V_1$ as a function of the number of active cells in the
-  semi-infinite wire: it grows monotonically and is expected to become infinite
+  same semi-infinite wire: it grows monotonically and is expected to become infinite
   in the thermodynamic limit. For larger numbers of active cells the Ising model
   has to be used. Calculations with the bond model are included for comparison.
   }
@@ -374,21 +383,12 @@ not identified as lower boundaries, but taken at face value.
     $1$ & $4.0$ & $230$&$24$ & &
     $2$ & $4.0$ & $459$&$87$ \\
   \end{tabular}
-%  \begin{tabular}{c c r @{.} l}
-%    $T$ & $d/a$ & \multicolumn{2}{c}{$V_{1\textrm{crit}}$} \\
-%    \hline 
-%    $1$ & $2.2$ & $ 14$&$71$ \\
-%    $1$ & $3.0$ & $ 55$&$10$ \\
-%    $1$ & $4.0$ & $230$&$24$ \\
-%    $2$ & $2.2$ & $ 25$&$99$ \\
-%    $2$ & $3.0$ & $107$&$90$ \\
-%    $2$ & $4.0$ & $459$&$87$ \\
-%  \end{tabular}
-  \caption[Critical $V_1$ for different systems]{
-  The critical $V_1$ obtained from bond model calculations with three active
-  cells for a number of different systems.
-  }
+  \caption[Critical $V_1$ for different systems]
+  {
   \label{tab:critical_V1}
+  The critical $V_1$ obtained from bond model calculations with three active
+  cells for a number of different charge-neutral systems.
+  }
 \end{table}
 
 We now investigate how the critical $V_1$ changes with the number of active
@@ -441,10 +441,12 @@ to do practical computations.
   {
   \label{fig:wire_polarization}
   (a) Cell polarizations of two-, four-, six-, eight-, ten-, and twelve-cell
-  wires for two different cell-cell distances. Individual cell polarizations are
+  wires for two different cell-cell distances at $V_1 = 200$ and $T = 2$. 
+  Individual cell polarizations are
   hardly changed as the wire is made longer. The polarizations for the $d/a =
   2.2$ wire are essentially perfect.
-  (b) Output polarization over cell-cell distance for different wires. The
+  (b) Output polarization over cell-cell distance for the same two- to
+  twelve-cell wires. The
   output polarization is perfect in a plateau-like region at small distances.
   For larger distances, $d/a \gtrsim 2.5$, the polarization very quickly drops
   to zero.
@@ -459,7 +461,8 @@ to do practical computations.
   {
   \label{fig:chis}
   (a) The cell-cell response over the Coulomb energy $V_1$ at different
-  temperatures and calculated with different models and wires. The fixed-charge
+  temperatures and calculated with different models and wires. The cell-cell
+  distance is $d/a = 2.2$. The fixed-charge
   wire slightly understimates the in-wire response, but is otherwise the most
   accurate model over the whole parameter range. The minimum $V_1$ required for
   close-to-perfect response increases with temperature.
@@ -678,6 +681,15 @@ regime. Lastly, bringing down the overall energy scales by reducing $t$
 presumably would make the device more susceptible to external perturbations in a
 less-than-perfect material system.
 
+
+% TODO: state values of b
+%
+% t ~ e^b a
+%   with b = -0.1982 +- 0.0033719
+% V_1 ~ b a^-1
+%   with b = 1.243 +- 0.0188579
+%
+% TODO: put in concrete eV numbers of U, V_1, and t
 To put the minimal workable parameters we have found in a more tangible context,
 we return to the atomic silicon quantum dots which we introduced in detail in
 Section~\ref{sec:atomic_silicon_quantum_dots}. Even though this system is quite

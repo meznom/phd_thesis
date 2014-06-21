@@ -61,3 +61,32 @@ Corrections to version 1.0.0.
       "which represents binary states as bistable"
     [FIXED]
 
+
+
+
+---
+
+
+Corrections for version 1.1.0.
+
+
+# general comments
+
+Can I make the argument why mean field does not work more concrete?
+e.g. Why do we expect mean field to give more ordered states than there really
+are?
+Lindsay's question: Why is there an artificial phase transition in mean field?
+(Kevin: mean field is related / constructed similar to a Ginzburg-Landau theory,
+so that's all it really can predict.)
+
+
+Maybe also: Talk in more detail about order, or no order (e.g. Ising, 1D, 2D,
+zero temperature, finite temperature)?
+
+
+Put in concrete eV values for U, t, etc at the end of the discussion, for
+Silicon.
+
+# In 1 versus I_1
+
+I have to either update the text or the figure

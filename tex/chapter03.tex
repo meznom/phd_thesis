@@ -681,15 +681,6 @@ regime. Lastly, bringing down the overall energy scales by reducing $t$
 presumably would make the device more susceptible to external perturbations in a
 less-than-perfect material system.
 
-
-% TODO: state values of b
-%
-% t ~ e^b a
-%   with b = -0.1982 +- 0.0033719
-% V_1 ~ b a^-1
-%   with b = 1.243 +- 0.0188579
-%
-% TODO: put in concrete eV numbers of U, V_1, and t
 To put the minimal workable parameters we have found in a more tangible context,
 we return to the atomic silicon quantum dots which we introduced in detail in
 Section~\ref{sec:atomic_silicon_quantum_dots}. Even though this system is quite
@@ -698,14 +689,20 @@ more importantly, is not charge neutral---it is close enough to get a rough idea
 of what real world numbers might look like. Using \emph{ab initio} estimates
 from reference \cite{pitters2011tunnel} for the hopping rate $t$ and the Coulomb
 repulsion $V_1$ at various dot-dot distances, and fitting the data with the
-simple assumptions $t \sim e^{-b a}$ and $V_1 \sim b a^{-1}$, where $b$ is a fit
-parameter and $a$ the dot-dot separation, allows us to provide approximative
-dot-dot distances for the $V_1/t$ ratios we have used. For example, to achieve
-$V_1/t = 100$ would require a dot-dot distance and hence cell size of roughly $a
-= 32 \mathring{\mathrm{A}}$. At $T/t = 1$, this corresponds to a temperature $T
-= 4K$. We had found the absolute minimum $V_1$ to be $V_{1min}/t = 20$,
-requiring $T/t \lesssim 0.1$. This would correspond to dot-dot distances $a = 22
-\mathring{\mathrm{A}}$ and a temperature $T = 3 K$. While these are very rough
+simple assumptions $t \sim e^{-b a}$ ($b \approx 0.2$) and $V_1 \sim b a^{-1}$
+($b \approx 1.2$), where $b$ is a fit parameter and $a$ the dot-dot separation,
+allows us to provide approximative dot-dot distances for the $V_1/t$ ratios we
+have used. For example, to achieve $V_1/t = 100$ would require a dot-dot
+distance and hence cell size of roughly $a \approx 32 \mathring{\mathrm{A}}$,
+yielding a hopping $t \approx 0.4 \text{meV}$ and a Coulomb repulsion $V_1
+\approx 40 \text{meV}$. At $T/t = 1$, this corresponds to a temperature $T
+\approx 4 \text{K}$. We had found the absolute minimum $V_1$ to be
+$V_{1\text{min}}/t = 20$, requiring $T/t \lesssim 0.1$. This would correspond
+to dot-dot distances $a \approx 22 \mathring{\mathrm{A}}$, hopping $t \approx 3
+\text{meV}$, Coulomb repulsion $V_1 \approx 60 \text{meV}$, and a temperature $T
+= 3 \text{K}$. For comparison, for the atomic silicon quantum dots the on-site
+Hubbard repulsion has been estimated to be $U \approx 500 \text{meV}$. While these
+are very rough
 estimates, they still illustrate the challenge posed for experimental systems by
 the large parameters required for \cgls{QCA} operation. On the silicon (100)
 surface the dimer-dimer distance is $a = 3.84 \mathring{\mathrm{A}}$---the

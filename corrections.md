@@ -79,14 +79,5 @@ Lindsay's question: Why is there an artificial phase transition in mean field?
 (Kevin: mean field is related / constructed similar to a Ginzburg-Landau theory,
 so that's all it really can predict.)
 
-
 Maybe also: Talk in more detail about order, or no order (e.g. Ising, 1D, 2D,
 zero temperature, finite temperature)?
-
-
-Put in concrete eV values for U, t, etc at the end of the discussion, for
-Silicon.
-
-# In 1 versus I_1
-
-I have to either update the text or the figure

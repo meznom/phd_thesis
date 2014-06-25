@@ -32,8 +32,8 @@ can have kinks.
 \label{fig:gates}
 \cgls{QCA} gates. (a) The majority gate's three inputs ``vote'' on the output. The gate
 is commonly operated with one fixed input, for example $I_3$, and then functions
-as an AND ($I_3 = 1$) or OR gate ($I_3 = 0$) for the remaining two inputs. Here
-the gate performs the computation $1 \land 0 = 1$. (b) The inverter performs
+as an AND ($I_3 = 0$) or OR gate ($I_3 = 1$) for the remaining two inputs. Here
+the gate performs the computation $1 \lor 0 = 1$. (b) The inverter performs
 logical negation, swapping logic 0 for logic 1 and vice versa.
 }
 \end{figure}
@@ -109,7 +109,7 @@ operated with one fixed input, for example $I_3 \doteq 0$ or $I_3 \doteq 1$. In
 the first case, with $I_3 \doteq 0$, the device functions as an AND gate for the
 remaining two inputs, $O = I_1 \land I_2$. In the second case, with $I_3 \doteq
 1$, it is an OR gate with $O = I_1 \lor I_2$. The figure shows the gate
-performing the computation $1 \land 0 = 1$. Now the only missing piece for
+performing the computation $1 \lor 0 = 1$. Now the only missing piece for
 Boolean algebra is negation, $O = \lnot I$. We had already seen that simply
 arranging cells at an $45^{\circ}$ angle as in the diagonal line of cells
 negates the signal from cell to cell. The inverter, shown in
@@ -609,16 +609,16 @@ Solving the one-cell Hamiltonian allows one to compute the polarization $\left<
 P_k \right>$ of the cell, which in turn is used to set the mean field
 originating from all other cells. The procedure is repeated until a
 self-consistent cell polarization and thus self-consistent solution for
-Eq.~\eqref{eq:H_meanfield} is found. By using
+Eq.~\eqref{eq:H_meanfield} is found. The standard mean field approximation, with
 $n_i n_j \approx n_i \left< n_j \right> + \left< n_i \right> n_j - 
 \left< n_i \right> \left< n_j \right>$
-mean field approximations, which were introduced to describe and are deeply
-linked to phase transitions, neglect quantum fluctuations, replacing them with
-an effective field. Intuitively, a static effective field causes more order than
-dynamic, fluctuating interactions and, consequently, mean field calculations
-generally wrongly overemphasize order in the studied systems.  Only at high
-dimensionality can the neglected fluctuations really tend to zero, and indeed
-mean field schemes can be shown to become exact in the limit of infinite
+, was first introduced to study phase transitions. The approximation amounts to
+neglecting the quantum fluctuations, replacing the dynamical fields with static,
+effective fields of an averaged strength. Intuitively, a static field causes
+more order than dynamic, fluctuating interactions and, consequently, mean field
+calculations generally wrongly overemphasize order in the studied systems. Only
+at high dimensionality can the neglected fluctuations really tend to zero, and
+indeed mean field schemes can be shown to become exact in the limit of infinite
 dimensionality \cite{Fehske}. Conversely, for low dimensional systems
 fluctuations are more important and mean field approximations are expected not
 to work well. As an uncontrolled approximation, the validity of a mean field
@@ -641,8 +641,8 @@ ordered at zero temperature. In contrast, a mean field approximation will---by
 construction---predict order up to a finite critical temperature. Additionally,
 mean field approaches give phase transitions even for finite systems, where,
 technically and by definition, distinct phases do not exist. For a finite wire,
-we can only achieve a state that is ``ordered-enough'', at a given temperature and
-over a sufficiently long time.
+we can only achieve a state that is ``ordered enough,'' at a given temperature
+and over a sufficiently long time.
 
 For the calculation of time-dependent properties, the two-states-per-cell
 approximation is typically used, precisely because it was realized that

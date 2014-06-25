@@ -36,7 +36,6 @@ as an AND ($I_3 = 1$) or OR gate ($I_3 = 0$) for the remaining two inputs. Here
 the gate performs the computation $1 \land 0 = 1$. (b) The inverter performs
 logical negation, swapping logic 0 for logic 1 and vice versa.
 }
-% TODO: Either update text, or change figure again (I_1 versus In 1, etc)
 \end{figure}
 
 \glsreset{QCA}
@@ -613,32 +612,37 @@ self-consistent cell polarization and thus self-consistent solution for
 Eq.~\eqref{eq:H_meanfield} is found. By using
 $n_i n_j \approx n_i \left< n_j \right> + \left< n_i \right> n_j - 
 \left< n_i \right> \left< n_j \right>$
-mean field approximations neglect quantum
-fluctuations. Only at high dimensionality can these fluctuations really tend to
-zero, and indeed mean field schemes can be shown to become exact in the limit of
-infinite dimensionality \cite{Fehske}. Conversely, for low dimensional systems
-fluctuations are more important and mean field approximations are intuitively
-expected not to work well. As an uncontrolled approximation, the validity of a
-mean field approach has to be verified on a case by case basis. Consequently,
-because \cgls{QCA} is quasi-one-dimensional, it is arguably not well suited for
-a mean field treatment. Even then a mean field approximation might be
-appropriate as a first stab at the problem. But \cgls{ICHA}, having been
-introduced in the very first \cgls{QCA} paper, was never properly verified or
-complemented by more accurate methods. It is rather remarkable that a large
-part of the existing work on \cgls{QCA} characterization rests, directly or
-indirectly, on an approximation that can reasonably be expected to give wrong
-results. And indeed, in the context of the dynamic properties of \cgls{QCA}, it
-has been known for a long time that \cgls{ICHA} does go wrong
-\cite{toth2001role}. Much more recently, it has been shown very explicitly that
-even for the single cell-cell response \cgls{ICHA} introduces artefacts that are
-clearly non-physical \cite{taucer2012consequences}. As an intuitive simple
-example where \cgls{ICHA} will give wrong results we can go back to the
-infinitely long wire we already discussed above: we argued that due to entropy
-the infinite wire can only be ordered at zero temperature. In contrast, a mean
-field approximation will predict order up to a finite critical temperature. 
-% TODO: correction from Kevin after "verified on a case by case basis":
-% (especially in the case of discrete degrees of freedom where the Mermin Wagner
-% theorem does not apply [ref])
+mean field approximations, which were introduced to describe and are deeply
+linked to phase transitions, neglect quantum fluctuations, replacing them with
+an effective field. Intuitively, a static effective field causes more order than
+dynamic, fluctuating interactions and, consequently, mean field calculations
+generally wrongly overemphasize order in the studied systems.  Only at high
+dimensionality can the neglected fluctuations really tend to zero, and indeed
+mean field schemes can be shown to become exact in the limit of infinite
+dimensionality \cite{Fehske}. Conversely, for low dimensional systems
+fluctuations are more important and mean field approximations are expected not
+to work well. As an uncontrolled approximation, the validity of a mean field
+approach has to be verified on a case by case basis. Consequently, because
+\cgls{QCA} is quasi-one-dimensional, it is arguably not well suited for a mean
+field treatment. Even then a mean field approximation might be appropriate as a
+first stab at the problem. But \cgls{ICHA}, having been introduced in the very
+first \cgls{QCA} paper, was never properly verified or complemented by more
+accurate methods. It is rather remarkable that a large part of the existing work
+on \cgls{QCA} characterization rests, directly or indirectly, on an
+approximation that can reasonably be expected to give wrong results. And indeed,
+in the context of the dynamic properties of \cgls{QCA}, it has been known for a
+long time that \cgls{ICHA} does go wrong \cite{toth2001role}. Much more
+recently, it has been shown very explicitly that even for the single cell-cell
+response \cgls{ICHA} introduces artefacts that are clearly non-physical
+\cite{taucer2012consequences}. As an intuitive simple example where \cgls{ICHA}
+will give wrong results we can go back to the infinitely long wire we already
+discussed above: we argued that due to entropy the infinite wire can only be
+ordered at zero temperature. In contrast, a mean field approximation will---by
+construction---predict order up to a finite critical temperature. Additionally,
+mean field approaches give phase transitions even for finite systems, where,
+technically and by definition, distinct phases do not exist. For a finite wire,
+we can only achieve a state that is ``ordered-enough'', at a given temperature and
+over a sufficiently long time.
 
 For the calculation of time-dependent properties, the two-states-per-cell
 approximation is typically used, precisely because it was realized that

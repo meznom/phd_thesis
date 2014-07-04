@@ -1,4 +1,4 @@
-version = $(shell git describe --always --dirty)
+version = $(shell git describe --always)
 
 all: onesided twosided onesided_print twosided_print fgsr
 

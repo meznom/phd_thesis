@@ -1,6 +1,6 @@
 % Burkhard Ritter, April, May 2014
 
-\documentclass[11pt]{book}
+%\documentclass[11pt,oneside]{book}
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}
 \usepackage{cite}
@@ -9,6 +9,8 @@
 \usepackage{subcaption}
 \usepackage{bm}
 \usepackage{setspace}
+\usepackage{ifthen}
+\usepackage{textcomp}
 \usepackage{color}
 %\usepackage{changepage}
 %\usepackage{layout}
@@ -18,19 +20,15 @@
 % glossaries comes after hyperref
 \usepackage[nopostdot,nonumberlist,nogroupskip,acronym]{glossaries}
 
-% http://kb.mit.edu/confluence/pages/viewpage.action?pageId=3907057
-% ``LaTeX's margins are, by default, 1.5 inches wide on 12pt documents, 1.75
-% inches wide on 11pt documents, and 1.875 inches wide on 10pt documents.''
-% Page size for letter paper format is 8.5 by 11 inches.
-% For 11pt this means the text is 8.5-2*1.75=5 inches wide.
-
-% allows adjustment of space between paragraphs, including "rubber" values;
-% however, I find that the default looks better
-%\setlength{\parskip}{0pt plus12pt minus0pt}
+\providecommand\print{false}
+\providecommand\fgsr{false}
 
 % Coloured links
 \pdfoutput=1
-\definecolor{LinkColor}{rgb}{0.256,0.439,0.588}
+
+\ifthenelse{\equal{\print}{true}}
+{ \definecolor{LinkColor}{rgb}{0,0,0} }
+{ \definecolor{LinkColor}{rgb}{0.256,0.439,0.588} }
 \definecolor{GlossaryLink}{rgb}{0,0,0}
 \hypersetup{
    pdfauthor={Burkhard Ritter},
@@ -45,6 +43,7 @@
 \renewcommand*{\glsnamefont}[1]{\textmd{#1}}
 \newglossary[nlg]{notation}{not}{ntn}{Notation}
 \makeglossaries
+
 
 \begin{document}
 
@@ -68,7 +67,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frontmatter
 
-\include{titlepage}
+\ifthenelse{ \equal{\fgsr}{true} }
+{ \include{titlepage_fgsr} }
+{ \include{titlepage} }
+\setcounter{page}{2}
 \include{abstract}
 \include{acknowledgments}
 
@@ -86,6 +88,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \mainmatter
 
+\ifthenelse{\equal{\fgsr}{true}}
+{ \pagestyle{plain} }
+{}
 \include{introduction}
 \include{chapter01}
 \include{chapter02}

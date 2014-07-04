@@ -8,6 +8,7 @@ nicenames: all
 	cp phd_thesis_onesided_print.pdf PhD_Thesis_Burkhard_Ritter_onesided_print.$(version).pdf
 	cp phd_thesis_twosided_print.pdf PhD_Thesis_Burkhard_Ritter_twosided_print.$(version).pdf
 	cp phd_thesis_fgsr.pdf PhD_Thesis_Burkhard_Ritter_FGSR.$(version).pdf
+	cp Ritter_Burkhard_201407_PhD.pdf PhD_Thesis_Burkhard_Ritter_FGSR_PDFA_as_submitted.$(version).pdf
 
 onesided:
 	cd tex; \

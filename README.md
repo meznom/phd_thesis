@@ -56,10 +56,9 @@ make nicenames
 Most of the used Latex packages are pretty standard, with the possible exception
 of "glossaries", which, on Ubuntu, is in the package "texlive-latex-extra".
 
-The main latex file is "tex/phd_thesis.tex". Different variants are built from
-"tex/phd_thesis_[variant].tex" and simply set some flags and then include the
-main "phd_thesis.tex" file. 
+The main latex file is `tex/phd_thesis.tex`. Different variants are built from
+`tex/phd_thesis_[variant].tex` and simply set some flags and then include the
+main `phd_thesis.tex` file. 
 
 ---
-Burkhard Ritter <burkhard@ualberta.ca>  
-September 2014
+Burkhard Ritter (<burkhard@ualberta.ca> ), September 2014.

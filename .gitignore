@@ -18,5 +18,6 @@ phd_thesis*.alg
 phd_thesis*.nlg
 phd_thesis*.not
 phd_thesis*.ntn
+phd_thesis*.glsdefs
 PhD_Thesis_Burkhard_Ritter_*.pdf
 .ipynb_checkpoints/

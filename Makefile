@@ -80,5 +80,6 @@ clean:
 		phd_thesis*.blg \
 		phd_thesis*.log \
 		phd_thesis*.toc \
-		phd_thesis*.out; \
+		phd_thesis*.out \
+		phd_thesis*.glsdefs; \
 	cd ..
